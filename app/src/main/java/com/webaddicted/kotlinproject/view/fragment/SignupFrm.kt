@@ -1,6 +1,7 @@
 package com.webaddicted.kotlinproject.view.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -62,6 +63,7 @@ class SignupFrm : BaseFragment() {
     }
 
     private fun validate() {
+
         if (ValidationHelper.validateBlank(mBinding.edtFullName, mBinding.wrapperFullName, getString(R.string.first_name_can_not_blank)) &&
             ValidationHelper.validateName(mBinding.edtNickName, mBinding.wrapperNickName) &&
             ValidationHelper.validateMobileNo(mBinding.edtMobileNo, mBinding.wrapperMobileNo) &&

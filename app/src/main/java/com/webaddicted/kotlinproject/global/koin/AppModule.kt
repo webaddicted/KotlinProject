@@ -55,7 +55,7 @@ val appModule = module {
 
     /*Provide API Service Singleton */
     single {
-        (get<Retrofit>()).create<ApiServices>(ApiServices::class.java)
+        (get<Retrofit>()).create(ApiServices::class.java)
     }
     single {
         Room.databaseBuilder(

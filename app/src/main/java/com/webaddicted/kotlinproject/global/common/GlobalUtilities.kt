@@ -633,7 +633,7 @@ class GlobalUtility {
 
         fun rateUsApp(mActivity: Activity) {
 //            var packageName= "com.quixom.deviceinfo"
-            var packageName = mActivity.packageName
+            val packageName = mActivity.packageName
             val uri = Uri.parse("market://details?id=$packageName")
             val goToMarket = Intent(Intent.ACTION_VIEW, uri)
             goToMarket.addFlags(

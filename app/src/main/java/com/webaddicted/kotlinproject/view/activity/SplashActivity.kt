@@ -3,6 +3,7 @@ package com.webaddicted.kotlinproject.view.activity
 import android.app.Activity
 import android.content.Intent
 import android.os.Handler
+import android.os.Looper
 import android.view.animation.AnimationUtils
 import androidx.core.content.ContextCompat
 import androidx.databinding.ViewDataBinding
@@ -107,8 +108,7 @@ class SplashActivity : BaseActivity() {
      * navigate to welcome activity after Splash timer Delay
      */
     private fun navigateToNext() {
-        Handler().postDelayed({
-//            HomeActivity.newIntent(this)
+        Handler(Looper.getMainLooper()).postDelayed({
             LanguageActivity.newIntent(this)
             finish()
         }, AppConstant.SPLASH_DELAY)

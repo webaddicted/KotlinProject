@@ -37,7 +37,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="@dimen/dp80"
+                        android:layout_marginTop="@dimen/dp60"
                         android:orientation="vertical">
 
                     <TextView
@@ -53,6 +53,7 @@
                             android:background="#deff00" />
 
                 </LinearLayout>
+
                 <TextView
                         style="@style/TextView_Regular"
                         android:layout_width="wrap_content"
@@ -65,11 +66,37 @@
                         android:textColor="@color/white_par"
                         android:textSize="@dimen/sp10" />
 
+                <FrameLayout
+                        android:layout_width="@dimen/dp123"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/dp5">
+
+                    <com.webaddicted.kotlinproject.global.customview.CircleImageView
+                            android:id="@+id/img_user"
+                            android:layout_width="@dimen/dp100"
+                            android:layout_height="@dimen/dp100"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_user"
+                            app:civ_border_color="@color/app_color"
+                            app:civ_border_width="@dimen/dp1" />
+
+
+                    <ImageView
+                            android:id="@+id/img_capture"
+                            android:layout_width="@dimen/dp40"
+                            android:layout_height="@dimen/dp40"
+                            android:layout_gravity="bottom|right"
+                            android:background="@drawable/circle_view"
+                            android:padding="@dimen/dp10"
+                            android:src="@android:drawable/ic_menu_camera" />
+                </FrameLayout>
+
                 <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/wrapper_full_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dp85"
+                        android:layout_marginTop="@dimen/dp15"
                         android:textColorHint="@color/white"
                         android:theme="@style/EditTextWrapper">
 
@@ -79,10 +106,10 @@
                             android:layout_height="wrap_content"
                             android:drawableRight="@drawable/ic_email"
                             android:drawablePadding="@dimen/dp16"
-                            android:textAppearance="@style/TextView_Regular"
                             android:hint="@string/full_name"
                             android:inputType="textEmailAddress"
                             android:maxLines="1"
+                            android:textAppearance="@style/TextView_Regular"
                             android:textColor="@color/white_par"
                             android:textSize="@dimen/sp16" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -122,9 +149,9 @@
                             android:drawableRight="@drawable/ic_email"
                             android:drawablePadding="@dimen/dp16"
                             android:hint="@string/mobile_no"
-                            android:textAppearance="@style/TextView_Regular"
                             android:inputType="textEmailAddress"
                             android:maxLines="1"
+                            android:textAppearance="@style/TextView_Regular"
                             android:textColor="@color/white_par"
                             android:textSize="@dimen/sp16" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -143,9 +170,9 @@
                             android:drawableRight="@drawable/ic_email"
                             android:drawablePadding="@dimen/dp16"
                             android:hint="@string/email"
-                            android:textAppearance="@style/TextView_Regular"
                             android:inputType="textEmailAddress"
                             android:maxLines="1"
+                            android:textAppearance="@style/TextView_Regular"
                             android:textColor="@color/white_par"
                             android:textSize="@dimen/sp16" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -164,9 +191,9 @@
                             android:drawableRight="@drawable/ic_lock"
                             android:drawablePadding="@dimen/dp16"
                             android:hint="@string/password"
-                            android:textAppearance="@style/TextView_Regular"
                             android:inputType="textPassword"
                             android:maxLines="1"
+                            android:textAppearance="@style/TextView_Regular"
                             android:textColor="@color/white_par"
                             android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -199,9 +226,9 @@
 
                 <LinearLayout
                         android:id="@+id/bottom_space"
-                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

@@ -154,35 +154,33 @@ class PermissionHelper {
          * forcefully stoped all permission dialog
          */
         private fun ifCancelledAndCannotRequest(activity: Activity) {
-            activity.let {
-                showDialogOK(
-                    it,
-                    activity.resources.getString(
-                        R.string.forcefully_enable_permission
-                    ),
-                    DialogInterface.OnClickListener { dialog, which ->
-                        when (which) {
-                            DialogInterface.BUTTON_POSITIVE -> {
-                                val intent = Intent()
-                                intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
-                                val uri = Uri.fromParts(
-                                    "package",
-                                    activity.packageName,
-                                    null
-                                )
-                                intent.data = uri
-                                activity.startActivity(
-                                    intent
-                                )
-                            }
-                            DialogInterface.BUTTON_NEGATIVE -> mCustomPermission?.let { it1 ->
-                                mPerpermissionListener?.onPermissionDenied(
-                                    it1
-                                )
-                            }
-                        }// proceed with logic by disabling the related features or quit the app.
-                    })
-            }
+            showDialogOK(
+                activity,
+                activity.resources.getString(
+                    R.string.forcefully_enable_permission
+                ),
+                DialogInterface.OnClickListener { dialog, which ->
+                    when (which) {
+                        DialogInterface.BUTTON_POSITIVE -> {
+                            val intent = Intent()
+                            intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+                            val uri = Uri.fromParts(
+                                "package",
+                                activity.packageName,
+                                null
+                            )
+                            intent.data = uri
+                            activity.startActivity(
+                                intent
+                            )
+                        }
+                        DialogInterface.BUTTON_NEGATIVE -> mCustomPermission?.let { it1 ->
+                            mPerpermissionListener?.onPermissionDenied(
+                                it1
+                            )
+                        }
+                    }// proceed with logic by disabling the related features or quit the app.
+                })
         }
 
         private fun showDialogOK(activity: Activity, message: String, okListener: DialogInterface.OnClickListener) {
