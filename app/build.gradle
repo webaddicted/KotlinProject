@@ -188,6 +188,7 @@ dependencies {
     implementation "android.arch.work:work-runtime:1.0.1"
     implementation 'com.github.bosphere.android-fadingedgelayout:fadingedgelayout:1.0.0'
     implementation 'androidx.palette:palette:1.0.0-beta01'
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
 }
 kapt {
     generateStubs = true

@@ -1,4 +1,4 @@
-package com.webaddicted.kotlinproject.global.common
+    package com.webaddicted.kotlinproject.global.common
 
 import android.app.Activity
 import android.content.ContentUris

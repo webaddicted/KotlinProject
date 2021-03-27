@@ -42,7 +42,6 @@
                         android:layout_height="wrap_content"
                         app:tabBackground="@color/colorPrimary"
                         app:tabGravity="fill"
-                        android:layout_marginTop="@dimen/dp15"
                         app:tabMode="fixed"
                         app:tabIndicatorColor="@color/white"
                         app:tabSelectedTextColor="@color/white"
@@ -73,18 +72,34 @@
                         android:layout_height="wrap_content"
                         android:background="@color/colorPrimary"
                         app:tabGravity="fill"
-                        app:tabIndicatorColor="@color/app_color"
+                        app:tabIndicatorColor="@color/white"
                         app:tabMode="fixed"
-                        android:layout_marginTop="@dimen/dp15"
-                        app:tabSelectedTextColor="@color/black"
+                        app:tabSelectedTextColor="@color/white"
                         app:tabTextColor="@color/gray" />
                 <androidx.viewpager.widget.ViewPager
                         android:id="@+id/view_pager"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="180dp"
                         android:layout_below="@+id/tablayout"
                         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
+
+                <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tab_dynamic2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorPrimary"
+                        app:tabGravity="fill"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabMode="fixed"
+                        app:tabSelectedTextColor="@color/red"
+                        app:tabTextColor="@color/gray" />
+                <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/view_pager2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/tablayout"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
                 <!--<Button-->
                 <!--android:id="@+id/btn_tab_without_icon"-->

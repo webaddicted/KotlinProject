@@ -6,9 +6,9 @@ import androidx.fragment.app.FragmentPagerAdapter
 import java.util.*
 
 /**
- * Created by Deepak Sharma(webaddicted) on 11-01-2020.
+ * Created by Deepak sharma(webaddicted) on 11-01-2021.
  */
-class ViewPagerAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager) {
+class ViewPagerAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     private val mFragmentList: MutableList<Fragment> =ArrayList()
     private val mFragmentTitleList: MutableList<String> =
         ArrayList()

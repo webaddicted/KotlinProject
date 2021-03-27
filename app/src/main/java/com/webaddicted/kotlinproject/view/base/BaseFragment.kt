@@ -147,7 +147,7 @@ abstract class BaseFragment : Fragment(), View.OnClickListener,
     override fun onClick(v: View) {
         activity?.let { GlobalUtility.hideKeyboard(it) }
         GlobalUtility.avoidDoubleClicks(v)
-//        GlobalUtility.Companion.btnClickAnimation(v)
+        GlobalUtility.Companion.btnClickAnimation(v)
     }
 
     fun checkStoragePermission() {

@@ -1,11 +1,14 @@
 package com.webaddicted.kotlinproject.view.fragment
 
+import ViewPager2Adapter
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.FrmViewpagerTabBinding
 import com.webaddicted.kotlinproject.databinding.RowTabViewBinding
@@ -45,6 +48,10 @@ class ViewPagerTabFrm : BaseFragment() {
     private fun init() {
         mBinding.toolbar.imgBack.visible()
         mBinding.toolbar.txtToolbarTitle.text = resources.getString(R.string.view_pager)
+        dynamicSetupTabIcons()
+        addTabs(mBinding.tabWithoutIcon, true)
+        addTabs(mBinding.tabCustomIcon, true)
+
     }
 
     private fun clickListener() {
@@ -61,7 +68,6 @@ class ViewPagerTabFrm : BaseFragment() {
     private fun pagerSetup() {
         mBinding.viewPager.offscreenPageLimit = 3
         mBinding.tabCustomIcon.setupWithViewPager(mBinding.viewPager)
-        setupTabIcons()
         mBinding.viewPager.addOnPageChangeListener(object : OnPageChangeListener {
             override fun onPageScrolled(
                 position: Int,
@@ -79,23 +85,18 @@ class ViewPagerTabFrm : BaseFragment() {
 
         setupViewPager(mBinding.viewPager)
 
-        // other tab
-        addTabs(mBinding.tabWithoutIcon, true)
-        // other tab
-//        addTabs(mBinding.tabWithIcon, true);
-
     }
 
-    private fun setupTabIcons() {
+    private fun addTabs(tabLayout: TabLayout, hasIcon: Boolean) {
         for (i in tabTitle.indices) {
-            val tabitem = mBinding.tabCustomIcon.newTab()
-            tabitem.customView = prepareTabView(i)
-            mBinding.tabCustomIcon.addTab(tabitem)
-            //            mBinding.tabCustomIcon.getTabAt(i).setCustomView(prepareTabView(i).getRootView());
+            val tabitem = tabLayout.newTab()
+            if (hasIcon) tabitem.customView = prepareTabView(i)
+            tabLayout.addTab(tabitem)
+            //            mBinding.tabCustomIcon.getTabAt(i).setCustomView(prepareTabView(i));
         }
     }
 
-    private fun prepareTabView(pos: Int): View? {
+    private fun prepareTabView(pos: Int): View {
         val customBinding: RowTabViewBinding = GlobalUtility.getLayoutBinding(
             activity,
             R.layout.row_tab_view
@@ -119,13 +120,26 @@ class ViewPagerTabFrm : BaseFragment() {
         viewPager.adapter = adapter
     }
 
-    private fun addTabs(tabLayout: TabLayout, hasIcon: Boolean) {
-        for (i in tabTitle.indices) {
-            val tabitem = tabLayout.newTab()
-            if (hasIcon) tabitem.customView = prepareTabView(i)
-            tabLayout.addTab(tabitem)
-            //            mBinding.tabCustomIcon.getTabAt(i).setCustomView(prepareTabView(i));
-        }
+
+    private fun dynamicSetupTabIcons() {
+        mBinding.viewPager.offscreenPageLimit = tabTitle.size
+        dynamicSetupViewPager2(mBinding.viewPager2)
+        TabLayoutMediator(
+            mBinding.tabDynamic2, mBinding.viewPager2
+        ) { tab: TabLayout.Tab, position: Int ->
+            tab.customView = prepareTabView(position)
+        }.attach()
+    }
+
+    private fun dynamicSetupViewPager2(viewPager: ViewPager2) {
+        val adapter = ViewPager2Adapter(activity!!)
+        val frmCalender = CalendarFrm()
+        val frmAnim = AnimationFrm()
+        val frmBlink = BlinkScanFrm()
+        adapter.addFragment(frmCalender, "Calender")
+        adapter.addFragment(frmAnim, "Animation")
+        adapter.addFragment(frmBlink, "Blink Scan")
+        viewPager.adapter = adapter
     }
 }
 
