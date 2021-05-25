@@ -42,30 +42,31 @@
                         android:layout_height="wrap_content"
                         app:tabBackground="@color/colorPrimary"
                         app:tabGravity="fill"
-                        app:tabMode="fixed"
                         app:tabIndicatorColor="@color/white"
+                        app:tabMode="fixed"
                         app:tabSelectedTextColor="@color/white"
                         app:tabTextColor="@color/gray">
 
                     <com.google.android.material.tabs.TabItem
                             android:id="@+id/tab1"
-                            android:icon="@drawable/tab_movie_selector"
                             style="@style/tab_item"
+                            android:icon="@drawable/tab_movie_selector"
                             android:text="@string/movie" />
 
                     <com.google.android.material.tabs.TabItem
                             android:id="@+id/tab2"
-                            android:icon="@drawable/tab_food_selector"
                             style="@style/tab_item"
+                            android:icon="@drawable/tab_food_selector"
                             android:text="@string/food" />
 
                     <com.google.android.material.tabs.TabItem
                             android:id="@+id/tab3"
-                            android:icon="@drawable/tab_travel_selector"
                             style="@style/tab_item"
+                            android:icon="@drawable/tab_travel_selector"
                             android:text="@string/travel" />
 
                 </com.google.android.material.tabs.TabLayout>
+
                 <com.google.android.material.tabs.TabLayout
                         android:id="@+id/tab_custom_icon"
                         android:layout_width="match_parent"
@@ -76,6 +77,7 @@
                         app:tabMode="fixed"
                         app:tabSelectedTextColor="@color/white"
                         app:tabTextColor="@color/gray" />
+
                 <androidx.viewpager.widget.ViewPager
                         android:id="@+id/view_pager"
                         android:layout_width="match_parent"
@@ -94,6 +96,7 @@
                         app:tabMode="fixed"
                         app:tabSelectedTextColor="@color/red"
                         app:tabTextColor="@color/gray" />
+
                 <androidx.viewpager2.widget.ViewPager2
                         android:id="@+id/view_pager2"
                         android:layout_width="match_parent"

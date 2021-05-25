@@ -92,7 +92,7 @@ class FileHelper {
         }
 
         fun saveBitmapImageCache(activity: Activity, bitmap: Bitmap): File {
-            val cacheDirectory: File = activity.baseContext?.cacheDir!!
+            val cacheDirectory: File = activity.baseContext?.filesDir!!
             val tmp =
                 File(cacheDirectory.path + "/_androhub" + System.currentTimeMillis() + ".png")
             try {

@@ -210,7 +210,20 @@
                                 android:layout_marginTop="@dimen/dp8"
                                 android:background="@drawable/rectangle_fill"
                                 android:text="@string/app_name" />
-
+<!--                        <com.google.android.material.button.MaterialButton-->
+<!--                                android:id="@+id/button"-->
+<!--                                android:layout_width="600dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_gravity="center_horizontal"-->
+<!--                                android:text="asdgdsfdsfdsfd"-->
+<!--                                android:textColor="@color/app_color"-->
+<!--                                app:backgroundTint="@color/white"-->
+<!--                                app:shapeAppearance="@style/CustomShapeAppearance"-->
+<!--                                app:icon="@drawable/car"-->
+<!--                                app:iconGravity="textStart"-->
+<!--                                app:iconPadding="10dp"-->
+<!--                                app:iconTint="@color/app_color"-->
+<!--                             />-->
                         <Button
                                 style="@style/Button"
                                 android:layout_marginTop="@dimen/dp8"
@@ -222,7 +235,6 @@
                                 android:background="@drawable/edt_round_corner"
                                 android:text="@string/app_name"
                                 android:textColor="@color/black" />
-
 
                         <Button
                                 style="@style/Button"
