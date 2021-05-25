@@ -217,6 +217,7 @@ This repository provides the following components that are common to our open so
   * [Png Image Crop](https://onlinepngtools.com/crop-png)
   * [Image Create For PlayStore](https://www.appstorescreenshot.com/)
   * [Merge Image Horizontally](https://www.filesmerge.com/merge-images)
+  * [Moke Location](https://play.google.com/store/apps/details?id=ru.gavrikov.mocklocations&hl=en_IN&gl=US)
   
 ## LICENSE
 ```
