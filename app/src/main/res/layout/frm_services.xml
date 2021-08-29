@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/txt_black_normal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_marginBottom="@dimen/dp5"
+                android:text="@string/normal_service" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <Button
+                    android:id="@+id/btn_start_normal_service"
+                    style="@style/Button"
+                    android:layout_width="@dimen/dp0"
+                    android:layout_marginLeft="@dimen/dp5"
+                    android:layout_marginRight="@dimen/dp5"
+                    android:layout_weight="0.5"
+                    android:text="@string/start_normal_service" />
+
+                <Button
+                    android:id="@+id/btn_stop_normal_service"
+                    style="@style/Button"
+                    android:layout_width="@dimen/dp0"
+                    android:layout_marginLeft="@dimen/dp5"
+                    android:layout_marginRight="@dimen/dp5"
+                    android:layout_toRightOf="@+id/btn_google_map"
+                    android:layout_weight="0.5"
+                    android:text="@string/stop_normal_service" />
+
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/txt_black_normal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_marginBottom="@dimen/dp5"
+                android:text="@string/bind_service" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <Button
+                    android:id="@+id/btn_start_bind_service"
+                    style="@style/Button"
+                    android:layout_width="@dimen/dp0"
+                    android:layout_marginLeft="@dimen/dp5"
+                    android:layout_marginRight="@dimen/dp5"
+                    android:layout_weight="0.5"
+                    android:text="@string/start_bind_service" />
+
+                <Button
+                    android:id="@+id/btn_stop_bind_service"
+                    style="@style/Button"
+                    android:layout_width="@dimen/dp0"
+                    android:layout_marginLeft="@dimen/dp5"
+                    android:layout_marginRight="@dimen/dp5"
+                    android:layout_weight="0.5"
+                    android:text="@string/stop_bind_service" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/txt_black_normal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_marginBottom="@dimen/dp5"
+                android:text="@string/intent_service" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <Button
+                    android:id="@+id/btn_start_intent_service"
+                    style="@style/Button"
+                    android:layout_width="@dimen/dp0"
+                    android:layout_marginLeft="@dimen/dp5"
+                    android:layout_marginRight="@dimen/dp5"
+                    android:layout_toRightOf="@+id/btn_google_map"
+                    android:layout_weight="0.5"
+                    android:text="@string/start_intent_service" />
+
+                <Button
+                    android:id="@+id/btn_stop_intent_service"
+                    style="@style/Button"
+                    android:layout_width="@dimen/dp0"
+                    android:layout_marginLeft="@dimen/dp5"
+                    android:layout_marginRight="@dimen/dp5"
+                    android:layout_toRightOf="@+id/btn_google_map"
+                    android:layout_weight="0.5"
+                    android:text="@string/stop_intent_service" />
+            </LinearLayout>
+            <TextView
+                    style="@style/txt_black_normal"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:layout_marginBottom="@dimen/dp5"
+                    android:text="@string/forground_service" />
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                <Button
+                        android:id="@+id/btn_start_forground_service"
+                        style="@style/Button"
+                        android:layout_width="@dimen/dp0"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginRight="@dimen/dp5"
+                        android:layout_toRightOf="@+id/btn_google_map"
+                        android:layout_weight="0.5"
+                        android:text="@string/start_forground_service" />
+
+                <Button
+                        android:id="@+id/btn_stop_forground_service"
+                        style="@style/Button"
+                        android:layout_width="@dimen/dp0"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginRight="@dimen/dp5"
+                        android:layout_toRightOf="@+id/btn_google_map"
+                        android:layout_weight="0.5"
+                        android:text="@string/stop_forground_service" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

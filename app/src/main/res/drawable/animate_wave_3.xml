@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/default_background">
+
+    <target
+        android:name="Front"
+        android:animation="@anim/front_wave_path3" />
+
+    <target
+        android:animation="@anim/back_wave_path3"
+        android:name="Back"/>
+
+
+</animated-vector>

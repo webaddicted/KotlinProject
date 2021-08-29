@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+            android:id="@+id/parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+        <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar_nav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/wrapper_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp20">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_email"
+                            style="@style/EdittextBlack"
+                            android:hint="@string/email"
+                            android:text="deepaksharmatheboss@gmail.com"
+                            android:inputType="textWebEmailAddress" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/wrapper_pwd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        app:errorTextAppearance="@style/ErrorText"
+                        app:passwordToggleDrawable="@drawable/password_selector"
+                        app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="@color/gray">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_pwd"
+                            style="@style/EdittextBlack"
+                            android:hint="@string/password"
+                            android:inputType="textPassword"
+                            android:text="India12345"
+                            app:hintTextAppearance="@style/TextAppearance_open_sans_semibold" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                        android:id="@+id/txt_signup_respo"
+                        android:layout_marginTop="5dp"
+                        style="@style/txt_black_normal" />
+
+                <TextView
+                        android:id="@+id/txt_login_respo"
+                        android:layout_marginTop="5dp"
+                        style="@style/txt_black_normal" />
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                    <Button
+                            android:id="@+id/btn_signup"
+                            style="@style/Button"
+                            android:text="@string/signup" />
+
+                    <Button
+                            android:id="@+id/btn_login"
+                            style="@style/Button"
+                            android:layout_marginLeft="@dimen/dp35"
+                            android:text="@string/login" />
+
+                </LinearLayout>
+                <TextView
+                        android:id="@+id/txt_forgot_respo"
+                        android:layout_marginTop="@dimen/dp10"
+                        style="@style/txt_black_normal" />
+                <Button
+                        android:id="@+id/btn_forgot_pass"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:text="@string/forgot_pasword_s" />
+                <TextView
+                        android:id="@+id/txt_update_user"
+                        android:layout_marginTop="@dimen/dp10"
+                        style="@style/txt_black_normal" />
+                <Button
+                        android:id="@+id/btn_update"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:text="@string/update_email" />
+
+                <TextView
+                        android:id="@+id/txt_fire_noti"
+                        android:layout_marginTop="@dimen/dp10"
+                        style="@style/txt_black_normal" />
+                <Button
+                        android:id="@+id/btn_fire_push"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:paddingLeft="@dimen/dp25"
+                        android:paddingRight="25dp"
+                        android:text="@string/fire_push_noti" />
+                <Button
+                    android:id="@+id/btn_topic_notific"
+                    style="@style/Button"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:paddingLeft="@dimen/dp25"
+                    android:paddingRight="25dp"
+                    android:text="@string/fire_topic_notification" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

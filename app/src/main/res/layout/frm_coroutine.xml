@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+        <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/txt_launch"
+                        style="@style/txt_black_normal"
+                        android:layout_gravity="center"
+                        android:gravity="center_horizontal" />
+
+                <Button
+                        android:id="@+id/btn_launch"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:text="@string/launch" />
+
+                <TextView
+                        android:id="@+id/txt_sequentially"
+                        style="@style/txt_black_normal"
+                        android:layout_gravity="center"
+                        android:gravity="center_horizontal" />
+
+                <Button
+                        android:id="@+id/btn_sequentially"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:text="@string/sequentially" />
+
+                <TextView
+                        android:id="@+id/txt_parallel"
+                        style="@style/txt_black_normal"
+                        android:layout_gravity="center"
+                        android:gravity="center_horizontal" />
+
+                <Button
+                        android:id="@+id/btn_parallel"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:text="@string/parallel_async" />
+
+                <TextView
+                        android:id="@+id/txt_launch_timeout"
+                        style="@style/txt_black_normal"
+                        android:layout_gravity="center"
+                        android:gravity="center_horizontal" />
+
+                <Button
+                        android:id="@+id/btn_launch_timeout"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:text="@string/launch_timeout" />
+
+                <TextView
+                        android:id="@+id/txt_exception_handler"
+                        style="@style/txt_black_normal"
+                        android:layout_gravity="center"
+                        android:gravity="center_horizontal" />
+
+                <Button
+                        android:id="@+id/btn_exception_handler"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:text="@string/exception_handler" />
+
+                <TextView
+                        android:id="@+id/txt_lifecycle_aware"
+                        style="@style/txt_black_normal"
+                        android:layout_gravity="center"
+                        android:gravity="center_horizontal" />
+
+                <Button
+                        android:id="@+id/btn_lifecycle_aware"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:text="@string/lifecycle_aware" />
+
+                <TextView
+                        android:id="@+id/txt_android_scoped"
+                        style="@style/txt_black_normal"
+                        android:layout_gravity="center"
+                        android:gravity="center_horizontal" />
+
+                <Button
+                        android:id="@+id/btn_android_scoped"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:text="@string/android_scoped" />
+
+                <TextView
+                        android:id="@+id/txt_cancel"
+                        style="@style/txt_black_normal"
+                        android:layout_gravity="center"
+                        android:gravity="center_horizontal" />
+
+                <Button
+                        android:id="@+id/btn_cancel"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:layout_marginBottom="@dimen/dp50"
+                        android:text="@string/cancel" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

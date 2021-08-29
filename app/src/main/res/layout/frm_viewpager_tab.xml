@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+        <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tab_without_icon"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorPrimary"
+                        app:tabGravity="fill"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabMode="fixed"
+                        app:tabSelectedTextColor="@color/white"
+                        app:tabTextColor="@color/gray" />
+
+
+                <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tab_with_icon"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:tabBackground="@color/colorPrimary"
+                        app:tabGravity="fill"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabMode="fixed"
+                        app:tabSelectedTextColor="@color/white"
+                        app:tabTextColor="@color/gray">
+
+                    <com.google.android.material.tabs.TabItem
+                            android:id="@+id/tab1"
+                            style="@style/tab_item"
+                            android:icon="@drawable/tab_movie_selector"
+                            android:text="@string/movie" />
+
+                    <com.google.android.material.tabs.TabItem
+                            android:id="@+id/tab2"
+                            style="@style/tab_item"
+                            android:icon="@drawable/tab_food_selector"
+                            android:text="@string/food" />
+
+                    <com.google.android.material.tabs.TabItem
+                            android:id="@+id/tab3"
+                            style="@style/tab_item"
+                            android:icon="@drawable/tab_travel_selector"
+                            android:text="@string/travel" />
+
+                </com.google.android.material.tabs.TabLayout>
+
+                <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tab_custom_icon"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorPrimary"
+                        app:tabGravity="fill"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabMode="fixed"
+                        app:tabSelectedTextColor="@color/white"
+                        app:tabTextColor="@color/gray" />
+
+                <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/view_pager"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:layout_below="@+id/tablayout"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+                <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tab_dynamic2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorPrimary"
+                        app:tabGravity="fill"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabMode="fixed"
+                        app:tabSelectedTextColor="@color/red"
+                        app:tabTextColor="@color/gray" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/view_pager2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/tablayout"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+                <!--<Button-->
+                <!--android:id="@+id/btn_tab_without_icon"-->
+                <!--style="@style/Button"-->
+                <!--android:layout_marginTop="@dimen/dp8"-->
+                <!--android:text="@string/tab_without_icon" />-->
+
+                <!--<Button-->
+                <!--android:id="@+id/btn_tab_with_icon"-->
+                <!--style="@style/Button"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_marginTop="@dimen/dp8"-->
+                <!--android:text="@string/tab_with_icon" />-->
+                <!--<Button-->
+                <!--android:id="@+id/btn_share_img_text"-->
+                <!--style="@style/Button"-->
+                <!--android:layout_marginTop="@dimen/dp15"-->
+                <!--android:text="@string/share_image_text" />-->
+                <!--<Button-->
+                <!--android:id="@+id/btn_share_local_image"-->
+                <!--style="@style/Button"-->
+                <!--android:layout_marginTop="@dimen/dp15"-->
+                <!--android:text="@string/share_local_image" />-->
+                <!--<Button-->
+                <!--android:id="@+id/btn_send_email"-->
+                <!--style="@style/Button"-->
+                <!--android:layout_marginTop="@dimen/dp15"-->
+                <!--android:text="@string/send_ima
+                ge_text_email" />-->
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

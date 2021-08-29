@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+        <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                <EditText
+                        android:id="@+id/edt_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp50"
+                        android:layout_marginLeft="@dimen/dp15"
+                        android:layout_marginRight="@dimen/dp15"
+                        android:background="@color/gray_f6f6f6"
+                        android:text="enter text" />
+
+                <Button
+                        android:id="@+id/btn_text_to_speech"
+                        style="@style/Button"
+                        android:text="@string/text_to_speech" />
+
+                <ImageView
+                        android:id="@+id/img_speech_to_text"
+                        android:layout_width="@dimen/dp110"
+                        android:layout_height="@dimen/dp110"
+                        android:layout_marginTop="@dimen/dp30"
+                        android:src="@drawable/ic_mic" />
+
+                <TextView
+                        android:id="@+id/txt_speech_to_text"
+                        style="@style/txt_black_normal"
+                        android:layout_marginLeft="@dimen/dp15"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:layout_marginRight="@dimen/dp15"
+                        android:gravity="center" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+</layout>

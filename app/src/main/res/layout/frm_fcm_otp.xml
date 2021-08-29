@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+            android:id="@+id/parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:scrollbars="none">
+
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                android:scrollbars="none">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:orientation="vertical">
+
+                <include
+                        android:id="@+id/include_back"
+                        layout="@layout/include_back" />
+
+                <TextView
+                        style="@style/txt_black_normal"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:text="@string/otp_verification"
+                        android:textSize="@dimen/sp25" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/wrapper_otp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp30">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_otp"
+                            style="@style/EdittextBlack"
+                            android:hint="@string/otp"
+                            android:inputType="number"
+                            android:maxLength="6" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/wrapper_pwd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        app:hintTextAppearance="@style/TextAppearance_open_sans_semibold"
+                        app:passwordToggleDrawable="@drawable/password_selector"
+                        app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="@color/gray">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_pwd"
+                            style="@style/EdittextBlack"
+                            android:hint="@string/password"
+                            android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                        android:id="@+id/txt_resend_otp"
+                        style="@style/txt_black_normal"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:text="Resend OTP"
+                        android:textColor="@color/app_color_par"
+                        android:textStyle="normal" />
+
+                <Button
+                        android:id="@+id/btn_verify"
+                        style="@style/Button"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="@dimen/dp20"
+                        android:layout_marginTop="@dimen/dp30"
+                        android:layout_marginRight="@dimen/dp20"
+                        android:text="@string/verify" />
+
+                <LinearLayout
+                        android:id="@+id/bottom_space"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dp50"
+                        android:orientation="vertical" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </FrameLayout>
+</layout>

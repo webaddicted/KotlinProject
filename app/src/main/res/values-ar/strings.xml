@@ -1,0 +1,85 @@
+<resources>
+    <string name="app_name">KotlinProject</string>
+    <string name="network_error">خطأ في الشبكة</string>
+    <string name="internal_server_error">خطأ في الخادم الداخلي</string>
+    <string name="remember_me">تذكرنى</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="selected">المحدد</string>
+    <string name="unselected">غير محددة</string>
+    <string name="none">لا شيء</string>
+    <string name="select_date">حدد تاريخ</string>
+    <string name="select_time">حدد الوقت</string>
+    <string name="start_progress">بدء التقدم</string>
+    <string name="marquee_txt">سرادق النص</string>
+    <string name="first_name">الاسم الاول</string>
+    <string name="password">كلمه السر</string>
+    <string name="yes">نعم فعلا</string>
+    <string name="no">لا</string>
+    <string name="ok">حسنا</string>
+    <string name="cancel">إلغاء</string>
+    <string name="forcefully_enable_permission">لقد رفضت بشدة بعض الأذونات المطلوبة لهذا الإجراء. \ n الرجاء الانتقال إلى الأذونات والسماح لها.</string>
+    <string name="no_network_msg"><![CDATA[يرجى التحقق من اتصالك بالإنترنت & amp؛ حاول مرة أخري]]></string>
+    <string name="news_api_key">e5e212cc147343cb9389cfb497c52bc2</string>
+    <string name="please_wait">ارجوك انتظر</string>
+    <string name="loading">جار التحميل...</string>
+    <string name="something_went_wrong">حدث خطأ ما. أعد المحاولة من فضلك</string>
+    <string name="pick_image">اختر صورة</string>
+    <string name="news_channel">قناة إخبارية</string>
+    <string name="my_profile">ملفي</string>
+    <string name="select_picture">اختر صورة</string>
+    <string name="capture_image">التقاط الصورة</string>
+    <string name="next">التالى</string>
+    <string name="got_it">فهمتك</string>
+    <string name="skip">تخطى</string>
+    <string-array name="image_loader">
+        <item>app_color</item><!--app color-->
+        <item>flag</item><!--flag  1 -->
+        <item>other image</item><!--other image-->
+    </string-array>
+    <string name="slide_1_title">مرحبا الغذاء!</string>
+    <string name="slide_1_desc">أسهل طريقة لطلب الطعام من مطعمك المفضل!</string>
+
+    <string name="slide_2_title">تذاكر الفيلم</string>
+    <string name="slide_2_desc">حجز تذاكر السينما لعائلتك وأصدقائك!</string>
+
+    <string name="slide_3_title">خصومات كبيرة</string>
+    <string name="slide_3_desc">أفضل الخصومات على كل خدمة واحدة نقدمها!</string>
+
+    <string name="slide_4_title">السفر حول العالم</string>
+    <string name="slide_4_desc">حجز تذاكر أي وسائل النقل والسفر في العالم!</string>
+    <string name="signup">سجل</string>
+    <string name="forgot_password">هل نسيت كلمة المرور؟</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="coding_exper">نتابع تجربة الترميز استرخاء</string>
+    <string name="full_name">full name</string>
+    <string name="nick_name">nick name</string>
+    <string name="mobile_no">mobile no</string>
+    <string name="error_uppercase_pattern">password must have atleast one uppercase character !!</string>
+    <string name="error_lowercase_pattern">password must have atleast one lowercase character !!</string>
+    <string name="error_digit_pattern">password must have atleast one digit character !!</string>
+    <string name="enter_first_name">enter first name</string>
+    <string name="enter_last_name">enter last name</string>
+    <string name="enter_your_email">enter email id</string>
+    <string name="error_enter_valid_email">enter valid email id</string>
+    <string name="error_email_must_be_different">email id must be different</string>
+    <string name="enter_dob">enter dob</string>
+    <string name="enter_country">enter country</string>
+    <string name="enter_passowrd">enter password</string>
+    <string name="error_passowrd_not_match">password not match</string>
+    <string name="error_password_different">password must be different</string>
+    <string name="error_referral_code">enter referral code</string>
+    <string name="error_valid_code">enter valid code</string>
+    <string name="error_six_digit_code">enter six digit code</string>
+    <string name="confirm_pwd_length">check confirm password length</string>
+    <string name="password_length">check password length</string>
+    <string name="please_enter_correct_password">please enter correct password</string>
+    <string name="create_an_account">create an account with this email</string>
+    <string name="first_name_can_not_blank">first name can\'t blank</string>
+    <string name="enter_mobile_no">mobile number can\'t blank</string>
+    <string name="enter_valid_mobile_no">enter valid mobile no</string>
+    <string name="select_language">اختار اللغة</string>
+    <string name="submit">خضع</string>
+    <string name="please_select_language">يرجى اختيار لغتك المفضلة</string>
+    <string name="txt_no_data_found">لم يتم العثور على بيانات \ n لهذه اللغة</string>
+    <string name="widget_title">widget</string>
+</resources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+            android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_single_click"
+            style="@style/Button"
+            android:layout_marginTop="@dimen/dp15"
+            android:text="@string/single_event_dialog" />
+
+        <Button
+            android:id="@+id/btn_two_event_dialog"
+            style="@style/Button"
+            android:layout_marginTop="@dimen/dp15"
+            android:text="@string/two_event_dialog" />
+
+        <Button
+            android:id="@+id/btn_custom_dialog"
+            style="@style/Button"
+            android:layout_marginTop="@dimen/dp15"
+            android:text="@string/custom_dialog" />
+
+        <Button
+            android:id="@+id/btn_dialog_fragment"
+            style="@style/Button"
+            android:layout_marginTop="@dimen/dp15"
+            android:text="@string/dialog_fragment" />
+
+        <Button
+            android:id="@+id/btn_selection_list"
+            style="@style/Button"
+            android:layout_marginTop="@dimen/dp15"
+            android:text="@string/selection_list_dialog" />
+
+        <Button
+            android:id="@+id/btn_list_dialog"
+            style="@style/Button"
+            android:layout_marginTop="@dimen/dp15"
+            android:text="@string/list_dialog" />
+    </LinearLayout>
+</layout>

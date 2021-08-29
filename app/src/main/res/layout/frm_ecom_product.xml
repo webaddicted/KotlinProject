@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:fillViewport="true">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                <androidx.appcompat.widget.Toolbar
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp21"
+                        android:background="@color/white"
+                        app:contentInsetEnd="0dp"
+                        app:contentInsetLeft="0dp"
+                        app:contentInsetRight="0dp"
+                        app:contentInsetStart="0dp">
+
+
+                    <ImageView
+                            android:id="@+id/img_back"
+                            android:layout_width="@dimen/dp18"
+                            android:layout_height="@dimen/dp18"
+                            android:layout_marginLeft="@dimen/dp8"
+                            android:tint="@color/black"
+                            android:src="@drawable/ic_back" />
+
+                    <TextView
+                            android:id="@+id/title"
+                            style="@style/txt_black_normal"
+                            android:layout_marginLeft="@dimen/dp13"
+                            android:text="@string/search_mobile"
+                            android:textSize="@dimen/sp13" />
+
+                    <LinearLayout
+                            android:id="@+id/linear"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="21dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                        <ImageView
+                                android:layout_width="@dimen/dp18"
+                                android:layout_height="@dimen/dp18"
+                                android:tint="@color/black"
+                                android:layout_gravity="center"
+                                android:src="@drawable/cart" />
+
+                    </LinearLayout>
+
+                </androidx.appcompat.widget.Toolbar>
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray_EAEBED" />
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/gray_74f6f6f6"
+                        android:orientation="horizontal">
+
+                    <TextView
+                            style="@style/txt_black_normal"
+                            android:layout_width="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/gray_74f6f6f6"
+                            android:gravity="center"
+                            android:text="@string/sort"
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
+
+<!--                    <com.google.android.material.tabs.TabLayout-->
+<!--                            android:id="@+id/tab_layout"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="center_horizontal"-->
+<!--                            android:layout_weight="1.5"-->
+<!--                            android:elevation="2dp"-->
+<!--                            android:tag="sticky"-->
+<!--                            app:tabGravity="center"-->
+<!--                            app:tabIndicatorColor="@color/white"-->
+<!--                            app:tabIndicatorHeight="0dp"-->
+<!--                            app:tabMode="fixed"-->
+<!--                            app:tabSelectedTextColor="@color/black"-->
+<!--                            app:tabTextAppearance="@style/MyMenuTextAppearance1"-->
+<!--                            app:tabTextColor="#8b8a8a" />-->
+
+                    <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/tab_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:tag="sticky"
+                            app:tabGravity="center"
+                            app:tabIndicatorColor="@color/app_color"
+                            app:tabIndicatorHeight="0dp"
+                            app:tabMode="fixed"
+                            app:tabSelectedTextColor="@color/black"
+                            app:tabTextAppearance="@style/MyMenuTextAppearance1"
+                            app:tabTextColor="@color/gray" />
+
+
+                </LinearLayout>
+                <!--Viewpager used-->
+                <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/pager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            </LinearLayout>
+
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp60"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/dp18"
+                    android:src="@drawable/filter" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

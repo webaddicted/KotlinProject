@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <item android:id="@android:id/background">
+        <shape
+                android:innerRadiusRatio="6"
+                android:shape="ring"
+                android:thicknessRatio="20.0"
+                android:useLevel="true">
+            <gradient
+                    android:centerColor="#999999"
+                    android:endColor="#999999"
+                    android:startColor="#999999"
+                    android:type="sweep" />
+        </shape>
+    </item>
+    <item android:id="@android:id/progress">
+        <rotate
+                android:fromDegrees="270"
+                android:pivotX="50%"
+                android:pivotY="50%"
+                android:toDegrees="270">
+            <shape
+                    android:innerRadiusRatio="6"
+                    android:shape="ring"
+                    android:thicknessRatio="20.0"
+                    android:useLevel="true">
+                <gradient
+                        android:centerColor="#00FF00"
+                        android:endColor="#00FF00"
+                        android:startColor="#00FF00"
+                        android:type="sweep" />
+                <rotate
+                        android:fromDegrees="0"
+                        android:pivotX="50%"
+                        android:pivotY="50%"
+                        android:toDegrees="360" />
+            </shape>
+        </rotate>
+    </item>
+<!--    <item android:id="@android:id/secondaryProgress">-->
+<!--        <shape-->
+<!--                android:innerRadiusRatio="6"-->
+<!--                android:shape="ring"-->
+<!--                android:thicknessRatio="20.0"-->
+<!--                android:useLevel="true">-->
+<!--            <gradient-->
+<!--                    android:centerColor="#999999"-->
+<!--                    android:endColor="#999999"-->
+<!--                    android:startColor="#999999"-->
+<!--                    android:type="sweep" />-->
+<!--        </shape>-->
+<!--    </item>-->
+</layer-list>

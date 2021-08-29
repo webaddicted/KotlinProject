@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp22">
+
+            <com.webaddicted.kotlinproject.global.customview.CircleImageView
+                    android:id="@+id/img_first"
+                    android:layout_width="@dimen/dp200"
+                    android:layout_height="@dimen/dp200"
+                    android:paddingLeft="@dimen/dpmin50"
+                    android:src="@color/gray" />
+
+            <TextView
+                    android:id="@+id/txt_first"
+                    android:layout_width="@dimen/dp105"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/img_first"
+                    android:layout_marginLeft="@dimen/dp18"
+                    android:layout_marginTop="@dimen/dp11"
+                    android:gravity="center"
+                    android:text="top 3 game you have played"
+                    android:textAppearance="@style/TextAppearance_open_sans_semibold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp14" />
+
+            <com.webaddicted.kotlinproject.global.customview.CircleImageView
+                    android:id="@+id/img_second"
+                    android:layout_width="@dimen/dp140"
+                    android:layout_height="@dimen/dp140"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/dp11"
+                    android:layout_marginRight="@dimen/dp4"
+                    android:src="@color/gray" />
+
+            <TextView
+                    android:id="@+id/txt_second"
+                    android:layout_width="@dimen/dp80"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/img_second"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="@dimen/dp18"
+                    android:layout_marginTop="@dimen/dp11"
+                    android:layout_marginRight="@dimen/dp37"
+                    android:gravity="center"
+                    android:text="your next 3 game"
+                    android:textAppearance="@style/TextAppearance_open_sans_semibold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp14" />
+
+
+            <com.webaddicted.kotlinproject.global.customview.CircleImageView
+                    android:id="@+id/img_third"
+                    android:layout_width="@dimen/dp145"
+                    android:layout_height="@dimen/dp145"
+                    android:layout_below="@+id/txt_first"
+                    android:layout_marginLeft="@dimen/dp20"
+                    android:layout_marginTop="@dimen/dp19"
+                    android:src="@color/gray" />
+
+            <TextView
+                    android:id="@+id/txt_third"
+                    android:layout_width="@dimen/dp105"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/img_third"
+                    android:layout_marginLeft="@dimen/dp50"
+                    android:layout_marginTop="@dimen/dp11"
+                    android:gravity="center"
+                    android:text="top beach games"
+                    android:textAppearance="@style/TextAppearance_open_sans_semibold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp14"
+
+                    />
+
+            <com.webaddicted.kotlinproject.global.customview.CircleImageView
+                    android:id="@+id/img_fourth"
+                    android:layout_width="@dimen/dp172"
+                    android:layout_height="@dimen/dp172"
+                    android:layout_below="@+id/txt_second"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/dp19"
+                    android:paddingRight="@dimen/dpmin25"
+                    android:src="@color/gray" />
+
+            <TextView
+                    android:id="@+id/txt_fourth"
+                    android:layout_width="@dimen/dp100"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/img_fourth"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="@dimen/dp18"
+                    android:layout_marginTop="@dimen/dp11"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:gravity="center"
+                    android:text="your next 3 game"
+                    android:textAppearance="@style/TextAppearance_open_sans_semibold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp14" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

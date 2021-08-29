@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/tab_food"
+        icon="@drawable/ic_food"
+        title="Food"
+        barColorWhenSelected="@color/colorAccent" />
+    <tab
+        id="@+id/tab_movie"
+        icon="@drawable/ic_movie"
+        title="Movies"
+        barColorWhenSelected="#5D4037" />
+    <tab
+        id="@+id/tab_travel"
+        icon="@drawable/ic_travel"
+        title="Travel"
+        barColorWhenSelected="#7B1FA2" />
+    <tab
+        id="@+id/tab_profile"
+        icon="@drawable/ic_profile"
+        title="Profile"
+        barColorWhenSelected="#FF5252" />
+    <tab
+        id="@+id/tab_sim_card"
+        icon="@drawable/ic_no_simcard"
+        title="Sim Card"
+        barColorWhenSelected="#FF9800" />
+</tabs>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+            android:id="@+id/parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:scrollbars="none">
+
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                android:scrollbars="none">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:orientation="vertical">
+
+                <include
+                        android:id="@+id/include_back"
+                        layout="@layout/include_back" />
+
+                <TextView
+                        style="@style/txt_black_normal"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:text="@string/forgot_pasword"
+                        android:textSize="@dimen/sp25" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/wrapper_mobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp30">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_mobile"
+                            style="@style/EdittextBlack"
+                            android:hint="@string/mobile_no"
+                            android:inputType="number"
+                            android:maxLength="10" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <Button
+                        android:id="@+id/btn_forgot"
+                        style="@style/Button"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="@dimen/dp20"
+                        android:layout_marginTop="@dimen/dp30"
+                        android:layout_marginRight="@dimen/dp20"
+                        android:text="@string/forgot_pasword" />
+
+                <LinearLayout
+                        android:id="@+id/bottom_space"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dp50"
+                        android:orientation="vertical" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </FrameLayout>
+</layout>

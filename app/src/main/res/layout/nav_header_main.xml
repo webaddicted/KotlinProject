@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+            android:id="@+id/view_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+            <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dp55">
+
+                <com.webaddicted.kotlinproject.global.customview.CircleImageView
+                        android:id="@+id/img_user"
+                        android:layout_width="@dimen/dp150"
+                        android:layout_height="@dimen/dp150"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/dp5"
+                        android:src="@drawable/good_morning_img" />
+            </FrameLayout>
+
+            <TextView
+                    android:id="@+id/txt_name"
+                    style="@style/txt_black_normal"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/dp25"
+                    android:text="Deepak Sharma" />
+
+            <TextView
+                    style="@style/txt_gray_large"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="@dimen/dp15"
+                    android:textSize="@dimen/sp16"
+                    android:gravity="start"
+                    android:textColor="@color/gray_818181"
+                    android:paddingTop="@dimen/dp10"
+                    android:paddingBottom="@dimen/dp10"
+                    android:text="@string/app_name" />
+
+            <View
+                    style="@style/Separator_View"
+                    android:layout_height="0.5dp" />
+
+            <TextView
+                    android:id="@+id/txt_home"
+                    style="@style/txt_black_normal"
+                    android:textSize="@dimen/sp16"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="@dimen/dp15"
+                    android:gravity="start"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:text="@string/home" />
+
+            <View
+                    style="@style/Separator_View"
+                    android:layout_height="0.5dp" />
+            <TextView
+                    android:id="@+id/txt_create_lead"
+                    style="@style/txt_black_normal"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="@dimen/dp15"
+                    android:gravity="start"
+                    android:textSize="@dimen/sp16"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:text="@string/create_lead" />
+
+            <View
+                    style="@style/Separator_View"
+                    android:layout_height="0.5dp" />
+
+            <TextView
+                    android:id="@+id/txt_profile"
+                    style="@style/txt_black_normal"
+                    android:layout_width="match_parent"
+                    android:textSize="@dimen/sp16"
+                    android:layout_marginLeft="@dimen/dp15"
+                    android:gravity="start"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:text="@string/profile" />
+
+            <View
+                    style="@style/Separator_View"
+                    android:layout_height="0.5dp" />
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/txt_my_lead"-->
+            <!--                style="@style/txt_black_normal"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_marginLeft="@dimen/dp15"-->
+            <!--                android:textSize="@dimen/sp16"-->
+            <!--                android:gravity="start"-->
+            <!--                android:paddingTop="15dp"-->
+            <!--                android:paddingBottom="15dp"-->
+            <!--                android:text="@string/my_lead" />-->
+
+            <!--            <View-->
+            <!--                style="@style/Separator_View"-->
+            <!--                android:layout_height="0.5dp" />-->
+
+            <TextView
+                    android:id="@+id/txt_faq"
+                    style="@style/txt_black_normal"
+                    android:textSize="@dimen/sp16"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="@dimen/dp15"
+                    android:gravity="start"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:text="@string/faq" />
+
+            <View
+                    style="@style/Separator_View"
+                    android:layout_height="0.5dp" />
+            <TextView
+                    android:id="@+id/txt_logout"
+                    style="@style/txt_black_normal"
+                    android:textSize="@dimen/sp16"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="@dimen/dp15"
+                    android:gravity="start"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:text="@string/logout" />
+
+            <View
+                    style="@style/Separator_View"
+                    android:layout_height="0.5dp" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>

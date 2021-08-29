@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+    <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:fillViewport="true"
+            android:layout_height="match_parent">
+
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_share_text"
+                style="@style/Button"
+                android:layout_marginTop="@dimen/dp15"
+                android:text="@string/share_text" />
+
+            <Button
+                android:id="@+id/btn_share_image"
+                style="@style/Button"
+                android:layout_marginTop="@dimen/dp15"
+                android:text="@string/share_image" />
+
+            <Button
+                android:id="@+id/btn_share_img_text"
+                style="@style/Button"
+                android:layout_marginTop="@dimen/dp15"
+                android:text="@string/share_image_text" />
+
+            <Button
+                android:id="@+id/btn_share_local_image"
+                style="@style/Button"
+                android:layout_marginTop="@dimen/dp15"
+                android:text="@string/share_local_image" />
+
+            <Button
+                android:id="@+id/btn_send_email"
+                style="@style/Button"
+                android:layout_marginTop="@dimen/dp15"
+                android:text="@string/send_image_text_email" />
+            <Button
+                    android:id="@+id/btn_open_pdf"
+                    style="@style/Button"
+                    android:layout_marginTop="@dimen/dp15"
+                    android:text="@string/download_open_pdf" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

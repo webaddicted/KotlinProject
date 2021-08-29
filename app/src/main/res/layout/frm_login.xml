@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:focusableInTouchMode="true">
+
+        <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/good_morning_img" />
+
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+
+            <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dp80"
+                    android:orientation="vertical">
+
+                <TextView
+                        style="@style/TextView_Regular"
+                        android:text="Login"
+                        android:textColor="@color/white_par"
+                        android:textSize="@dimen/sp32" />
+
+                <View
+                        android:layout_width="@dimen/dp80"
+                        android:layout_height="@dimen/dp2"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/dp2"
+                        android:background="#deff00" />
+
+                <TextView
+                        style="@style/TextView_Regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/linearLayout"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/dp4"
+                        android:gravity="center"
+                        android:text="@string/coding_exper"
+                        android:textColor="@color/white_par"
+                        android:textSize="@dimen/sp10" />
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/dp32"
+                        android:gravity="bottom"
+                        android:orientation="vertical"
+                        android:paddingLeft="@dimen/dp32"
+                        android:paddingRight="@dimen/dp32">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/wrapper_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp80"
+                            android:textColorHint="@color/white"
+                            android:theme="@style/EditTextWrapper">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edt_email"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableRight="@drawable/ic_email"
+                                android:drawablePadding="@dimen/dp16"
+                                android:hint="@string/email"
+                                android:inputType="textEmailAddress"
+                                android:maxLines="1"
+                                android:textAppearance="@style/TextAppearance_open_sans_semibold"
+                                android:textColor="@color/white_par"
+                                android:textSize="@dimen/sp16" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/wrapper_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColorHint="@color/white"
+                            android:theme="@style/EditTextWrapper">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edt_password"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableRight="@drawable/ic_lock"
+                                android:drawablePadding="@dimen/dp16"
+                                android:hint="@string/password"
+                                android:inputType="textPassword"
+                                android:maxLines="1"
+                                android:textAppearance="@style/TextAppearance_open_sans_semibold"
+                                android:textColor="@color/white_par"
+                                android:textSize="16sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                        <Button
+                                android:id="@+id/btn_login"
+                                style="@style/Button"
+                                android:layout_marginTop="@dimen/dp15"
+                                android:backgroundTint="@color/bg_screen2"
+                                android:minWidth="@dimen/dp120"
+                                android:text="@string/login"
+                                android:textAllCaps="false"
+                                android:textStyle="bold" />
+
+                        <Button
+                                android:id="@+id/btn_signup"
+                                style="@style/Button"
+                                android:layout_marginTop="@dimen/dp15"
+                                android:backgroundTint="@color/bg_screen2"
+                                android:text="@string/signup"
+                                android:textAllCaps="false"
+                                android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+                    <TextView
+                            android:id="@+id/txt_forgot_psw"
+                            style="@style/TextView_Heading"
+                            android:layout_marginTop="@dimen/dp15"
+                            android:text="@string/forgot_password"
+                            android:textAlignment="center"
+                            android:textColor="@color/white_par"
+                            android:textSize="@dimen/sp16" />
+
+                    <LinearLayout
+                            android:id="@+id/bottom_space"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+</layout>

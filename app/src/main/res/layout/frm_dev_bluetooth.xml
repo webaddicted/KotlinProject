@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+                android:id="@+id/card_bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="@color/white"
+                android:layout_margin="@dimen/dp5"
+                android:layout_marginTop="@dimen/dp20"
+                app:cardCornerRadius="4dp">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_marginLeft="@dimen/dp5"
+                    android:layout_marginBottom="@dimen/dp10"
+                    android:orientation="vertical">
+                <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/bt_anim_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp150"
+                        android:layout_gravity="center_horizontal"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/bt" />
+                <TextView
+                        android:id="@+id/txt_bt_state"
+                        style="@style/txt_black_normal"
+                        android:textColor="@color/black" />
+
+                <TextView
+                        android:id="@+id/txt_bt_name"
+                        style="@style/txt_black_normal"
+                        android:layout_marginTop="@dimen/dp10"
+/>
+                <TextView
+                        android:id="@+id/txt_bt_address"
+                        style="@style/txt_black_normal"
+                        android:layout_marginTop="@dimen/dp10"
+                        />
+
+                <TextView
+                        android:id="@+id/txt_bt_scan_mode"
+                        style="@style/txt_black_normal"
+                        android:layout_marginTop="@dimen/dp10"
+                        />
+
+                <TextView
+                        android:id="@+id/txt_bt_discover"
+                        style="@style/txt_black_normal"
+                        android:layout_marginTop="@dimen/dp10"
+                        />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+                android:id="@+id/btn_bt_on_off"
+                style="@style/Button"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/dp30"
+                android:text="@string/turn_on_bluetooth" />
+    </RelativeLayout>
+</layout>

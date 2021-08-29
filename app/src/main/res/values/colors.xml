@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <color name="colorPrimary">#825f3d</color>-->
+<!--    <color name="colorPrimaryDark">#825f3d</color>-->
+<!--    <color name="colorAccent">#825f3d</color>-->
+<!--    <color name="app_color">#825f3d</color>-->
+
+<!--    e31d24-->
+<!--    4584DB-->
+<!--    1dbf73-->
+    <color name="colorPrimary">#1dbf73</color>
+    <color name="colorPrimaryDark">#1dbf73</color>
+    <color name="colorAccent">#1dbf73</color>
+    <color name="app_color">#1dbf73</color>
+    <color name="app_color_par">#1dbf73</color>
+    <color name="white_par">@android:color/white</color>
+    <color name="black_par">@android:color/black</color>
+    <color name="white">@android:color/white</color>
+    <color name="black">@android:color/black</color>
+
+    <color name="white_back">@android:color/white</color>
+
+    <color name="red">#ffff0000</color>
+
+    <color name="green">#00de4a</color>
+    <color name="brown">#bdbdbe</color>
+    <color name="gray">#BEBEBE</color>
+    <color name="gray_818181">#818181</color>
+    <color name="transprant">#00000000</color>
+    <color name="grey">#DDDDDD</color>
+    <color name="grey_light">#BADDDDDD</color>
+    <!--Splash Screen-->
+    <color name="bg_screen1">#f64c73</color>
+    <color name="bg_screen2">#20d2bb</color>
+    <color name="bg_screen3">#3395ff</color>
+    <color name="bg_screen4">#c873f4</color>
+    <!-- dots inactive colors -->
+    <color name="dot_inactive">#4c4c4c</color>
+    <!-- dots active colors -->
+    <color name="dot_active">#e5e5e5</color>
+    <color name="brown_light">#2CBDBDBE</color>
+    <color name="geo_fency_color">#8AF92C53</color>
+    <color name="pink">#FF4081</color>
+    <color name="green_00de4a">#00de4a</color>
+    <color name="red_ff090b">#ff090b</color>
+    <color name="gray_CDCDCD">#CDCDCD</color>
+    <color name="gray_EAEBED">#EAEBED</color>
+    <color name="circular_pic_border">#5f707070</color>
+    <color name="gray_f6f6f6">#f6f6f6</color>
+    <color name="gray_74f6f6f6">#74f6f6f6</color>
+
+    <color name="colorTextPrimary">#FFFFFF</color>
+    <color name="colorTextDisable">#66FFFFFF</color>
+    <color name="cyan_500">#64418b</color>
+    <color name="light_blue_500">#3e2483</color>
+    <color name="divider">#d9d9d9</color>
+    <color name="ram_free_memory">#f8bbd0</color>
+    <color name="ram_used_memory">#e91e63</color>
+    <color name="int_free_memory">#b3e5fc</color>
+    <color name="int_used_memory">#0277bd</color>
+    <color name="ext_free_memory">#ffecb3</color>
+    <color name="ext_used_memory">#ffb300</color>
+    <color name="orange">#FF8200</color>
+    <color name="light_grey">#EEEEEE</color>
+    <color name="sent">#ffffe6</color>
+    <color name="inbox">#e6ffff</color>
+
+    <color name="white_transparent">#99FFFFFF</color>
+    <color name="windows_blue">#3495af</color>
+    <color name="nav_back_color">#31000000</color>
+    <color name="spider_blue">#42a5f5</color>
+    <color name="spider_red">#ff1744</color>
+</resources>

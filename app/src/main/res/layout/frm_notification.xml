@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+        <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <Button
+                        android:id="@+id/btn_normal"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:text="@string/normal" />
+                <Button
+                        android:id="@+id/btn_large_text"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:text="@string/large_text" />
+
+                <Button
+                        android:id="@+id/btn_add_message"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:text="@string/add_message" />
+
+                <Button
+                        android:id="@+id/btn_url"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:text="@string/url" />
+                <Button
+                        android:id="@+id/btn_action"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:text="@string/action" />
+                <Button
+                        android:id="@+id/btn_big_picture"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:text="@string/big_picture" />
+
+                <Button
+                        android:id="@+id/btn_custom"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:text="@string/custom" />
+
+                <Button
+                        android:id="@+id/btn_inbox_style"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:text="@string/inbox_style" />
+                <Button
+                        android:id="@+id/btn_whats_app"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:text="@string/whats_app_type_noti" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,89 @@
+<!--Japanese
+
+    Code: ja. Folder name: values-ja-->
+<resources>
+  <string name="app_name">KotlinProject</string>
+  <string name="news_api_key">e5e212cc147343cb9389cfb497c52bc2</string>
+  <string name="network_error">नेटवर्क त्रुटि</string>
+  <string name="internal_server_error">आंतरिक सर्वर त्रुटि</string>
+  <string name="remember_me">मुझे याद रखना</string>
+  <string name="login">लॉग इन करें</string>
+  <string name="selected">चयनित</string>
+  <string name="unselected">इसे नहीं चुना जाता</string>
+  <string name="none">कोई नहीं</string>
+  <string name="select_date">तारीख़ चुनें</string>
+  <string name="select_time">समय का चयन करें</string>
+  <string name="start_progress">प्रगति शुरू करो</string>
+  <string name="marquee_txt">मार्की पाठ</string>
+  <string name="first_name">पहला नाम</string>
+  <string name="password">पारण शब्द</string>
+  <string name="yes">हाँ</string>
+  <string name="no">नहीं</string>
+  <string name="ok">ठीक</string>
+  <string name="cancel">रद्द करना</string>
+  <string name="forcefully_enable_permission">आपने इस कार्रवाई के लिए कुछ आवश्यक अनुमतियों का बलपूर्वक खंडन किया है। \ n कृपया अनुमति पर जाएँ और उन्हें अनुमति दें।</string>
+  <string name="no_network_msg"><![CDATA[कृपया अपने इंटरनेट कनेक्शन की जांच करें &amp; पुनः प्रयास करें]]></string>
+
+  <string name="please_wait">कृपया प्रतीक्षा करें</string>
+  <string name="loading">लोड हो रहा है...</string>
+  <string name="something_went_wrong">कुछ गलत हो गया। कृपया पुन: प्रयास करें</string>
+  <string name="pick_image">छवि चुनें</string>
+  <string name="news_channel">समाचार माध्यम</string>
+  <string name="my_profile">मेरी प्रोफाइल</string>
+  <string name="select_picture">चित्र का चयन करें</string>
+  <string name="capture_image">छवि पर कब्जा</string>
+  <string name="next">आगामी</string>
+  <string name="got_it">समझ गया</string>
+  <string name="skip">छोड़ें</string>
+  <string-array name="image_loader">
+    <item>app_color</item><!--app color-->
+    <item>flag</item><!--flag  1 -->
+    <item>other image</item><!--other image-->
+  </string-array>
+  <string name="slide_1_title">नमस्कार भोजन!</string>
+  <string name="slide_1_desc">अपने पसंदीदा रेस्तरां से खाना ऑर्डर करने का सबसे आसान तरीका!</string>
+
+  <string name="slide_2_title">सिनेमा की टिकटें</string>
+  <string name="slide_2_desc">अपने परिवार और दोस्तों के लिए मूवी टिकट बुक करें!</string>
+
+  <string name="slide_3_title">महान छूट</string>
+  <string name="slide_3_desc">हर एक सेवा पर सर्वोत्तम छूट जो हम प्रदान करते हैं!</string>
+
+  <string name="slide_4_title">दुनिया की यात्रा</string>
+  <string name="slide_4_desc">किसी भी परिवहन के टिकट बुक करें और दुनिया की यात्रा करें!</string>
+  <string name="signup">साइन अप करें</string>
+  <string name="forgot_password">पासवर्ड भूल गए?</string>
+  <string name="email">ईमेल</string>
+  <string name="coding_exper">हम एक आरामदायक कोडिंग अनुभव का पीछा करते हैं</string>
+  <string name="full_name">पूरा नाम</string>
+  <string name="nick_name">निक नाम</string>
+  <string name="mobile_no">मोबाइल नंबर</string>
+  <string name="error_uppercase_pattern">पासवर्ड में कम से कम एक बड़ा अक्षर होना चाहिए !!</string>
+  <string name="error_lowercase_pattern">पासवर्ड में कम से कम एक वर्ण होना चाहिए !!</string>
+  <string name="error_digit_pattern">पासवर्ड में कम से कम एक अंक का वर्ण होना चाहिए !!</string>
+  <string name="enter_first_name">पहला नाम डालो</string>
+  <string name="enter_last_name">अंतिम नाम दर्ज करो</string>
+  <string name="enter_your_email">ईमेल आईडी दर्ज करें</string>
+  <string name="error_enter_valid_email">मान्य ईमेल आईडी दर्ज करें</string>
+  <string name="error_email_must_be_different">ईमेल आईडी अलग होनी चाहिए</string>
+  <string name="enter_dob">जन्म् की तारीख़ दर्ज करे</string>
+  <string name="enter_country">देश का नाम दर्ज करें</string>
+  <string name="enter_passowrd">पासवर्ड दर्ज करें</string>
+  <string name="error_passowrd_not_match">पासवर्ड नहीं मिला</string>
+  <string name="error_password_different">पासवर्ड अलग होना चाहिए</string>
+  <string name="error_referral_code">रेफरल कोड दर्ज करें</string>
+  <string name="error_valid_code">मान्य कोड दर्ज करें</string>
+  <string name="error_six_digit_code">छह अंकों का कोड दर्ज करें</string>
+  <string name="confirm_pwd_length">पासवर्ड की लंबाई की पुष्टि करें</string>
+  <string name="password_length">पासवर्ड की लंबाई की जाँच करें</string>
+  <string name="please_enter_correct_password">कृपया सही पासवर्ड दर्ज करें</string>
+  <string name="create_an_account">इस ईमेल के साथ एक खाता बनाएँ</string>
+  <string name="first_name_can_not_blank">पहला नाम रिक्त नहीं हो सकता</string>
+  <string name="enter_mobile_no">मोबाइल नंबर रिक्त नहीं हो सकता</string>
+  <string name="enter_valid_mobile_no">मान्य मोबाइल नंबर दर्ज करें</string>
+  <string name="select_language">भाषा चुनिए</string>
+    <string name="submit">जमा करें</string>
+    <string name="please_select_language">कृपया अपनी पसंदीदा भाषा चुनें</string>
+    <string name="txt_no_data_found">इस भाषा के लिए कोई \nडेटा नहीं मिला</string>
+    <string name="widget_title">widget</string>
+</resources>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:card_view="http://schemas.android.com/tools">
+
+    <LinearLayout
+            android:id="@+id/parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_color"
+            android:elevation="@dimen/dp10"
+            android:orientation="vertical">
+
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp21" />
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/app_color"
+                    app:contentInsetEnd="0dp"
+                    app:contentInsetStart="0dp">
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                    <ImageView
+                            android:id="@+id/img_back"
+                            android:layout_width="@dimen/dp55"
+                            android:layout_height="@dimen/dp46"
+                            android:layout_centerVertical="true"
+                            android:paddingTop="@dimen/dp10"
+                            android:paddingBottom="@dimen/dp8"
+                            android:src="@drawable/ic_back"
+                            android:tint="@android:color/white"
+                            android:visibility="gone" />
+
+                    <TextView
+                            android:id="@+id/txt_toolbar_title"
+                            style="@style/TextView_Regular"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:maxLines="1"
+                            android:text=""
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/sp17" />
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/dp8"
+                            android:orientation="horizontal">
+
+                        <ImageView
+                                android:id="@+id/img_profile"
+                                android:layout_width="@dimen/dp25"
+                                android:layout_height="@dimen/dp25"
+                                android:src="@drawable/ic_profile"
+                                android:visibility="gone"
+                                android:tint="@color/gray_CDCDCD" />
+                        <ImageView
+                                android:id="@+id/img_theme"
+                                android:layout_width="@dimen/dp25"
+                                android:layout_height="@dimen/dp25"
+                                android:src="@drawable/ic_lightbulb"
+                                android:visibility="gone"
+                                android:layout_marginLeft="@dimen/dp5"
+                                android:tint="@color/gray_CDCDCD" />
+                        <ImageView
+                                android:id="@+id/img_sort"
+                                android:layout_width="@dimen/dp25"
+                                android:layout_height="@dimen/dp25"
+                                android:layout_marginLeft="@dimen/dp5"
+                                android:src="@drawable/ic_option"
+                                android:visibility="gone"
+                                android:tint="@color/gray_CDCDCD" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <androidx.cardview.widget.CardView
+                    android:id="@+id/card_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp4"
+                    android:visibility="invisible"
+                    card_view:cardCornerRadius="2dp">
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <LinearLayout
+                            android:id="@+id/linearLayout_search"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp48">
+
+                        <ImageView
+                                android:id="@+id/img_search_back"
+                                android:layout_width="@dimen/dp48"
+                                android:layout_height="@dimen/dp48"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:padding="@dimen/dp12"
+                                android:src="@drawable/ic_back" />
+
+                        <EditText
+                                android:id="@+id/edit_text_search"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@color/white_par"
+                                android:focusable="true"
+                                android:gravity="center_vertical"
+                                android:hint="@string/search"
+                                android:imeOptions="actionSearch"
+                                android:inputType="textCapWords"
+                                android:maxLines="1"
+                                android:paddingLeft="@dimen/dp12"
+                                android:paddingRight="@dimen/dp8"
+                                android:textAppearance="@style/TextAppearance_open_sans_semibold" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

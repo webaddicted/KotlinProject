@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+        <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <fragment
+                    android:id="@+id/map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#2A000000"
+                    android:orientation="vertical">
+
+                <LinearLayout
+                        android:id="@+id/relative"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                    <Button
+                            android:id="@+id/btn_google_map"
+                            style="@style/Button"
+                            android:layout_width="@dimen/dp0"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:layout_marginRight="@dimen/dp5"
+                            android:layout_weight="0.5"
+                            android:text="@string/google_map" />
+
+                    <Button
+                            android:id="@+id/btn_create_polyline"
+                            style="@style/Button"
+                            android:layout_width="@dimen/dp0"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:layout_marginRight="@dimen/dp5"
+                            android:layout_toRightOf="@+id/btn_google_map"
+                            android:layout_weight="0.5"
+                            android:text="@string/draw_polyline" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                        android:id="@+id/relative1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                    <Button
+                            android:id="@+id/btn_geo_fencing_start"
+                            style="@style/Button"
+                            android:layout_width="@dimen/dp0"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:layout_marginRight="@dimen/dp5"
+                            android:layout_weight="0.5"
+                            android:text="@string/geo_fencing_start" />
+
+                    <Button
+                            android:id="@+id/btn_geo_fencing_stop"
+                            style="@style/Button"
+                            android:layout_width="@dimen/dp0"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:layout_marginRight="@dimen/dp5"
+                            android:layout_weight="0.5"
+                            android:text="@string/geo_fencing_stop" />
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp40"
+                        android:layout_below="@+id/relative"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:layout_marginRight="@dimen/dp5"
+                        android:layout_marginBottom="@dimen/dp5"
+                        android:background="@drawable/edt_round_corner"
+                        android:drawableLeft="@drawable/ic_search"
+                        android:drawablePadding="@dimen/dp5"
+                        android:drawableTint="@color/gray"
+                        android:ems="10"
+                        android:hint="search"
+                        android:imeOptions="actionSend"
+                        android:inputType="textPersonName"
+                        android:paddingLeft="@dimen/dp15"
+                        android:textColorHint="@color/gray" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

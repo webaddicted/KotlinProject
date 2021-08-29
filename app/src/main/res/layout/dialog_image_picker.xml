@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+            android:id="@+id/parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/txt_cancel"
+                android:layout_marginLeft="@dimen/dp9"
+                android:layout_marginRight="@dimen/dp9"
+                android:background="@drawable/btn_background_white"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+            <LinearLayout
+                    android:id="@+id/linear_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <RelativeLayout
+                        android:id="@+id/relative_take_photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            style="@style/txt_black_normal"
+                            android:layout_height="@dimen/dp60"
+                            android:layout_marginLeft="@dimen/dp10"
+                            android:layout_marginRight="@dimen/dp7"
+                            android:gravity="center"
+                            android:text="@string/take_photo" />
+
+                    <ImageView
+                            android:layout_width="@dimen/dp25"
+                            android:layout_height="@dimen/dp25"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/dp8"
+                            android:src="@drawable/ic_profile" />
+                </RelativeLayout>
+
+                <View style="@style/Separator_View" />
+
+                <RelativeLayout
+                        android:id="@+id/relative_photo_library"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            style="@style/txt_black_normal"
+                            android:layout_height="@dimen/dp60"
+                            android:layout_marginLeft="@dimen/dp10"
+                            android:layout_marginRight="@dimen/dp7"
+                            android:gravity="center"
+                            android:text="@string/photo_library" />
+
+                    <ImageView
+                            android:layout_width="@dimen/dp25"
+                            android:layout_height="@dimen/dp25"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/dp8"
+                            android:src="@drawable/ic_profile" />
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/txt_cancel"
+                style="@style/txt_black_normal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp55"
+                android:layout_above="@+id/space"
+                android:layout_marginLeft="@dimen/dp9"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_marginRight="@dimen/dp9"
+                android:background="@drawable/btn_background_white"
+                android:gravity="center"
+                android:text="@string/cancel" />
+
+        <View
+                android:id="@+id/space"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp10"
+                android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+</layout>

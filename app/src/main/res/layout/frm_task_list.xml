@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <include
+                    android:id="@+id/toolbar"
+                    layout="@layout/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:elevation="@dimen/dp10">
+
+                <!--                <androidx.core.widget.NestedScrollView-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="match_parent"-->
+                <!--                        android:layout_above="@+id/linear_contact"-->
+                <!--                        android:layout_below="@+id/edt_search"-->
+                <!--                        android:fillViewport="true"-->
+                <!--                        app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
+
+                <!--                <LinearLayout-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:orientation="vertical">-->
+
+                <jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout
+                        android:id="@+id/swipe_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dp3"
+                            android:layout_marginRight="@dimen/dp3"
+                            android:divider="@android:color/transparent"
+                            android:nestedScrollingEnabled="false"
+                            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+                </jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout>
+
+                <!--                    <LinearLayout-->
+                <!--                            android:id="@+id/bottom_space"-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:orientation="vertical" />-->
+                <!--                </LinearLayout>-->
+                <!--                </androidx.core.widget.NestedScrollView>-->
+
+                <!--                <LinearLayout-->
+                <!--                        android:id="@+id/linear_contact"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="70dp"-->
+                <!--                        android:layout_alignParentBottom="true"-->
+                <!--                        android:background="@color/app_color"-->
+                <!--                        android:orientation="vertical"-->
+                <!--                        app:layout_behavior="com.webaddicted.kotlinproject.global.behavior.ScrollingToolbarBehavior">-->
+
+                <!--                    <TextView-->
+                <!--                            style="@style/txt_white_normal"-->
+                <!--                            android:layout_gravity="center_horizontal"-->
+                <!--                            android:layout_marginTop="@dimen/dp10"-->
+                <!--                            android:gravity="center"-->
+
+                <!--                            android:text="@string/inquiry_info"-->
+                <!--                            android:textSize="@dimen/sp13" />-->
+
+                <!--                    <LinearLayout-->
+                <!--                            android:id="@+id/linear_mobile_no"-->
+                <!--                            android:layout_width="wrap_content"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:layout_gravity="center"-->
+                <!--                            android:layout_marginTop="@dimen/dp5"-->
+                <!--                            android:layout_marginBottom="@dimen/dp5"-->
+                <!--                            android:background="@drawable/gradient_rect"-->
+                <!--                            android:gravity="center"-->
+                <!--                            android:orientation="horizontal">-->
+
+                <!--                        <LinearLayout-->
+                <!--                                android:layout_width="wrap_content"-->
+                <!--                                android:layout_height="wrap_content"-->
+                <!--                                android:orientation="horizontal"-->
+                <!--                                android:paddingLeft="15dp"-->
+                <!--                                android:paddingTop="5dp"-->
+                <!--                                android:paddingRight="15dp"-->
+                <!--                                android:paddingBottom="5dp">-->
+
+                <!--                            <ImageView-->
+                <!--                                    android:layout_width="15dp"-->
+                <!--                                    android:layout_height="15dp"-->
+                <!--                                    android:layout_gravity="center"-->
+                <!--                                    android:src="@drawable/ic_whatsapp" />-->
+
+                <!--                            <TextView-->
+                <!--                                    style="@style/txt_white_normal"-->
+                <!--                                    android:layout_gravity="center"-->
+                <!--                                    android:layout_marginLeft="@dimen/dp5"-->
+                <!--                                    android:text="@string/deep_mobile_no"-->
+                <!--                                    android:textSize="@dimen/sp12" />-->
+                <!--                        </LinearLayout>-->
+                <!--                    </LinearLayout>-->
+                <!--                </LinearLayout>-->
+            </RelativeLayout>
+        </LinearLayout>
+    </FrameLayout>
+</layout>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/txt_gray_small"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:text="@string/handler_timer"
+                    android:textSize="@dimen/sp15" />
+
+                <TextView
+                    android:id="@+id/txt_handler_timer"
+                    style="@style/txt_black_normal_bold"
+                    android:layout_gravity="center_horizontal"
+                    android:text="00:00"
+                    android:textSize="@dimen/sp52" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp15"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_handler_start"
+                        style="@style/Button"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginRight="@dimen/dp5"
+                        android:layout_weight="0.33"
+                        android:text="@string/start" />
+
+                    <Button
+                        android:id="@+id/btn_handler_stop"
+                        style="@style/Button"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginRight="@dimen/dp5"
+                        android:layout_weight="0.33"
+                        android:text="@string/stop" />
+
+                    <Button
+                        android:id="@+id/btn_handler_reset"
+                        style="@style/Button"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginRight="@dimen/dp5"
+                        android:layout_weight="0.33"
+                        android:text="@string/reset" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/txt_gray_small"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="@string/countdown_timer"
+                    android:textSize="@dimen/sp15" />
+
+                <TextView
+                    android:id="@+id/txt_cd_timer"
+                    style="@style/txt_black_normal_bold"
+                    android:layout_gravity="center_horizontal"
+                    android:text="00:00"
+                    android:textSize="@dimen/sp52" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp15"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_cd_start"
+                        style="@style/Button"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginRight="@dimen/dp5"
+                        android:layout_weight="0.33"
+                        android:text="@string/start" />
+
+                    <Button
+                        android:id="@+id/btn_cd_stop"
+                        style="@style/Button"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginRight="@dimen/dp5"
+                        android:layout_weight="0.33"
+                        android:text="@string/stop" />
+
+                    <Button
+                        android:id="@+id/btn_cd_reset"
+                        style="@style/Button"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginRight="@dimen/dp5"
+                        android:layout_weight="0.33"
+                        android:text="@string/reset" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

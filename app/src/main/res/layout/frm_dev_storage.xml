@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:custom="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="50dp"
+                    app:cardBackgroundColor="@color/white"
+                    android:layout_marginRight="10dp"
+                    custom:cardUseCompatPadding="true">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal">
+
+                    <com.github.lzyzsd.circleprogress.DonutProgress
+                            android:id="@+id/donut_ram_usage"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            custom:donut_finished_color="@color/ram_used_memory"
+                            custom:donut_finished_stroke_width="12dp"
+                            custom:donut_inner_bottom_text_size="12sp"
+                            custom:donut_suffix_text="@string/percentage"
+                            custom:donut_text_color="@color/black"
+                            custom:donut_unfinished_color="@color/ram_free_memory"
+                            custom:donut_unfinished_stroke_width="12dp" />
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:orientation="vertical"
+                            android:paddingLeft="30dp">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/ram_usage"
+                                android:textColor="@color/black"
+                                android:textSize="16sp" />
+
+                        <TextView
+                                android:id="@+id/tv_used_memory"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:textColor="@color/gray"
+                                android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    app:cardBackgroundColor="@color/white"
+                    android:layout_marginRight="10dp"
+                    custom:cardUseCompatPadding="true">
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal">
+
+                    <com.github.lzyzsd.circleprogress.DonutProgress
+                            android:id="@+id/donut_internal_storage"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            custom:donut_finished_color="@color/int_used_memory"
+                            custom:donut_finished_stroke_width="12dp"
+                            custom:donut_inner_bottom_text_size="12sp"
+                            custom:donut_suffix_text="@string/percentage"
+                            custom:donut_text_color="@color/black"
+                            custom:donut_unfinished_color="@color/int_free_memory"
+                            custom:donut_unfinished_stroke_width="12dp" />
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:orientation="vertical"
+                            android:paddingLeft="30dp">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/internal_storage"
+                                android:textColor="@color/black"
+                                android:textSize="16sp" />
+
+                        <TextView
+                                android:id="@+id/tv_used_intmemory"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:textColor="@color/gray"
+                                android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    app:cardBackgroundColor="@color/white"
+                    custom:cardUseCompatPadding="true">
+
+                <LinearLayout
+                        android:id="@+id/ll_ext_memory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                    <com.github.lzyzsd.circleprogress.DonutProgress
+                            android:id="@+id/donut_external_storage"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            custom:donut_finished_color="@color/ext_used_memory"
+                            custom:donut_finished_stroke_width="12dp"
+                            custom:donut_inner_bottom_text_size="12sp"
+                            custom:donut_suffix_text="@string/percentage"
+                            custom:donut_text_color="@color/black"
+                            custom:donut_unfinished_color="@color/ext_free_memory"
+                            custom:donut_unfinished_stroke_width="12dp" />
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:orientation="vertical"
+                            android:paddingLeft="30dp">
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/external_storage"
+                                android:textColor="@color/black"
+                                android:textSize="16sp" />
+
+                        <TextView
+                                android:id="@+id/tv_used_extmemory"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:textColor="@color/gray"
+                                android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

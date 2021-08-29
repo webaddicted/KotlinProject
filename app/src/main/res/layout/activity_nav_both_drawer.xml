@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+            android:id="@+id/drawer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <FrameLayout
+                    android:id="@+id/container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/white"
+                    android:layout_below="@+id/linear_toolbar" />
+
+            <LinearLayout
+                    android:id="@+id/linear_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/app_color"
+                    android:orientation="vertical">
+
+                <include
+                        android:id="@+id/toolbar"
+                        layout="@layout/toolbar_nav" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp250"
+                        android:src="@drawable/no_data" />
+
+                <TextView
+                        android:id="@+id/txt_suggest"
+                        style="@style/TextView_Regular"
+                        android:layout_width="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="@dimen/dp8"
+                        android:gravity="center"
+                        android:padding="@dimen/dp5"
+                        android:text="@string/no_internet_connection"
+                        android:textColor="@color/app_color"
+                        android:textSize="@dimen/sp18" />
+            </LinearLayout>
+        </RelativeLayout>
+
+
+        <com.google.android.material.navigation.NavigationView
+                android:id="@+id/nav_left_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:background="@color/white"
+                android:fitsSystemWindows="true"
+                app:headerLayout="@layout/nav_header_main" />
+
+        <com.google.android.material.navigation.NavigationView
+                android:id="@+id/nav_right_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:background="@color/white"
+                android:fitsSystemWindows="true"
+                app:headerLayout="@layout/nav_header_main" />
+
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

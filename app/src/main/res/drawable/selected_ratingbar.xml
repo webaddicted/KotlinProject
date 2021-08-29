@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <bitmap
+            android:src="@drawable/unfill_star"
+            android:tint="?attr/colorControlNormal" />
+    </item>
+    <item android:id="@android:id/secondaryProgress">
+        <bitmap
+            android:src="@drawable/unfill_star"
+            android:tint="?attr/colorControlActivated" />
+    </item>
+    <item android:id="@android:id/progress">
+        <bitmap
+            android:src="@drawable/fill_star"
+            android:tint="?attr/colorControlActivated" />
+    </item>
+</layer-list>
+<!--<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >-->
+     <!--<item-->
+        <!--android:id="@+id/background"-->
+        <!--android:drawable="@drawable/unfill_star"/>-->
+    <!--<item-->
+        <!--android:id="@+id/secondaryProgress"-->
+        <!--android:drawable="@drawable/unfill_star"/>-->
+    <!--<item-->
+        <!--android:id="@+id/progress"-->
+        <!--android:drawable="@drawable/fill_star"/>-->
+
+<!--</layer-list>-->

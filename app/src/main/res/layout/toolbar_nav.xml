@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:card_view="http://schemas.android.com/tools">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_color"
+            android:elevation="@dimen/dp10"
+            android:orientation="vertical">
+
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp21" />
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/app_color"
+                    app:contentInsetEnd="0dp"
+                    app:contentInsetStart="0dp">
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                    <ImageView
+                            android:id="@+id/img_nav_left"
+                            android:layout_width="@dimen/dp43"
+                            android:layout_height="@dimen/dp38"
+                            android:layout_centerVertical="true"
+                            android:paddingTop="@dimen/dp10"
+                            android:paddingBottom="@dimen/dp8"
+                            android:src="@drawable/navigation"
+                            android:tint="@color/white_par"
+/>
+                    <TextView
+                            android:id="@+id/txt_toolbar_title"
+                            style="@style/TextView_Regular"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:maxLines="1"
+                            android:text=""
+                            android:textColor="@color/white_par"
+                            android:textSize="@dimen/sp17" />
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/dp8"
+                            android:orientation="horizontal">
+
+                        <ImageView
+                                android:id="@+id/img_nav_right"
+                                android:layout_width="@dimen/dp28"
+                                android:layout_height="@dimen/dp35"
+                                android:layout_marginLeft="@dimen/dp5"
+                                android:src="@drawable/ic_option"
+                                android:tint="@color/white_par" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray_f6f6f6"
+            android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp21"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                app:contentInsetEnd="0dp"
+                app:contentInsetLeft="0dp"
+                app:contentInsetRight="0dp"
+                app:contentInsetStart="0dp">
+
+            <ImageView
+                    android:id="@+id/img_navi"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="11.7dp"
+                    android:tint="@color/black"
+                    android:src="@drawable/navigation" />
+
+            <TextView
+                    style="@style/txt_white_normal"
+                    android:layout_marginLeft="@dimen/dp11"
+                    android:text="@string/v_commerce"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp14" />
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp35"
+                    android:layout_marginLeft="@dimen/dp12"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:background="@drawable/round_corners"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dp10">
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/dp17"
+                        android:layout_weight="1"
+                        android:background="#00000000"
+                        android:hint="@string/search"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="@dimen/sp11" />
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp15"
+                        android:layout_marginRight="@dimen/dp12"
+                        android:gravity="center_vertical"
+                        android:src="@drawable/ic_search" />
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_EAEBED" />
+
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <ss.com.bannerslider.views.BannerSlider
+                            android:id="@+id/banner_slider"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp212"
+                            app:animateIndicators="true"
+                            app:defaultIndicators="circle"
+                            app:interval="2000"
+                            app:loopSlides="true" />
+<!--                    <androidx.viewpager.widget.ViewPager-->
+<!--                            android:id="@+id/viewpager"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="@dimen/dp210">-->
+
+<!--                    </androidx.viewpager.widget.ViewPager>-->
+
+                    <!--                    <CircleIndicator-->
+                    <!--                            android:id="@+id/indicator"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="48dp"-->
+                    <!--                            android:layout_gravity="bottom"-->
+                    <!--                            app:ci_drawable="@drawable/ic_circular"-->
+                    <!--                            app:ci_drawable_unselected="@drawable/ic_circular"-->
+                    <!--                            app:ci_height="5dp"-->
+                    <!--                            app:ci_width="5dp" />-->
+
+
+                </FrameLayout>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp20"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                    <TextView
+                            style="@style/txt_black_normal"
+                            android:layout_marginLeft="@dimen/dp18"
+                            android:layout_marginTop="@dimen/dp7"
+                            android:text="@string/fashion"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp13" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_fashion"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:layout_marginRight="@dimen/dp5"
+                            android:layout_marginBottom="@dimen/dp15"
+                            android:nestedScrollingEnabled="false" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp20"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                    <TextView
+                            style="@style/txt_black_normal"
+                            android:layout_marginLeft="@dimen/dp18"
+                            android:layout_marginTop="@dimen/dp7"
+                            android:text="@string/mobiles_and_elec"
+                            android:textSize="@dimen/sp13" />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_mobile_elec"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:layout_marginRight="@dimen/dp5"
+                            android:layout_marginBottom="@dimen/dp15"
+                            android:nestedScrollingEnabled="false" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp20"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                    <TextView
+                            style="@style/txt_black_normal"
+                            android:layout_marginLeft="@dimen/dp18"
+                            android:layout_marginTop="@dimen/dp7"
+                            android:text="@string/home_deco"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp13" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_home_desc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:layout_marginRight="@dimen/dp5"
+                            android:layout_marginBottom="@dimen/dp15"
+                            android:nestedScrollingEnabled="false" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+</layout>

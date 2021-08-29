@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+        <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar_nav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_text"
+                        style="@style/EdittextBlack"
+                        android:hint="@string/enter_first_name"
+                        android:singleLine="false"
+                        android:visibility="gone" />
+
+                <LinearLayout
+                        android:id="@+id/linear_lang_trans"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:visibility="gone"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="@dimen/dp10">
+
+                    <TextView
+                            style="@style/txt_black_normal"
+                            android:background="@drawable/rectangle_unfill"
+                            android:paddingLeft="@dimen/dp20"
+                            android:paddingTop="@dimen/dp5"
+                            android:paddingRight="@dimen/dp20"
+                            android:paddingBottom="5dp"
+                            android:text="EN" />
+
+                    <TextView
+                            android:id="@+id/txt_dest_lang"
+                            style="@style/txt_black_normal"
+                            android:background="@drawable/rectangle_unfill"
+                            android:paddingLeft="@dimen/dp20"
+                            android:paddingTop="@dimen/dp5"
+                            android:layout_marginLeft="@dimen/dp50"
+                            android:paddingRight="@dimen/dp20"
+                            android:paddingBottom="5dp"
+                            android:text="FR" />
+                </LinearLayout>
+
+                <ImageView
+                        android:id="@+id/img_on_device"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp215"
+
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/man" />
+
+                <TextView
+                        android:id="@+id/txt_on_device_result"
+                        style="@style/txt_black_normal"
+                        android:layout_gravity="start"
+                        android:layout_margin="@dimen/dp5" />
+
+                <Button
+                        android:id="@+id/btn_on_device"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:layout_marginBottom="@dimen/dp10"
+                        android:text="@string/on_device" />
+
+                <ImageView
+                        android:id="@+id/img_cloud"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp215"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/man" />
+
+                <TextView
+                        android:id="@+id/txt_cloud_result"
+                        style="@style/txt_black_normal"
+                        android:layout_gravity="start"
+                        android:layout_margin="@dimen/dp5" />
+
+                <Button
+                        android:id="@+id/btn_cloud"
+                        style="@style/Button"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:layout_marginBottom="@dimen/dp20"
+                        android:text="@string/cloud" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

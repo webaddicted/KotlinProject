@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:custom="http://schemas.android.com/tools">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+        <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/txt_marquee"
+                        style="@style/txt_black_normal"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:paddingLeft="10dip"
+                        android:paddingRight="10dip"
+                        android:scrollHorizontally="true"
+                        android:singleLine="true"
+                        android:text="@string/dummyText"
+                        android:textColor="@color/black" />
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dp20"
+                        android:orientation="vertical">
+
+                    <LinearLayout
+                            android:id="@+id/linear_edittext"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:layout_marginRight="@dimen/dp5"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                        <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp50"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_marginBottom="@dimen/dp30"
+                                android:background="@color/app_color"
+                                android:orientation="horizontal">
+
+                            <TextView
+                                    style="@style/txt_white_normal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:text="@string/edit_text" />
+
+                            <ImageView
+                                    android:id="@+id/img_option_menu"
+                                    android:layout_width="@dimen/dp30"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentRight="true"
+                                    android:src="@drawable/ic_option" />
+                        </RelativeLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/first_name"
+                                app:helperText="@string/enter_first_name"
+                                android:textColorHint="@color/gray_818181"
+                                app:helperTextEnabled="true">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:textColorHint="@color/gray_818181"
+                                    android:textColor="@color/black"
+                                    android:layout_height="wrap_content" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp8"
+                                android:hint="@string/password"
+                                android:textColorHint="@color/gray_818181"
+                                app:endIconMode="password_toggle"
+                                app:errorEnabled="true"
+                                app:helperText="@string/password"
+                                app:helperTextEnabled="true">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColorHint="@color/gray_818181"
+                                    android:textColor="@color/black"
+                                    android:inputType="textPassword" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp8"
+                                android:hint="@string/enter_first_name"
+                                app:errorEnabled="true"
+                                android:textColorHint="@color/gray_818181"
+                                app:helperText="@string/enter_first_name"
+                                app:helperTextEnabled="true">
+
+                            <AutoCompleteTextView
+                                    android:id="@+id/filled_exposed_dropdown_editable"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:clickable="false"
+                                    android:textColorHint="@color/gray_818181"
+                                    android:textColor="@color/black"
+                                    android:focusableInTouchMode="false"
+                                    android:longClickable="false" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp8"
+                                android:enabled="false"
+                                android:hint="@string/enter_last_name"
+                                android:textColorHint="@color/gray_818181"
+                                app:helperText="@string/enter_last_name"
+                                app:helperTextEnabled="true">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp50"
+                                    android:textColorHint="@color/gray_818181"
+                                    android:textColor="@color/black"
+                                    android:background="@drawable/rectangle_unfill"
+                                    android:paddingLeft="@dimen/dp10" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp45"
+                                android:layout_marginTop="@dimen/dp8"
+                                android:layout_marginBottom="@dimen/dp10"
+                                android:textColorHint="@color/gray_818181"
+                                android:background="@drawable/edt_round_corner"
+                                android:hint="@string/enter_first_name"
+                                android:paddingLeft="@dimen/dp10" />
+
+                        <AutoCompleteTextView
+                                android:id="@+id/autoCompleteTextVie"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:textColorHint="@color/gray_818181"
+                                android:textColor="@color/black"
+                                android:drawablePadding="@dimen/dp4"
+                                android:ems="10"
+                                app:hintTextColor="@color/gray_818181"
+                                android:hint="Select country"
+                                android:textAppearance="@style/TextAppearance_open_sans_semibold" />
+
+                        <MultiAutoCompleteTextView
+                                android:id="@+id/multiAutoCompleteTextView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:ems="10"
+                                android:textColorHint="@color/gray_818181"
+                                android:textColor="@color/black"
+                                android:hint="Select multiple country"
+                                android:textAppearance="@style/TextAppearance_open_sans_semibold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:id="@+id/linear_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                        <TextView
+                                style="@style/txt_white_normal"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp50"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_marginBottom="@dimen/dp10"
+                                android:background="@color/app_color"
+                                android:gravity="center"
+                                android:text="@string/button" />
+
+                        <Button
+                                style="@style/Button"
+                                android:layout_marginTop="@dimen/dp8"
+                                android:background="@drawable/rectangle_fill"
+                                android:text="@string/app_name" />
+<!--                        <com.google.android.material.button.MaterialButton-->
+<!--                                android:id="@+id/button"-->
+<!--                                android:layout_width="600dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_gravity="center_horizontal"-->
+<!--                                android:text="asdgdsfdsfdsfd"-->
+<!--                                android:textColor="@color/app_color"-->
+<!--                                app:backgroundTint="@color/white"-->
+<!--                                app:shapeAppearance="@style/CustomShapeAppearance"-->
+<!--                                app:icon="@drawable/car"-->
+<!--                                app:iconGravity="textStart"-->
+<!--                                app:iconPadding="10dp"-->
+<!--                                app:iconTint="@color/app_color"-->
+<!--                             />-->
+                        <Button
+                                style="@style/Button"
+                                android:layout_marginTop="@dimen/dp8"
+                                android:text="@string/app_name" />
+
+                        <Button
+                                style="@style/Button"
+                                android:layout_marginTop="@dimen/dp8"
+                                android:background="@drawable/edt_round_corner"
+                                android:text="@string/app_name"
+                                android:textColor="@color/black" />
+
+                        <Button
+                                style="@style/Button"
+                                android:layout_marginTop="@dimen/dp8"
+                                android:layout_marginBottom="@dimen/dp8"
+                                android:background="@drawable/rectangle_unfill"
+                                android:text="@string/app_name"
+                                android:textColor="@color/black" />
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="@dimen/dp8"
+                                android:layout_marginBottom="@dimen/dp8"
+                                app:backgroundTint="@color/orange"
+                                app:srcCompat="@drawable/fab_add"
+                                app:tint="@color/white" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:id="@+id/linear_rating_bar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                        <TextView
+                                style="@style/txt_white_normal"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp50"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_marginBottom="@dimen/dp10"
+                                android:background="@color/app_color"
+                                android:gravity="center"
+                                android:text="@string/rating" />
+
+                        <TextView
+                                style="@style/txt_black_normal"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:text="Rating Bar Style"
+                                android:textSize="@dimen/sp19" />
+                        <!--                        the filled stars color (progressTint)-->
+                        <!--                        the unfilled stars color (progressBackgroundTint)-->
+                        <!--                        and the border color (secondaryProgressTint) of the stars-->
+                        <RatingBar
+                                android:id="@+id/rb_style"
+                                style="@style/RatingBar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:numStars="5"
+                                android:progressBackgroundTint="@color/gray_CDCDCD"
+                                android:progressTint="@color/app_color"
+                                android:rating="3"
+                                android:secondaryProgressTint="@color/gray_CDCDCD"
+                                android:stepSize="0.5" />
+
+                        <TextView
+                                style="@style/txt_black_normal"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:text="Rating Bar Style Indicator"
+                                android:textSize="@dimen/sp17" />
+
+                        <RatingBar
+                                android:id="@+id/rb_indicator"
+                                style="@style/RatingBar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:rating="3" />
+
+                        <TextView
+                                style="@style/txt_black_normal"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:text="Rating Bar Style Small"
+                                android:textSize="@dimen/sp15" />
+
+                        <RatingBar
+                                android:id="@+id/rb_small"
+                                style="@style/RatingBar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:rating="3" />
+
+                        <TextView
+                                style="@style/txt_black_normal"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:text="One Touch Rating Bar"
+                                android:textSize="@dimen/sp12" />
+
+                        <RatingBar
+                                android:id="@+id/rb_one_touch"
+                                style="@style/RatingBar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:rating="3"
+                                android:scaleX="0.2"
+                                android:scaleY="0.2" />
+
+                        <TextView
+                                style="@style/txt_black_normal"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:text="Custom RatingBar with Images"
+                                android:textSize="@dimen/sp16" />
+
+                        <RatingBar
+                                android:id="@+id/rb_ratingbar"
+                                style="@style/CustomStarRatingBar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:paddingTop="@dimen/dp5"
+                                android:paddingBottom="@dimen/dp5"
+                                android:rating="3" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:id="@+id/linear_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                        <TextView
+                                style="@style/txt_white_normal"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp50"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_marginBottom="@dimen/dp10"
+                                android:background="@color/app_color"
+                                android:gravity="center"
+                                android:text="@string/image" />
+
+                        <ImageView
+                                android:layout_width="@dimen/dp120"
+                                android:layout_height="@dimen/dp120"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/man" />
+
+                        <com.webaddicted.kotlinproject.global.customview.CircleImageView
+                                android:layout_width="@dimen/dp120"
+                                android:layout_height="@dimen/dp120"
+                                android:layout_marginTop="@dimen/dp8"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/man" />
+
+                        <com.webaddicted.kotlinproject.global.customview.CircleImageView
+                                android:layout_width="@dimen/dp120"
+                                android:layout_height="@dimen/dp120"
+                                android:layout_marginTop="@dimen/dp8"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/man"
+                                app:civ_border_color="@color/app_color_par"
+                                app:civ_border_width="5dp" />
+
+                        <com.airbnb.lottie.LottieAnimationView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp150"
+                                android:layout_gravity="center_horizontal"
+                                app:lottie_autoPlay="true"
+                                app:lottie_loop="true"
+                                app:lottie_rawRes="@raw/sleepy_loading" />
+
+                        <com.webaddicted.kotlinproject.global.customview.ZoomImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp350"
+                                android:layout_marginTop="15dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/good_night_img" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:id="@+id/linear_check"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dp10"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                        <TextView
+                                style="@style/txt_white_normal"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp50"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_marginBottom="@dimen/dp10"
+                                android:background="@color/app_color"
+                                android:gravity="center"
+                                android:text="@string/radio_btn" />
+
+                        <RadioGroup
+                                android:id="@+id/rg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp20"
+                                android:orientation="horizontal">
+
+                            <RadioButton
+                                    android:id="@+id/cb_selected"
+                                    style="@style/checkBox"
+                                    android:text="@string/selected" />
+
+                            <RadioButton
+                                    android:id="@+id/cb_unselected"
+                                    style="@style/checkBox"
+                                    android:text="@string/unselected" />
+
+                            <RadioButton
+                                    android:id="@+id/cb_none"
+                                    style="@style/checkBox"
+                                    android:text="@string/none" />
+                        </RadioGroup>
+
+                        <Switch
+                                android:id="@+id/switch_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp18"
+                                android:shadowColor="@color/gray_818181"
+                                android:layout_marginBottom="@dimen/dp5"
+                                android:switchTextAppearance="@style/switch_text_appearance"
+                                android:textOff="OFF"
+                                android:textOn="ON" />
+
+                        <CheckBox
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp18"
+                                android:padding="@dimen/dp8"
+                                android:text="Click Me"
+                                android:textColor="@color/app_color_par"
+                                android:textSize="@dimen/sp18" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:id="@+id/linear_progress_bar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dp10"
+                            android:gravity="center"
+
+                            android:orientation="vertical">
+
+                        <TextView
+                                style="@style/txt_white_normal"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp50"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_marginBottom="@dimen/dp10"
+                                android:background="@color/app_color"
+                                android:gravity="center"
+                                android:text="@string/start_progress" />
+
+                        <ProgressBar
+                                android:id="@+id/pb_small"
+                                style="?android:attr/progressBarStyleSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp8"
+                                android:indeterminate="true"
+                                android:outlineSpotShadowColor="@color/gray" />
+
+                        <ProgressBar
+                                android:id="@+id/pb_medium"
+                                style="?android:attr/progressBarStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp8"
+                                android:indeterminate="true" />
+
+                        <ProgressBar
+                                android:id="@+id/pb_large"
+                                style="?android:attr/progressBarStyleLarge"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp8"
+                                android:indeterminate="true"
+                                android:outlineSpotShadowColor="@color/gray" />
+
+                        <ProgressBar
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp25"
+                                android:layout_marginTop="@dimen/dp8"
+                                android:layout_marginRight="@dimen/dp25"
+                                android:indeterminate="true"
+                                android:progress="50" />
+
+                        <ProgressBar
+                                style="@android:style/Widget.ProgressBar.Large.Inverse"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp8" />
+
+                        <ProgressBar
+                                android:id="@+id/pb_hori"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp30"
+                                android:layout_marginLeft="@dimen/dp25"
+                                android:layout_marginTop="@dimen/dp8"
+                                android:layout_marginRight="@dimen/dp25"
+                                android:max="100"
+                                android:minHeight="100dp"
+                                android:padding="6dp"
+                                android:progress="40"
+                                android:progressDrawable="@drawable/pb_custom" />
+
+                        <TextView
+                                android:id="@+id/txt_progress"
+                                style="@style/TextView_Regular"
+
+                                android:layout_marginTop="@dimen/dp8"
+                                android:text="" />
+
+                        <TextView
+                                android:id="@+id/txt_seekbar"
+                                style="@style/TextView_Regular" />
+
+                        <SeekBar
+                                android:id="@+id/seekBar"
+                                style="@style/SeekBar"
+                                android:layout_marginTop="@dimen/dp8"
+                                android:progressDrawable="@drawable/seekbar_custom"
+                                android:thumb="@drawable/seekbar_thumb" />
+
+                        <ProgressBar
+                                android:id="@+id/pb_circle"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="150dp"
+                                android:layout_height="150dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/dp8"
+                                android:indeterminate="false"
+                                android:max="100"
+                                android:progressDrawable="@drawable/pb_circular" />
+
+                        <com.github.lzyzsd.circleprogress.DonutProgress
+                                android:id="@+id/donut_internal_storage"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_marginTop="@dimen/dp8"
+                                custom:donut_finished_color="@color/int_used_memory"
+                                custom:donut_finished_stroke_width="12dp"
+                                custom:donut_inner_bottom_text_size="12sp"
+                                custom:donut_suffix_text="@string/percentage"
+                                custom:donut_text_color="@color/black"
+                                custom:donut_unfinished_color="@color/int_free_memory"
+                                custom:donut_unfinished_stroke_width="12dp" />
+
+                        <com.github.lzyzsd.circleprogress.ArcProgress
+                                android:id="@+id/arc_ram"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_centerVertical="true"
+                                custom:arc_bottom_text="@string/ram_m"
+                                custom:arc_bottom_text_size="12sp"
+                                custom:arc_finished_color="@color/orange"
+                                custom:arc_stroke_width="7dp"
+                                custom:arc_suffix_text_padding="-2dp"
+                                custom:arc_suffix_text_size="12sp"
+                                custom:arc_text_color="@color/black"
+                                custom:arc_text_size="20sp"
+                                app:arc_finished_color="@color/orange"
+                                custom:arc_unfinished_color="@color/orange" />
+
+                        <RelativeLayout
+                                android:layout_width="@dimen/dp250"
+                                android:layout_height="@dimen/dp250"
+                                android:layout_marginTop="@dimen/dp8"
+                                android:padding="8dp">
+
+                            <ProgressBar
+                                    android:id="@+id/pb_circular"
+                                    style="?android:attr/progressBarStyleHorizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerInParent="true"
+                                    android:indeterminate="false"
+                                    android:max="100"
+                                    android:progress="50"
+                                    android:secondaryProgress="100" />
+
+                            <TextView
+                                    android:id="@+id/txt_circular"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerInParent="true"
+                                    android:gravity="center"
+                                    android:text="25%"
+                                    android:textColor="@color/black"
+                                    android:textSize="24sp" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/colorPrimary"
+                                android:layout_marginTop="@dimen/dp8"
+                                android:orientation="vertical">
+
+                            <com.webaddicted.kotlinproject.global.customview.waveview.WaveView
+                                    android:id="@+id/wave_pb"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp200"
+                                    android:background="@color/geo_fency_color"
+                                    app:above_wave_color="@color/light_blue_500"
+                                    app:blow_wave_color="@color/cyan_500"
+                                    app:wave_height="large"
+                                    app:wave_hz="normal"
+                                    app:wave_length="large" />
+
+                            <ProgressBar
+                                    style="?android:attr/progressBarStyleHorizontal"
+                                    android:layout_width="70dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:visibility="visible" />
+
+                            <TextView
+                                    android:id="@+id/txt_wave_level"
+                                    style="@style/txt_white_normal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:textSize="@dimen/dp50" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:id="@+id/linear_other_widget"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dp10"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                        <TextView
+                                style="@style/txt_white_normal"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp50"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_marginBottom="@dimen/dp10"
+                                android:background="@color/app_color"
+                                android:gravity="center"
+                                android:text="@string/other_widget" />
+
+                        <TextView
+                                android:id="@+id/txt_date_value"
+                                style="@style/TextView_Regular" />
+
+                        <Button
+                                android:id="@+id/btn_data_picker"
+                                style="@style/Button"
+                                android:text="@string/select_date" />
+
+                        <TextView
+                                android:id="@+id/txt_time_value"
+                                style="@style/TextView_Regular"
+                                android:layout_marginTop="@dimen/dp5" />
+
+                        <Button
+                                android:id="@+id/btn_time_picker"
+                                style="@style/Button"
+                                android:text="@string/select_time" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                        android:id="@+id/bottom_space"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

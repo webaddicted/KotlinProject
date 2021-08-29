@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/dp280"
+                    android:layout_height="@dimen/dp150"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dp80"
+                    android:background="@drawable/edt_round_corner"
+                        android:backgroundTint="@color/black"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/img_scan_dl"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/scan_dl"
+                        android:textSize="14sp"
+                            android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/dp280"
+                    android:layout_height="@dimen/dp150"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dp80"
+                    android:background="@drawable/edt_round_corner"
+                        android:backgroundTint="@color/black"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/img_capture_pic"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:scaleType="centerCrop" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/capture_selfie"
+                        android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

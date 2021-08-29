@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.cardview.widget.CardView
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            card_view:cardBackgroundColor="@color/white"
+            card_view:cardCornerRadius="8dp"
+            card_view:cardElevation="3dp">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+            <com.webaddicted.kotlinproject.global.customview.CircleImageView
+                    android:id="@+id/contactImage"
+                    android:layout_width="@dimen/dp100"
+                    android:layout_height="@dimen/dp100"
+                    android:padding="5dp"
+                    android:src="@drawable/man" />
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                    <TextView
+                            android:id="@+id/txt_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.8"
+                            android:lineSpacingExtra="3dp"
+                            android:padding="2dp"
+                            android:text="contactName"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"/>
+
+                    <CheckBox
+                            android:id="@+id/cb"
+                            android:layout_width="0dp"
+                            android:outlineSpotShadowColor="@color/black"
+                            android:layout_height="wrap_content"
+                            android:textColorHighlight="@color/black"
+                            android:layout_weight="0.2" />
+
+                </LinearLayout>
+
+                <TextView
+                        android:id="@+id/txt_no"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingExtra="3dp"
+                        android:padding="2dp"
+                        android:textColor="@color/gray_818181"
+                        android:text="contactNumber"
+                        android:textSize="15sp" />
+
+                <TextView
+                        android:id="@+id/txt_email"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingExtra="3dp"
+                        android:padding="2dp"
+                        android:textColor="@color/gray_818181"
+                        android:text="contactNumber"
+                        android:textSize="15sp" />
+
+                <TextView
+                        android:id="@+id/txt_other_info"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingExtra="3dp"
+                        android:padding="2dp"
+                        android:textColor="@color/gray_818181"
+                        android:text="contactNumber"
+                        android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/fcm_bc1" />
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="bottom"
+                android:orientation="vertical">
+
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp250"
+                    android:layout_marginBottom="@dimen/dp25"
+                    android:padding="@dimen/dp30"
+                    android:src="@drawable/food_logo" />
+
+            <TextView
+                    style="@style/txt_black_normal"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/dp25"
+                    android:gravity="center"
+                    android:text="Get the best food\nin town!"
+                    android:textColor="@color/app_color"
+                    android:textSize="@dimen/sp20" />
+
+            <Button
+                    android:id="@+id/btn_google"
+                    style="@style/ButtonStroke"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:layout_marginBottom="@dimen/dp5"
+                    android:backgroundTint="@color/windows_blue"
+                    android:drawableLeft="@drawable/ic_google"
+                    android:drawablePadding="@dimen/dp25"
+                    android:paddingLeft="@dimen/dp30"
+                    android:paddingRight="@dimen/dp45"
+                    android:text="@string/connect_with_google"
+                    android:textColor="@color/windows_blue" />
+
+            <Button
+                    android:id="@+id/btn_fb"
+                    style="@style/ButtonStroke"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:layout_marginBottom="@dimen/dp5"
+                    android:backgroundTint="@color/windows_blue"
+                    android:drawableLeft="@drawable/ic_facebook"
+                    android:drawablePadding="@dimen/dp15"
+                    android:paddingLeft="@dimen/dp25"
+                    android:paddingRight="@dimen/dp35"
+                    android:text="@string/connect_with_fb"
+                    android:textColor="@color/windows_blue" />
+
+            <Button
+                    android:id="@+id/btn_twitter"
+                    style="@style/ButtonStroke"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:layout_marginBottom="@dimen/dp45"
+                    android:backgroundTint="@color/windows_blue"
+                    android:drawableLeft="@drawable/ic_twitter"
+                    android:drawablePadding="@dimen/dp25"
+                    android:paddingLeft="@dimen/dp30"
+                    android:paddingRight="@dimen/dp44"
+                    android:text="@string/connect_with_twitter"
+                    android:textColor="@color/windows_blue" />
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp45"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                <Button
+                        android:id="@+id/btn_register"
+                        style="@style/Button"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:layout_marginRight="@dimen/dp5"
+                        android:layout_marginBottom="@dimen/dp5"
+                        android:text="@string/register" />
+
+                <Button
+                        android:id="@+id/btn_login"
+                        style="@style/ButtonStroke"
+                        android:layout_marginLeft="@dimen/dp25"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:layout_marginRight="@dimen/dp5"
+                        android:layout_marginBottom="@dimen/dp5"
+                        android:text="@string/login" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

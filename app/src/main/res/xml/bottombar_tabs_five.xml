@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+            id="@+id/tab_food"
+            icon="@drawable/ic_food"
+            title="Food"/>
+
+    <tab
+            id="@+id/tab_movie"
+            icon="@drawable/ic_movie"
+            title="Movies"/>
+    <tab
+            id="@+id/tab_travel"
+            icon="@drawable/ic_travel"
+            title="Travel"/>
+    <tab
+            id="@+id/tab_profile"
+            icon="@drawable/ic_profile"
+            title="Profile"/>
+    <tab
+            id="@+id/tab_sim_card"
+            icon="@drawable/ic_no_simcard"
+            title="Sim Card"/>
+</tabs>

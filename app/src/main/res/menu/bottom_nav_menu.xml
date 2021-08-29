@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@+id/nav_food"
+            android:icon="@drawable/ic_food"
+            android:title="Food" />
+    <item
+            android:id="@+id/nav_movie"
+            android:icon="@drawable/ic_movie"
+            android:title="Movie" />
+    <item
+            android:id="@+id/nav_travel"
+            android:icon="@drawable/ic_travel"
+            android:title="Travel" />
+    <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_profile"
+            android:title="Profile" />
+    <item
+            android:id="@+id/nav_no_sim"
+            android:icon="@drawable/ic_no_simcard"
+            android:title="Sim Card" />
+
+
+</menu>

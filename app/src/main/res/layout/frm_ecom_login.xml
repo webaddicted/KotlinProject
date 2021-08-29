@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:fillViewport="true">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <TextView
+                    style="@style/txt_black_normal"
+                    android:layout_marginLeft="@dimen/dp15"
+                    android:layout_marginTop="@dimen/dp30"
+                    android:layout_marginBottom="@dimen/dp10"
+                    android:text="@string/login"
+                    android:textSize="@dimen/sp12" />
+
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_EAEBED" />
+
+            <TextView
+                    style="@style/txt_black_normal"
+                    android:layout_marginLeft="@dimen/dp27"
+                    android:layout_marginTop="@dimen/dp29"
+                    android:text="@string/enter_mobile"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dp23" />
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp50"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_mobile_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp34"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:hint="@string/mobile_no"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray_818181"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:textSize="@dimen/sp13" />
+
+                <ImageView
+                        android:layout_width="@dimen/dp25"
+                        android:layout_height="@dimen/dp25"
+                        android:layout_marginRight="52.3dp"
+                        android:src="@drawable/ic_phone"
+                        android:tint="@color/app_color_par" />
+
+            </LinearLayout>
+
+            <TextView
+                    style="@style/txt_black_normal"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp21"
+                    android:gravity="center"
+                    android:text="@string/mobile_no_linked"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp11" />
+
+
+            <ImageView
+                    android:id="@+id/img_next"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp50"
+                    android:layout_above="@+id/space"
+                    android:layout_marginTop="@dimen/dp120"
+                    android:layout_marginBottom="@dimen/dp22"
+                    android:src="@drawable/next" />
+
+            <LinearLayout
+                    android:id="@+id/bottom_space"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/img_next"
+                    android:orientation="vertical" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

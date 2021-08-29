@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+        <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/txt_save_preference"
+                        style="@style/txt_gray_small"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:text=""
+                        android:textSize="@dimen/sp16"
+                        android:layout_marginBottom="@dimen/dp5" />
+
+                <Button
+                        android:id="@+id/btn_set_value"
+                        style="@style/Button"
+                        android:text="@string/set_value_in_preference" />
+
+                <TextView
+                        android:id="@+id/txt_get_preference"
+                        style="@style/txt_gray_small"
+                        android:textSize="@dimen/sp16"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:layout_marginBottom="@dimen/dp5" />
+
+                <Button
+                        android:id="@+id/btn_get_value_from_preference"
+                        style="@style/Button"
+                        android:text="@string/get_value" />
+
+                <TextView
+                        android:id="@+id/txt_remove_key"
+                        style="@style/txt_gray_small"
+                        android:textSize="@dimen/sp16"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:layout_marginBottom="@dimen/dp5" />
+
+                <Button
+                        android:id="@+id/btn_remove_key"
+                        style="@style/Button"
+                        android:text="@string/remove_key" />
+
+                <TextView
+                        android:id="@+id/txt_clear_preference"
+                        style="@style/txt_gray_small"
+                        android:textSize="@dimen/sp16"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:layout_marginBottom="@dimen/dp5" />
+
+                <Button
+                        android:id="@+id/btn_clear_preference"
+                        style="@style/Button"
+                        android:text="@string/clear_preference" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+</layout>

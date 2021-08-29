@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+        <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/txt_scan_data"
+                        style="@style/txt_gray_small"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:textSize="@dimen/sp15" />
+
+                <com.roughike.bottombar.BottomBar
+                        android:id="@+id/nav_normal"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:layout_height="@dimen/dp60"
+                        app:bb_tabXmlResource="@xml/bottombar_tabs_five" />
+
+                <com.roughike.bottombar.BottomBar
+                        android:id="@+id/nav_color"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp60"
+                        android:layout_marginTop="@dimen/dp15"
+                        app:bb_behavior="shifting|underNavbar"
+                        app:bb_tabXmlResource="@xml/bottombar_tabs_color_changing" />
+
+                <com.roughike.bottombar.BottomBar
+                        android:id="@+id/nav_custom"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp60"
+                        android:background="#FFFFFF"
+                        app:bb_activeTabColor="@color/colorAccent"
+                        app:bb_behavior="shifting"
+                        android:layout_marginTop="@dimen/dp15"
+                        app:bb_inActiveTabAlpha="0.3"
+                        app:bb_inActiveTabColor="@color/colorAccent"
+                        app:bb_tabXmlResource="@xml/bottombar_tabs_five"
+                        app:bb_titleTextAppearance="@style/CustomTitleTextAppearance" />
+
+                <com.roughike.bottombar.BottomBar
+                        android:id="@+id/nav_badge"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp60"
+                        android:layout_marginTop="@dimen/dp15"
+                        app:bb_tabXmlResource="@xml/bottombar_tabs_five" />
+                <com.etebarian.meowbottomnavigation.MeowBottomNavigation
+                        android:id="@+id/nav_meow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:mbn_circleColor="#ffffff"
+                        android:layout_marginTop="@dimen/dp15"
+                        app:mbn_backgroundBottomColor="#ffffff"
+                        app:mbn_countBackgroundColor="#ff6f00"
+                        app:mbn_countTextColor="#ffffff"
+                        app:mbn_defaultIconColor="#90a4ae"
+                        app:mbn_rippleColor="#2f424242"
+                        app:mbn_selectedIconColor="#3c415e"
+                        app:mbn_shadowColor="#1f212121"/>
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                        android:id="@+id/nav_default"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:background="@color/colorPrimary"
+                        app:itemIconTint="@color/white"
+                        app:itemTextColor="@color/white"
+                        app:menu="@menu/bottom_nav_menu"
+                        />
+                <FrameLayout
+                        android:id="@+id/nav_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

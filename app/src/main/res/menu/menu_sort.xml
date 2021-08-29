@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/colorPrimary"
+    xmlns:tools="http://schemas.android.com/tools">
+     <item
+        android:id="@+id/menu_default"
+        android:orderInCategory="100"
+        android:title="Default" />
+    <item
+        android:id="@+id/menu_ascending"
+        android:orderInCategory="101"
+        android:title="@string/ascending" />
+    <item
+        android:id="@+id/menu_descending"
+        android:orderInCategory="102"
+        android:title="@string/descending" />
+ 
+</menu>

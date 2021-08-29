@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+            android:id="@+id/parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:scrollbars="none">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp60"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:orientation="vertical">
+
+
+                <TextView
+                        style="@style/txt_black_normal"
+                        android:text="@string/welocome"
+                        android:textSize="@dimen/sp25" />
+
+                <TextView
+                        style="@style/txt_gray_small"
+                        android:text="@string/signin_to_start"
+                        android:textAppearance="@style/TextAppearance_open_sans_semibold"
+                        android:textSize="@dimen/sp15" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/wrapper_mobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp20">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_mobile"
+                            style="@style/EdittextBlack"
+                            android:hint="@string/mobile_no"
+                            android:inputType="number"
+                            android:maxLength="10" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/wrapper_pwd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        app:errorTextAppearance="@style/ErrorText"
+                        app:passwordToggleDrawable="@drawable/password_selector"
+                        app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="@color/gray">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_pwd"
+                            style="@style/EdittextBlack"
+                            android:hint="@string/password"
+                            android:inputType="textPassword"
+                            app:hintTextAppearance="@style/TextAppearance_open_sans_semibold" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                        android:id="@+id/txt_forgot_pass"
+                        style="@style/txt_black_normal_bold"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="@dimen/dp20"
+                        android:text="@string/forgot_pasword_s"
+                        android:textColor="@color/app_color_par" />
+
+                <View
+                        android:layout_width="@dimen/dp110"
+                        android:layout_height="@dimen/dp2"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:layout_marginRight="@dimen/dp5"
+                        android:background="@color/app_color_par" />
+
+                <Button
+                        android:id="@+id/btn_login"
+                        style="@style/Button"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="@dimen/dp20"
+                        android:layout_marginTop="@dimen/dp30"
+                        android:layout_marginRight="@dimen/dp20"
+                        android:text="@string/login" />
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp20"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                    <TextView
+                            style="@style/txt_black_normal_bold"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/dont_have_account"
+                            android:textColor="@color/gray_818181" />
+
+                    <TextView
+                            android:id="@+id/txt_sign_up"
+                            style="@style/txt_black_normal_bold"
+                            android:text="@string/register"
+                            android:textColor="@color/app_color_par"
+                            android:textSize="@dimen/sp18" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                        android:id="@+id/bottom_space"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dp50"
+                        android:orientation="vertical" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </FrameLayout>
+</layout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="5dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="2dp"
+                android:paddingBottom="5dp"
+                android:weightSum="2"
+                tools:ignore="RtlCompat">
+
+            <TextView
+                    android:id="@+id/txt_camera_feature_name"
+                    style="@style/txt_black_normal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:maxLines="4"
+                    android:paddingEnd="2dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    tools:targetApi="jelly_bean" />
+
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".03"
+                    android:gravity="center_vertical"
+                    android:text=":"
+                    android:textColor="@color/gray"
+                    tools:ignore="MissingPrefix"
+                    tools:targetApi="jelly_bean" />
+
+            <TextView
+                    android:id="@+id/txt_camera_feature_value"
+                    style="@style/txt_black_normal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.97"
+                    android:gravity="center_vertical"
+                    android:maxLines="30"
+                    android:paddingStart="2dp"
+                    android:textColor="@color/gray_CDCDCD"
+                    android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

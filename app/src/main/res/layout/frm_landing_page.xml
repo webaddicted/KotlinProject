@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:padding="16dp"
+            tools:background="@color/spider_blue">
+
+        <com.bosphere.fadingedgelayout.FadingEdgeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:fel_edge="top|bottom|right|left"
+                app:fel_size_bottom="120dp"
+                app:fel_size_left="120dp"
+                app:fel_size_right="120dp"
+                app:fel_size_top="120dp">
+
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <ImageView
+                        android:id="@+id/title_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:alpha="0"
+                        android:scaleType="centerCrop"
+                        tools:alpha="1"
+                        tools:src="@drawable/spider_man_portrait" />
+
+                <ImageView
+                        android:id="@+id/title_image_true"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:alpha="0"
+                        android:scaleType="centerCrop"
+                        tools:src="@drawable/spider_man_portrait" />
+
+                <View
+                        android:id="@+id/frame_c"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:alpha=".5"
+                        android:background="@color/white"
+                        tools:backgroundTint="@color/spider_blue" />
+
+                <LinearLayout
+                        android:id="@+id/logo_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                    <TextView
+                            style="@style/txt_white_normal"
+                            android:text="@string/app_name"
+                            android:textSize="@dimen/sp25" />
+
+                    <TextView
+                            style="@style/txt_white_normal"
+                            android:gravity="center"
+                            android:padding="8dp"
+                            android:text="@string/dummyText"
+                            android:textSize="15sp" />
+                </LinearLayout>
+            </RelativeLayout>
+        </com.bosphere.fadingedgelayout.FadingEdgeLayout>
+    </RelativeLayout>
+</layout>

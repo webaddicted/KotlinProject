@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+        <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                <Button
+                        android:id="@+id/btn_list"
+                        style="@style/Button"
+                        android:layout_width="@dimen/dp0"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginRight="@dimen/dp5"
+                        android:layout_weight="0.5"
+                        android:text="@string/list" />
+
+                <Button
+                        android:id="@+id/btn_grid"
+                        style="@style/Button"
+                        android:layout_width="@dimen/dp0"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginRight="@dimen/dp5"
+                        android:layout_toRightOf="@+id/btn_google_map"
+                        android:layout_weight="0.5"
+                        android:text="@string/grid" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                <Button
+                        android:id="@+id/btn_header"
+                        style="@style/Button"
+                        android:layout_width="@dimen/dp0"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginRight="@dimen/dp5"
+                        android:layout_weight="0.5"
+                        android:text="@string/header" />
+
+                <Button
+                        android:id="@+id/btn_staggered"
+                        style="@style/Button"
+                        android:layout_width="@dimen/dp0"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginRight="@dimen/dp5"
+                        android:layout_weight="0.5"
+                        android:text="@string/staggered" />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                <Button
+                        android:id="@+id/btn_swipe_to_delete"
+                        style="@style/Button"
+                        android:layout_width="@dimen/dp0"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginRight="@dimen/dp5"
+                        android:layout_toRightOf="@+id/btn_google_map"
+                        android:layout_weight="0.5"
+                        android:text="@string/btn_swipe_to_delete" />
+                <Button
+                        android:id="@+id/btn_change_anim"
+                        style="@style/Button"
+                        android:layout_width="@dimen/dp0"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginRight="@dimen/dp5"
+                        android:layout_toRightOf="@+id/btn_google_map"
+                        android:layout_weight="0.5"
+                        android:text="@string/change_animation" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/edt_search"
+                    android:layout_marginLeft="@dimen/dp3"
+                    android:layout_marginRight="@dimen/dp3"
+                    android:divider="@android:color/transparent" />
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>
