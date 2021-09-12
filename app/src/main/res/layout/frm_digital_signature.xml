@@ -64,12 +64,14 @@
                 <Button
                         android:id="@+id/btn_clear"
                         style="@style/Button"
+                        android:layout_height="48dp"
                         android:layout_marginTop="@dimen/dp15"
                         android:text="@string/clear" />
 
                 <Button
                         android:id="@+id/btn_save"
                         style="@style/Button"
+                        android:layout_height="48dp"
                         android:layout_marginTop="@dimen/dp15"
                         android:text="@string/save" />
 

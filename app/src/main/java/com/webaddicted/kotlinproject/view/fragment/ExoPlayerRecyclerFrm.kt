@@ -1,15 +1,10 @@
 package com.webaddicted.kotlinproject.view.fragment
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.View
 import androidx.databinding.ViewDataBinding
-import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.FrmExoPlayerRecyclerBinding
-import com.webaddicted.kotlinproject.global.common.gone
 import com.webaddicted.kotlinproject.global.common.visible
 import com.webaddicted.kotlinproject.model.bean.common.ExoPlayerBean
 import com.webaddicted.kotlinproject.view.adapter.ExoPlayerAdapter
@@ -43,8 +38,8 @@ class ExoPlayerRecyclerFrm : BaseFragment() {
     private fun init() {
         mBinding.toolbar.imgBack.visible()
         mBinding.toolbar.txtToolbarTitle.text = resources.getString(R.string.exo_player_title)
-        mBinding.exoPlayer.gone()
-        mBinding.rvExoPlayer.visible()
+//        mBinding.exoPlayer.gone()
+//        mBinding.rvExoPlayer.visible()
         videoBean = ArrayList()
         setAdapter()
     }
@@ -53,17 +48,17 @@ class ExoPlayerRecyclerFrm : BaseFragment() {
         createDataBean()
 
         //set data object
-        mBinding.rvExoPlayer.setMediaObjects(videoBean)
-        mAdapter = ExoPlayerAdapter(videoBean)
-        mBinding.rvExoPlayer.layoutManager =
-            LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        mBinding.rvExoPlayer.itemAnimator = DefaultItemAnimator()
-        mBinding.rvExoPlayer.adapter = mAdapter
-        mBinding.rvExoPlayer.setRepeatVideo(false)
-        if (firstTime) {
-            Handler(Looper.getMainLooper()).post { mBinding.rvExoPlayer.playVideo(false) }
-            firstTime = false
-        }
+//        mBinding.rvExoPlayer.setMediaObjects(videoBean)
+//        mAdapter = ExoPlayerAdapter(videoBean)
+//        mBinding.rvExoPlayer.layoutManager =
+//            LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+//        mBinding.rvExoPlayer.itemAnimator = DefaultItemAnimator()
+//        mBinding.rvExoPlayer.adapter = mAdapter
+//        mBinding.rvExoPlayer.setRepeatVideo(false)
+//        if (firstTime) {
+//            Handler(Looper.getMainLooper()).post { mBinding.rvExoPlayer.playVideo(false) }
+//            firstTime = false
+//        }
     }
 
     private fun clickListener() {
@@ -122,7 +117,7 @@ class ExoPlayerRecyclerFrm : BaseFragment() {
     }
 
     override fun onDestroy() {
-        mBinding.rvExoPlayer.releasePlayer()
+//        mBinding.rvExoPlayer.releasePlayer()
         super.onDestroy()
     }
 }

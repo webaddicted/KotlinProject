@@ -76,9 +76,9 @@ public class LogObject implements CallLogObject {
 
         String contactName = null;
 
-        if(cursor.moveToFirst()) {
-            contactName = cursor.getString(cursor.getColumnIndex(ContactsContract.PhoneLookup.DISPLAY_NAME));
-        }
+//        if(cursor.moveToFirst()) {
+//            contactName = cursor.getString(cursor.getColumnIndex(ContactsContract.PhoneLookup.DISPLAY_NAME));
+//        }
 
         if(!cursor.isClosed()) {
             cursor.close();

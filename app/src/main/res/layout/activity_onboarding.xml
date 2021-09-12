@@ -10,7 +10,8 @@
         <androidx.viewpager.widget.ViewPager
                 android:id="@+id/view_pager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                tools:ignore="SpeakableTextPresentCheck" />
 
         <LinearLayout
                 android:layout_width="match_parent"

@@ -67,7 +67,7 @@
                     android:layout_centerVertical="true"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_move_next"
-                    android:tint="@color/black" />
+                    app:tint="@color/black" />
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>

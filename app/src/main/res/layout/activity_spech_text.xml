@@ -31,11 +31,13 @@
                         android:layout_marginLeft="@dimen/dp15"
                         android:layout_marginRight="@dimen/dp15"
                         android:background="@color/gray_f6f6f6"
-                        android:text="enter text" />
+                        android:text="enter text"
+                        android:textColor="#D81B60" />
 
                 <Button
                         android:id="@+id/btn_text_to_speech"
                         style="@style/Button"
+                        android:layout_height="48dp"
                         android:text="@string/text_to_speech" />
 
                 <ImageView

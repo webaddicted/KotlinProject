@@ -61,18 +61,19 @@
                                 android:layout_marginTop="0dp"
                                 android:layout_weight="1"
                                 android:hint="@string/otp"
-                                android:textColor="@color/black"
-                                android:textColorHint="@color/gray_818181"
                                 android:inputType="number"
                                 android:maxLength="6"
-                                android:textSize="@dimen/sp13" />
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray_818181"
+                                android:textSize="@dimen/sp13"
+                                tools:ignore="TouchTargetSizeCheck" />
 
                         <ImageView
                                 android:layout_width="@dimen/dp25"
                                 android:layout_height="@dimen/dp25"
                                 android:layout_marginRight="52.3dp"
                                 android:src="@drawable/ic_phone"
-                                android:tint="@color/app_color_par" />
+                                app:tint="@color/app_color_par" />
 
                     </LinearLayout>
 

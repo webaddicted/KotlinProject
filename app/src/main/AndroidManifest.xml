@@ -63,7 +63,8 @@
                     android:resource="@xml/file_provider_paths" />
         </provider>
         <receiver
-                android:name=".global.common.NetworkChangeReceiver">
+                android:name=".global.common.NetworkChangeReceiver"
+                android:exported="false">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
@@ -92,7 +93,9 @@
                 android:name="com.google.firebase.ml.vision.DEPENDENCIES"
                 android:value="ocr, face, label, barcode" />
 
-        <service android:name=".global.services.NormalService" />
+        <service
+                android:exported="false"
+                android:name=".global.services.NormalService" />
 
         <service
                 android:name=".global.fcm.MyFirebaseMessagingService"
@@ -104,13 +107,15 @@
         <service
                 android:name=".global.services.ForegroundService"
                 android:enabled="true"
-                android:exported="true"
+                android:exported="false"
                 android:stopWithTask="false" />
         <service
                 android:name=".global.services.GeofenceTransitionsIntentService"
-                android:exported="true" />
+                android:exported="false" />
 
-        <receiver android:name=".global.services.NotificationBroadcastReceiver">
+        <receiver
+                android:exported="false"
+                android:name=".global.services.NotificationBroadcastReceiver">
             <intent-filter>
                 <action android:name="ACTION_CALL" />
                 <action android:name="ACTION_DISMISS" />
@@ -135,6 +140,7 @@
         </service>
 
         <activity
+                android:exported="false"
                 android:name=".view.activity.SplashActivity"
                 android:windowSoftInputMode="stateAlwaysHidden">
 <!--            android:theme="@style/AppTheme.Splash"-->

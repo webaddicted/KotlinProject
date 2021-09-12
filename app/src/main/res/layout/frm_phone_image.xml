@@ -13,12 +13,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <Button
-                    android:id="@+id/btn_all_image"
-                    style="@style/Button"
-                    android:layout_marginTop="@dimen/dp5"
-                    android:layout_marginBottom="@dimen/dp5"
-                    android:text="Get All Image" />
+        <Button
+                android:id="@+id/btn_all_image"
+                style="@style/Button"
+                android:layout_height="48dp"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_marginBottom="@dimen/dp5"
+                android:text="Get All Image" />
 
         <include
                 android:id="@+id/include_image"

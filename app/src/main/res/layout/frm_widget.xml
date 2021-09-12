@@ -88,9 +88,10 @@
 
                             <com.google.android.material.textfield.TextInputEditText
                                     android:layout_width="match_parent"
-                                    android:textColorHint="@color/gray_818181"
+                                    android:layout_height="wrap_content"
                                     android:textColor="@color/black"
-                                    android:layout_height="wrap_content" />
+                                    android:textColorHint="@color/gray_818181"
+                                    custom:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout

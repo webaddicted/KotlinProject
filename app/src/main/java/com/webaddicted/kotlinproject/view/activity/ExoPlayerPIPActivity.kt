@@ -5,23 +5,13 @@ import android.app.PictureInPictureParams
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
-import android.net.Uri
 import android.os.Build
 import android.os.Handler
-import android.support.v4.media.session.MediaSessionCompat
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.databinding.ViewDataBinding
-import com.google.android.exoplayer2.*
-import com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector
-import com.google.android.exoplayer2.source.ExtractorMediaSource
-import com.google.android.exoplayer2.source.TrackGroupArray
-import com.google.android.exoplayer2.source.hls.HlsMediaSource
-import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
-import com.google.android.exoplayer2.trackselection.TrackSelectionArray
+import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.ui.PlayerView
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
-import com.google.android.exoplayer2.util.Util
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.FrmExoPlayerRecyclerBinding
 import com.webaddicted.kotlinproject.global.common.gone
@@ -61,9 +51,9 @@ class ExoPlayerPIPActivity : BaseActivity() {
         mBinding.toolbar.parent.gone()
         mBinding.toolbar.imgBack.visible()
         mBinding.toolbar.txtToolbarTitle.text = resources.getString(R.string.exo_player_title)
-        mBinding.rvExoPlayer.gone()
-        mBinding.exoPlayer.visible()
-        playerView = mBinding.exoPlayer
+//        mBinding.rvExoPlayer.gone()
+//        mBinding.exoPlayer.visible()
+//        playerView = mBinding.exoPlayer
         startedPIPIInit()
     }
 
@@ -79,59 +69,59 @@ class ExoPlayerPIPActivity : BaseActivity() {
     }
 
     private fun startedPIPIInit(){
-        player = ExoPlayerFactory.newSimpleInstance(this, DefaultTrackSelector())
-        playerView?.player = player
-        val dataSourceFactory = DefaultDataSourceFactory(this, Util.getUserAgent(this, applicationInfo.loadLabel(packageManager).toString()))
-        when (Util.inferContentType(Uri.parse(mUrl))) {
-            C.TYPE_HLS -> {
-                val mediaSource = HlsMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(mUrl))
-                player.prepare(mediaSource)
-            }
-            C.TYPE_OTHER -> {
-                val mediaSource = ExtractorMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(mUrl))
-                player.prepare(mediaSource)
-            }
-            else -> {
-                //This is to catch SmoothStreaming and DASH types which are not supported currently
-                setResult(Activity.RESULT_CANCELED)
-                finish()
-            }
-        }
-        var returnResultOnce:Boolean = true
-        player.addListener(object : Player.EventListener{
-            override fun onTimelineChanged(timeline: Timeline?, manifest: Any?, reason: Int) {}
-            override fun onShuffleModeEnabledChanged(shuffleModeEnabled: Boolean) {}
-            override fun onRepeatModeChanged(repeatMode: Int) {}
-            override fun onPositionDiscontinuity(reason: Int) {}
-            override fun onLoadingChanged(isLoading: Boolean) {}
-            override fun onTracksChanged(trackGroups: TrackGroupArray?, trackSelections: TrackSelectionArray?) {}
-            override fun onPlaybackParametersChanged(playbackParameters: PlaybackParameters?) {}
-            override fun onPlayerError(error: ExoPlaybackException?) {
-                setResult(Activity.RESULT_CANCELED)
-
-                //Use finish() if minSdkVersion is <21. else use finishAndRemoveTask()
-                finish()
-                //finishAndRemoveTask()
-            }
-            override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
-                if(playbackState == Player.STATE_READY && returnResultOnce){
-                    setResult(Activity.RESULT_OK)
-                    returnResultOnce = false
-                }
-            }
-            override fun onSeekProcessed() {}
-        })
-        player.playWhenReady = true
-        //Use Media Session Connector from the EXT library to enable MediaSession Controls in PIP.
-        val mediaSession = MediaSessionCompat(this, packageName)
-
-
-        mediaSession.setFlags(MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS or MediaSessionCompat.FLAG_HANDLES_TRANSPORT_CONTROLS)
-
-        val mediaSessionConnector = MediaSessionConnector(mediaSession)
-        mediaSessionConnector.setPlayer(player, null)
-        mediaSession.isActive = true
-        playerView?.useController = true
+//        player = ExoPlayerFactory.newSimpleInstance(this, DefaultTrackSelector())
+//        playerView?.player = player
+//        val dataSourceFactory = DefaultDataSourceFactory(this, Util.getUserAgent(this, applicationInfo.loadLabel(packageManager).toString()))
+//        when (Util.inferContentType(Uri.parse(mUrl))) {
+//            C.TYPE_HLS -> {
+//                val mediaSource = HlsMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(mUrl))
+//                player.prepare(mediaSource)
+//            }
+//            C.TYPE_OTHER -> {
+//                val mediaSource = ExtractorMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(mUrl))
+//                player.prepare(mediaSource)
+//            }
+//            else -> {
+//                //This is to catch SmoothStreaming and DASH types which are not supported currently
+//                setResult(Activity.RESULT_CANCELED)
+//                finish()
+//            }
+//        }
+//        var returnResultOnce:Boolean = true
+//        player.addListener(object : Player.EventListener{
+//            override fun onTimelineChanged(timeline: Timeline?, manifest: Any?, reason: Int) {}
+//            override fun onShuffleModeEnabledChanged(shuffleModeEnabled: Boolean) {}
+//            override fun onRepeatModeChanged(repeatMode: Int) {}
+//            override fun onPositionDiscontinuity(reason: Int) {}
+//            override fun onLoadingChanged(isLoading: Boolean) {}
+//            override fun onTracksChanged(trackGroups: TrackGroupArray?, trackSelections: TrackSelectionArray?) {}
+//            override fun onPlaybackParametersChanged(playbackParameters: PlaybackParameters?) {}
+//            override fun onPlayerError(error: ExoPlaybackException?) {
+//                setResult(Activity.RESULT_CANCELED)
+//
+//                //Use finish() if minSdkVersion is <21. else use finishAndRemoveTask()
+//                finish()
+//                //finishAndRemoveTask()
+//            }
+//            override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
+//                if(playbackState == Player.STATE_READY && returnResultOnce){
+//                    setResult(Activity.RESULT_OK)
+//                    returnResultOnce = false
+//                }
+//            }
+//            override fun onSeekProcessed() {}
+//        })
+//        player.playWhenReady = true
+//        //Use Media Session Connector from the EXT library to enable MediaSession Controls in PIP.
+//        val mediaSession = MediaSessionCompat(this, packageName)
+//
+//
+//        mediaSession.setFlags(MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS or MediaSessionCompat.FLAG_HANDLES_TRANSPORT_CONTROLS)
+//
+//        val mediaSessionConnector = MediaSessionConnector(mediaSession)
+//        mediaSessionConnector.setPlayer(player, null)
+//        mediaSession.isActive = true
+//        playerView?.useController = true
     }
     override fun onPause() {
         videoPosition = player.currentPosition

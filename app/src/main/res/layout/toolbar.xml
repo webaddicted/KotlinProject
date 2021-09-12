@@ -40,7 +40,7 @@
                             android:paddingTop="@dimen/dp10"
                             android:paddingBottom="@dimen/dp8"
                             android:src="@drawable/ic_back"
-                            android:tint="@android:color/white"
+                            app:tint="@android:color/white"
                             android:visibility="gone" />
 
                     <TextView
@@ -67,7 +67,7 @@
                                 android:layout_height="@dimen/dp25"
                                 android:src="@drawable/ic_profile"
                                 android:visibility="gone"
-                                android:tint="@color/gray_CDCDCD" />
+                                app:tint="@color/gray_CDCDCD" />
                         <ImageView
                                 android:id="@+id/img_theme"
                                 android:layout_width="@dimen/dp25"
@@ -75,7 +75,7 @@
                                 android:src="@drawable/ic_lightbulb"
                                 android:visibility="gone"
                                 android:layout_marginLeft="@dimen/dp5"
-                                android:tint="@color/gray_CDCDCD" />
+                                app:tint="@color/gray_CDCDCD" />
                         <ImageView
                                 android:id="@+id/img_sort"
                                 android:layout_width="@dimen/dp25"
@@ -83,7 +83,7 @@
                                 android:layout_marginLeft="@dimen/dp5"
                                 android:src="@drawable/ic_option"
                                 android:visibility="gone"
-                                android:tint="@color/gray_CDCDCD" />
+                                app:tint="@color/gray_CDCDCD" />
                     </LinearLayout>
                 </RelativeLayout>
 

@@ -7,7 +7,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.iid.FirebaseInstanceId
+//import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.messaging.FirebaseMessaging
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.apiutils.ApiConstant
@@ -50,9 +50,9 @@ class FcmEmailAuthFrm : BaseFragment() {
         mBinding.toolbar.imgNavRight.gone()
         mBinding.toolbar.txtToolbarTitle.text = resources.getString(R.string.email_auth)
         fireAuth = FirebaseAuth.getInstance()
-        FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener {
-            newToken = it.token
-        }
+//        FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener {
+//            newToken = it.token
+//        }
 //        addOnSuccessListener(
 //            this
 //        ) { instanceIdResult: InstanceIdResult ->
@@ -105,7 +105,7 @@ class FcmEmailAuthFrm : BaseFragment() {
         fireAuth.signInWithEmailAndPassword(
             mBinding.edtEmail.text.toString(),
             mBinding.edtEmail.text.toString()
-        ).addOnCompleteListener(activity!!) { task ->
+        ).addOnCompleteListener(activity) { task ->
             if (task.isSuccessful)
                 mBinding.txtLoginRespo.text = "Login Respo : \nUser loggedin successfully.\n"
             else mBinding.txtLoginRespo.text = "Login Respo : \n${task.exception?.message}\n"
@@ -119,7 +119,7 @@ class FcmEmailAuthFrm : BaseFragment() {
         fireAuth.createUserWithEmailAndPassword(
             mBinding.edtEmail.text.toString(),
             mBinding.edtEmail.text.toString()
-        ).addOnCompleteListener(activity!!) { task ->
+        ).addOnCompleteListener(activity) { task ->
             if (task.isSuccessful)
                 mBinding.txtSignupRespo.text = "Signup Respo : \nSuccessfully register.\n"
             else mBinding.txtSignupRespo.text = "Signup Respo : \n${task.exception?.message}\n"

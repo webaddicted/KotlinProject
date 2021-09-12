@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
@@ -37,8 +38,9 @@
                             android:id="@+id/edt_email"
                             style="@style/EdittextBlack"
                             android:hint="@string/email"
+                            android:inputType="textWebEmailAddress"
                             android:text="deepaksharmatheboss@gmail.com"
-                            android:inputType="textWebEmailAddress" />
+                            tools:ignore="TouchTargetSizeCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -80,7 +82,8 @@
                     <Button
                             android:id="@+id/btn_signup"
                             style="@style/Button"
-                            android:text="@string/signup" />
+                            android:text="@string/signup"
+                            tools:ignore="TouchTargetSizeCheck" />
 
                     <Button
                             android:id="@+id/btn_login"
@@ -112,20 +115,24 @@
                         android:id="@+id/txt_fire_noti"
                         android:layout_marginTop="@dimen/dp10"
                         style="@style/txt_black_normal" />
+
                 <Button
                         android:id="@+id/btn_fire_push"
                         style="@style/Button"
+                        android:layout_height="48dp"
                         android:layout_marginTop="@dimen/dp10"
                         android:paddingLeft="@dimen/dp25"
                         android:paddingRight="25dp"
                         android:text="@string/fire_push_noti" />
+
                 <Button
-                    android:id="@+id/btn_topic_notific"
-                    style="@style/Button"
-                    android:layout_marginTop="@dimen/dp10"
-                    android:paddingLeft="@dimen/dp25"
-                    android:paddingRight="25dp"
-                    android:text="@string/fire_topic_notification" />
+                        android:id="@+id/btn_topic_notific"
+                        style="@style/Button"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:paddingLeft="@dimen/dp25"
+                        android:paddingRight="25dp"
+                        android:text="@string/fire_topic_notification" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </LinearLayout>

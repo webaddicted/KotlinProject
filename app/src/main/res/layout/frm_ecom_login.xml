@@ -33,7 +33,7 @@
                     android:layout_marginTop="@dimen/dp29"
                     android:text="@string/enter_mobile"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/dp23" />
+                    android:textSize="@dimen/sp23" />
 
             <LinearLayout
                     android:layout_width="match_parent"
@@ -46,24 +46,25 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edt_mobile_no"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp34"
                         android:layout_marginTop="0dp"
                         android:layout_weight="1"
                         android:hint="@string/mobile_no"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/gray_818181"
                         android:inputType="number"
                         android:maxLength="10"
-                        android:textSize="@dimen/sp13" />
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray_818181"
+                        android:textSize="@dimen/sp13"
+                        tools:ignore="TouchTargetSizeCheck" />
 
                 <ImageView
                         android:layout_width="@dimen/dp25"
                         android:layout_height="@dimen/dp25"
                         android:layout_marginRight="52.3dp"
                         android:src="@drawable/ic_phone"
-                        android:tint="@color/app_color_par" />
+                        app:tint="@color/app_color_par" />
 
             </LinearLayout>
 
@@ -81,7 +82,6 @@
                     android:id="@+id/img_next"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp50"
-                    android:layout_above="@+id/space"
                     android:layout_marginTop="@dimen/dp120"
                     android:layout_marginBottom="@dimen/dp22"
                     android:src="@drawable/next" />
@@ -90,7 +90,6 @@
                     android:id="@+id/bottom_space"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/img_next"
                     android:orientation="vertical" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

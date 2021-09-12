@@ -25,7 +25,7 @@
                     android:layout_width="15dp"
                     android:layout_height="15dp"
                     android:layout_marginLeft="11.7dp"
-                    android:tint="@color/black"
+                    app:tint="@color/black"
                     android:src="@drawable/navigation" />
 
             <TextView
@@ -54,7 +54,8 @@
                         android:hint="@string/search"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
-                        android:textSize="@dimen/sp11" />
+                        android:textSize="@dimen/sp11"
+                        tools:ignore="TouchTargetSizeCheck" />
 
                 <ImageView
                         android:layout_width="wrap_content"

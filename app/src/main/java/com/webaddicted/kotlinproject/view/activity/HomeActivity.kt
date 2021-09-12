@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import com.google.firebase.iid.FirebaseInstanceId
+//import com.google.firebase.iid.FirebaseInstanceId
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.ActivityCommonBinding
 import com.webaddicted.kotlinproject.global.common.Lg
@@ -42,7 +42,7 @@ class HomeActivity : BaseActivity() {
 
     override fun initUI(binding: ViewDataBinding) {
         mBinding = binding as ActivityCommonBinding
-        Lg.d(TAG, "ok token - "+FirebaseInstanceId.getInstance().token)
+//        Lg.d(TAG, "ok token - "+FirebaseInstanceId.getInstance().token)
         navigateScreen(TaskFrm.TAG)
 //        checkCameraPermission()
     }

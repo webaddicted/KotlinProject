@@ -39,7 +39,7 @@
                             android:paddingTop="@dimen/dp10"
                             android:paddingBottom="@dimen/dp8"
                             android:src="@drawable/navigation"
-                            android:tint="@color/white_par"
+                            app:tint="@color/white_par"
 />
                     <TextView
                             android:id="@+id/txt_toolbar_title"
@@ -65,7 +65,7 @@
                                 android:layout_height="@dimen/dp35"
                                 android:layout_marginLeft="@dimen/dp5"
                                 android:src="@drawable/ic_option"
-                                android:tint="@color/white_par" />
+                                app:tint="@color/white_par" />
                     </LinearLayout>
                 </RelativeLayout>
 

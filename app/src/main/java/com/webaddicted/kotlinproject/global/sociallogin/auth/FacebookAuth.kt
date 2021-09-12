@@ -118,26 +118,26 @@ class FacebookAuth {
          * @param token fb token
          */
         private fun handleFacebookAccessToken(@NonNull token: AccessToken?) {
-            val request =
-                GraphRequest.newMeRequest(token) { jsonObj: JSONObject, response: GraphResponse? ->
-                    val fbResponse: FbResponse =
-                        fromJson(jsonObj.toString(), FbResponse::class.java)
-                    Log.d(
-                        TAG,
-                        """onCompleted: str_facebookname -> ${fbResponse.name.toString()}
- str_facebookemail -> ${fbResponse.email.toString()}
- str_facebookid -> ${fbResponse.id.toString()}
- str_birthday -> ${fbResponse.birthday.toString()}
- strPhoto -> """ + fbResponse.picture?.data?.url
-                            .toString() +
-                                "\n token-> " + token!!.token
-                    )
-                    getUserInfo(
-                        fbResponse,
-                        mAuth?.currentUser,
-                        token.token
-                    )
-                }
+            val request = GraphRequest()
+//                GraphRequest.newMeRequest(token) { jsonObj: JSONObject, response: GraphResponse? ->
+//                    val fbResponse: FbResponse =
+//                        fromJson(jsonObj.toString(), FbResponse::class.java)
+//                    Log.d(
+//                        TAG,
+//                        """onCompleted: str_facebookname -> ${fbResponse.name.toString()}
+// str_facebookemail -> ${fbResponse.email.toString()}
+// str_facebookid -> ${fbResponse.id.toString()}
+// str_birthday -> ${fbResponse.birthday.toString()}
+// strPhoto -> """ + fbResponse.picture?.data?.url
+//                            .toString() +
+//                                "\n token-> " + token!!.token
+//                    )
+//                    getUserInfo(
+//                        fbResponse,
+//                        mAuth?.currentUser,
+//                        token.token
+//                    )
+//                }
             val parameters = Bundle()
             parameters.putString(
                 "fields",

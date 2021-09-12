@@ -115,6 +115,7 @@
                         <Button
                                 android:id="@+id/btn_login"
                                 style="@style/Button"
+                                android:layout_height="48dp"
                                 android:layout_marginTop="@dimen/dp15"
                                 android:backgroundTint="@color/bg_screen2"
                                 android:minWidth="@dimen/dp120"
@@ -125,6 +126,7 @@
                         <Button
                                 android:id="@+id/btn_signup"
                                 style="@style/Button"
+                                android:layout_height="48dp"
                                 android:layout_marginTop="@dimen/dp15"
                                 android:backgroundTint="@color/bg_screen2"
                                 android:text="@string/signup"

@@ -65,6 +65,7 @@
         <Button
                 android:id="@+id/btn_bt_on_off"
                 style="@style/Button"
+                android:layout_height="48dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="@dimen/dp30"

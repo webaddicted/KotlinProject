@@ -2,6 +2,7 @@ package com.webaddicted.kotlinproject.apiutils
 
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import retrofit2.Response
@@ -9,6 +10,7 @@ import java.lang.Exception
 /**
  * Created by Deepak Sharma on 01/07/19.
  */
+@DelicateCoroutinesApi
 abstract class DataFetchCall<ResultType>(private val responseLiveData: MutableLiveData<ApiResponse<ResultType>>) {
     abstract fun createCallAsync(): Deferred<Response<ResultType>>
     abstract fun shouldFetchFromDB(): Boolean

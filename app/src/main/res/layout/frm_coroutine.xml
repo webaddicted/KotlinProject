@@ -32,8 +32,10 @@
                 <Button
                         android:id="@+id/btn_launch"
                         style="@style/Button"
+                        android:layout_height="48dp"
                         android:layout_marginTop="@dimen/dp15"
-                        android:text="@string/launch" />
+                        android:text="@string/launch"
+                        android:textColor="#455A64" />
 
                 <TextView
                         android:id="@+id/txt_sequentially"
@@ -44,6 +46,7 @@
                 <Button
                         android:id="@+id/btn_sequentially"
                         style="@style/Button"
+                        android:layout_height="48dp"
                         android:layout_marginTop="@dimen/dp15"
                         android:text="@string/sequentially" />
 
@@ -56,6 +59,7 @@
                 <Button
                         android:id="@+id/btn_parallel"
                         style="@style/Button"
+                        android:layout_height="48dp"
                         android:layout_marginTop="@dimen/dp15"
                         android:text="@string/parallel_async" />
 
@@ -68,6 +72,7 @@
                 <Button
                         android:id="@+id/btn_launch_timeout"
                         style="@style/Button"
+                        android:layout_height="48dp"
                         android:layout_marginTop="@dimen/dp15"
                         android:text="@string/launch_timeout" />
 
@@ -80,6 +85,7 @@
                 <Button
                         android:id="@+id/btn_exception_handler"
                         style="@style/Button"
+                        android:layout_height="48dp"
                         android:layout_marginTop="@dimen/dp15"
                         android:text="@string/exception_handler" />
 
@@ -92,8 +98,10 @@
                 <Button
                         android:id="@+id/btn_lifecycle_aware"
                         style="@style/Button"
+                        android:layout_height="48dp"
                         android:layout_marginTop="@dimen/dp15"
-                        android:text="@string/lifecycle_aware" />
+                        android:text="@string/lifecycle_aware"
+                        android:textColor="#455A64" />
 
                 <TextView
                         android:id="@+id/txt_android_scoped"
@@ -104,6 +112,7 @@
                 <Button
                         android:id="@+id/btn_android_scoped"
                         style="@style/Button"
+                        android:layout_height="48dp"
                         android:layout_marginTop="@dimen/dp15"
                         android:text="@string/android_scoped" />
 

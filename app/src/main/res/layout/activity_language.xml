@@ -36,7 +36,7 @@
                         android:background="@color/app_color"
                         android:text="@string/submit"
                         android:textAppearance="@style/TextAppearance_open_sans_bold"
-                        android:textColor="@color/white_par" />
+                        android:textColor="#455A64" />
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>

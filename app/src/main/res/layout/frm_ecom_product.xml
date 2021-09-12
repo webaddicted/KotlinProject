@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.core.widget.NestedScrollView
@@ -35,7 +36,7 @@
                             android:layout_width="@dimen/dp18"
                             android:layout_height="@dimen/dp18"
                             android:layout_marginLeft="@dimen/dp8"
-                            android:tint="@color/black"
+                            app:tint="@color/black"
                             android:src="@drawable/ic_back" />
 
                     <TextView
@@ -57,7 +58,7 @@
                         <ImageView
                                 android:layout_width="@dimen/dp18"
                                 android:layout_height="@dimen/dp18"
-                                android:tint="@color/black"
+                                app:tint="@color/black"
                                 android:layout_gravity="center"
                                 android:src="@drawable/cart" />
 
@@ -114,7 +115,8 @@
                             app:tabMode="fixed"
                             app:tabSelectedTextColor="@color/black"
                             app:tabTextAppearance="@style/MyMenuTextAppearance1"
-                            app:tabTextColor="@color/gray" />
+                            app:tabTextColor="@color/gray"
+                            tools:ignore="SpeakableTextPresentCheck" />
 
 
                 </LinearLayout>
@@ -123,7 +125,8 @@
                         android:id="@+id/pager"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                        tools:ignore="SpeakableTextPresentCheck" />
             </LinearLayout>
 
             <ImageView

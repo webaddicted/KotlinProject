@@ -183,7 +183,7 @@
 
     <style name="Button">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">@dimen/dp45</item>
+        <item name="android:layout_height">@dimen/dp48</item>
         <item name="android:background">@drawable/round_btn_corner</item>
         <item name="android:minHeight">@dimen/dp40</item>
         <item name="android:minWidth">@dimen/dp150</item>
@@ -194,7 +194,7 @@
         <item name="android:textAppearance">@style/TextAppearance_open_sans_semibold</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:textSize">@dimen/sp15</item>
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">#455A64</item>
     </style>
 
     <style name="TextView_Regular">

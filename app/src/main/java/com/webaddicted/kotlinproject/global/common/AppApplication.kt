@@ -6,7 +6,6 @@ import android.content.IntentFilter
 import android.net.ConnectivityManager
 import com.facebook.stetho.Stetho
 import com.google.firebase.FirebaseApp
-import com.google.firebase.iid.FirebaseInstanceId
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.global.koin.*
 import com.webaddicted.kotlinproject.global.sharedpref.PreferenceUtils
@@ -41,8 +40,8 @@ class AppApplication : Application() {
             modules(getModule())
         }
         FirebaseApp.initializeApp(this)
-        val refreshedToken = FirebaseInstanceId.getInstance().token
-        Lg.d("TAG", "okHttp new Token---> $refreshedToken")
+//        val refreshedToken = FirebaseInstanceId.getInstance().token
+//        Lg.d("TAG", "okHttp new Token---> $refreshedToken")
         checkInternetConnection()
     }
 

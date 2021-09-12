@@ -1,26 +1,18 @@
 package com.webaddicted.kotlinproject.view.fragment
 
+//import com.google.android.exoplayer2.source.ExtractorMediaSource
 import android.annotation.SuppressLint
 import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.ViewDataBinding
-import com.google.android.exoplayer2.*
-import com.google.android.exoplayer2.source.ExtractorMediaSource
+import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.source.MediaSource
-import com.google.android.exoplayer2.source.dash.DashChunkSource
-import com.google.android.exoplayer2.source.dash.DashMediaSource
-import com.google.android.exoplayer2.source.dash.DefaultDashChunkSource
-import com.google.android.exoplayer2.source.hls.HlsMediaSource
-import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
-import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter
-import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
 import com.google.android.exoplayer2.util.Util
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.FrmExoPlayerRecyclerBinding
-import com.webaddicted.kotlinproject.global.common.gone
 import com.webaddicted.kotlinproject.global.common.visible
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
@@ -53,8 +45,8 @@ class ExoPlayerFrm : BaseFragment() {
     private fun init() {
         mBinding.toolbar.imgBack.visible()
         mBinding.toolbar.txtToolbarTitle.text = resources.getString(R.string.exo_player_title)
-        mBinding.rvExoPlayer.gone()
-        mBinding.exoPlayer.visible()
+//        mBinding.rvExoPlayer.gone()
+//        mBinding.exoPlayer.visible()
     }
 
     private fun clickListener() {
@@ -98,28 +90,28 @@ class ExoPlayerFrm : BaseFragment() {
 
     private fun initializePlayer() {
         if (player == null) {
-            player = ExoPlayerFactory.newSimpleInstance(
-                DefaultRenderersFactory(context),
-                DefaultTrackSelector(),
-                DefaultLoadControl()
-            )
-            mBinding.exoPlayer.player = player
+//            player = ExoPlayerFactory.newSimpleInstance(
+//                DefaultRenderersFactory(context),
+//                DefaultTrackSelector(),
+//                DefaultLoadControl()
+//            )
+//            mBinding.exoPlayer.player = player
             player?.playWhenReady = playWhenReady
             player?.seekTo(currentWindow, playbackPosition)
         }
         val mediaSource =
             buildMediaSource(Uri.parse(getString(R.string.media_url_mp4)))
-        player?.prepare(mediaSource, true, false)
-        player?.addListener(object : Player.DefaultEventListener() {
-            override fun onPlayerStateChanged(playWhenReady: Boolean,playbackState: Int) {
-                when (playbackState) {
-                    Player.STATE_IDLE -> {}
-                    Player.STATE_BUFFERING -> {}
-                    Player.STATE_READY -> {}
-                    Player.STATE_ENDED -> {}
-                }
-            }
-        })
+        player?.prepare(mediaSource!!, true, false)
+//        player?.addListener(object : Player.DefaultEventListener() {
+//            override fun onPlayerStateChanged(playWhenReady: Boolean,playbackState: Int) {
+//                when (playbackState) {
+//                    Player.STATE_IDLE -> {}
+//                    Player.STATE_BUFFERING -> {}
+//                    Player.STATE_READY -> {}
+//                    Player.STATE_ENDED -> {}
+//                }
+//            }
+//        })
     }
 
     private fun releasePlayer() {
@@ -132,41 +124,42 @@ class ExoPlayerFrm : BaseFragment() {
         }
     }
 
-    private fun buildMediaSource(uri: Uri): MediaSource {
-        val userAgent = "exoplayer-codelab"
-        return if (uri.lastPathSegment!!.contains("mp3") || uri.lastPathSegment!!.contains("mp4")) {
-            ExtractorMediaSource.Factory(DefaultHttpDataSourceFactory(userAgent))
-                .createMediaSource(uri)
-        } else if (uri.lastPathSegment!!.contains("m3u8")) {
-            HlsMediaSource.Factory(DefaultHttpDataSourceFactory(userAgent))
-                .createMediaSource(uri)
-        } else {
-            val dashChunkSourceFactory: DashChunkSource.Factory = DefaultDashChunkSource.Factory(
-                DefaultHttpDataSourceFactory("ua",BANDWIDTH_METER))
-            val manifestDataSourceFactory: DataSource.Factory =
-                DefaultHttpDataSourceFactory(userAgent)
-            DashMediaSource.Factory(dashChunkSourceFactory, manifestDataSourceFactory)
-                .createMediaSource(uri)
-        }
+    private fun buildMediaSource(uri: Uri): MediaSource? {
+//        val userAgent = "exoplayer-codelab"
+//        return if (uri.lastPathSegment!!.contains("mp3") || uri.lastPathSegment!!.contains("mp4")) {
+//            ExtractorMediaSource.Factory(DefaultHttpDataSourceFactory(userAgent))
+//                .createMediaSource(uri)
+//        } else if (uri.lastPathSegment!!.contains("m3u8")) {
+//            HlsMediaSource.Factory(DefaultHttpDataSourceFactory(userAgent))
+//                .createMediaSource(uri)
+//        } else {
+//            val dashChunkSourceFactory: DashChunkSource.Factory = DefaultDashChunkSource.Factory(
+//                DefaultHttpDataSourceFactory("ua",BANDWIDTH_METER))
+//            val manifestDataSourceFactory: DataSource.Factory =
+//                DefaultHttpDataSourceFactory(userAgent)
+//            DashMediaSource.Factory(dashChunkSourceFactory, manifestDataSourceFactory)
+//                .createMediaSource(uri)
+//        }
+    return  null
     }
 
     @SuppressLint("InlinedApi")
     fun hideSystemUiFullScreen() {
-        mBinding.exoPlayer.systemUiVisibility = (View.SYSTEM_UI_FLAG_LOW_PROFILE
-                or View.SYSTEM_UI_FLAG_FULLSCREEN
-                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
+//        mBinding.exoPlayer.systemUiVisibility = (View.SYSTEM_UI_FLAG_LOW_PROFILE
+//                or View.SYSTEM_UI_FLAG_FULLSCREEN
+//                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//                or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+//                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+//                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
     }
 
     @SuppressLint("InlinedApi")
     fun hideSystemUi() {
-        mBinding.exoPlayer.systemUiVisibility = (View.SYSTEM_UI_FLAG_LOW_PROFILE
-                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
+//        mBinding.exoPlayer.systemUiVisibility = (View.SYSTEM_UI_FLAG_LOW_PROFILE
+//                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//                or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+//                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+//                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
     }
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)

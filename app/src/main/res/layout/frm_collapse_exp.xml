@@ -22,6 +22,7 @@
             <Button
                     android:id="@+id/btn_coll_exp"
                     style="@style/Button"
+                    android:layout_height="48dp"
                     android:layout_marginTop="@dimen/dp10"
                     android:text="@string/collapse" />
 

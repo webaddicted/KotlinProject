@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.iid.FirebaseInstanceId
+//import com.google.firebase.iid.FirebaseInstanceId
 import com.webaddicted.kotlinproject.BuildConfig
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.apiutils.ApiConstant
@@ -89,7 +89,7 @@ class FcmSignupFrm : BaseFragment() {
         super.onClick(v)
         when (v.id) {
             R.id.include_back, R.id.txt_login -> activity?.onBackPressed()
-            R.id.edt_dob -> GlobalUtility.getDOBDate(activity!!, mBinding.edtDob)
+            R.id.edt_dob -> activity?.let { GlobalUtility.getDOBDate(it, mBinding.edtDob) }
             R.id.img_picker -> requestCamera(MediaPickerType.SELECT_IMAGE)
             R.id.img_profile -> openImg()
             R.id.btn_signup -> validate()
@@ -149,7 +149,7 @@ class FcmSignupFrm : BaseFragment() {
                             userMobileno = mBinding.edtMobile.text.toString()
                             dob = mBinding.edtDob.text.toString()
                             provider = "Manual Login"
-                            fcmToken = FirebaseInstanceId.getInstance().token
+//                            fcmToken = FirebaseInstanceId.getInstance().token
                             if (profileImageFile != null)
                                 profileImgFile = profileImageFile
                         }

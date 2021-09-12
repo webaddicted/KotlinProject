@@ -1,6 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/activity_common.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/activity_cpu.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/activity_ecom_home.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/activity_language.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/activity_nav_both_drawer.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/activity_onboarding.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/activity_spech_text.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/activity_splash.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/activity_webview.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/bottom_sheet.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/bottom_sheet_content.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/custom_notification.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/dialog_custom.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/dialog_image_picker.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/dialog_loader.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_animation.xml" value="0.12001811594202899" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_barcode.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_blink_scan.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_bottom_navi.xml" value="0.12001811594202899" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_bottom_sheet.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_calendar.xml" value="0.1" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_collapse_exp.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_collapse_toolbar.xml" value="0.13333333333333333" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_collapse_toolbar_behav.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_contacts.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_coroutine.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_dev_basic.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_dev_battery.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_dev_bluetooth.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_dev_camera.xml" value="0.12001811594202899" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_dev_display.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_dev_feature.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_dev_network.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_dev_os.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_dev_sim.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_dev_storage.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_dev_user_app.xml" value="0.12001811594202899" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_device_info.xml" value="0.12001811594202899" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_dialog.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_digital_signature.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_dynamic_layout.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_ecom_home.xml" value="0.12001811594202899" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_ecom_login.xml" value="0.1" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_ecom_otp.xml" value="0.1" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_ecom_product.xml" value="0.1" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_ecom_product_cat_tab.xml" value="0.1" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_exo_player_recycler.xml" value="0.1" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_expend_view.xml" value="0.12001811594202899" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_fab_btn.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_fcm_email_auth.xml" value="0.12001811594202899" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_fcm_forgot_pass.xml" value="0.12001811594202899" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_fcm_home.xml" value="0.12001811594202899" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_fcm_login.xml" value="0.12001811594202899" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_fcm_ml_kit.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_fcm_otp.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_fcm_signup.xml" value="0.12001811594202899" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_fcm_social_login.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_google_map.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_landing_page.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_location_helper.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_login.xml" value="0.12001811594202899" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_news.xml" value="0.12001811594202899" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_notification.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_phone_image.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_profile.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_receiver.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_recylcer_view.xml" value="0.12001811594202899" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_services.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_share.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_shared_pref.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_signup.xml" value="0.12001811594202899" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_sms.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_sms_retriever.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_task_list.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_timer.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_widget.xml" value="0.12001811594202899" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_work_manager.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_zoom.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/include_back.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/nav_header_fcm.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/nav_header_main.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/row_apps.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/row_camera_item.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/row_channel_list.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/row_circle.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/row_contact.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/row_dynamic_layout.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/row_ecom_cate.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/row_exo_player.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/row_grid.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/row_language.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/row_location.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/row_product_cat.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/row_recycler_list.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/row_sim_item.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/row_sms.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/row_tab_view.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/row_text_list.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/toolbar.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/toolbar_nav.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/welcome_slide1.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/welcome_slide2.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/welcome_slide3.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/welcome_slide4.xml" value="0.1796875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

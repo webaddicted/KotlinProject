@@ -59,7 +59,7 @@
                     android:drawableRight="@drawable/selector_checkbox"
                     android:drawablePadding="@dimen/dp5"
                     android:drawableTint="@color/black"
-                    android:minHeight="@dimen/dp40" />
+                    android:minHeight="48dp" />
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>

@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.iid.FirebaseInstanceId
+//import com.google.firebase.iid.FirebaseInstanceId
 import com.google.gson.Gson
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.apiutils.ApiConstant.Companion.FCM_DB_USERS
@@ -61,10 +61,10 @@ class FcmSocialLoginFrm : BaseFragment(), OnSocialLoginListener {
         auth = FirebaseAuth.getInstance()
         val gso =
             GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
+//                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build()
-        googleSignInClient = GoogleSignIn.getClient(activity!!, gso)
+        googleSignInClient = GoogleSignIn.getClient(activity, gso)
         callbackManager = CallbackManager.Factory.create()
     }
 
@@ -91,43 +91,49 @@ class FcmSocialLoginFrm : BaseFragment(), OnSocialLoginListener {
     private fun checkReadPhoneStatePerm(loginTypeEnum: LoginTypeEnum) {
         val multiplePermission = ArrayList<String>()
         multiplePermission.add(Manifest.permission.READ_PHONE_STATE)
-        PermissionHelper.requestMultiplePermission(
-            activity!!,
-            multiplePermission,
-            object : PermissionHelper.Companion.PermissionListener {
-                override fun onPermissionGranted(mCustomPermission: List<String>) {
-                    inspectClick(loginTypeEnum)
-                }
+        activity?.let {
+            PermissionHelper.requestMultiplePermission(
+                it,
+                multiplePermission,
+                object : PermissionHelper.Companion.PermissionListener {
+                    override fun onPermissionGranted(mCustomPermission: List<String>) {
+                        inspectClick(loginTypeEnum)
+                    }
 
-                override fun onPermissionDenied(mCustomPermission: List<String>) {
+                    override fun onPermissionDenied(mCustomPermission: List<String>) {
 
-                }
+                    }
 
-            })
+                })
+        }
     }
 
     private fun inspectClick(loginTypeEnum: LoginTypeEnum) {
         when (loginTypeEnum) {
             LoginTypeEnum.GOOGLE -> {
                 SocialLogin.logout(activity)
-                SocialLogin.googleLogin(
-                    activity!!,
-                    getString(R.string.default_web_client_id),
-                    this
-                )
+//                activity?.let {
+//                    SocialLogin.googleLogin(
+//                        it,
+//                        getString(R.string.default_web_client_id),
+//                        this
+//                    )
+//                }
             }
             LoginTypeEnum.FACEBOOK -> {
                 SocialLogin.logout(activity)
-                SocialLogin.fbLogin(activity!!, this)
+                activity?.let { SocialLogin.fbLogin(it, this) }
             }
             LoginTypeEnum.TWITTER -> {
                 SocialLogin.logout(activity)
-                SocialLogin.twitterLogin(
-                    activity!!,
-                    getString(R.string.twitter_consumer_key),
-                    getString(R.string.twitter_consumer_secret),
-                    this
-                )
+                activity?.let {
+                    SocialLogin.twitterLogin(
+                        it,
+                        getString(R.string.twitter_consumer_key),
+                        getString(R.string.twitter_consumer_secret),
+                        this
+                    )
+                }
             }
             LoginTypeEnum.MANUAL_LOGIN -> navigateScreen(FcmSignupFrm.TAG, Bundle())
         }
@@ -175,7 +181,7 @@ class FcmSocialLoginFrm : BaseFragment(), OnSocialLoginListener {
                         userImage = loginResponse?.userImage
                         dob = loginResponse?.dob
                         provider = loginResponse?.provider
-                        fcmToken = FirebaseInstanceId.getInstance().token
+//                        fcmToken = FirebaseInstanceId.getInstance().token
                     }
                     val bundle = Bundle()
                     bundle.putSerializable(FcmSignupFrm.SOCIAL_RESPO, respo)

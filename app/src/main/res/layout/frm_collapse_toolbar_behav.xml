@@ -148,7 +148,7 @@
                 android:paddingTop="@dimen/dp10"
                 android:paddingBottom="@dimen/dp8"
                 android:src="@drawable/ic_back"
-                android:tint="@android:color/white" />
+                app:tint="@android:color/white" />
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"

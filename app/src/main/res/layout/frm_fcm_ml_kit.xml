@@ -80,6 +80,7 @@
                 <Button
                         android:id="@+id/btn_on_device"
                         style="@style/Button"
+                        android:layout_height="48dp"
                         android:layout_marginTop="@dimen/dp10"
                         android:layout_marginBottom="@dimen/dp10"
                         android:text="@string/on_device" />
@@ -101,6 +102,7 @@
                 <Button
                         android:id="@+id/btn_cloud"
                         style="@style/Button"
+                        android:layout_height="48dp"
                         android:layout_marginTop="@dimen/dp10"
                         android:layout_marginBottom="@dimen/dp20"
                         android:text="@string/cloud" />

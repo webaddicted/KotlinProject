@@ -529,7 +529,7 @@ class GlobalUtility {
             }
         }
 
-        fun isWifiConnected(activity: Activity): String? {
+        fun isWifiConnected(activity: Activity): String {
             val cm =
                 context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val activeNetwork = cm.activeNetworkInfo

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <FrameLayout
@@ -46,7 +47,8 @@
                             style="@style/EdittextBlack"
                             android:hint="@string/mobile_no"
                             android:inputType="number"
-                            android:maxLength="10" />
+                            android:maxLength="10"
+                            tools:ignore="TouchTargetSizeCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -87,6 +89,7 @@
                         android:id="@+id/btn_login"
                         style="@style/Button"
                         android:layout_width="match_parent"
+                        android:layout_height="48dp"
                         android:layout_marginLeft="@dimen/dp20"
                         android:layout_marginTop="@dimen/dp30"
                         android:layout_marginRight="@dimen/dp20"

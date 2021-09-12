@@ -123,21 +123,22 @@ class NotificationFrm : BaseFragment() {
     }
 
     private fun customNoti() {
-        val remoteViews = RemoteViews(activity?.packageName, R.layout.row_product_cat)
+//        val remoteViews = RemoteViews()
+//        val remoteViews = RemoteViews(activity?.packageName, R.layout.row_product_cat)
         val intent = Intent(activity, SplashActivity::class.java)
         val pIntent = PendingIntent.getActivity(
             activity, 0, intent,
             PendingIntent.FLAG_UPDATE_CURRENT
         )
-        remoteViews.setImageViewResource(R.id.img_logo, R.drawable.logo)
-        remoteViews.setImageViewResource(R.id.img_right, R.drawable.iphnx)
-        remoteViews.setTextViewText(R.id.txt_title, getString(R.string.app_name))
-        remoteViews.setTextViewText(R.id.txt_body, getString(R.string.dummyText))
+//        remoteViews.setImageViewResource(R.id.img_logo, R.drawable.logo)
+//        remoteViews.setImageViewResource(R.id.img_right, R.drawable.iphnx)
+//        remoteViews.setTextViewText(R.id.txt_title, getString(R.string.app_name))
+//        remoteViews.setTextViewText(R.id.txt_body, getString(R.string.dummyText))
         val builder: NotificationCompat.Builder = getNotiBuilder()
             .setSmallIcon(R.drawable.ic_whatsapp) // Set Ticker Message
             .setAutoCancel(true) // Set PendingIntent into Notification
             .setContentIntent(pIntent) // Set RemoteViews into Notification
-            .setCustomBigContentView(remoteViews)
+//            .setCustomBigContentView(remoteViews)
         // Locate and set the Image into customnotificationtext.xml ImageViews
 
         val manager =
@@ -294,17 +295,19 @@ class NotificationFrm : BaseFragment() {
         val notificationSound = RingtoneManager.getDefaultUri(
             RingtoneManager.TYPE_NOTIFICATION
         )
-        return NotificationCompat.Builder(activity)
-            .setSmallIcon(R.mipmap.ic_launcher)
-            .setTicker("Ticker")
-            .setContentTitle("Big Text Style Notification")
-            .setContentText("This is Big text of Notification")
-            .setLargeIcon(icon1)
-            .setAutoCancel(false)
-            .setSound(notificationSound)
-            .setPriority(NotificationCompat.PRIORITY_HIGH)
-            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-            .setVibrate(longArrayOf(100, 250))
+        return activity?.let {
+            NotificationCompat.Builder(it)
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setTicker("Ticker")
+                .setContentTitle("Big Text Style Notification")
+                .setContentText("This is Big text of Notification")
+                .setLargeIcon(icon1)
+                .setAutoCancel(false)
+                .setSound(notificationSound)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                .setVibrate(longArrayOf(100, 250))
+        }
                 as NotificationCompat.Builder
     }
 
@@ -357,7 +360,7 @@ class NotificationFrm : BaseFragment() {
              */
             val nManager =
                 activity?.getSystemService(NOTIFICATION_SERVICE) as NotificationManager?
-            val builder: NotificationCompat.Builder = NotificationCompat.Builder(activity)
+            val builder: NotificationCompat.Builder = NotificationCompat.Builder(requireContext())
             builder.setContentTitle("Lanes")
             builder.setContentText("Notification from Lanes $value")
             builder.setSmallIcon(R.mipmap.ic_launcher)
@@ -407,7 +410,7 @@ class NotificationFrm : BaseFragment() {
             inboxStyle = NotificationCompat.InboxStyle()
             val nManager =
                 activity?.getSystemService(NOTIFICATION_SERVICE) as NotificationManager?
-            val builder: NotificationCompat.Builder = NotificationCompat.Builder(activity)
+            val builder: NotificationCompat.Builder = NotificationCompat.Builder(requireActivity())
             builder.setContentTitle("Lanes")
             builder.setContentText("Notification from Lanes $value")
             builder.setSmallIcon(R.mipmap.ic_launcher)

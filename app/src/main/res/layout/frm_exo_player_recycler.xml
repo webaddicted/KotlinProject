@@ -14,21 +14,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-        <com.webaddicted.kotlinproject.view.adapter.ExoPlayerRecyclerView
-                android:id="@+id/rv_exo_player"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#dedede"
-                android:dividerHeight="8dp" />
+<!--        <com.webaddicted.kotlinproject.view.adapter.ExoPlayerRecyclerView-->
+<!--                android:id="@+id/rv_exo_player"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:background="#dedede"-->
+<!--                android:dividerHeight="8dp" />-->
 
-        <com.google.android.exoplayer2.ui.SimpleExoPlayerView
-                android:id="@+id/exo_player"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:background="#000000"
-                app:fastforward_increment="10000"
-                app:repeat_toggle_modes="one"
-                app:rewind_increment="10000" />
+<!--        <com.google.android.exoplayer2.ui.SimpleExoPlayerView-->
+<!--                android:id="@+id/exo_player"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:background="#000000"-->
+<!--                app:fastforward_increment="10000"-->
+<!--                app:repeat_toggle_modes="one"-->
+<!--                app:rewind_increment="10000" />-->
     </LinearLayout>
 </layout>
