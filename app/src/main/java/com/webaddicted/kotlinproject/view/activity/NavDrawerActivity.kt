@@ -14,7 +14,7 @@ import com.webaddicted.kotlinproject.global.common.AppApplication.Companion.cont
 import com.webaddicted.kotlinproject.global.common.gone
 import com.webaddicted.kotlinproject.view.base.BaseActivity
 import com.webaddicted.kotlinproject.view.fragment.NewsFrm
-import kotlinx.android.synthetic.main.nav_header_main.view.*
+//import kotlinx.android.synthetic.main.nav_header_main.view.*
 
 
 /**
@@ -49,11 +49,11 @@ class NavDrawerActivity : BaseActivity() {
 
     private fun navigationDrawer() {
         val navView = mBinding.navView.getHeaderView(0)
-        navView.txt_create_lead.setOnClickListener(this)
-        navView.txt_logout.setOnClickListener(this)
-        navView.txt_home.setOnClickListener(this)
-        navView.txt_profile.setOnClickListener(this)
-        navView.txt_faq.setOnClickListener(this)
+//        navView.txt_create_lead.setOnClickListener(this)
+//        navView.txt_logout.setOnClickListener(this)
+//        navView.txt_home.setOnClickListener(this)
+//        navView.txt_profile.setOnClickListener(this)
+//        navView.txt_faq.setOnClickListener(this)
     }
 
     private fun clickListener() {

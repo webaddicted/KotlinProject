@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.ActivityEcomHomeBinding
 import com.webaddicted.kotlinproject.view.base.BaseActivity
-import kotlinx.android.synthetic.main.nav_header_main.view.*
+//import kotlinx.android.synthetic.main.nav_header_main.view.*
 
 /**
  * Created by Deepak Sharma on 01/07/19.
@@ -38,12 +38,12 @@ class EcommHomeActivity : BaseActivity() {
     }
 
     private fun navigationDrawer() {
-        val navView = mBinding.navView.getHeaderView(0)
-        navView.txt_create_lead.setOnClickListener(this)
-        navView.txt_logout.setOnClickListener(this)
-        navView.txt_home.setOnClickListener(this)
-        navView.txt_profile.setOnClickListener(this)
-        navView.txt_faq.setOnClickListener(this)
+        val navView = mBinding.navView.getHeaderView(0).rootView
+//        navView.txt_create_lead.setOnClickListener(this)
+//        navView.txt_logout.setOnClickListener(this)
+//        navView.txt_home.setOnClickListener(this)
+//        navView.txt_profile.setOnClickListener(this)
+//        navView.txt_faq.setOnClickListener(this)
     }
 
     fun openCloseDrawer(openDrawer: Boolean) {
