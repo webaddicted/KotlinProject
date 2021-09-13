@@ -14,8 +14,8 @@ import com.webaddicted.kotlinproject.global.common.AppApplication.Companion.cont
 import com.webaddicted.kotlinproject.global.common.GlobalUtility
 import com.webaddicted.kotlinproject.view.base.BaseActivity
 import com.webaddicted.kotlinproject.view.fcmkit.MLKitFrm.Companion.MLKIT_TYPE
-//import kotlinx.android.synthetic.main.nav_header_fcm.view.*
-//import kotlinx.android.synthetic.main.nav_header_main.view.txt_home
+import kotlinx.android.synthetic.main.nav_header_fcm.view.*
+import kotlinx.android.synthetic.main.nav_header_main.view.txt_home
 
 /**
  * Created by Deepak Sharma on 01/07/19.
@@ -62,18 +62,18 @@ class FcmFoodHomeActivity : BaseActivity() {
             ).root
         )
         val navView = mBinding.navView.getHeaderView(0)
-//        navView.txt_home.setOnClickListener(this)
-//        navView.txt_text_recognizer.setOnClickListener(this)
-//        navView.txt_face_detection.setOnClickListener(this)
-//        navView.txt_object_detection.setOnClickListener(this)
-//        navView.txt_image_label.setOnClickListener(this)
-//        navView.txt_barcode_scanner.setOnClickListener(this)
-//        navView.txt_landmark_recog.setOnClickListener(this)
-//        navView.txt_language_id.setOnClickListener(this)
-//        navView.txt_translation.setOnClickListener(this)
-//        navView.txt_smart_reply.setOnClickListener(this)
-//        navView.txt_email_auth.setOnClickListener(this)
-//        navView.txt_logout.setOnClickListener(this)
+        navView.txt_home.setOnClickListener(this)
+        navView.txt_text_recognizer.setOnClickListener(this)
+        navView.txt_face_detection.setOnClickListener(this)
+        navView.txt_object_detection.setOnClickListener(this)
+        navView.txt_image_label.setOnClickListener(this)
+        navView.txt_barcode_scanner.setOnClickListener(this)
+        navView.txt_landmark_recog.setOnClickListener(this)
+        navView.txt_language_id.setOnClickListener(this)
+        navView.txt_translation.setOnClickListener(this)
+        navView.txt_smart_reply.setOnClickListener(this)
+        navView.txt_email_auth.setOnClickListener(this)
+        navView.txt_logout.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {

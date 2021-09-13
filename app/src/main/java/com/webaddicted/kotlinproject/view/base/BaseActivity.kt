@@ -142,7 +142,6 @@ abstract class BaseActivity : AppCompatActivity(), View.OnClickListener,
         permissions: Array<String>,
         grantResults: IntArray
     ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         PermissionHelper.onRequestPermissionsResult(this, requestCode, permissions, grantResults)
     }
 
