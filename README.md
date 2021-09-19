@@ -218,6 +218,11 @@ This repository provides the following components that are common to our open so
   * [Image Create For PlayStore](https://www.appstorescreenshot.com/)
   * [Merge Image Horizontally](https://www.filesmerge.com/merge-images)
   * [Mock Location](https://play.google.com/store/apps/details?id=ru.gavrikov.mocklocations&hl=en_IN&gl=US)
+  * [SHA KEY Steps](https://stackoverflow.com/questions/27609442/how-to-get-the-sha-1-fingerprint-certificate-in-android-studio-for-debug-mode)
+         1) Click on the gradle. Top right on the Android Studio. As you can see in this picture.
+         2) Now click on icon as seen in below picture. A new searchable windows/screen will open.
+         3) Now type,gradle signingreport and press Enter to start generating SHA KEY as seen in below.
+         4) Your SHA Key will generate as seen in this picture. Using these steps you can generate SHA KEY in Android Studio 4.2.
   
 ## LICENSE
 ```
