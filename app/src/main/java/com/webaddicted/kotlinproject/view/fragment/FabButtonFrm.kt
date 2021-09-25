@@ -6,6 +6,7 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.ContextThemeWrapper
 import android.view.View
 import android.view.animation.OvershootInterpolator
@@ -21,15 +22,15 @@ import com.webaddicted.kotlinproject.view.base.BaseFragment
 import java.util.*
 
 
-class FabButtonFrm : BaseFragment() {
+class FabButtonFrm : BaseFragment(R.layout.frm_fab_btn) {
     private lateinit var mBinding: FrmFabBtnBinding
     private val menus: ArrayList<FloatingActionMenu> = ArrayList()
-    private val mUiHandler = Handler()
+    private val mUiHandler = Handler(Looper.getMainLooper())
     private val mMaxProgress = 100
     private var mProgressTypes: LinkedList<ProgressType>? = null
 
     companion object {
-        val TAG = FabButtonFrm::class.java.simpleName
+        val TAG = FabButtonFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): FabButtonFrm {
             val fragment = FabButtonFrm()
             fragment.arguments = bundle
@@ -37,11 +38,7 @@ class FabButtonFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_fab_btn
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmFabBtnBinding
         init()
         clickListener()
@@ -186,7 +183,10 @@ class FabButtonFrm : BaseFragment() {
             mUiHandler.postDelayed({ menu.showMenuButton(true) }, delay.toLong())
             delay += 150
         }
-        Handler().postDelayed({ mBinding.fabEdit.show(true) }, delay + 150.toLong())
+        Handler(Looper.getMainLooper()).postDelayed(
+            { mBinding.fabEdit.show(true) },
+            delay + 150.toLong()
+        )
         mBinding.menuRed.setOnMenuButtonClickListener {
             if (mBinding.menuRed.isOpened) {
                 Toast.makeText(
@@ -256,7 +256,7 @@ class FabButtonFrm : BaseFragment() {
         INDETERMINATE, PROGRESS_POSITIVE, PROGRESS_NEGATIVE, HIDDEN, PROGRESS_NO_ANIMATION, PROGRESS_NO_BACKGROUND
     }
 
-    private fun increaseProgress(fab: FloatingActionButton,i: Int) {
+    private fun increaseProgress(fab: FloatingActionButton, i: Int) {
         var iValue = i
         if (iValue <= mMaxProgress) {
             fab.setProgress(iValue, false)

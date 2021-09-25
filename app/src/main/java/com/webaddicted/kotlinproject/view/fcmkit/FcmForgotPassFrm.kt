@@ -19,24 +19,19 @@ import com.webaddicted.kotlinproject.view.fcmkit.FcmSignupFrm.Companion.OPEN_FRO
 import com.webaddicted.kotlinproject.viewModel.fcmkit.FcmFoodViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class FcmForgotPassFrm : BaseFragment() {
+class FcmForgotPassFrm : BaseFragment(R.layout.frm_fcm_forgot_pass) {
     private lateinit var mBinding: FrmFcmForgotPassBinding
     private val viewModel: FcmFoodViewModel by viewModel()
 
     companion object {
-        val TAG = FcmForgotPassFrm::class.java.simpleName
+        val TAG = FcmForgotPassFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): FcmForgotPassFrm {
             val fragment = FcmForgotPassFrm()
             fragment.arguments = bundle
             return fragment
         }
     }
-
-    override fun getLayout(): Int {
-        return R.layout.frm_fcm_forgot_pass
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmFcmForgotPassBinding
         init()
         clickListener()
@@ -98,7 +93,7 @@ class FcmForgotPassFrm : BaseFragment() {
         })
     }
 
-    private fun navigateScreen(tag: String, bundle: Bundle) {
+    private fun navigateScreen(tag: String?, bundle: Bundle) {
         var frm: Fragment? = null
         when (tag) {
             FcmOtpFrm.TAG -> frm = FcmOtpFrm.getInstance(bundle)

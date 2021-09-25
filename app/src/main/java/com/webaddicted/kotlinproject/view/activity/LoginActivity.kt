@@ -9,12 +9,11 @@ import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.ActivityCommonBinding
 import com.webaddicted.kotlinproject.view.base.BaseActivity
 import com.webaddicted.kotlinproject.view.fragment.LoginFrm
-import com.webaddicted.kotlinproject.view.fragment.TaskFrm
 
 /**
  * Created by Deepak Sharma on 10/07/19.
  */
-class LoginActivity : BaseActivity() {
+class LoginActivity : BaseActivity(R.layout.activity_common) {
 
     private lateinit var mBinding: ActivityCommonBinding
     companion object{
@@ -23,11 +22,8 @@ class LoginActivity : BaseActivity() {
             activity.startActivity(Intent(activity, LoginActivity::class.java))
         }
     }
-    override fun getLayout(): Int {
-        return R.layout.activity_common
-    }
 
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as ActivityCommonBinding
         navigateScreen(LoginFrm.TAG)
     }
@@ -36,7 +32,7 @@ class LoginActivity : BaseActivity() {
      * navigate on fragment
      * @param tag represent navigation activity
      */
-    private fun navigateScreen(tag: String) {
+    private fun navigateScreen(tag: String?) {
         var frm: Fragment? = null
         when (tag) {
             LoginFrm.TAG -> frm = LoginFrm.getInstance(Bundle())

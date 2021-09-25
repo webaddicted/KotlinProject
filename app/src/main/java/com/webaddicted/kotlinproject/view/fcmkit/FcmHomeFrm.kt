@@ -20,14 +20,14 @@ import com.webaddicted.kotlinproject.viewModel.fcmkit.FcmFoodViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 
-class FcmHomeFrm : BaseFragment() {
+class FcmHomeFrm : BaseFragment(R.layout.frm_fcm_home) {
     private var categoryBean: ArrayList<CircleGameBean>? = null
     private var adapter: CircleGameAdapter? = null
     private lateinit var mBinding: FrmFcmHomeBinding
     private val viewModel: FcmFoodViewModel by viewModel()
 
     companion object {
-        val TAG = FcmHomeFrm::class.java.simpleName
+        val TAG = FcmHomeFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): FcmHomeFrm {
             val fragment = FcmHomeFrm()
             fragment.arguments = bundle
@@ -35,11 +35,7 @@ class FcmHomeFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_fcm_home
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmFcmHomeBinding
         init()
         clickListener()
@@ -91,7 +87,7 @@ class FcmHomeFrm : BaseFragment() {
         })
     }
 
-    private fun navigateScreen(tag: String, bundle: Bundle) {
+    private fun navigateScreen(tag: String?, bundle: Bundle) {
         var frm: Fragment? = null
         when (tag) {
             FcmOtpFrm.TAG -> frm = FcmOtpFrm.getInstance(bundle)

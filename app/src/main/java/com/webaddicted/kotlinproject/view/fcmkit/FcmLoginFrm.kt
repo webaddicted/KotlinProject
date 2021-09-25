@@ -19,12 +19,12 @@ import com.webaddicted.kotlinproject.view.base.BaseFragment
 import com.webaddicted.kotlinproject.viewModel.fcmkit.FcmFoodViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class FcmLoginFrm : BaseFragment() {
+class FcmLoginFrm : BaseFragment(R.layout.frm_fcm_login) {
     private lateinit var mBinding: FrmFcmLoginBinding
     private val viewModel: FcmFoodViewModel by viewModel()
 
     companion object {
-        val TAG = FcmLoginFrm::class.java.simpleName
+        val TAG = FcmLoginFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): FcmLoginFrm {
             val fragment = FcmLoginFrm()
             fragment.arguments = bundle
@@ -32,11 +32,7 @@ class FcmLoginFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_fcm_login
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmFcmLoginBinding
         init()
         clickListener()
@@ -104,7 +100,7 @@ class FcmLoginFrm : BaseFragment() {
 
     }
 
-    private fun navigateScreen(tag: String) {
+    private fun navigateScreen(tag: String?) {
         var frm: Fragment? = null
         when (tag) {
             FcmOtpFrm.TAG -> frm = FcmOtpFrm.getInstance(Bundle())

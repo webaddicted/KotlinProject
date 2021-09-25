@@ -23,7 +23,7 @@ import com.webaddicted.kotlinproject.global.sociallogin.model.SocialLoginRespons
 
 class TwitterAuth {
     companion object {
-        private val TAG = TwitterAuth::class.java.simpleName
+        private val TAG = TwitterAuth::class.qualifiedName
 
         @NonNull
         private val mAuth: FirebaseAuth? = SocialLogin.getFirebaseAuth()

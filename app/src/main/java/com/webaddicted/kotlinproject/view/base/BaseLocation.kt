@@ -11,11 +11,6 @@ import android.os.Bundle
 import android.os.Looper
 import android.widget.Toast
 import androidx.annotation.NonNull
-import com.webaddicted.kotlinproject.global.common.PermissionHelper
-import com.webaddicted.kotlinproject.global.constant.AppConstant
-import com.webaddicted.kotlinproject.global.constant.AppConstant.Companion.GEOFENCE_REQ_CODE
-import com.webaddicted.kotlinproject.global.constant.AppConstant.Companion.GEOFENCE_REQ_ID
-import com.webaddicted.kotlinproject.global.services.GeofenceTransitionsIntentService
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.google.android.gms.common.api.GoogleApiClient
@@ -25,14 +20,18 @@ import com.google.android.gms.location.*
 import com.google.android.gms.maps.model.Circle
 import com.google.android.gms.maps.model.Marker
 import com.webaddicted.kotlinproject.global.common.Lg
+import com.webaddicted.kotlinproject.global.common.PermissionHelper
+import com.webaddicted.kotlinproject.global.constant.AppConstant
+import com.webaddicted.kotlinproject.global.constant.AppConstant.Companion.GEOFENCE_REQ_CODE
+import com.webaddicted.kotlinproject.global.constant.AppConstant.Companion.GEOFENCE_REQ_ID
+import com.webaddicted.kotlinproject.global.services.GeofenceTransitionsIntentService
 import java.util.*
 import kotlin.collections.ArrayList
-
 
 /**
  * Created by deepaksharma
  */
-abstract class BaseLocation : BaseActivity(), GoogleApiClient.ConnectionCallbacks,
+abstract class BaseLocation(private val layoutId: Int) : BaseActivity(layoutId), GoogleApiClient.ConnectionCallbacks,
     GoogleApiClient.OnConnectionFailedListener, LocationListener,
     PermissionHelper.Companion.PermissionListener {
     private var mFancyMarker: Marker? = null
@@ -282,6 +281,7 @@ abstract class BaseLocation : BaseActivity(), GoogleApiClient.ConnectionCallback
 
     //        [Permission Start]
     override fun onRequestPermissionsResult(@NonNull requestCode: Int, @NonNull permissions: Array<String>, @NonNull grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         PermissionHelper.onRequestPermissionsResult(this, requestCode, permissions, grantResults)
     }
 

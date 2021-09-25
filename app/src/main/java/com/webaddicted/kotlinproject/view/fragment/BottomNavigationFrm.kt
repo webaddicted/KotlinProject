@@ -16,11 +16,11 @@ import com.webaddicted.kotlinproject.global.common.visible
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
 
-class BottomNavigationFrm : BaseFragment() {
+class BottomNavigationFrm : BaseFragment(R.layout.frm_bottom_navi) {
     private lateinit var mBinding: FrmBottomNaviBinding
 
     companion object {
-        val TAG = BottomNavigationFrm::class.java.simpleName
+        val TAG = BottomNavigationFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): BottomNavigationFrm {
             val fragment = BottomNavigationFrm()
             fragment.arguments = bundle
@@ -28,11 +28,7 @@ class BottomNavigationFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_bottom_navi
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmBottomNaviBinding
         init()
         clickListener()
@@ -87,7 +83,7 @@ class BottomNavigationFrm : BaseFragment() {
         }
     }
 
-    private fun getSelectedTab(menuItemId: Int, isReselection: Boolean): String? {
+    private fun getSelectedTab(menuItemId: Int, isReselection: Boolean): String {
         var message = "Content for "
         when (menuItemId) {
             R.id.tab_profile -> message += "recents"
@@ -101,9 +97,10 @@ class BottomNavigationFrm : BaseFragment() {
         }
         return message
     }
+
     private val navigationItemSelectedListener: BottomNavigationView.OnNavigationItemSelectedListener =
         object : BottomNavigationView.OnNavigationItemSelectedListener {
-           override fun onNavigationItemSelected(@NonNull item: MenuItem): Boolean {
+            override fun onNavigationItemSelected(@NonNull item: MenuItem): Boolean {
                 when (item.itemId) {
                     R.id.nav_food -> {
                         openFragment(CalendarFrm.getInstance(Bundle()))
@@ -129,6 +126,7 @@ class BottomNavigationFrm : BaseFragment() {
                 return false
             }
         }
+
     fun openFragment(fragment: Fragment) {
         val transaction: FragmentTransaction? = activity?.supportFragmentManager?.beginTransaction()
         transaction?.replace(R.id.nav_container, fragment)

@@ -11,7 +11,7 @@ import android.content.Intent
 class NetworkChangeReceiver : BroadcastReceiver() {
     var count = 0
     companion object {
-        private val TAG = NetworkChangeReceiver::class.java.simpleName
+        private val TAG = NetworkChangeReceiver::class.qualifiedName
 
         /**
          * The constant connectivityReceiverListener.

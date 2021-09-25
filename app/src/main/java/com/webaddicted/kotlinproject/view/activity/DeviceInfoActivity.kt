@@ -18,7 +18,7 @@ import com.webaddicted.kotlinproject.view.base.BaseActivity
 import com.webaddicted.kotlinproject.view.deviceinfo.*
 import java.util.*
 
-class DeviceInfoActivity : BaseActivity() {
+class DeviceInfoActivity : BaseActivity(R.layout.frm_device_info) {
     private lateinit var mBinding: FrmDeviceInfoBinding
 
     companion object {
@@ -28,11 +28,7 @@ class DeviceInfoActivity : BaseActivity() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_device_info
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as FrmDeviceInfoBinding
         init()
         clickListener()
@@ -98,7 +94,7 @@ class DeviceInfoActivity : BaseActivity() {
         viewPager.adapter = adapter
     }
 
-    suspend fun getAppsList(): MutableList<DeviceInfo> {
+    fun getAppsList(): MutableList<DeviceInfo> {
         val deviceInfos: MutableList<DeviceInfo> =
            ArrayList()
         val flags =

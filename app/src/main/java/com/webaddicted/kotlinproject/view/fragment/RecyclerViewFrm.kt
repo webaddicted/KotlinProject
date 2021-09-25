@@ -17,12 +17,12 @@ import com.webaddicted.kotlinproject.view.base.ScrollListener
 import java.util.*
 
 
-class RecyclerViewFrm : BaseFragment() {
+class RecyclerViewFrm : BaseFragment(R.layout.frm_recylcer_view) {
     private var list: ArrayList<String>? = null
     private var mListAdapter: RecyclerListAdapter? = null
     private lateinit var mBinding: FrmRecylcerViewBinding
-    var animPos: Int = 0
-    val animArray: IntArray = intArrayOf(
+    private var animPos: Int = 0
+    private val animArray: IntArray = intArrayOf(
         R.anim.rv_anim_down_to_up,
         R.anim.rv_anim_up_to_down,
         R.anim.rv_anim_left_to_right,
@@ -31,19 +31,14 @@ class RecyclerViewFrm : BaseFragment() {
     )
 
     companion object {
-        val TAG = RecyclerViewFrm::class.java.simpleName
+        val TAG = RecyclerViewFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): RecyclerViewFrm {
             val fragment = RecyclerViewFrm()
             fragment.arguments = bundle
             return fragment
         }
     }
-
-    override fun getLayout(): Int {
-        return R.layout.frm_recylcer_view
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmRecylcerViewBinding
         init()
         clickListener()
@@ -108,7 +103,7 @@ class RecyclerViewFrm : BaseFragment() {
         mBinding.recyclerView.layoutManager = layoutMgr
         mBinding.recyclerView.addOnScrollListener(object : ScrollListener(layoutMgr) {
             override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView) {
-                getUrlBean()?.let { list?.addAll(it) }
+                getUrlBean().let { list?.addAll(it) }
                 mListAdapter?.notifyAdapter(list)
             }
         })
@@ -116,7 +111,7 @@ class RecyclerViewFrm : BaseFragment() {
         mBinding.recyclerView.adapter = mListAdapter
     }
 
-    private fun getUrlBean(): ArrayList<String>? {
+    private fun getUrlBean(): ArrayList<String> {
         val mList = ArrayList<String>()
         mList.add("https://ya-webdesign.com/images/goofy-clipart-7.png")
         mList.add("https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/Donald_Duck.svg/220px-Donald_Duck.svg.png")

@@ -11,11 +11,11 @@ import com.webaddicted.kotlinproject.global.common.showToast
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 import com.webaddicted.kotlinproject.view.fragment.SignupFrm
 
-class EcommOtpFrm : BaseFragment() {
+class EcommOtpFrm : BaseFragment(R.layout.frm_ecom_otp) {
     private lateinit var mBinding: FrmEcomOtpBinding
 
     companion object {
-        val TAG = EcommOtpFrm::class.java.simpleName
+        val TAG = EcommOtpFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): EcommOtpFrm {
             val fragment = EcommOtpFrm()
             fragment.arguments = bundle
@@ -23,11 +23,7 @@ class EcommOtpFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_ecom_otp
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmEcomOtpBinding
         init()
         clickListener()

@@ -13,24 +13,21 @@ import com.webaddicted.kotlinproject.view.dialog.ImagePickerDialog
 import com.webaddicted.kotlinproject.view.interfac.OnImageActionListener
 import java.io.File
 
-class ProfileFrm : BaseFragment() {
+class ProfileFrm : BaseFragment(R.layout.frm_profile) {
     private lateinit var imgPickerDialog: ImagePickerDialog
     private lateinit var mBinding: FrmProfileBinding
 
     companion object {
-        val TAG = ProfileFrm::class.java.simpleName
+        val TAG = ProfileFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): ProfileFrm {
             val fragment = ProfileFrm()
             fragment.arguments = bundle
             return fragment
         }
+
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_profile
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmProfileBinding
         init()
         clickListener()

@@ -33,12 +33,12 @@ class MainScope : CoroutineScope, LifecycleObserver {
     fun destroy() = job.cancel()
 }
 
-class CoroutineLifecycleAwareFrm : BaseFragment() {
+class CoroutineLifecycleAwareFrm : BaseFragment(R.layout.frm_coroutine) {
     private lateinit var mBinding: FrmCoroutineBinding
     private val mainScope = MainScope()
 
     companion object {
-        val TAG = CoroutineLifecycleAwareFrm::class.java.simpleName
+        val TAG = CoroutineLifecycleAwareFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): CoroutineLifecycleAwareFrm {
             val fragment = CoroutineLifecycleAwareFrm()
             fragment.arguments = bundle
@@ -50,12 +50,7 @@ class CoroutineLifecycleAwareFrm : BaseFragment() {
         super.onCreate(savedInstanceState)
         lifecycle.addObserver(mainScope)
     }
-
-    override fun getLayout(): Int {
-        return R.layout.frm_coroutine
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmCoroutineBinding
         init()
         clickListener()
@@ -98,7 +93,7 @@ class CoroutineLifecycleAwareFrm : BaseFragment() {
         textView.text = "Step 1 "
         mainScope.launch {
             textView.text = textView.text.toString() + "\nStep 2"
-            var result = loadData(mBinding.txtLifecycleAware)
+            val result = loadData(mBinding.txtLifecycleAware)
             textView.text = textView.text.toString() + "\nStep 5 :- result  :- $result"
         }
         textView.text = textView.text.toString() + "\nOut of launch "

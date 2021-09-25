@@ -9,22 +9,17 @@ import com.webaddicted.kotlinproject.global.common.showToast
 import com.webaddicted.kotlinproject.view.base.BaseDialog
 
 
-class LoginDialog : BaseDialog() {
+class LoginDialog : BaseDialog(R.layout.dialog_custom) {
     private lateinit var mBinding: DialogCustomBinding
     companion object {
-        val TAG = LoginDialog::class.java.simpleName
+        val TAG = LoginDialog::class.qualifiedName
         fun dialog(
         ): LoginDialog {
-            val customDialog = LoginDialog()
-            return customDialog
+            return LoginDialog()
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.dialog_custom
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as DialogCustomBinding
         init()
         clickListener()

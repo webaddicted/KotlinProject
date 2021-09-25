@@ -25,11 +25,11 @@ import java.net.URL
 import java.net.URLConnection
 import java.util.*
 
-class ShareDataFrm : BaseFragment() {
+class ShareDataFrm : BaseFragment(R.layout.frm_share) {
     private lateinit var mBinding: FrmShareBinding
 
     companion object {
-        val TAG = ShareDataFrm::class.java.simpleName
+        val TAG = ShareDataFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): ShareDataFrm {
             val fragment = ShareDataFrm()
             fragment.arguments = bundle
@@ -37,11 +37,7 @@ class ShareDataFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_share
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmShareBinding
         init()
         clickListener()
@@ -168,7 +164,7 @@ class ShareDataFrm : BaseFragment() {
                     FileHelper.createApplicationFolder()
                     val url = "http://housedocs.house.gov/edlabor/AAHCA-BillText-071409.pdf"
                     val file = File(FileHelper.subFolder(), FileHelper.getFileName(url))
-                    if (file.exists()) FileHelper.openFile(mActivity,file)
+                    if (file.exists()) FileHelper.openFile(mActivity, file)
                     else DownloadFile(shareDataFrm, url).execute()
                 }
 
@@ -252,7 +248,7 @@ class ShareDataFrm : BaseFragment() {
                 if (progressDialog != null && progressDialog?.isShowing!!)
                     progressDialog?.dismiss()
                 val file = File(FileHelper.appFolder(), FileHelper.getFileName(strUrl))
-                if (file.exists()) FileHelper.openFile(shareDataFrm.mActivity,file)
+                if (file.exists()) FileHelper.openFile(shareDataFrm.mActivity, file)
                 // Display File path after downloading
             } catch (exp: java.lang.Exception) {
                 exp.printStackTrace()

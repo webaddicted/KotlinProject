@@ -24,7 +24,7 @@ import java.io.File
 /**
  * Created by Deepak Sharma on 01/07/19.
  */
-abstract class BaseActivity : AppCompatActivity(), View.OnClickListener,
+abstract class BaseActivity(private val layoutId: Int) : AppCompatActivity(), View.OnClickListener,
     PermissionHelper.Companion.PermissionListener,
     MediaPickerUtils.ImagePickerListener {
     private val mediaPicker: MediaPickerUtils by inject()
@@ -33,9 +33,7 @@ abstract class BaseActivity : AppCompatActivity(), View.OnClickListener,
         val TAG = BaseActivity::class.java.simpleName
     }
 
-    abstract fun getLayout(): Int
-
-    abstract fun initUI(binding: ViewDataBinding)
+    abstract fun onBindTo(binding: ViewDataBinding)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,12 +46,11 @@ abstract class BaseActivity : AppCompatActivity(), View.OnClickListener,
 //            WindowManager.LayoutParams.FLAG_SECURE
 //        )
         GlobalUtility.hideKeyboard(this)
-        val layoutResId = getLayout()
         val binding: ViewDataBinding?
-        if (layoutResId != 0) {
+        if (layoutId != 0) {
             try {
-                binding = DataBindingUtil.setContentView(this, layoutResId)
-                initUI(binding)
+                binding = DataBindingUtil.setContentView(this, layoutId)
+                onBindTo(binding)
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -61,7 +58,7 @@ abstract class BaseActivity : AppCompatActivity(), View.OnClickListener,
         getNetworkStateReceiver()
     }
 
-    protected fun fullScreen() {
+    private fun fullScreen() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val window = window
             if (window != null) {
@@ -142,6 +139,7 @@ abstract class BaseActivity : AppCompatActivity(), View.OnClickListener,
         permissions: Array<String>,
         grantResults: IntArray
     ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         PermissionHelper.onRequestPermissionsResult(this, requestCode, permissions, grantResults)
     }
 

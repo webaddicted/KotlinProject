@@ -14,14 +14,16 @@ import com.webaddicted.kotlinproject.global.common.AppApplication.Companion.cont
 import com.webaddicted.kotlinproject.global.common.gone
 import com.webaddicted.kotlinproject.view.base.BaseActivity
 import com.webaddicted.kotlinproject.view.fragment.NewsFrm
+
 //import kotlinx.android.synthetic.main.nav_header_main.view.*
 
 
 /**
  * Created by Deepak Sharma on 01/07/19.
  */
-class NavDrawerActivity : BaseActivity() {
+class NavDrawerActivity : BaseActivity(R.layout.activity_nav_drawer) {
     private lateinit var mBinding: ActivityNavDrawerBinding
+
     companion object {
         val TAG: String = NavDrawerActivity::class.java.simpleName
         fun newIntent(activity: Activity) {
@@ -29,18 +31,14 @@ class NavDrawerActivity : BaseActivity() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.activity_nav_drawer
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as ActivityNavDrawerBinding
         init()
         clickListener()
     }
 
     private fun init() {
-        setNavigationColor(ContextCompat.getColor(context,R.color.app_color))
+        setNavigationColor(ContextCompat.getColor(context, R.color.app_color))
         mBinding.toolbar.imgNavRight.gone()
         mBinding.txtSuggest.text = "Swipe left for left navigation"
         mBinding.toolbar.txtToolbarTitle.text = resources.getString(R.string.navigation_drawer)
@@ -64,10 +62,11 @@ class NavDrawerActivity : BaseActivity() {
         super.onClick(v)
         when (v.id) {
             R.id.img_nav_left -> openCloseDrawer(true)
-            R.id.txt_create_lead,R.id.txt_logout,R.id.txt_home,
-            R.id.txt_profile,R.id.txt_faq->onBackPressed()
+            R.id.txt_create_lead, R.id.txt_logout, R.id.txt_home,
+            R.id.txt_profile, R.id.txt_faq -> onBackPressed()
         }
     }
+
     private fun openCloseDrawer(openDrawer: Boolean) {
         if (openDrawer) mBinding.drawerLayout.openDrawer(GravityCompat.START)
         else mBinding.drawerLayout.closeDrawer(GravityCompat.START)
@@ -79,6 +78,7 @@ class NavDrawerActivity : BaseActivity() {
         else
             super.onBackPressed()
     }
+
     /**
      * navigate on fragment
      * @param tag represent navigation activity
@@ -89,7 +89,7 @@ class NavDrawerActivity : BaseActivity() {
             NewsFrm.TAG -> frm = NewsFrm.getInstance(Bundle())
         }
         if (frm != null) {
-          navigateFragment(R.id.container, frm, false)
+            navigateFragment(R.id.container, frm, false)
         }
     }
 

@@ -29,7 +29,7 @@ import com.webaddicted.kotlinproject.view.adapter.CameraAdapter
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 import kotlinx.coroutines.*
 
-class CameraFrm : BaseFragment() {
+class CameraFrm : BaseFragment(R.layout.frm_dev_camera) {
     private lateinit var cameraList: ArrayList<CameraBean>
     private lateinit var mAdapter: CameraAdapter
     private lateinit var camera: Camera
@@ -37,7 +37,7 @@ class CameraFrm : BaseFragment() {
     private lateinit var cameraManager: CameraManager
 
     companion object {
-        val TAG = CameraFrm::class.java.simpleName
+        val TAG = CameraFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): CameraFrm {
             val fragment = CameraFrm()
             fragment.arguments = bundle
@@ -45,11 +45,7 @@ class CameraFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_dev_camera
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmDevCameraBinding
         init()
         clickListener()
@@ -58,15 +54,13 @@ class CameraFrm : BaseFragment() {
     private fun init() {
         cameraList = ArrayList()
         setAdapter()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            cameraManager = activity?.getSystemService(Context.CAMERA_SERVICE) as CameraManager
-            camera = Camera()
-            if (cameraManager.cameraIdList.size >= 2) mBinding.llParentCamera.visible()
-            else mBinding.llParentCamera.gone()
-            mBinding.rvCamera.layoutManager = LinearLayoutManager(activity)
-            mBinding.rvCamera.hasFixedSize()
-            checkCameraPermission("1")
-        }
+        cameraManager = activity?.getSystemService(Context.CAMERA_SERVICE) as CameraManager
+        camera = Camera()
+        if (cameraManager.cameraIdList.size >= 2) mBinding.llParentCamera.visible()
+        else mBinding.llParentCamera.gone()
+        mBinding.rvCamera.layoutManager = LinearLayoutManager(activity)
+        mBinding.rvCamera.hasFixedSize()
+        checkCameraPermission("1")
     }
 
     private fun clickListener() {
@@ -136,7 +130,10 @@ class CameraFrm : BaseFragment() {
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    private fun fetchCameraCharacteristics(cameraManager: CameraManager, ids: String): java.util.ArrayList<CameraBean> {
+    private fun fetchCameraCharacteristics(
+        cameraManager: CameraManager,
+        ids: String
+    ): java.util.ArrayList<CameraBean> {
         val lists = java.util.ArrayList<CameraBean>()
         val sb = StringBuilder()
         val characteristics = cameraManager.getCameraCharacteristics(ids)

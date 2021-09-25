@@ -20,7 +20,7 @@ import com.webaddicted.kotlinproject.global.constant.AppConstant
 import com.webaddicted.kotlinproject.view.activity.MapActivity
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
-class GoogleMapFrm : BaseFragment(), OnMapReadyCallback, GoogleMap.OnMapClickListener {
+class GoogleMapFrm : BaseFragment(R.layout.frm_google_map), OnMapReadyCallback, GoogleMap.OnMapClickListener {
     private var fancyMarker: Marker? = null
     private var fencyLocation: Location? = null
     private lateinit var mLatLongList: ArrayList<LatLng>
@@ -41,12 +41,7 @@ class GoogleMapFrm : BaseFragment(), OnMapReadyCallback, GoogleMap.OnMapClickLis
             return fragment
         }
     }
-
-    override fun getLayout(): Int {
-        return R.layout.frm_google_map
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmGoogleMapBinding
         init()
         clickListener()

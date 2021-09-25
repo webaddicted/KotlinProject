@@ -8,13 +8,12 @@ import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.FrmEcomLoginBinding
 import com.webaddicted.kotlinproject.global.common.ValidationHelper
 import com.webaddicted.kotlinproject.view.base.BaseFragment
-import com.webaddicted.kotlinproject.view.fragment.SignupFrm
 
-class EcommLoginFrm : BaseFragment() {
+class EcommLoginFrm : BaseFragment(R.layout.frm_ecom_login) {
     private lateinit var mBinding: FrmEcomLoginBinding
 
     companion object {
-        val TAG = EcommLoginFrm::class.java.simpleName
+        val TAG = EcommLoginFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): EcommLoginFrm {
             val fragment = EcommLoginFrm()
             fragment.arguments = bundle
@@ -22,11 +21,7 @@ class EcommLoginFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_ecom_login
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmEcomLoginBinding
         init()
         clickListener()
@@ -59,7 +54,7 @@ class EcommLoginFrm : BaseFragment() {
      *
      * @param tag represent navigation activity
      */
-    private fun navigateScreen(tag: String) {
+    private fun navigateScreen(tag: String?) {
         var frm: Fragment? = null
         when (tag) {
             EcommOtpFrm.TAG -> frm = EcommOtpFrm.getInstance(Bundle())

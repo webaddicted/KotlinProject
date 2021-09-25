@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.MenuInflater
 import android.view.View
 import android.widget.ArrayAdapter
@@ -20,7 +21,7 @@ import com.webaddicted.kotlinproject.global.common.visible
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
 
-class WidgetFrm : BaseFragment(), DatePickerDialog.OnDateSetListener,
+class WidgetFrm : BaseFragment(R.layout.frm_widget), DatePickerDialog.OnDateSetListener,
     TimePickerDialog.OnTimeSetListener {
     private var handler: Handler? = null
     private var thread: Thread? = null
@@ -41,7 +42,7 @@ class WidgetFrm : BaseFragment(), DatePickerDialog.OnDateSetListener,
     )
 
     companion object {
-        val TAG = WidgetFrm::class.java.simpleName
+        val TAG = WidgetFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): WidgetFrm {
             val fragment = WidgetFrm()
             fragment.arguments = bundle
@@ -49,11 +50,7 @@ class WidgetFrm : BaseFragment(), DatePickerDialog.OnDateSetListener,
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_widget
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmWidgetBinding
         init()
         clickListener()
@@ -63,7 +60,7 @@ class WidgetFrm : BaseFragment(), DatePickerDialog.OnDateSetListener,
         mBinding.toolbar.imgBack.visible()
         mBinding.toolbar.txtToolbarTitle.text = resources.getString(R.string.widget_title)
         mBinding.txtMarquee.isSelected = true
-        handler = Handler()
+        handler = Handler(Looper.getMainLooper())
         setEditText()
         setProgressBar()
     }
@@ -92,7 +89,7 @@ class WidgetFrm : BaseFragment(), DatePickerDialog.OnDateSetListener,
         mBinding.pbCircular.max = 100
         mBinding.pbCircular.progressDrawable = ContextCompat.getDrawable(mActivity,R.drawable.pb_circulare)
         var progressBarStatus = 0
-        thread = Thread(Runnable {
+        thread = Thread {
             while (progressBarStatus < 100) {
                 progressBarStatus += 1
                 handler?.post {
@@ -112,7 +109,7 @@ class WidgetFrm : BaseFragment(), DatePickerDialog.OnDateSetListener,
                     e.printStackTrace()
                 }
             }
-        })
+        }
         thread?.start()
     }
 

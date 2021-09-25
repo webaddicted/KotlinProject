@@ -13,15 +13,12 @@ import android.widget.Toast
 import androidx.databinding.ViewDataBinding
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.ActivityWebviewBinding
-import com.webaddicted.kotlinproject.global.common.Lg
-import com.webaddicted.kotlinproject.global.common.MediaPickerHelper
-import com.webaddicted.kotlinproject.global.common.showToast
-import com.webaddicted.kotlinproject.global.common.visible
+import com.webaddicted.kotlinproject.global.common.*
 import com.webaddicted.kotlinproject.global.misc.WebChromeClientTest
 import com.webaddicted.kotlinproject.view.base.BaseActivity
 
 
-class WebViewActivity : BaseActivity() {
+class WebViewActivity : BaseActivity(R.layout.activity_webview) {
     private var url: String = "http://www.google.com"
     private lateinit var mBinding: ActivityWebviewBinding
     val INPUT_FILE_REQUEST_CODE = 1
@@ -29,27 +26,25 @@ class WebViewActivity : BaseActivity() {
     var mCameraPhotoPath: String = ""
 
     companion object {
-        val TAG = WebViewActivity::class.java.simpleName
+        val TAG = WebViewActivity::class.qualifiedName
         fun newIntent(context: Context) {
             context.startActivity(Intent(context, WebViewActivity::class.java))
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.activity_webview
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as ActivityWebviewBinding
         init()
         clickListener()
         checkStoragePermission()
         normalWebView(mBinding.webview)
     }
+
     private fun init() {
         mBinding.toolbar.imgBack.visible()
         mBinding.toolbar.txtToolbarTitle.text = resources.getString(R.string.webview_title)
     }
+
     private fun clickListener() {
         mBinding.toolbar.imgBack.setOnClickListener(this)
         mBinding.btnNormalWebview.setOnClickListener(this)
@@ -159,7 +154,7 @@ class WebViewActivity : BaseActivity() {
      * @param webView    view
      * @param contentUrl webview url
      */
-    fun chooseImageWebViewUrl(activity: Activity?, webView: WebView, contentUrl: String?) {
+    private fun chooseImageWebViewUrl(activity: Activity?, webView: WebView, contentUrl: String?) {
         try {
             val cookieManager = CookieManager.getInstance()
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -182,12 +177,8 @@ class WebViewActivity : BaseActivity() {
             webView.settings.setSupportZoom(true)
             webView.settings.allowFileAccess = (true)
             webView.settings.allowContentAccess = (true)
-            if (Build.VERSION.SDK_INT >= 19) {
-                webView.setLayerType(View.LAYER_TYPE_HARDWARE, null)
-            } else if (Build.VERSION.SDK_INT >= 11 && Build.VERSION.SDK_INT < 19) {
-                webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null)
-            }
-//            webView.getSettings().Access = (true);
+            webView.setLayerType(View.LAYER_TYPE_HARDWARE, null)
+            //            webView.getSettings().Access = (true);
             webView.webChromeClient = WebChromeClientTest(activity)
             webView.webViewClient = myTestBrowser()
             contentUrl?.let { webView.loadUrl(it) }
@@ -203,19 +194,19 @@ class WebViewActivity : BaseActivity() {
         }
         try {
             if (resultCode == 0) {
-                Lg.d(TAG, "when user cancel then reset web chrome client")
+                GlobalUtility.print(TAG, "when user cancel then reset web chrome client")
                 mBinding.webview.webChromeClient = WebChromeClientTest(this)
                 mUploadMessage?.onReceiveValue(arrayOf(Uri.parse("")))
                 return
             }
             if (data?.data != null || data?.clipData != null) {
                 val files = MediaPickerHelper().getData(this, data)
-                val arrayLists = Array(files.size, { i -> Uri.fromFile(files[i]) })
+                val arrayLists = Array(files.size) { i -> Uri.fromFile(files[i]) }
                 showToast("selected image size - " + files.size)
                 mUploadMessage?.onReceiveValue(arrayLists)
             } else {
                 mUploadMessage?.onReceiveValue(arrayOf(Uri.parse(mCameraPhotoPath)))
-                showToast("captured image - " + mCameraPhotoPath)
+                showToast("captured image - $mCameraPhotoPath")
             }
         } catch (e: Exception) {
             Lg.e("Error!", "Error while opening image file: ${e.localizedMessage}")

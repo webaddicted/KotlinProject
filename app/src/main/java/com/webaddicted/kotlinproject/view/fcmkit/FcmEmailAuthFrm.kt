@@ -1,13 +1,12 @@
 package com.webaddicted.kotlinproject.view.fcmkit
 
+//import com.google.firebase.iid.FirebaseInstanceId
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.google.firebase.auth.FirebaseAuth
-//import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.messaging.FirebaseMessaging
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.apiutils.ApiConstant
@@ -21,14 +20,14 @@ import com.webaddicted.kotlinproject.view.fragment.ZoomImageFrm
 import com.webaddicted.kotlinproject.viewModel.fcmkit.FcmFoodViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class FcmEmailAuthFrm : BaseFragment() {
+class FcmEmailAuthFrm : BaseFragment(R.layout.frm_fcm_email_auth) {
     private var newToken: String = ""
     private lateinit var fireAuth: FirebaseAuth
     private lateinit var mBinding: FrmFcmEmailAuthBinding
     private val mViewModel: FcmFoodViewModel by viewModel()
 
     companion object {
-        val TAG = FcmEmailAuthFrm::class.java.simpleName
+        val TAG = FcmEmailAuthFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): FcmEmailAuthFrm {
             val fragment = FcmEmailAuthFrm()
             fragment.arguments = bundle
@@ -36,11 +35,7 @@ class FcmEmailAuthFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_fcm_email_auth
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmFcmEmailAuthBinding
         init()
         clickListener()
@@ -88,7 +83,7 @@ class FcmEmailAuthFrm : BaseFragment() {
     private fun subscribeTopicFirst() {
         FirebaseMessaging.getInstance().subscribeToTopic(ApiConstant.FCM_TOPIC_NAME)
             .addOnCompleteListener { task ->
-                var msg = "getString(R.string.msg_subscribed)"
+                val msg: String
                 if (!task.isSuccessful) {
                     msg = "getString(R.string.msg_subscribe_failed)"
                     GlobalUtility.showToast(msg)
@@ -105,7 +100,7 @@ class FcmEmailAuthFrm : BaseFragment() {
         fireAuth.signInWithEmailAndPassword(
             mBinding.edtEmail.text.toString(),
             mBinding.edtEmail.text.toString()
-        ).addOnCompleteListener(activity) { task ->
+        ).addOnCompleteListener(mActivity) { task ->
             if (task.isSuccessful)
                 mBinding.txtLoginRespo.text = "Login Respo : \nUser loggedin successfully.\n"
             else mBinding.txtLoginRespo.text = "Login Respo : \n${task.exception?.message}\n"
@@ -119,7 +114,7 @@ class FcmEmailAuthFrm : BaseFragment() {
         fireAuth.createUserWithEmailAndPassword(
             mBinding.edtEmail.text.toString(),
             mBinding.edtEmail.text.toString()
-        ).addOnCompleteListener(activity) { task ->
+        ).addOnCompleteListener(mActivity) { task ->
             if (task.isSuccessful)
                 mBinding.txtSignupRespo.text = "Signup Respo : \nSuccessfully register.\n"
             else mBinding.txtSignupRespo.text = "Signup Respo : \n${task.exception?.message}\n"
@@ -154,7 +149,7 @@ class FcmEmailAuthFrm : BaseFragment() {
             "User not exist, please login first\n"
     }
 
-    private fun navigateScreen(tag: String, bundle: Bundle) {
+    private fun navigateScreen(tag: String?, bundle: Bundle) {
         var frm: Fragment? = null
         when (tag) {
             FcmOtpFrm.TAG -> frm = FcmOtpFrm.getInstance(bundle)
@@ -197,6 +192,5 @@ class FcmEmailAuthFrm : BaseFragment() {
             }
         }
     }
-
 }
 

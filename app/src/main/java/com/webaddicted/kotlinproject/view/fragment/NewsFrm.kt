@@ -2,6 +2,7 @@ package com.webaddicted.kotlinproject.view.fragment
 
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.databinding.ViewDataBinding
@@ -22,7 +23,7 @@ import com.webaddicted.kotlinproject.view.base.ScrollListener
 import com.webaddicted.kotlinproject.viewModel.list.NewsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class NewsFrm : BaseFragment() {
+class NewsFrm : BaseFragment(R.layout.frm_news) {
     private var mLanguageCode: String = ""
     private var newsList: ArrayList<NewsChanelRespo.Source>? = null
     private lateinit var mBinding: FrmNewsBinding
@@ -31,19 +32,14 @@ class NewsFrm : BaseFragment() {
     private var mPageCount: Int = 1
 
     companion object {
-        val TAG = NewsFrm::class.java.simpleName
+        val TAG = NewsFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): NewsFrm {
             val fragment = NewsFrm()
             fragment.arguments = bundle
             return fragment
         }
     }
-
-    override fun getLayout(): Int {
-        return R.layout.frm_news
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmNewsBinding
         init()
         clickListener()
@@ -55,7 +51,7 @@ class NewsFrm : BaseFragment() {
         mBinding.toolbar.imgBack.visible()
         mBinding.toolbar.txtToolbarTitle.text = resources.getString(R.string.news_channel)
         mLanguageCode = preferenceMgr.getLanguageInfo().languageCode
-        mBinding.parent.setBackgroundColor(ContextCompat.getColor(context!!,R.color.grey_light))
+        mBinding.parent.setBackgroundColor(ContextCompat.getColor(mActivity,R.color.grey_light))
         callApi()
     }
 
@@ -86,7 +82,7 @@ class NewsFrm : BaseFragment() {
         mBinding.swipeView.setColorSchemeColors(ContextCompat.getColor(mActivity,R.color.white))
         mBinding.swipeView.setWaveColor(ContextCompat.getColor(mActivity,R.color.app_color))
         mBinding.swipeView.setOnRefreshListener {
-            Handler().postDelayed({
+            Handler(Looper.getMainLooper()).postDelayed({
                 mBinding.swipeView.isRefreshing = false
             }, 1000)
         }
@@ -124,7 +120,7 @@ class NewsFrm : BaseFragment() {
      * navigate on fragment
      * @param tag represent navigation activity
      */
-    private fun navigateScreen(tag: String) {
+    private fun navigateScreen(tag: String?) {
         var frm: Fragment? = null
         when (tag) {
             ProfileFrm.TAG -> frm = ProfileFrm.getInstance(Bundle())

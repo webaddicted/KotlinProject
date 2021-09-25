@@ -1,16 +1,14 @@
 package com.webaddicted.kotlinproject.view.activity
 
+//import com.google.firebase.iid.FirebaseInstanceId
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-//import com.google.firebase.iid.FirebaseInstanceId
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.ActivityCommonBinding
-import com.webaddicted.kotlinproject.global.common.Lg
 import com.webaddicted.kotlinproject.global.common.PermissionHelper
 import com.webaddicted.kotlinproject.view.base.BaseActivity
 import com.webaddicted.kotlinproject.view.fragment.TaskFrm
@@ -19,7 +17,7 @@ import kotlinx.coroutines.*
 /**
  * Created by Deepak Sharma on 01/07/19.
  */
-class HomeActivity : BaseActivity() {
+class HomeActivity : BaseActivity(R.layout.activity_common) {
 
     private lateinit var mBinding: ActivityCommonBinding
 
@@ -36,11 +34,7 @@ class HomeActivity : BaseActivity() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.activity_common
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as ActivityCommonBinding
 //        Lg.d(TAG, "ok token - "+FirebaseInstanceId.getInstance().token)
         navigateScreen(TaskFrm.TAG)

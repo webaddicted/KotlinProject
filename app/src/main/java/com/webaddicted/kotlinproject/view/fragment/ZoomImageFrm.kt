@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.databinding.ViewDataBinding
 import com.webaddicted.kotlinproject.R
-import com.webaddicted.kotlinproject.databinding.FrmContactsBinding
-import com.webaddicted.kotlinproject.databinding.FrmPhoneImageBinding
 import com.webaddicted.kotlinproject.databinding.FrmZoomBinding
 import com.webaddicted.kotlinproject.global.common.showImage
 import com.webaddicted.kotlinproject.global.common.visible
@@ -13,11 +11,11 @@ import com.webaddicted.kotlinproject.view.base.BaseFragment
 import java.io.File
 
 
-class ZoomImageFrm : BaseFragment() {
+class ZoomImageFrm : BaseFragment(R.layout.frm_zoom) {
     private lateinit var mBinding: FrmZoomBinding
 
     companion object {
-        val TAG = ZoomImageFrm::class.java.simpleName
+        val TAG = ZoomImageFrm::class.qualifiedName
         const val IMAGE_PATH = "image_path"
         const val IS_LOCAL_FILE = "isLocalFile"
         fun getInstance(url: String, isLocalFile: Boolean): ZoomImageFrm {
@@ -36,11 +34,7 @@ class ZoomImageFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_zoom
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding? ) {
         mBinding = binding as FrmZoomBinding
         init()
         clickListener()

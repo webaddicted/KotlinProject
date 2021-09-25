@@ -11,25 +11,20 @@ import com.webaddicted.kotlinproject.view.adapter.ExoPlayerAdapter
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 import java.util.*
 
-class ExoPlayerRecyclerFrm : BaseFragment() {
+class ExoPlayerRecyclerFrm : BaseFragment(R.layout.frm_exo_player_recycler) {
     private lateinit var mAdapter: ExoPlayerAdapter
     private lateinit var videoBean: ArrayList<ExoPlayerBean>
     private lateinit var mBinding: FrmExoPlayerRecyclerBinding
     private var firstTime = true
     companion object {
-        val TAG = ExoPlayerRecyclerFrm::class.java.simpleName
+        val TAG = ExoPlayerRecyclerFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): ExoPlayerRecyclerFrm {
             val fragment = ExoPlayerRecyclerFrm()
             fragment.arguments = bundle
             return fragment
         }
     }
-
-    override fun getLayout(): Int {
-        return R.layout.frm_exo_player_recycler
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmExoPlayerRecyclerBinding
         init()
         clickListener()

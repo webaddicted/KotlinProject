@@ -18,29 +18,24 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 /**
  * Created by Deepak Sharma on 01/07/19.
  */
-class MapActivity : BaseLocation() {
+class MapActivity : BaseLocation(R.layout.activity_common) {
     private lateinit var mBinding: ActivityCommonBinding
     val mapViewModel: MapViewModel by viewModel()
 
     companion object {
         val TAG: String = MapActivity::class.java.simpleName
-        val OPEN_FRM = "OPEN_FRM"
-        fun newIntent(activity: Activity, openFrm: String) {
+        const val OPEN_FRM = "OPEN_FRM"
+        fun newIntent(activity: Activity, openFrm: String?) {
             val intent = Intent(activity, MapActivity::class.java)
             intent.putExtra(OPEN_FRM, openFrm)
             activity.startActivity(intent)
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.activity_common
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as ActivityCommonBinding
         if (intent != null) {
-            val openFrm = intent.getStringExtra(OPEN_FRM)
-            when (openFrm) {
+            when (intent.getStringExtra(OPEN_FRM)) {
                 CarAnimFrm.TAG -> navigateScreen(CarAnimFrm.TAG)
                 GoogleMapFrm.TAG -> navigateScreen(GoogleMapFrm.TAG)
             }
@@ -51,7 +46,7 @@ class MapActivity : BaseLocation() {
      * navigate on fragment
      * @param tag represent navigation activity
      */
-    private fun navigateScreen(tag: String) {
+    private fun navigateScreen(tag: String?) {
         var frm: Fragment? = null
         when (tag) {
             GoogleMapFrm.TAG -> frm = GoogleMapFrm.getInstance(Bundle())

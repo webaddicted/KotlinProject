@@ -23,7 +23,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class ServiceFrm : BaseFragment() {
+class ServiceFrm : BaseFragment(R.layout.frm_services) {
     private var myReceiver: MyReceiver? = null
     private var mBound: Boolean = false
     private var mService: LocalBinder? = null
@@ -31,19 +31,14 @@ class ServiceFrm : BaseFragment() {
 
     companion object {
         const val FILTER_ACTION_KEY = "any_key"
-        val TAG = ServiceFrm::class.java.simpleName
+        val TAG = ServiceFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): ServiceFrm {
             val fragment = ServiceFrm()
             fragment.arguments = bundle
             return fragment
         }
     }
-
-    override fun getLayout(): Int {
-        return R.layout.frm_services
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmServicesBinding
         init()
         clickListener()
@@ -185,7 +180,7 @@ class ServiceFrm : BaseFragment() {
                     intent,
                     PackageManager.MATCH_DEFAULT_ONLY
                 )!!
-            if (list.size > 0) {
+            if (list.isNotEmpty()) {
                 startActivity(intent)
             }
         } catch (e: Exception) {

@@ -16,12 +16,12 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
-class LoginFrm : BaseFragment() {
+class LoginFrm : BaseFragment(R.layout.frm_login) {
     private lateinit var mBinding: FrmLoginBinding
     private val commonViewModel: CommonViewModel by viewModel()
 
     companion object {
-        val TAG = LoginFrm::class.java.simpleName
+        val TAG = LoginFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): LoginFrm {
             val fragment = LoginFrm()
             fragment.arguments = bundle
@@ -29,11 +29,7 @@ class LoginFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_login
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmLoginBinding
         init()
         clickListener()
@@ -72,8 +68,9 @@ class LoginFrm : BaseFragment() {
         }
     }
 
-    fun isValid(email: String?): Boolean {
-        val EMAIL_PATTERN = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[^.]+(.[^.]+){0,}$";
+    private fun isValid(email: String?): Boolean {
+        val EMAIL_PATTERN =
+            "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[^.]+(.[^.]+){0,}$";
         val pattern: Pattern = Pattern.compile(EMAIL_PATTERN)
         val matcher: Matcher = pattern.matcher(email)
         return matcher.matches()
@@ -103,7 +100,7 @@ class LoginFrm : BaseFragment() {
      *
      * @param tag represent navigation activity
      */
-    private fun navigateScreen(tag: String) {
+    private fun navigateScreen(tag: String?) {
         var frm: Fragment? = null
         when (tag) {
             SignupFrm.TAG -> frm = SignupFrm.getInstance(Bundle())

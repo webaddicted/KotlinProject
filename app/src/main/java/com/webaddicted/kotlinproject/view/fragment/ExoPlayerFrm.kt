@@ -16,7 +16,7 @@ import com.webaddicted.kotlinproject.databinding.FrmExoPlayerRecyclerBinding
 import com.webaddicted.kotlinproject.global.common.visible
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
-class ExoPlayerFrm : BaseFragment() {
+class ExoPlayerFrm : BaseFragment(R.layout.frm_exo_player_recycler) {
     private lateinit var mBinding: FrmExoPlayerRecyclerBinding
     private val BANDWIDTH_METER = DefaultBandwidthMeter()
     private var player: SimpleExoPlayer? = null
@@ -24,19 +24,14 @@ class ExoPlayerFrm : BaseFragment() {
     private var currentWindow = 0
     private var playWhenReady = true
     companion object {
-        val TAG = ExoPlayerFrm::class.java.simpleName
+        val TAG = ExoPlayerFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): ExoPlayerFrm {
             val fragment = ExoPlayerFrm()
             fragment.arguments = bundle
             return fragment
         }
     }
-
-    override fun getLayout(): Int {
-        return R.layout.frm_exo_player_recycler
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmExoPlayerRecyclerBinding
         init()
         clickListener()

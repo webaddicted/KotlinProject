@@ -20,13 +20,13 @@ import com.webaddicted.kotlinproject.view.base.BaseFragment
 import kotlinx.coroutines.*
 
 
-class PhoneImageFrm : BaseFragment() {
+class PhoneImageFrm : BaseFragment(R.layout.frm_phone_image) {
     private lateinit var mAdapter: ImagesAdapter
     private lateinit var mBinding: FrmPhoneImageBinding
     private var imageBean: ArrayList<ImagesBean> = ArrayList()
 
     companion object {
-        val TAG = PhoneImageFrm::class.java.simpleName
+        val TAG = PhoneImageFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): PhoneImageFrm {
             val fragment = PhoneImageFrm()
             fragment.arguments = bundle
@@ -34,11 +34,7 @@ class PhoneImageFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_phone_image
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmPhoneImageBinding
         init()
         clickListener()
@@ -128,7 +124,7 @@ class PhoneImageFrm : BaseFragment() {
         }
     }
 
-    fun navigateScreen(tag: String, path: String) {
+    fun navigateScreen(tag: String?, path: String) {
         var frm: Fragment? = null
         when (tag) {
             ZoomImageFrm.TAG -> frm = ZoomImageFrm.getInstance(path, true)

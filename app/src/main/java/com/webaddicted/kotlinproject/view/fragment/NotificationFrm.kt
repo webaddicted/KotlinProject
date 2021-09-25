@@ -15,7 +15,6 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 import androidx.databinding.ViewDataBinding
 import com.facebook.FacebookSdk.getApplicationContext
@@ -36,23 +35,18 @@ import com.webaddicted.kotlinproject.view.base.BaseFragment
 import java.util.*
 
 
-class NotificationFrm : BaseFragment() {
+class NotificationFrm : BaseFragment(R.layout.frm_notification) {
     private lateinit var mBinding: FrmNotificationBinding
 
     companion object {
-        val TAG = NotificationFrm::class.java.simpleName
+        val TAG = NotificationFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): NotificationFrm {
             val fragment = NotificationFrm()
             fragment.arguments = bundle
             return fragment
         }
     }
-
-    override fun getLayout(): Int {
-        return R.layout.frm_notification
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmNotificationBinding
         init()
         clickListener()

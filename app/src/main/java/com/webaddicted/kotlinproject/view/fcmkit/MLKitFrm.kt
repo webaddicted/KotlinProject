@@ -3,10 +3,7 @@ package com.webaddicted.kotlinproject.view.fcmkit
 //import android.content.DialogInterface
 //import android.graphics.Rect
 //import android.net.Uri
-import android.os.Bundle
-import android.view.View
 //import androidx.core.content.ContextCompat
-import androidx.databinding.ViewDataBinding
 //import com.google.firebase.ml.naturallanguage.FirebaseNaturalLanguage
 //import com.google.firebase.ml.naturallanguage.smartreply.FirebaseTextMessage
 //import com.google.firebase.ml.naturallanguage.smartreply.SmartReplySuggestionResult
@@ -22,25 +19,27 @@ import androidx.databinding.ViewDataBinding
 //import com.google.firebase.ml.vision.label.FirebaseVisionCloudImageLabelerOptions
 //import com.google.firebase.ml.vision.objects.FirebaseVisionObject
 //import com.google.firebase.ml.vision.objects.FirebaseVisionObjectDetectorOptions
+//import com.webaddicted.kotlinproject.global.annotationdef.MediaPickerType
+import android.os.Bundle
+import androidx.databinding.ViewDataBinding
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.FrmFcmMlKitBinding
-//import com.webaddicted.kotlinproject.global.annotationdef.MediaPickerType
-import com.webaddicted.kotlinproject.global.common.*
+import com.webaddicted.kotlinproject.global.common.GlobalUtility
 import com.webaddicted.kotlinproject.view.base.BaseFragment
-import com.webaddicted.kotlinproject.view.dialog.ImagePickerDialog
+
 //import com.webaddicted.kotlinproject.view.interfac.OnImageActionListener
 //import java.io.File
 //import java.util.*
 //import kotlin.collections.ArrayList
 
 
-class MLKitFrm : BaseFragment() {
-    private var title: String? = ""
-    private lateinit var imgPickerDialog: ImagePickerDialog
+class MLKitFrm : BaseFragment(R.layout.frm_fcm_ml_kit) {
+//    private var title: String? = ""
+//    private lateinit var imgPickerDialog: ImagePickerDialog
     private lateinit var mBinding: FrmFcmMlKitBinding
 
     companion object {
-        val TAG = MLKitFrm::class.java.simpleName
+        val TAG = MLKitFrm::class.qualifiedName
         const val MLKIT_TYPE = "MLKIT_TYPE"
         fun getInstance(bundle: Bundle): MLKitFrm {
             val fragment = MLKitFrm()
@@ -49,11 +48,7 @@ class MLKitFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_fcm_ml_kit
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmFcmMlKitBinding
         GlobalUtility.showToast("ML kit increase size of apk around 98MB.\nso i comment code if you need then uncommentcode.")
 //        init()

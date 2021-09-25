@@ -20,11 +20,11 @@ import com.webaddicted.kotlinproject.view.fcmkit.MLKitFrm.Companion.MLKIT_TYPE
 /**
  * Created by Deepak Sharma on 01/07/19.
  */
-class FcmFoodHomeActivity : BaseActivity() {
+class FcmFoodHomeActivity : BaseActivity(R.layout.activity_ecom_home) {
     private lateinit var mBinding: ActivityEcomHomeBinding
 
     companion object {
-        val TAG: String = FcmFoodHomeActivity::class.java.simpleName
+        val TAG= FcmFoodHomeActivity::class.qualifiedName
         fun newIntent(activity: Activity) {
             activity.startActivity(Intent(activity, FcmFoodHomeActivity::class.java))
         }
@@ -37,11 +37,7 @@ class FcmFoodHomeActivity : BaseActivity() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.activity_ecom_home
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as ActivityEcomHomeBinding
         init()
         setNavigationColor(ContextCompat.getColor(context, R.color.app_color))
@@ -137,7 +133,7 @@ class FcmFoodHomeActivity : BaseActivity() {
     /**
      * navigate to welcome activity after Splash timer Delay
      */
-    private fun navigateScreen(tag: String, bundle: Bundle) {
+    private fun navigateScreen(tag: String?, bundle: Bundle) {
         var frm: Fragment? = null
         when (tag) {
             FcmHomeFrm.TAG -> frm = FcmHomeFrm.getInstance(Bundle())

@@ -31,7 +31,7 @@ import com.webaddicted.kotlinproject.view.base.BaseFragment
 import com.webaddicted.kotlinproject.viewModel.fcmkit.FcmFoodViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class FcmSocialLoginFrm : BaseFragment(), OnSocialLoginListener {
+class FcmSocialLoginFrm : BaseFragment(R.layout.frm_fcm_social_login), OnSocialLoginListener {
     private lateinit var callbackManager: CallbackManager
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
@@ -39,7 +39,7 @@ class FcmSocialLoginFrm : BaseFragment(), OnSocialLoginListener {
     private val viewModel: FcmFoodViewModel by viewModel()
 
     companion object {
-        val TAG = FcmSocialLoginFrm::class.java.simpleName
+        val TAG = FcmSocialLoginFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): FcmSocialLoginFrm {
             val fragment = FcmSocialLoginFrm()
             fragment.arguments = bundle
@@ -47,11 +47,7 @@ class FcmSocialLoginFrm : BaseFragment(), OnSocialLoginListener {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_fcm_social_login
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmFcmSocialLoginBinding
         init()
         clickListener()
@@ -64,7 +60,7 @@ class FcmSocialLoginFrm : BaseFragment(), OnSocialLoginListener {
 //                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build()
-        googleSignInClient = GoogleSignIn.getClient(activity, gso)
+        googleSignInClient = GoogleSignIn.getClient(mActivity, gso)
         callbackManager = CallbackManager.Factory.create()
     }
 
@@ -142,17 +138,17 @@ class FcmSocialLoginFrm : BaseFragment(), OnSocialLoginListener {
 
     override fun onSocialLoginSuccess(loginResponse: SocialLoginResponse?) {
         checkUserExist(loginResponse)
-        Lg.d(TAG, "Social login : " + Gson().toJson(loginResponse))
+        TAG?.let { Lg.d(it, "Social login : " + Gson().toJson(loginResponse)) }
     }
 
     override fun onSocialLoginSuccess(success: String?) {
         GlobalUtility.showToast(success!!)
-        Lg.d(TAG, success)
+        TAG?.let { Lg.d(it, success) }
     }
 
     override fun onSocialLoginFailure(failure: String?) {
         GlobalUtility.showToast(failure!!)
-        Lg.d(TAG, failure)
+        TAG?.let { Lg.d(it, failure) }
     }
 
     private fun checkUserExist(loginResponse: SocialLoginResponse?) {
@@ -203,7 +199,7 @@ class FcmSocialLoginFrm : BaseFragment(), OnSocialLoginListener {
      *
      * @param tag represent navigation activity
      */
-    private fun navigateScreen(tag: String, bundle: Bundle) {
+    private fun navigateScreen(tag: String?, bundle: Bundle) {
         var frm: Fragment? = null
         when (tag) {
             FcmSignupFrm.TAG -> frm = FcmSignupFrm.getInstance(bundle)

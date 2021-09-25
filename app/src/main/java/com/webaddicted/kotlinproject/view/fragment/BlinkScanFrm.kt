@@ -1,6 +1,5 @@
 package com.webaddicted.kotlinproject.view.fragment
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -20,14 +19,14 @@ import com.webaddicted.kotlinproject.global.common.visible
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 import java.io.File
 
-class BlinkScanFrm : BaseFragment() {
+class BlinkScanFrm : BaseFragment(R.layout.frm_blink_scan) {
     private var dlFrontImg: File?= null
     private var selfieImg: File? = null
     private var isSelfieClick: Boolean = false
     private lateinit var mBinding: FrmBlinkScanBinding
 
     companion object {
-        val TAG = BlinkScanFrm::class.java.simpleName
+        val TAG = BlinkScanFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): BlinkScanFrm {
             val fragment = BlinkScanFrm()
             fragment.arguments = bundle
@@ -35,11 +34,7 @@ class BlinkScanFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_blink_scan
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmBlinkScanBinding
         init()
         clickListener()
@@ -51,20 +46,16 @@ class BlinkScanFrm : BaseFragment() {
 
         mBinding.toolbar.imgBack.visible()
         mBinding.toolbar.txtToolbarTitle.text = resources.getString(R.string.blink_scan_title)
-        selfieMutableImg.observe(this, object : Observer<Bitmap> {
-            override fun onChanged(bitmap: Bitmap?) {
-                if (bitmap != null) {
-                    selfieImg = FileHelper.saveBitmapImage(bitmap)
-                    mBinding.imgCapturePic.showImage(selfieImg, getPlaceHolder(0))
-                }
+        selfieMutableImg.observe(this, { bitmap ->
+            if (bitmap != null) {
+                selfieImg = FileHelper.saveBitmapImage(bitmap)
+                mBinding.imgCapturePic.showImage(selfieImg, getPlaceHolder(0))
             }
         })
-        dlMutableImg.observe(this, object : Observer<Bitmap> {
-            override fun onChanged(bitmap: Bitmap?) {
-                if (bitmap != null) {
-                    dlFrontImg = FileHelper.saveBitmapImage(bitmap)
-                    mBinding.imgScanDl.showImage(dlFrontImg, getPlaceHolder(0))
-                }
+        dlMutableImg.observe(this, { bitmap ->
+            if (bitmap != null) {
+                dlFrontImg = FileHelper.saveBitmapImage(bitmap)
+                mBinding.imgScanDl.showImage(dlFrontImg, getPlaceHolder(0))
             }
         })
     }
@@ -91,9 +82,8 @@ class BlinkScanFrm : BaseFragment() {
     }
     override fun onPermissionGranted(mCustomPermission: List<String>) {
         super.onPermissionGranted(mCustomPermission)
-        var message = ""
-        if (isSelfieClick) message = getString(R.string.plz_blink_for_selfie)
-        else message = getString(R.string.plz_scan_dl)
+        val message: String = if (isSelfieClick) getString(R.string.plz_blink_for_selfie)
+        else getString(R.string.plz_scan_dl)
         showMessage(message)
     }
 

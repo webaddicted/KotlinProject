@@ -60,6 +60,10 @@ class GlobalUtility {
 
     companion object {
         private var snackbar: Snackbar? = null
+        fun print(tag: String?, msg: String) {
+            Log.d(tag, msg)
+        }
+
         fun showToast(message: String) {
             Toast.makeText(context, message, Toast.LENGTH_LONG).show()
         }
@@ -652,7 +656,8 @@ class GlobalUtility {
                 )
             }
         }
-         fun setEnableView(edtView: TextInputEditText, isViewEditable: Boolean) {
+
+        fun setEnableView(edtView: TextInputEditText, isViewEditable: Boolean) {
             if (isViewEditable) {
                 edtView.isClickable = true
                 edtView.isLongClickable = true
@@ -665,11 +670,13 @@ class GlobalUtility {
                 edtView.setTextColor(edtView.context.getColor(R.color.gray))
             }
         }
+
         @SuppressLint("MissingPermission")
         fun getDeviceIMEI(activity: Activity): String? {
 //            var tm = activity.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
 //            return tm.deviceId
-            return Settings.Secure.getString(activity.contentResolver, Settings.Secure.ANDROID_ID).toString()
+            return Settings.Secure.getString(activity.contentResolver, Settings.Secure.ANDROID_ID)
+                .toString()
 //            return "868494034542635"
         }
     }

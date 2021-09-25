@@ -1,7 +1,6 @@
 package com.webaddicted.kotlinproject.view.deviceinfo
 
 import android.os.Bundle
-import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.webaddicted.kotlinproject.R
@@ -13,14 +12,14 @@ import com.webaddicted.kotlinproject.view.adapter.AppsAdapter
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 import kotlinx.coroutines.*
 
-class UserAppFrm : BaseFragment() {
+class UserAppFrm : BaseFragment(R.layout.frm_dev_user_app) {
     private val appList: ArrayList<DeviceInfo>? = null
     private lateinit var mAdapter: AppsAdapter
     private var appType: Int? = 0
     private lateinit var mBinding: FrmDevUserAppBinding
 
     companion object {
-        val TAG = UserAppFrm::class.java.simpleName
+        val TAG = UserAppFrm::class.qualifiedName
         const val APPS_TYPE = "AppInfo"
         fun getInstance(appsType: Int): UserAppFrm {
             val fragment = UserAppFrm()
@@ -31,11 +30,7 @@ class UserAppFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_dev_user_app
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmDevUserAppBinding
         init()
     }

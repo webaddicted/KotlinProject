@@ -6,40 +6,32 @@ import android.content.res.Configuration
 import android.net.ConnectivityManager
 import android.os.Bundle
 import android.text.Html
-import android.view.View
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.ViewDataBinding
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.FrmDevFeatureBinding
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
-class DeviceFeaturesFrm : BaseFragment() {
+class DeviceFeaturesFrm : BaseFragment(R.layout.frm_dev_feature) {
     private lateinit var mBinding: FrmDevFeatureBinding
 
     companion object {
-        val TAG = DeviceFeaturesFrm::class.java.simpleName
+        val TAG = DeviceFeaturesFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): DeviceFeaturesFrm {
             val fragment = DeviceFeaturesFrm()
             fragment.arguments = bundle
             return fragment
         }
     }
-
-    override fun getLayout(): Int {
-        return R.layout.frm_dev_feature
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmDevFeatureBinding
         getDeviceFeatures()
     }
 
     private fun getDeviceFeatures() {
-        var txtColor = ""
-        if ((resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
+        val txtColor: String = if ((resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
             Configuration.UI_MODE_NIGHT_NO
-        ) txtColor = "#000000"
-        else txtColor = "#FFFFFF"
+        ) "#000000"
+        else "#FFFFFF"
         val connManager =
             activity?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI)

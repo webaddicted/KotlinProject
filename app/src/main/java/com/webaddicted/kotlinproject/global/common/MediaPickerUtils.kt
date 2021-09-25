@@ -12,7 +12,7 @@ import java.util.*
 
 class MediaPickerUtils {
     private var captureImageFile: File? = null
-    private val TAG = MediaPickerUtils::class.java.simpleName
+    private val TAG = MediaPickerUtils::class.qualifiedName
     val REQUEST_CAMERA_VIDEO = 5000
     val REQUEST_SELECT_FILE_FROM_GALLERY = 5002
     private var mImagePickerListener: ImagePickerListener? = null
@@ -69,7 +69,7 @@ class MediaPickerUtils {
             //            capture image for native camera
             MediaPickerType.CAPTURE_IMAGE -> {
                 captureImageFile = FileHelper.createNewCaptureFile()
-                 intent = FileHelper.getCaptureImageIntent(activity, captureImageFile)
+                intent = FileHelper.getCaptureImageIntent(activity, captureImageFile)
                 activity.startActivityForResult(intent, REQUEST_CAMERA_VIDEO)
             }
             //            pick image from gallery
@@ -116,8 +116,8 @@ class MediaPickerUtils {
                         filePath.contains(mMimeTypes[2])
                     ) {
                         compressedFiles =
-                                CompressImage.compressImage(activity, files[i].toString())
-                        Lg.d(
+                            CompressImage.compressImage(activity, files[i].toString())
+                        GlobalUtility.print(
                             TAG,
                             "old Image - ${FileHelper.formatSize(files[i].length())} \n " +
                                     "compress image - ${FileHelper.formatSize(compressedFiles.length())}"

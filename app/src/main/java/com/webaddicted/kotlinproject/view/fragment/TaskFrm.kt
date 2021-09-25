@@ -3,6 +3,7 @@ package com.webaddicted.kotlinproject.view.fragment
 import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.MenuInflater
@@ -32,7 +33,7 @@ import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 import kotlin.collections.ArrayList
 
-class TaskFrm : BaseFragment() {
+class TaskFrm : BaseFragment(R.layout.frm_task_list) {
     private lateinit var mBinding: FrmTaskListBinding
     private lateinit var mHomeAdapter: TaskAdapter
     private var mTaskList: ArrayList<String>? = ArrayList()
@@ -105,11 +106,7 @@ class TaskFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_task_list
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmTaskListBinding
         init()
     }
@@ -145,7 +142,7 @@ class TaskFrm : BaseFragment() {
 
             override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
                 val text = mBinding.toolbar.editTextSearch.text.toString()
-                    .toLowerCase(Locale.getDefault())
+                    .lowercase(Locale.getDefault())
                 mHomeAdapter.filter(text)
             }
 
@@ -185,7 +182,7 @@ class TaskFrm : BaseFragment() {
         mBinding.swipeView.setColorSchemeColors(ContextCompat.getColor(mActivity, R.color.white))
         mBinding.swipeView.setWaveColor(ContextCompat.getColor(mActivity, R.color.app_color))
         mBinding.swipeView.setOnRefreshListener {
-            Handler().postDelayed({
+            Handler(Looper.getMainLooper()).postDelayed({
                 mBinding.swipeView.isRefreshing = false
             }, 1800)
         }
@@ -258,7 +255,7 @@ class TaskFrm : BaseFragment() {
      *
      * @param tag represent navigation activity
      */
-    fun navigateScreen(tag: String) {
+    fun navigateScreen(tag: String?) {
         var frm: Fragment? = null
         when (tag) {
             WidgetFrm.TAG -> frm = WidgetFrm.getInstance(Bundle())

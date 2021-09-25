@@ -20,7 +20,7 @@ import ss.com.bannerslider.banners.Banner
 import ss.com.bannerslider.banners.RemoteBanner
 import java.util.*
 
-class EcommHomeFrm : BaseFragment() {
+class EcommHomeFrm : BaseFragment(R.layout.frm_ecom_home) {
     private var ecommHomeDeco: ArrayList<EcommCateBean>? = null
     private var ecommMobile: ArrayList<EcommCateBean>? = null
     private var ecommFashion: ArrayList<EcommCateBean>? = null
@@ -30,19 +30,14 @@ class EcommHomeFrm : BaseFragment() {
     private lateinit var mBinding: FrmEcomHomeBinding
 
     companion object {
-        val TAG = EcommHomeFrm::class.java.simpleName
+        val TAG = EcommHomeFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): EcommHomeFrm {
             val fragment = EcommHomeFrm()
             fragment.arguments = bundle
             return fragment
         }
     }
-
-    override fun getLayout(): Int {
-        return R.layout.frm_ecom_home
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmEcomHomeBinding
         init()
         clickListener()
@@ -234,7 +229,7 @@ class EcommHomeFrm : BaseFragment() {
         )
         //        remoteBanners.add(new DrawableBanner(R.drawable.btn));
         mBinding.bannerSlider.setBanners(remoteBanners)
-        Lg.d(TAG, "addBanners: " + remoteBanners.size)
+        TAG?.let { Lg.d(it, "addBanners: " + remoteBanners.size) }
         //        mBinding.bannerSlider.setOnBannerClickListener(new OnBannerClickListener() {
         //            @Override
         //            public void onClick(int position) {
@@ -249,7 +244,7 @@ class EcommHomeFrm : BaseFragment() {
      *
      * @param tag represent navigation activity
      */
-    fun navigateScreen(tag: String) {
+    fun navigateScreen(tag: String?) {
         var frm: Fragment? = null
         when (tag) {
             EcommProductListFrm.TAG -> frm = EcommProductListFrm.getInstance(Bundle())

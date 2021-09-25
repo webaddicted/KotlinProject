@@ -30,35 +30,35 @@ class TaskAdapter(private var taskFrm: TaskFrm, private var mTaskList: ArrayList
         mTaskList?.let { this.searchArray.addAll(it) }
     }
 
+    override fun getLayoutId(viewType: Int): Int {
+        return R.layout.row_text_list
+    }
+
     override fun getListSize(): Int {
         if (mTaskList == null) return 0
         return mTaskList?.size!!
     }
 
-    override fun getLayoutId(viewType: Int): Int {
-        return R.layout.row_text_list
-    }
-
-    override fun onBindTo(mRowBinding: ViewDataBinding, position: Int) {
-        if (mRowBinding is RowTextListBinding) {
+    override fun onBindTo(rowBinding: ViewDataBinding, position: Int) {
+        if (rowBinding is RowTextListBinding) {
             val title = mTaskList?.get(position)
             if (searchText != null && searchText?.length!! > 1) {
                 val sb = SpannableStringBuilder(title)
-                val word: Pattern = Pattern.compile(searchText!!.toLowerCase())
-                val match: Matcher = word.matcher(title!!.toLowerCase())
+                val word: Pattern = Pattern.compile(searchText!!.lowercase())
+                val match: Matcher = word.matcher(title!!.lowercase())
                 while (match.find()) {
                     val fcs = ForegroundColorSpan(
                         ContextCompat.getColor(mContext, R.color.red)
                     )
                     sb.setSpan(fcs, match.start(), match.end(), Spannable.SPAN_INCLUSIVE_INCLUSIVE)
                 }
-                mRowBinding.txtName.text = sb
-            } else mRowBinding.txtName.text = title
-                val rnd = Random()
-                val color = Color.argb(225, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
-                (mRowBinding.txtInitial.background as GradientDrawable).setColor(color)
-            mRowBinding.txtInitial.text = title?.get(0).toString()
-            onClickListener(mRowBinding, mRowBinding.card, position)
+                rowBinding.txtName.text = sb
+            } else rowBinding.txtName.text = title
+            val rnd = Random()
+            val color = Color.argb(225, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
+            (rowBinding.txtInitial.background as GradientDrawable).setColor(color)
+            rowBinding.txtInitial.text = title?.get(0).toString()
+            onClickListener(rowBinding, rowBinding.card, position)
         }
     }
 
@@ -75,14 +75,14 @@ class TaskAdapter(private var taskFrm: TaskFrm, private var mTaskList: ArrayList
     }
 
     fun filter(textStr: String?) {
-        val charText = textStr!!.toLowerCase(Locale.getDefault())
+        val charText = textStr!!.lowercase(Locale.getDefault())
         searchText = charText
         mTaskList?.clear()
         if (charText == null && charText.isBlank()) {
             mTaskList?.addAll(searchArray)
         } else {
             for (wp in searchArray) {
-                if (wp.toLowerCase(Locale.getDefault()).contains(charText)) {
+                if (wp.lowercase(Locale.getDefault()).contains(charText)) {
                     mTaskList?.add(wp)
                 }
                 //                else if (wp.toLowerCase(Locale.getDefault()).contains(charText)) {

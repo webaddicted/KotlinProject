@@ -19,13 +19,13 @@ import com.webaddicted.kotlinproject.global.misc.ViewPagerAdapter
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
 
-class ViewPagerTabFrm : BaseFragment() {
+class ViewPagerTabFrm : BaseFragment(R.layout.frm_viewpager_tab) {
     private lateinit var mBinding: FrmViewpagerTabBinding
     private val tabTitle = arrayOf("MOVIE", "FOOD", "TRAVEL")
     private val unreadCount = intArrayOf(0, 5, 0)
 
     companion object {
-        val TAG = ViewPagerTabFrm::class.java.simpleName
+        val TAG = ViewPagerTabFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): ViewPagerTabFrm {
             val fragment = ViewPagerTabFrm()
             fragment.arguments = bundle
@@ -33,11 +33,7 @@ class ViewPagerTabFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_viewpager_tab
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmViewpagerTabBinding
         init()
         clickListener()
@@ -89,9 +85,9 @@ class ViewPagerTabFrm : BaseFragment() {
 
     private fun addTabs(tabLayout: TabLayout, hasIcon: Boolean) {
         for (i in tabTitle.indices) {
-            val tabitem = tabLayout.newTab()
-            if (hasIcon) tabitem.customView = prepareTabView(i)
-            tabLayout.addTab(tabitem)
+            val tabItem = tabLayout.newTab()
+            if (hasIcon) tabItem.customView = prepareTabView(i)
+            tabLayout.addTab(tabItem)
             //            mBinding.tabCustomIcon.getTabAt(i).setCustomView(prepareTabView(i));
         }
     }
@@ -110,7 +106,7 @@ class ViewPagerTabFrm : BaseFragment() {
     }
 
     private fun setupViewPager(viewPager: ViewPager) {
-        val adapter = ViewPagerAdapter(fragmentManager!!)
+        val adapter = ViewPagerAdapter(mActivity.supportFragmentManager)
         val frmCalender = CalendarFrm()
         val frmAnim = AnimationFrm()
         val frmBlink = BlinkScanFrm()

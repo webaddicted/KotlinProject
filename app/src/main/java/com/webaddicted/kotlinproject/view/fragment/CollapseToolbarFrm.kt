@@ -13,12 +13,12 @@ import com.webaddicted.kotlinproject.view.base.BaseFragment
 import kotlin.math.abs
 
 
-class CollapseToolbarFrm : BaseFragment() {
+class CollapseToolbarFrm : BaseFragment(R.layout.frm_collapse_toolbar) {
     private lateinit var adapter: CommonAdapter
     private lateinit var mBinding: FrmCollapseToolbarBinding
 
     companion object {
-        val TAG = CollapseToolbarFrm::class.java.simpleName
+        val TAG = CollapseToolbarFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): CollapseToolbarFrm {
             val fragment = CollapseToolbarFrm()
             fragment.arguments = bundle
@@ -26,11 +26,7 @@ class CollapseToolbarFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_collapse_toolbar
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmCollapseToolbarBinding
         init()
         clickListener()

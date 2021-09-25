@@ -5,17 +5,16 @@ import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
-import com.google.android.material.tabs.TabLayout
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.FrmEcomProductBinding
 import com.webaddicted.kotlinproject.global.misc.ViewPagerAdapter
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
-class EcommProductListFrm : BaseFragment() {
+class EcommProductListFrm : BaseFragment(R.layout.frm_ecom_product) {
     private lateinit var mBinding: FrmEcomProductBinding
 
     companion object {
-        val TAG = EcommProductListFrm::class.java.simpleName
+        val TAG = EcommProductListFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): EcommProductListFrm {
             val fragment = EcommProductListFrm()
             fragment.arguments = bundle
@@ -23,11 +22,7 @@ class EcommProductListFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_ecom_product
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmEcomProductBinding
         setupViewPager(mBinding.pager)
         clickListener()
@@ -60,7 +55,7 @@ class EcommProductListFrm : BaseFragment() {
     }
 
     private fun setupViewPager(viewPager: ViewPager) {
-        val adapter = ViewPagerAdapter(fragmentManager!!)
+        val adapter = ViewPagerAdapter(mActivity.supportFragmentManager)
         adapter.addFragment(EcommProductCatTabFrm(), "Popular")
         adapter.addFragment(EcommProductCatTabFrm(), "Low Price")
         adapter.addFragment(EcommProductCatTabFrm(), "Hight Price")

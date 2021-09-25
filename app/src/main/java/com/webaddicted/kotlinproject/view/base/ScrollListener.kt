@@ -1,9 +1,10 @@
 package com.webaddicted.kotlinproject.view.base
 
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+
 /**
  * Created by Deepak Sharma(webaddicted) on 24-07-2019.
  */
@@ -27,23 +28,27 @@ abstract class ScrollListener : RecyclerView.OnScrollListener {
 
     constructor(layoutManager: GridLayoutManager) {
         this.mLayoutManager = layoutManager
-        visibleThreshold = visibleThreshold * layoutManager.spanCount
+        visibleThreshold *= layoutManager.spanCount
     }
 
     constructor(layoutManager: StaggeredGridLayoutManager) {
         this.mLayoutManager = layoutManager
-        visibleThreshold = visibleThreshold * layoutManager.spanCount
+        visibleThreshold *= layoutManager.spanCount
     }
 
     constructor(layoutMgr: RecyclerView.LayoutManager){
-        if (layoutMgr is LinearLayoutManager){
-            this.mLayoutManager = layoutMgr
-        }else if (layoutMgr is GridLayoutManager){
-            this.mLayoutManager = layoutMgr
-            visibleThreshold = visibleThreshold * layoutMgr.spanCount
-        }else if (layoutMgr is StaggeredGridLayoutManager){
-            this.mLayoutManager = layoutMgr
-            visibleThreshold = visibleThreshold * layoutMgr.spanCount
+        when (layoutMgr) {
+            is LinearLayoutManager -> {
+                this.mLayoutManager = layoutMgr
+            }
+            is GridLayoutManager -> {
+                this.mLayoutManager = layoutMgr
+                visibleThreshold *= layoutMgr.spanCount
+            }
+            is StaggeredGridLayoutManager -> {
+                this.mLayoutManager = layoutMgr
+                visibleThreshold *= layoutMgr.spanCount
+            }
         }
     }
 
@@ -65,15 +70,19 @@ abstract class ScrollListener : RecyclerView.OnScrollListener {
     override fun onScrolled(view: RecyclerView, dx: Int, dy: Int) {
         var lastVisibleItemPosition = 0
         val totalItemCount = mLayoutManager?.itemCount
-        if (mLayoutManager is StaggeredGridLayoutManager) {
-            val lastVisibleItemPositions =
-                (mLayoutManager as StaggeredGridLayoutManager).findLastVisibleItemPositions(null)
-            // get maximum element within the list
-            lastVisibleItemPosition = getLastVisibleItem(lastVisibleItemPositions)
-        } else if (mLayoutManager is GridLayoutManager) {
-            lastVisibleItemPosition = (mLayoutManager as GridLayoutManager).findLastVisibleItemPosition()
-        } else if (mLayoutManager is LinearLayoutManager) {
-            lastVisibleItemPosition = (mLayoutManager as LinearLayoutManager).findLastVisibleItemPosition()
+        when (mLayoutManager) {
+            is StaggeredGridLayoutManager -> {
+                val lastVisibleItemPositions =
+                    (mLayoutManager as StaggeredGridLayoutManager).findLastVisibleItemPositions(null)
+                // get maximum element within the list
+                lastVisibleItemPosition = getLastVisibleItem(lastVisibleItemPositions)
+            }
+            is GridLayoutManager -> {
+                lastVisibleItemPosition = (mLayoutManager as GridLayoutManager).findLastVisibleItemPosition()
+            }
+            is LinearLayoutManager -> {
+                lastVisibleItemPosition = (mLayoutManager as LinearLayoutManager).findLastVisibleItemPosition()
+            }
         }
         // If the total item count is zero and the previous isn't, assume the
         // list is invalidated and should be reset back to initial state

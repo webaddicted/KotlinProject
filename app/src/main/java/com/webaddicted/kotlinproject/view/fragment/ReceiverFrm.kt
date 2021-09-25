@@ -22,12 +22,12 @@ import com.webaddicted.kotlinproject.view.base.BaseFragment
 import java.lang.reflect.InvocationTargetException
 
 
-class ReceiverFrm : BaseFragment() {
+class ReceiverFrm : BaseFragment(R.layout.frm_receiver) {
     private lateinit var mBinding: FrmReceiverBinding
-    internal val ACTION_STARTED = "com.example.android.supportv4.STARTED"
+    private val ACTION_STARTED = "com.example.android.supportv4.STARTED"
 
     companion object {
-        val TAG = ReceiverFrm::class.java.simpleName
+        val TAG = ReceiverFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): ReceiverFrm {
             val fragment = ReceiverFrm()
             fragment.arguments = bundle
@@ -35,11 +35,7 @@ class ReceiverFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_receiver
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmReceiverBinding
         init()
         clickListener()
@@ -76,14 +72,14 @@ class ReceiverFrm : BaseFragment() {
     }
 
     private fun normalReceiver() {
-        var intentFilter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
+        val intentFilter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
         activity?.registerReceiver(NetworkChangeReceiver(), intentFilter)
         activity?.showToast(getString(R.string.check_internet_connection))
     }
 
     private fun customReceiver() {
         //step1
-        var mFilter = IntentFilter()
+        val mFilter = IntentFilter()
         mFilter.addAction(ACTION_STARTED)
         activity?.registerReceiver(CustomReceiver(), mFilter)
         // step 2
@@ -93,11 +89,11 @@ class ReceiverFrm : BaseFragment() {
 
     private fun orderedReceiver() {
         // STEP 1
-        var ACTION_UPDATE = "com.example.android.supportv4.UPDATE"
-        var mFilter = IntentFilter()
+        val ACTION_UPDATE = "com.example.android.supportv4.UPDATE"
+        val mFilter = IntentFilter()
         mFilter.priority = 1
         mFilter.addAction(ACTION_UPDATE)
-        var mFilter2 = IntentFilter()
+        val mFilter2 = IntentFilter()
         mFilter2.priority = 2
         mFilter2.addAction(ACTION_UPDATE)
         activity?.registerReceiver(OrderedReceiver1(), mFilter)

@@ -1,5 +1,6 @@
 package com.webaddicted.kotlinproject.view.base
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,10 +9,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.webaddicted.kotlinproject.R
-import com.webaddicted.kotlinproject.global.common.AppApplication
 
-abstract class BaseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    protected val mContext = AppApplication.context
+abstract class BaseAdapter:
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    protected lateinit var mContext: Context
     protected abstract fun getListSize(): Int?
     protected abstract fun getLayoutId(viewType: Int): Int
     protected abstract fun onBindTo(rowBinding: ViewDataBinding, position: Int)
@@ -21,7 +22,7 @@ abstract class BaseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return getListSize()!!
+        return getListSize() ?: 0
     }
 
     @NonNull
@@ -29,6 +30,7 @@ abstract class BaseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         @NonNull parent: ViewGroup,
         viewType: Int
     ): RecyclerView.ViewHolder {
+        mContext = parent.context
         val rowBindingUtil: ViewDataBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
             getLayoutId(viewType),

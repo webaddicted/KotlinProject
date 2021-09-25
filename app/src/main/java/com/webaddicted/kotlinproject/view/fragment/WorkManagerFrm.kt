@@ -1,6 +1,5 @@
 package com.webaddicted.kotlinproject.view.fragment
 
-import android.R.attr.data
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.ViewDataBinding
@@ -14,23 +13,18 @@ import com.webaddicted.kotlinproject.view.base.BaseFragment
 import java.util.concurrent.TimeUnit
 
 
-class WorkManagerFrm : BaseFragment() {
+class WorkManagerFrm : BaseFragment(R.layout.frm_work_manager) {
     private lateinit var mBinding: FrmWorkManagerBinding
 
     companion object {
-        val TAG = WorkManagerFrm::class.java.simpleName
+        val TAG = WorkManagerFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): WorkManagerFrm {
             val fragment = WorkManagerFrm()
             fragment.arguments = bundle
             return fragment
         }
     }
-
-    override fun getLayout(): Int {
-        return R.layout.frm_work_manager
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmWorkManagerBinding
         init()
         clickListener()

@@ -15,7 +15,7 @@ import com.webaddicted.kotlinproject.view.base.BaseActivity
 /**
  * Created by Deepak Sharma on 01/07/19.
  */
-class NavBothSideDrawerActivity : BaseActivity() {
+class NavBothSideDrawerActivity : BaseActivity(R.layout.activity_nav_both_drawer) {
     private lateinit var mBinding: ActivityNavBothDrawerBinding
 
     companion object {
@@ -25,11 +25,7 @@ class NavBothSideDrawerActivity : BaseActivity() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.activity_nav_both_drawer
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as ActivityNavBothDrawerBinding
         init()
         clickListener()

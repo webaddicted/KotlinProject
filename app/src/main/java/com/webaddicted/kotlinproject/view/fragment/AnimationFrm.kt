@@ -11,7 +11,7 @@ import com.webaddicted.kotlinproject.databinding.FrmAnimationBinding
 import com.webaddicted.kotlinproject.global.common.visible
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
-class AnimationFrm : BaseFragment() {
+class AnimationFrm : BaseFragment(R.layout.frm_animation) {
     private lateinit var mBinding: FrmAnimationBinding
     private var animBlink: Animation? = null
     private var animFade: Animation? = null
@@ -29,7 +29,7 @@ class AnimationFrm : BaseFragment() {
     private var animTogether: Animation? = null
 
     companion object {
-        val TAG = AnimationFrm::class.java.simpleName
+        val TAG = AnimationFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): AnimationFrm {
             val fragment = AnimationFrm()
             fragment.arguments = bundle
@@ -37,11 +37,7 @@ class AnimationFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_animation
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmAnimationBinding
         init()
         clickListener()
@@ -139,11 +135,11 @@ class AnimationFrm : BaseFragment() {
                 mBinding.btnTogether,
                 mBinding.txtTogether
             )
-            R.id.btn_left_right -> leftRigtAnimation()
-            R.id.btn_top_tob_bottom -> leftRigtAnimation()
-            R.id.btn_bottom_to_top -> leftRigtAnimation()
-            R.id.btn_right_to_left -> leftRigtAnimation()
-            R.id.btn_left_to_right -> leftRigtAnimation()
+            R.id.btn_left_right -> leftRightAnimation()
+            R.id.btn_top_tob_bottom -> leftRightAnimation()
+            R.id.btn_bottom_to_top -> leftRightAnimation()
+            R.id.btn_right_to_left -> leftRightAnimation()
+            R.id.btn_left_to_right -> leftRightAnimation()
             R.id.btn_expend -> {
                 if (mBinding.expandableLayout.isExpanded) mBinding.expandableLayout.collapse()
                 else mBinding.expandableLayout.expand()
@@ -151,13 +147,13 @@ class AnimationFrm : BaseFragment() {
         }
     }
 
-    fun startAnimation(animation: Animation?, btnView: View, txtView: View) {
+    private fun startAnimation(animation: Animation?, btnView: View, txtView: View) {
         btnView.startAnimation(animation)
         txtView.startAnimation(animation)
         mBinding.imageAnimation.startAnimation(animation)
     }
 
-    fun leftRigtAnimation() {
+    private fun leftRightAnimation() {
         // top to bottom animation............................
         val trans1 = TranslateAnimation(0f, 0f, -100f, 0f)
         trans1.duration = 1000

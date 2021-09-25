@@ -27,7 +27,7 @@ import java.io.File
 /**
  * Created by Deepak Sharma on 15/1/19.
  */
-abstract class BaseFragment : Fragment(), View.OnClickListener,
+abstract class BaseFragment(private val layoutId: Int) : Fragment(), View.OnClickListener,
     PermissionHelper.Companion.PermissionListener,
     MediaPickerUtils.ImagePickerListener {
     private lateinit var mBinding: ViewDataBinding
@@ -35,8 +35,7 @@ abstract class BaseFragment : Fragment(), View.OnClickListener,
     protected val mediaPicker: MediaPickerUtils by inject()
     protected val preferenceMgr: PreferenceMgr by inject()
     protected val mActivity by lazy { requireActivity() }
-    abstract fun getLayout(): Int
-    protected abstract fun initUI(binding: ViewDataBinding?, view: View)
+    protected abstract fun onBindTo(binding: ViewDataBinding?)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,7 +43,7 @@ abstract class BaseFragment : Fragment(), View.OnClickListener,
         savedInstanceState: Bundle?
     ): View? {
 //        return super.onCreateView(inflater, container, savedInstanceState)
-        mBinding = DataBindingUtil.inflate(inflater, getLayout(), container, false)
+        mBinding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         if (!EventBus.getDefault().isRegistered(this))
             EventBus.getDefault().register(this)
         return mBinding.root
@@ -52,7 +51,7 @@ abstract class BaseFragment : Fragment(), View.OnClickListener,
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        initUI(mBinding, view)
+        onBindTo(mBinding)
         super.onViewCreated(view, savedInstanceState)
         if (loaderDialog == null) {
             loaderDialog = LoaderDialog.dialog()
@@ -63,7 +62,8 @@ abstract class BaseFragment : Fragment(), View.OnClickListener,
     protected fun showApiLoader() {
         if (loaderDialog != null) {
             val fragment = mActivity.supportFragmentManager.findFragmentByTag(LoaderDialog.TAG)
-            if (fragment != null) mActivity.supportFragmentManager.beginTransaction().remove(fragment)
+            if (fragment != null) mActivity.supportFragmentManager.beginTransaction()
+                .remove(fragment)
                 .commit()
             loaderDialog?.show(parentFragmentManager, LoaderDialog.TAG)
         }
@@ -85,7 +85,9 @@ abstract class BaseFragment : Fragment(), View.OnClickListener,
                     ValidationHelper.showSnackBar(view, response.errorMessage!!)
                 else activity?.showToast(getString(R.string.something_went_wrong))
             }
-            else -> { showApiLoader()}
+            else -> {
+                showApiLoader()
+            }
         }
     }
 

@@ -1,7 +1,6 @@
 package com.webaddicted.kotlinproject.view.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -13,11 +12,12 @@ import com.webaddicted.kotlinproject.view.base.BaseFragment
 import com.webaddicted.kotlinproject.viewModel.common.CommonViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SignupFrm : BaseFragment() {
+class SignupFrm : BaseFragment(R.layout.frm_signup) {
     private lateinit var mBinding: FrmSignupBinding
     private val commonViewModel: CommonViewModel by viewModel()
+
     companion object {
-        val TAG = SignupFrm::class.java.simpleName
+        val TAG = SignupFrm::class.qualifiedName
 
         fun getInstance(bundle: Bundle): SignupFrm {
             val fragment = SignupFrm()
@@ -26,11 +26,7 @@ class SignupFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_signup
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmSignupBinding
         init()
         clickListener()
@@ -50,10 +46,12 @@ class SignupFrm : BaseFragment() {
 
 //        mBinding.txtForgotPsw.setOnClickListener { this }
     }
+
     override fun onResume() {
         super.onResume()
         addBlankSpace(mBinding.bottomSpace)
     }
+
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
@@ -64,11 +62,16 @@ class SignupFrm : BaseFragment() {
 
     private fun validate() {
 
-        if (ValidationHelper.validateBlank(mBinding.edtFullName, mBinding.wrapperFullName, getString(R.string.first_name_can_not_blank)) &&
+        if (ValidationHelper.validateBlank(
+                mBinding.edtFullName,
+                mBinding.wrapperFullName,
+                getString(R.string.first_name_can_not_blank)
+            ) &&
             ValidationHelper.validateName(mBinding.edtNickName, mBinding.wrapperNickName) &&
             ValidationHelper.validateMobileNo(mBinding.edtMobileNo, mBinding.wrapperMobileNo) &&
             ValidationHelper.validateEmail(mBinding.edtEmail, mBinding.wrapperEmail) &&
-            ValidationHelper.validatePwd(mBinding.edtPassword, mBinding.wrapperPassword)) {
+            ValidationHelper.validatePwd(mBinding.edtPassword, mBinding.wrapperPassword)
+        ) {
             val user = UserInfoEntity()
             user.name = mBinding.edtFullName.text.toString().trim()
             user.nickname = mBinding.edtNickName.text.toString().trim()

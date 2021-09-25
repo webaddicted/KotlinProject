@@ -23,13 +23,13 @@ import kotlinx.coroutines.*
 import java.util.*
 
 
-class ContactFrm : BaseFragment() {
+class ContactFrm : BaseFragment(R.layout.frm_contacts) {
     private lateinit var mAdapter: ContactAdapter
     private lateinit var mBinding: FrmContactsBinding
     private var contactList: ArrayList<ContactBean>? = ArrayList<ContactBean>()
 
     companion object {
-        val TAG = ContactFrm::class.java.simpleName
+        val TAG = ContactFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): ContactFrm {
             val fragment = ContactFrm()
             fragment.arguments = bundle
@@ -37,11 +37,7 @@ class ContactFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_contacts
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmContactsBinding
         init()
         clickListener()
@@ -72,7 +68,7 @@ class ContactFrm : BaseFragment() {
 
             override fun afterTextChanged(editable: Editable) {
                 val text: String =
-                    mBinding.edtSearch.text.toString().toLowerCase(Locale.getDefault())
+                    mBinding.edtSearch.text.toString().lowercase(Locale.getDefault())
                 mAdapter.filter(text)
             }
         })
@@ -153,7 +149,7 @@ class ContactFrm : BaseFragment() {
     }
 
     // Method that return all contact details in array format
-    private fun readContacts(): ArrayList<ContactBean>? {
+    private fun readContacts(): ArrayList<ContactBean> {
         val contactList: ArrayList<ContactBean> =
             ArrayList<ContactBean>()
         val uri =
@@ -206,7 +202,7 @@ class ContactFrm : BaseFragment() {
                 val contactNumbers = StringBuilder()
                 val contactEmailAddresses = StringBuilder()
                 val contactOtherDetails = StringBuilder()
-                // Now start the cusrsor
+                // Now start the cursor
                 if (dataCursor?.moveToFirst()!!) {
                     displayName =
                         dataCursor.getString(dataCursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))

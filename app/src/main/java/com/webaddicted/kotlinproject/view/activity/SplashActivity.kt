@@ -10,16 +10,14 @@ import androidx.databinding.ViewDataBinding
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.ActivitySplashBinding
 import com.webaddicted.kotlinproject.global.common.AppApplication.Companion.context
-import com.webaddicted.kotlinproject.global.common.Lg
 import com.webaddicted.kotlinproject.global.constant.AppConstant
 import com.webaddicted.kotlinproject.view.base.BaseActivity
-import java.util.*
 
 
 /**
  * Created by Deepak Sharma on 01/07/19.
  */
-class SplashActivity : BaseActivity() {
+class SplashActivity : BaseActivity(R.layout.activity_splash) {
     private lateinit var mBinding: ActivitySplashBinding
 
     companion object {
@@ -36,11 +34,7 @@ class SplashActivity : BaseActivity() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.activity_splash
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as ActivitySplashBinding
         init()
         setNavigationColor(ContextCompat.getColor(context, R.color.app_color))
@@ -48,8 +42,8 @@ class SplashActivity : BaseActivity() {
     }
 
     private fun init() {
-        val slideAnmimation = AnimationUtils.loadAnimation(this, R.anim.bounce_game)
-        mBinding.imgLogo.animation = slideAnmimation
+        val slideAnimation = AnimationUtils.loadAnimation(this, R.anim.bounce_game)
+        mBinding.imgLogo.animation = slideAnimation
         navigateToNext()
     }
 

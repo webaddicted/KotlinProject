@@ -11,12 +11,11 @@ import com.webaddicted.kotlinproject.global.common.GlobalUtility
 import com.webaddicted.kotlinproject.global.common.visible
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
-
-class DigitalSignatureFrm : BaseFragment() {
+class DigitalSignatureFrm : BaseFragment(R.layout.frm_digital_signature) {
     private lateinit var mBinding: FrmDigitalSignatureBinding
 
     companion object {
-        val TAG = DigitalSignatureFrm::class.java.simpleName
+        val TAG = DigitalSignatureFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): DigitalSignatureFrm {
             val fragment = DigitalSignatureFrm()
             fragment.arguments = bundle
@@ -24,11 +23,7 @@ class DigitalSignatureFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_digital_signature
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmDigitalSignatureBinding
         init()
         clickListener()

@@ -4,18 +4,17 @@ import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
-import android.view.View
 import androidx.databinding.ViewDataBinding
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.FrmDevOsBinding
 import com.webaddicted.kotlinproject.global.common.GlobalUtility
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
-class OSFrm : BaseFragment() {
+class OSFrm : BaseFragment(R.layout.frm_dev_os) {
     private lateinit var mBinding: FrmDevOsBinding
 
     companion object {
-        val TAG = OSFrm::class.java.simpleName
+        val TAG = OSFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): OSFrm {
             val fragment = OSFrm()
             fragment.arguments = bundle
@@ -23,21 +22,16 @@ class OSFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_dev_os
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmDevOsBinding
         getOSInfo()
     }
 
     private fun getOSInfo() {
-        var txtColor = ""
-        if ((resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
+        val txtColor = if ((resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
             Configuration.UI_MODE_NIGHT_NO
-        ) txtColor = "#000000"
-        else txtColor = "#FFFFFF"
+        ) "#000000"
+        else "#FFFFFF"
         val CVersion = Build.VERSION.SDK_INT
         var osInfo = ""
         osInfo =   "<font color=\"$txtColor\">Version : </font>${Build.VERSION.RELEASE}<br>" +
@@ -159,5 +153,4 @@ class OSFrm : BaseFragment() {
 //        deviceInfoList.get(0).setUser(Build.USER);
 //        deviceInfoList.get(0).setVersion(String.valueOf(Build.VERSION.SDK_INT));
     }
-
 }

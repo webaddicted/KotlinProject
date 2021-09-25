@@ -21,27 +21,24 @@ import com.webaddicted.kotlinproject.view.base.BaseActivity
 /**
  * Created by Deepak Sharma on 01/07/19.
  */
-class ExoPlayerPIPActivity : BaseActivity() {
+class ExoPlayerPIPActivity : BaseActivity(R.layout.frm_exo_player_recycler) {
     private lateinit var mBinding: FrmExoPlayerRecyclerBinding
-    var isInPipMode:Boolean = false
-     var mUrl: String = "https://videocdn.bodybuilding.com/video/mp4/62000/62792m.mp4"
-    lateinit var player : SimpleExoPlayer
-    private var videoPosition:Long = 0L
-    var isPIPModeeEnabled:Boolean = true //Has the user disabled PIP mode in AppOpps?
-     var playerView : PlayerView? = null
+    private var isInPipMode: Boolean = false
+    var mUrl: String = "https://videocdn.bodybuilding.com/video/mp4/62000/62792m.mp4"
+    private lateinit var player: SimpleExoPlayer
+    private var videoPosition: Long = 0L
+    private var isPIPModeeEnabled: Boolean = true //Has the user disabled PIP mode in AppOpps?
+    private var playerView: PlayerView? = null
+
     companion object {
         val TAG: String = ExoPlayerPIPActivity::class.java.simpleName
-        fun newIntent(activity: Activity, frmName: String) {
+        fun newIntent(activity: Activity, frmName: String?) {
             val intent = Intent(activity, ExoPlayerPIPActivity::class.java)
             activity.startActivity(intent)
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_exo_player_recycler
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as FrmExoPlayerRecyclerBinding
         init()
         clickListener()
@@ -68,7 +65,7 @@ class ExoPlayerPIPActivity : BaseActivity() {
         }
     }
 
-    private fun startedPIPIInit(){
+    private fun startedPIPIInit() {
 //        player = ExoPlayerFactory.newSimpleInstance(this, DefaultTrackSelector())
 //        playerView?.player = player
 //        val dataSourceFactory = DefaultDataSourceFactory(this, Util.getUserAgent(this, applicationInfo.loadLabel(packageManager).toString()))
@@ -123,18 +120,21 @@ class ExoPlayerPIPActivity : BaseActivity() {
 //        mediaSession.isActive = true
 //        playerView?.useController = true
     }
+
     override fun onPause() {
         videoPosition = player.currentPosition
         super.onPause()
     }
+
     override fun onResume() {
         super.onResume()
-        if(videoPosition > 0L && !isInPipMode){
+        if (videoPosition > 0L && !isInPipMode) {
             player.seekTo(videoPosition)
         }
         //Makes sure that the media controls pop up on resuming and when going between PIP and non-PIP states.
         playerView?.useController = true
     }
+
     override fun onStop() {
         super.onStop()
         playerView?.player = null
@@ -144,12 +144,14 @@ class ExoPlayerPIPActivity : BaseActivity() {
         //But here we are using finish() because our Mininum SDK version is 16
         //If you use minSdkVersion as 21+ then remove finish() and use finishAndRemoveTask() instead
         if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-            && packageManager.hasSystemFeature(PackageManager.FEATURE_PICTURE_IN_PICTURE)) {
+            && packageManager.hasSystemFeature(PackageManager.FEATURE_PICTURE_IN_PICTURE)
+        ) {
             finish()
             //finishAndRemoveTask()
         }
     }
-//    override fun onSaveInstanceState(outState: Bundle) {
+
+    //    override fun onSaveInstanceState(outState: Bundle) {
 //        super.onSaveInstanceState(outState.apply {
 //            this?.putLong(ARG_VIDEO_POSITION, player.currentPosition)
 //        })
@@ -158,31 +160,39 @@ class ExoPlayerPIPActivity : BaseActivity() {
 //        super.onRestoreInstanceState(savedInstanceState)
 //        videoPosition = savedInstanceState!!.getLong(ARG_VIDEO_POSITION)
 //    }
-    override fun onBackPressed(){
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N
+    override fun onBackPressed() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N
             && packageManager.hasSystemFeature(PackageManager.FEATURE_PICTURE_IN_PICTURE)
-            && isPIPModeeEnabled) {
+            && isPIPModeeEnabled
+        ) {
             enterPIPMode()
         } else {
             super.onBackPressed()
         }
     }
-    override fun onPictureInPictureModeChanged(isInPictureInPictureMode: Boolean, newConfig: Configuration?) {
-        if(newConfig !=null){
+
+    override fun onPictureInPictureModeChanged(
+        isInPictureInPictureMode: Boolean,
+        newConfig: Configuration?
+    ) {
+        if (newConfig != null) {
             videoPosition = player.currentPosition
             isInPipMode = !isInPictureInPictureMode
         }
         super.onPictureInPictureModeChanged(isInPictureInPictureMode, newConfig)
     }
+
     //Called when the user touches the Home or Recents button to leave the app.
     override fun onUserLeaveHint() {
         super.onUserLeaveHint()
         enterPIPMode()
     }
+
     @Suppress("DEPRECATION")
-    fun enterPIPMode(){
+    fun enterPIPMode() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N
-            && packageManager.hasSystemFeature(PackageManager.FEATURE_PICTURE_IN_PICTURE)) {
+            && packageManager.hasSystemFeature(PackageManager.FEATURE_PICTURE_IN_PICTURE)
+        ) {
             videoPosition = player.currentPosition
             playerView?.useController = false
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -198,13 +208,14 @@ class ExoPlayerPIPActivity : BaseActivity() {
                 if(appOpsManager.checkOpNoThrow(AppOpManager.OP_PICTURE_IN_PICTURE, packageManager.getApplicationInfo(packageName, PackageManager.GET_META_DATA).uid, packageName) == AppOpsManager.MODE_ALLOWED)
                 30MS window in even a restricted memory device (756mb+) is more than enough time to check, but also not have the system complain about holding an action hostage.
              */
-            Handler().postDelayed({checkPIPPermission()}, 30)
+            Handler().postDelayed({ checkPIPPermission() }, 30)
         }
     }
+
     @RequiresApi(Build.VERSION_CODES.N)
-    fun checkPIPPermission(){
+    fun checkPIPPermission() {
         isPIPModeeEnabled = isInPictureInPictureMode
-        if(!isInPictureInPictureMode){
+        if (!isInPictureInPictureMode) {
             onBackPressed()
         }
     }

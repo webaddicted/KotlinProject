@@ -11,25 +11,20 @@ import com.webaddicted.kotlinproject.view.adapter.ExpendableListAdapter
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 import java.util.*
 
-class ExpendableFrm : BaseFragment() {
+class ExpendableFrm : BaseFragment(R.layout.frm_expend_view) {
     private var mSpinnerAdapter: SpinnerListAdapter? = null
     private var mExpendAdapter: ExpendableListAdapter? = null
     private lateinit var mBinding: FrmExpendViewBinding
 
     companion object {
-        val TAG = ExpendableFrm::class.java.simpleName
+        val TAG = ExpendableFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): ExpendableFrm {
             val fragment = ExpendableFrm()
             fragment.arguments = bundle
             return fragment
         }
     }
-
-    override fun getLayout(): Int {
-        return R.layout.frm_expend_view
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmExpendViewBinding
         init()
         clickListener()

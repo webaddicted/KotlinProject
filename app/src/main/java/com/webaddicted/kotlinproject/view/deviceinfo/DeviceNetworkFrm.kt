@@ -5,7 +5,6 @@ import android.content.res.Configuration
 import android.net.wifi.WifiManager
 import android.os.Bundle
 import android.text.Html
-import android.view.View
 import androidx.databinding.ViewDataBinding
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.FrmDevNetworkBinding
@@ -13,33 +12,27 @@ import com.webaddicted.kotlinproject.global.common.GlobalUtility
 import com.webaddicted.kotlinproject.global.common.isNetworkAvailable
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
-class DeviceNetworkFrm : BaseFragment() {
+class DeviceNetworkFrm : BaseFragment(R.layout.frm_dev_network) {
     private lateinit var mBinding: FrmDevNetworkBinding
 
     companion object {
-        val TAG = DeviceNetworkFrm::class.java.simpleName
+        val TAG = DeviceNetworkFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): DeviceNetworkFrm {
             val fragment = DeviceNetworkFrm()
             fragment.arguments = bundle
             return fragment
         }
     }
-
-    override fun getLayout(): Int {
-        return R.layout.frm_dev_network
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmDevNetworkBinding
         getNetworkInfo()
     }
 
     private fun getNetworkInfo() {
-        var txtColor = ""
-        if ((resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
+        val txtColor: String = if ((resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
             Configuration.UI_MODE_NIGHT_NO
-        ) txtColor = "#000000"
-        else txtColor = "#FFFFFF"
+        ) "#000000"
+        else "#FFFFFF"
         var networkInfo: String
         networkInfo = if (activity?.isNetworkAvailable()!!) {
             "<font color=\"$txtColor\">Connection Status : </font> Connected<br>" +

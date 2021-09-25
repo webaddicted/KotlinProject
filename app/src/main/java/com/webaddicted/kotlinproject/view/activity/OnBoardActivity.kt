@@ -14,8 +14,7 @@ import com.webaddicted.kotlinproject.view.base.BaseActivity
 /**
  * Created by Deepak Sharma on 01/07/19.
  */
-class OnBoardActivity : BaseActivity() {
-
+class OnBoardActivity : BaseActivity(R.layout.activity_onboarding) {
     private lateinit var mBinding: ActivityOnboardingBinding
     private val layouts =
         intArrayOf(R.layout.welcome_slide1, R.layout.welcome_slide2, R.layout.welcome_slide3, R.layout.welcome_slide4)
@@ -25,11 +24,8 @@ class OnBoardActivity : BaseActivity() {
             activity.startActivity(Intent(activity, OnBoardActivity::class.java))
         }
     }
-    override fun getLayout(): Int {
-        return R.layout.activity_onboarding
-    }
 
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as ActivityOnboardingBinding
         init()
         clickListener()
@@ -81,10 +77,12 @@ class OnBoardActivity : BaseActivity() {
     }
 
     private fun changeNavigatColor(position: Int) {
-        if (position == 0) setNavigationColor(ContextCompat.getColor(this,R.color.bg_screen1))
-        else if (position == 1) setNavigationColor(ContextCompat.getColor(this,R.color.bg_screen2))
-        else if (position == 2) setNavigationColor(ContextCompat.getColor(this,R.color.bg_screen3))
-        else if (position == 3) setNavigationColor(ContextCompat.getColor(this,R.color.bg_screen4))
+        when (position) {
+            0 -> setNavigationColor(ContextCompat.getColor(this,R.color.bg_screen1))
+            1 -> setNavigationColor(ContextCompat.getColor(this,R.color.bg_screen2))
+            2 -> setNavigationColor(ContextCompat.getColor(this,R.color.bg_screen3))
+            3 -> setNavigationColor(ContextCompat.getColor(this,R.color.bg_screen4))
+        }
 
     }
 

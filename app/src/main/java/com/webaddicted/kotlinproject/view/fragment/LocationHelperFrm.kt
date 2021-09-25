@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.FrmLocationHelperBinding
 import com.webaddicted.kotlinproject.global.common.GlobalUtility
-import com.webaddicted.kotlinproject.global.common.Lg
 import com.webaddicted.kotlinproject.global.common.gone
 import com.webaddicted.kotlinproject.global.common.visible
 import com.webaddicted.kotlinproject.model.bean.common.LocationBean
@@ -16,25 +15,20 @@ import com.webaddicted.kotlinproject.view.adapter.LocationAdapter
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 import com.webaddicted.kotlinproject.view.base.LocationHelper
 
-class LocationHelperFrm : BaseFragment() {
+class LocationHelperFrm : BaseFragment(R.layout.frm_location_helper) {
     private lateinit var adapter: LocationAdapter
     private lateinit var mBinding: FrmLocationHelperBinding
     private var locationBean: ArrayList<LocationBean>? = null
 
     companion object {
-        val TAG = LocationHelperFrm::class.java.simpleName
+        val TAG = LocationHelperFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): LocationHelperFrm {
             val fragment = LocationHelperFrm()
             fragment.arguments = bundle
             return fragment
         }
     }
-
-    override fun getLayout(): Int {
-        return R.layout.frm_location_helper
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmLocationHelperBinding
         init()
         clickListener()
@@ -81,7 +75,7 @@ class LocationHelperFrm : BaseFragment() {
             mActivity,
             object : LocationHelper.Companion.LocationChangeListener {
                 override fun onUpdatedLocation(location: Location, address: String) {
-                    Lg.d(TAG, "updatedLat: ${location.latitude} long: ${location.longitude}")
+                    GlobalUtility.print(TAG, "updatedLat: ${location.latitude} long: ${location.longitude}")
                     locationBean?.add(0, LocationBean().apply {
                         lat = location.latitude.toString()
                         lon = location.longitude.toString()
@@ -93,7 +87,7 @@ class LocationHelperFrm : BaseFragment() {
 
                 override fun onError(string: String) {
                     GlobalUtility.showToast(string)
-                    Lg.d(TAG, "error: $string")
+                    GlobalUtility.print(TAG, "error: $string")
                 }
             })
         LocationHelper.isAddressEnabled(true)
@@ -104,7 +98,7 @@ class LocationHelperFrm : BaseFragment() {
             3,3,5,
             object : LocationHelper.Companion.LocationChangeListener {
                 override fun onUpdatedLocation(location: Location, address: String) {
-                    Lg.d(TAG, "updatedLat: ${location.latitude} long: ${location.longitude}")
+                    GlobalUtility.print(TAG, "updatedLat: ${location.latitude} long: ${location.longitude}")
                     locationBean?.add(0, LocationBean().apply {
                         lat = location.latitude.toString()
                         lon = location.longitude.toString()
@@ -116,7 +110,7 @@ class LocationHelperFrm : BaseFragment() {
 
                 override fun onError(string: String) {
                     GlobalUtility.showToast(string)
-                    Lg.d(TAG, "error: $string")
+                    GlobalUtility.print(TAG, "error: $string")
                 }
             })
         LocationHelper.isAddressEnabled(true)

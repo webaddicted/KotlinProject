@@ -4,8 +4,6 @@ import android.Manifest
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -29,12 +27,12 @@ import java.io.*
 import java.util.*
 
 
-class DynamicLayoutFrm : BaseFragment() {
+class DynamicLayoutFrm : BaseFragment(R.layout.frm_dynamic_layout) {
     private lateinit var pdfFile: File
     private lateinit var mBinding: FrmDynamicLayoutBinding
 
     companion object {
-        val TAG = DynamicLayoutFrm::class.java.simpleName
+        val TAG = DynamicLayoutFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): DynamicLayoutFrm {
             val fragment = DynamicLayoutFrm()
             fragment.arguments = bundle
@@ -42,11 +40,7 @@ class DynamicLayoutFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_dynamic_layout
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmDynamicLayoutBinding
         init()
         clickListener()
@@ -279,28 +273,20 @@ class DynamicLayoutFrm : BaseFragment() {
     }
 
     private fun openPDF(file: File) {
-        var intent: Intent
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            try {
-                val uri =
-                    FileProvider.getUriForFile(
-                        mActivity,
-                        activity?.packageName + ".provider",
-                        file
-                    )
-                intent = Intent(Intent.ACTION_VIEW)
-                intent.data = uri
-                intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
-                startActivity(intent)
-            } catch (exp: Exception) {
-                exp.printStackTrace()
-            }
-        } else {
+        val intent: Intent
+        try {
+            val uri =
+                FileProvider.getUriForFile(
+                    mActivity,
+                    activity?.packageName + ".provider",
+                    file
+                )
             intent = Intent(Intent.ACTION_VIEW)
-            intent.setDataAndType(Uri.parse(file.toString()), "application/pdf")
-            intent = Intent.createChooser(intent, "Open File")
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            intent.data = uri
+            intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
             startActivity(intent)
+        } catch (exp: Exception) {
+            exp.printStackTrace()
         }
     }
 }

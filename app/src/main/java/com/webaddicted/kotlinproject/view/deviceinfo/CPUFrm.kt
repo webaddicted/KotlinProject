@@ -21,13 +21,13 @@ import kotlinx.coroutines.*
 import java.io.File
 import java.util.*
 
-class CPUFrm : BaseFragment() {
+class CPUFrm : BaseFragment(R.layout.activity_cpu) {
     private lateinit var mAdapter: CPUAdapter
     private lateinit var mBinding: ActivityCpuBinding
     private var cpuList: ArrayList<CPUBean>? = ArrayList<CPUBean>()
 
     companion object {
-        val TAG = CPUFrm::class.java.simpleName
+        val TAG = CPUFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): CPUFrm {
             val fragment = CPUFrm()
             fragment.arguments = bundle
@@ -35,11 +35,7 @@ class CPUFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.activity_cpu
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as ActivityCpuBinding
         init()
     }
@@ -47,7 +43,7 @@ class CPUFrm : BaseFragment() {
     private fun init() {
         setAdapter()
         GlobalScope.launch(Dispatchers.Main + Job()) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) getMemoryInfo()
+            getMemoryInfo()
             val totalRamValue = totalRamMemorySize()
             val freeRamValue = freeRamMemorySize()
             val usedRamValue = totalRamValue - freeRamValue

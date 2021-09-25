@@ -14,13 +14,13 @@ import com.webaddicted.kotlinproject.view.adapter.CommonAdapter
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
 
-class BottomSheetBehavFrm : BaseFragment() {
+class BottomSheetBehavFrm : BaseFragment(R.layout.frm_bottom_sheet) {
     private lateinit var adapter: CommonAdapter
     private var bottomSheetBehavior: BottomSheetBehavior<View>? = null
     private lateinit var mBinding: FrmBottomSheetBinding
 
     companion object {
-        val TAG = BottomSheetBehavFrm::class.java.simpleName
+        val TAG = BottomSheetBehavFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): BottomSheetBehavFrm {
             val fragment = BottomSheetBehavFrm()
             fragment.arguments = bundle
@@ -28,11 +28,8 @@ class BottomSheetBehavFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_bottom_sheet
-    }
 
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmBottomSheetBinding
         init()
         clickListener()
@@ -56,8 +53,7 @@ class BottomSheetBehavFrm : BaseFragment() {
                     bottomSheet: View,
                     slideOffset: Float
                 ) {
-                    val collapsedStateHeight =
-                        (bottomSheetBehavior?.peekHeight!!).coerceAtMost(bottomSheet.height)
+                    (bottomSheetBehavior?.peekHeight!!).coerceAtMost(bottomSheet.height)
                 }
             })
         bottomSheetBehavior!!.peekHeight = 550//preview.getHeight() / 2

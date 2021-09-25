@@ -9,7 +9,6 @@ import android.os.Bundle
 import android.text.Html
 import android.util.DisplayMetrics
 import android.view.Display
-import android.view.View
 import android.view.WindowManager
 import androidx.databinding.ViewDataBinding
 import com.webaddicted.kotlinproject.R
@@ -20,12 +19,12 @@ import java.text.DecimalFormat
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-class DisplayFrm : BaseFragment() {
+class DisplayFrm : BaseFragment(R.layout.frm_dev_display) {
     private lateinit var mBinding: FrmDevDisplayBinding
-    val dm = DisplayMetrics()
+    private val dm = DisplayMetrics()
 
     companion object {
-        val TAG = DisplayFrm::class.java.simpleName
+        val TAG = DisplayFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): DisplayFrm {
             val fragment = DisplayFrm()
             fragment.arguments = bundle
@@ -33,22 +32,17 @@ class DisplayFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_dev_display
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmDevDisplayBinding
         getDisplayInfo()
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private fun getDisplayInfo() {
-        var txtColor = ""
-        if ((resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
+        val txtColor: String = if ((resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
             Configuration.UI_MODE_NIGHT_NO
-        ) txtColor = "#000000"
-        else txtColor = "#FFFFFF"
+        ) "#000000"
+        else "#FFFFFF"
         var screenInfo: String
         var displayInfo = ""
         var resoluationInfo= ""

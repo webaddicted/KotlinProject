@@ -1,7 +1,6 @@
 package com.webaddicted.kotlinproject.view.ecommerce
 
 import android.os.Bundle
-import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -11,12 +10,12 @@ import com.webaddicted.kotlinproject.databinding.FrmEcomProductCatTabBinding
 import com.webaddicted.kotlinproject.view.adapter.EcomProductCatAdapter
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
-class EcommProductCatTabFrm : BaseFragment() {
+class EcommProductCatTabFrm : BaseFragment(R.layout.frm_ecom_product_cat_tab) {
     //    private lateinit var mListAdapter: EcomProductCatAdapter
     private lateinit var mBinding: FrmEcomProductCatTabBinding
 
     companion object {
-        val TAG = EcommProductCatTabFrm::class.java.simpleName
+        val TAG = EcommProductCatTabFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): EcommProductCatTabFrm {
             val fragment = EcommProductCatTabFrm()
             fragment.arguments = bundle
@@ -24,11 +23,7 @@ class EcommProductCatTabFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_ecom_product_cat_tab
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmEcomProductCatTabBinding
         init()
     }

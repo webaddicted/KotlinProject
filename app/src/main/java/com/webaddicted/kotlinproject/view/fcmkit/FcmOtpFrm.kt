@@ -28,7 +28,7 @@ import com.webaddicted.kotlinproject.view.base.BaseFragment
 import java.util.concurrent.TimeUnit
 
 
-class FcmOtpFrm : BaseFragment() {
+class FcmOtpFrm : BaseFragment(R.layout.frm_fcm_otp) {
     private var userVerified: Boolean = false
     private var openFrom: String? = ""
     private var mobileNo: String? = ""
@@ -41,7 +41,7 @@ class FcmOtpFrm : BaseFragment() {
     private var mVerificationId: String? = null
 
     companion object {
-        val TAG = FcmOtpFrm::class.java.simpleName
+        val TAG = FcmOtpFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): FcmOtpFrm {
             val fragment = FcmOtpFrm()
             fragment.arguments = bundle
@@ -49,11 +49,7 @@ class FcmOtpFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_fcm_otp
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmFcmOtpBinding
         init()
         clickListener()
@@ -186,7 +182,7 @@ class FcmOtpFrm : BaseFragment() {
                 else verifyUser()
             } else {
 //                verifyUser()
-                Lg.e(TAG, "signInWithCredential:failure : ${task.exception}")
+                TAG?.let { Lg.e(it, "signInWithCredential:failure : ${task.exception}") }
                 if (task.exception is FirebaseAuthInvalidCredentialsException)
                     GlobalUtility.showToast("Invalid code.")
                 else GlobalUtility.showToast(task.exception?.message!!)
@@ -226,11 +222,11 @@ class FcmOtpFrm : BaseFragment() {
             }
         }.addOnFailureListener { e ->
             GlobalUtility.showToast("Uploading failed " + e.message)
-            Lg.d(TAG, "onFailure: Uploading failed : ${e.message}")
+            TAG?.let { Lg.d(it, "onFailure: Uploading failed : ${e.message}") }
         }.addOnProgressListener { taskSnapshot ->
             val doubb =
                 100.0 * taskSnapshot.bytesTransferred / taskSnapshot.totalByteCount
-            Lg.d(TAG, "Uploading  : $doubb%")
+            TAG?.let { Lg.d(it, "Uploading  : $doubb%") }
 //            GlobalUtility.showToast("Upload : $doubb%")
         }
     }

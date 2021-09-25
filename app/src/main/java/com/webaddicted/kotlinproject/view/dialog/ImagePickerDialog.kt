@@ -14,12 +14,12 @@ import java.io.File
 
 
 @SuppressLint("ValidFragment")
-class ImagePickerDialog : BaseDialog() {
+class ImagePickerDialog : BaseDialog(R.layout.dialog_image_picker) {
     private lateinit var mBinding: DialogImagePickerBinding
     private val mediaPicker: MediaPickerUtils by inject()
     companion object {
         private var fileType: Int = MediaPickerType.CAPTURE_IMAGE
-        val TAG = ImagePickerDialog::class.java.simpleName
+        val TAG = ImagePickerDialog::class.qualifiedName
         private lateinit var onActionListener: OnImageActionListener
         fun dialog(
             @MediaPickerType.MediaType fileType: Int,
@@ -31,11 +31,7 @@ class ImagePickerDialog : BaseDialog() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.dialog_image_picker
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as DialogImagePickerBinding
         init()
         clickListener()

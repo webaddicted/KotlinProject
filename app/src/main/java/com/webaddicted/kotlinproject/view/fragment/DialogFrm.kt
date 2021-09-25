@@ -18,23 +18,18 @@ import com.webaddicted.kotlinproject.view.base.BaseFragment
 import com.webaddicted.kotlinproject.view.dialog.LoginDialog
 import java.util.*
 
-class DialogFrm : BaseFragment() {
+class DialogFrm : BaseFragment(R.layout.frm_dialog) {
     private lateinit var mBinding: FrmDialogBinding
 
     companion object {
-        val TAG = DialogFrm::class.java.simpleName
+        val TAG = DialogFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): DialogFrm {
             val fragment = DialogFrm()
             fragment.arguments = bundle
             return fragment
         }
     }
-
-    override fun getLayout(): Int {
-        return R.layout.frm_dialog
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmDialogBinding
         init()
         clickListener()

@@ -19,13 +19,13 @@ import com.webaddicted.kotlinproject.view.adapter.SMSAdapter
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
 
-class SmsFrm : BaseFragment() {
+class SmsFrm : BaseFragment(R.layout.frm_sms) {
     private lateinit var mAdapter: SMSAdapter
     private lateinit var mBinding: FrmSmsBinding
     private var smsBean: ArrayList<SMSBean> = ArrayList()
 
     companion object {
-        val TAG = SmsFrm::class.java.simpleName
+        val TAG = SmsFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): SmsFrm {
             val fragment = SmsFrm()
             fragment.arguments = bundle
@@ -33,11 +33,7 @@ class SmsFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_sms
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmSmsBinding
         init()
         clickListener()
@@ -90,7 +86,7 @@ class SmsFrm : BaseFragment() {
             })
     }
 
-    fun getAllSms(): List<SMSBean>? {
+    fun getAllSms(): List<SMSBean> {
         val message = Uri.parse("content://sms/")
         val cr: ContentResolver = activity?.contentResolver!!
         val cursor: Cursor = cr.query(message, null, null, null, null)!!
@@ -113,26 +109,24 @@ class SmsFrm : BaseFragment() {
                     cursor.getString(cursor.getColumnIndexOrThrow(Telephony.Sms.READ)).toString()
                 val seen =
                     cursor.getString(cursor.getColumnIndexOrThrow(Telephony.Sms.SEEN)).toString()
-                var smsTypes = cursor.getString(cursor.getColumnIndexOrThrow(Telephony.Sms.TYPE))
+                val smsTypes = cursor.getString(cursor.getColumnIndexOrThrow(Telephony.Sms.TYPE))
                 smsBean.add(
                     SMSBean().apply {
-                    smsId = id
-                    smsNo = number
-                    smsBody = body
-                    smsDate = date
-                    smsStatus = status
-                    smsRead = read
-                    smsSeen = seen
-                    smsType = smsTypes
-                })
+                        smsId = id
+                        smsNo = number
+                        smsBody = body
+                        smsDate = date
+                        smsStatus = status
+                        smsRead = read
+                        smsSeen = seen
+                        smsType = smsTypes
+                    })
                 cursor.moveToNext()
             }
         }
         cursor.close()
-        if (smsBean != null) {
-            mBinding.includeSms.imgNoDataFound.gone()
-            mAdapter.notifyAdapter(smsBean)
-        }
+        mBinding.includeSms.imgNoDataFound.gone()
+        mAdapter.notifyAdapter(smsBean)
         return smsBean
     }
 }

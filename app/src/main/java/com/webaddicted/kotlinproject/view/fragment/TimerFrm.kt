@@ -3,6 +3,7 @@ package com.webaddicted.kotlinproject.view.fragment
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Handler
+import android.os.Looper
 import android.view.View
 import androidx.databinding.ViewDataBinding
 import com.webaddicted.kotlinproject.R
@@ -11,7 +12,7 @@ import com.webaddicted.kotlinproject.global.common.visible
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
 
-class TimerFrm : BaseFragment() {
+class TimerFrm : BaseFragment(R.layout.frm_timer) {
     private var isStopHandler: Boolean = true
     private lateinit var mBinding: FrmTimerBinding
     private var countDownTimerMilisec: Long = 330000
@@ -20,19 +21,14 @@ class TimerFrm : BaseFragment() {
     private lateinit var countDownTime: CountDownTimer
 
     companion object {
-        val TAG = TimerFrm::class.java.simpleName
+        val TAG = TimerFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): TimerFrm {
             val fragment = TimerFrm()
             fragment.arguments = bundle
             return fragment
         }
     }
-
-    override fun getLayout(): Int {
-        return R.layout.frm_timer
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmTimerBinding
         init()
         clickListener()
@@ -42,12 +38,8 @@ class TimerFrm : BaseFragment() {
         mBinding.toolbar.imgBack.visible()
         mBinding.toolbar.txtToolbarTitle.text = resources.getString(R.string.timer_title)
 
-        countDownTimerHandler = Handler()
-        updateTimerThread = object : Runnable {
-            override fun run() {
-                updateUi()
-            }
-        }
+        countDownTimerHandler = Handler(Looper.getMainLooper())
+        updateTimerThread = Runnable { updateUi() }
         initCountDown()
         updateUi()
         mBinding.txtCdTimer.text = "05:30"
@@ -73,11 +65,10 @@ class TimerFrm : BaseFragment() {
     private fun updateUi() {
         val minutes = countDownTimerMilisec / 1000 / 60
         val seconds = countDownTimerMilisec / 1000 % 60
-        if (mBinding.txtHandlerTimer != null)
-            mBinding.txtHandlerTimer.text = String.format(
-                "%02d",
-                minutes
-            ) + ":" + String.format("%02d", seconds)
+        mBinding.txtHandlerTimer.text = String.format(
+            "%02d",
+            minutes
+        ) + ":" + String.format("%02d", seconds)
         countDownTimerMilisec -= 1000
         if (!isStopHandler) countDownTimerHandler.postDelayed(updateTimerThread, 1000)
     }

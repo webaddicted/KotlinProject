@@ -16,7 +16,7 @@ import java.io.IOException
 class CompressImage {
 
     companion object {
-        private val TAG = CompressImage::class.java.simpleName
+        private val TAG = CompressImage::class.qualifiedName
         private var mContext: Context? = null
         private val imagePath = Environment.getExternalStorageDirectory().toString() + "/comp/"
 
@@ -102,17 +102,17 @@ class CompressImage {
                 exif = ExifInterface(imageUri)
 
                 val orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, 0)
-                Lg.d(TAG, "Exif: $orientation")
+                GlobalUtility.print(TAG, "Exif: $orientation")
                 val matrix = Matrix()
                 if (orientation == 6) {
                     matrix.postRotate(90f)
-                    Lg.d(TAG, "Exif: $orientation")
+                    GlobalUtility.print(TAG, "Exif: $orientation")
                 } else if (orientation == 3) {
                     matrix.postRotate(180f)
-                    Lg.d(TAG, "Exif: $orientation")
+                    GlobalUtility.print(TAG, "Exif: $orientation")
                 } else if (orientation == 8) {
                     matrix.postRotate(270f)
-                    Lg.d(TAG, "Exif: $orientation")
+                    GlobalUtility.print(TAG, "Exif: $orientation")
                 }
                 scaledBitmap = Bitmap.createBitmap(
                     scaledBitmap,
@@ -168,7 +168,7 @@ class CompressImage {
 
         private fun SaveImage(finalBitmap: Bitmap): File {
             val dirFile: File
-            Lg.d(TAG, "SaveImage: " + finalBitmap.toString().length)
+            GlobalUtility.print(TAG, "SaveImage: " + finalBitmap.toString().length)
             if (imagePath != null) {
                 //            dirFile = new File(Environment.getExternalStorageDirectory() + imagePath);
                 dirFile = FileHelper.subFolder()
@@ -188,7 +188,7 @@ class CompressImage {
             } catch (fileNotFoundException: FileNotFoundException) {
                 Log.e(TAG, "File not found!", fileNotFoundException)
             } catch (ioException: IOException) {
-                Lg.e(TAG, "Unable to write to file!", ioException)
+                TAG?.let { Lg.e(it, "Unable to write to file!", ioException) }
             }
 
             return files

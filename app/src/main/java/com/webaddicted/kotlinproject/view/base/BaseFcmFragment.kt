@@ -26,21 +26,20 @@ import java.io.File
 /**
  * Created by Deepak Sharma on 15/1/19.
  */
-abstract class BaseFcmFragment : Fragment(), View.OnClickListener,
+abstract class BaseFcmFragment (private val layoutId: Int) : Fragment(), View.OnClickListener,
     PermissionHelper.Companion.PermissionListener,
     MediaPickerUtils.ImagePickerListener {
     private lateinit var mBinding: ViewDataBinding
     private var loaderDialog: LoaderDialog? = null
-    abstract fun getLayout(): Int
     protected val mActivity by lazy { requireActivity() }
-    protected abstract fun initUI(binding: ViewDataBinding?, view: View)
+    protected abstract fun onBindTo(binding: ViewDataBinding?)
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mBinding = DataBindingUtil.inflate(inflater, getLayout(), container, false)
+        mBinding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         if (!EventBus.getDefault().isRegistered(this))
             EventBus.getDefault().register(this)
         return mBinding.root
@@ -48,7 +47,7 @@ abstract class BaseFcmFragment : Fragment(), View.OnClickListener,
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        initUI(mBinding, view)
+        onBindTo(mBinding)
         super.onViewCreated(view, savedInstanceState)
         if (loaderDialog == null) {
             loaderDialog = LoaderDialog.dialog()

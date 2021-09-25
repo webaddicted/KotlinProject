@@ -19,12 +19,12 @@ import java.io.File
 import java.text.DecimalFormat
 import java.util.*
 
-class StorageFrm : BaseFragment() {
+class StorageFrm : BaseFragment(R.layout.frm_dev_storage) {
     private lateinit var mBinding: FrmDevStorageBinding
     private val df = DecimalFormat("#")
-    var txtColor = ""
+    private var txtColor = ""
     companion object {
-        val TAG = StorageFrm::class.java.simpleName
+        val TAG = StorageFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): StorageFrm {
             val fragment = StorageFrm()
             fragment.arguments = bundle
@@ -32,18 +32,14 @@ class StorageFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_dev_storage
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmDevStorageBinding
-        if ((resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
+        txtColor = if ((resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
             Configuration.UI_MODE_NIGHT_NO
-        ) txtColor = "#000000"
-        else txtColor = "#FFFFFF"
+        ) "#000000"
+        else "#FFFFFF"
 
-        val handler = Handler()
+        val handler = Handler(Looper.getMainLooper())
         val runnable = object : Runnable {
             @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
             override fun run() {
@@ -82,7 +78,7 @@ class StorageFrm : BaseFragment() {
             totalInternalValue.toDouble()
         ).toFloat()
 
-        if (getExternalMounts()?.size!! > 0) {
+        if (getExternalMounts().size > 0) {
             val dirs: Array<File> = ContextCompat.getExternalFilesDirs(mActivity, null)
             mBinding.llExtMemory.visibility = View.VISIBLE
             /** External Memory usage */
@@ -193,7 +189,7 @@ class StorageFrm : BaseFragment() {
         }
     }
 
-    private fun getExternalMounts(): HashSet<String>? {
+    private fun getExternalMounts(): HashSet<String> {
         val out = HashSet<String>()
         val reg = "(?i).*vold.*(vfat|ntfs|exfat|fat32|ext3|ext4).*rw.*"
         var s = ""
@@ -213,11 +209,11 @@ class StorageFrm : BaseFragment() {
         // parse output
         val lines = s.split("\n").toTypedArray()
         for (line in lines) {
-            if (!line.toLowerCase(Locale.US).contains("asec")) {
+            if (!line.lowercase(Locale.US).contains("asec")) {
                 if (line.matches(Regex(reg))) {
                     val parts = line.split(" ").toTypedArray()
                     for (part in parts) {
-                        if (part.startsWith("/")) if (!part.toLowerCase(Locale.US).contains(
+                        if (part.startsWith("/")) if (!part.lowercase(Locale.US).contains(
                                 "vold"
                             )
                         ) out.add(part)

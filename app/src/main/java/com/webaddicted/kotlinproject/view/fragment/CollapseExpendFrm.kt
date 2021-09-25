@@ -9,11 +9,11 @@ import com.webaddicted.kotlinproject.global.common.visible
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
 
-class CollapseExpendFrm : BaseFragment() {
+class CollapseExpendFrm : BaseFragment(R.layout.frm_collapse_exp) {
     private lateinit var mBinding: FrmCollapseExpBinding
 
     companion object {
-        val TAG = CollapseExpendFrm::class.java.simpleName
+        val TAG = CollapseExpendFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): CollapseExpendFrm {
             val fragment = CollapseExpendFrm()
             fragment.arguments = bundle
@@ -21,11 +21,7 @@ class CollapseExpendFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_collapse_exp
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmCollapseExpBinding
         init()
         clickListener()

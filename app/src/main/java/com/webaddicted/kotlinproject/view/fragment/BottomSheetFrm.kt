@@ -13,12 +13,12 @@ import com.webaddicted.kotlinproject.global.common.visible
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
 
-class BottomSheetFrm : BaseFragment() {
+class BottomSheetFrm : BaseFragment(R.layout.frm_bottom_sheet) {
     private lateinit var sheetBehavior: BottomSheetBehavior<LinearLayout>
     private lateinit var mBinding: FrmBottomSheetBinding
 
     companion object {
-        val TAG = BottomSheetFrm::class.java.simpleName
+        val TAG = BottomSheetFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): BottomSheetFrm {
             val fragment = BottomSheetFrm()
             fragment.arguments = bundle
@@ -26,11 +26,7 @@ class BottomSheetFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_bottom_sheet
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmBottomSheetBinding
         init()
         clickListener()
@@ -39,7 +35,7 @@ class BottomSheetFrm : BaseFragment() {
     private fun init() {
         mBinding.toolbar.imgBack.visible()
         mBinding.toolbar.txtToolbarTitle.text = resources.getString(R.string.bottom_sheet)
-         sheetBehavior = BottomSheetBehavior.from(mBinding.includeBottomSheet.bottomSheet)
+        sheetBehavior = BottomSheetBehavior.from(mBinding.includeBottomSheet.bottomSheet)
         sheetBehavior.setBottomSheetCallback(object : BottomSheetCallback() {
             override fun onStateChanged(
                 @NonNull bottomSheet: View,

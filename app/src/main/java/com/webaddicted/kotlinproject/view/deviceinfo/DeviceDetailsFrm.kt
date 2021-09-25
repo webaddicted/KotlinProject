@@ -8,46 +8,39 @@ import android.os.Bundle
 import android.provider.Settings
 import android.text.Html
 import android.util.DisplayMetrics
-import android.view.View
 import android.view.WindowManager
 import androidx.databinding.ViewDataBinding
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.FrmDevBasicBinding
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
-class DeviceDetailsFrm : BaseFragment() {
+class DeviceDetailsFrm : BaseFragment(R.layout.frm_dev_basic) {
     private lateinit var mBinding: FrmDevBasicBinding
 
     companion object {
-        val TAG = DeviceDetailsFrm::class.java.simpleName
+        val TAG = DeviceDetailsFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): DeviceDetailsFrm {
             val fragment = DeviceDetailsFrm()
             fragment.arguments = bundle
             return fragment
         }
     }
-
-    override fun getLayout(): Int {
-        return R.layout.frm_dev_basic
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmDevBasicBinding
         getDeviceInfo()
     }
 
 
     private fun getDeviceInfo() {
-        var txtColor = "#FFFFFF"
-        if ((resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
+        val txtColor: String = if ((resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
             Configuration.UI_MODE_NIGHT_NO
-        ) txtColor = "#000000"
-        else txtColor = "#FFFFFF"
+        ) "#000000"
+        else "#FFFFFF"
         mBinding.txtDeviceName.text = Build.BRAND
         mBinding.txtDeviceId.text = Build.MODEL
         @SuppressLint("HardwareIds") val androidID =
             Settings.Secure.getString(
-                context!!.contentResolver,
+                mActivity.contentResolver,
                 Settings.Secure.ANDROID_ID
             )
         val wm =

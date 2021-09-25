@@ -16,7 +16,7 @@ import com.webaddicted.kotlinproject.global.common.gone
 import com.webaddicted.kotlinproject.global.common.visible
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
-class BatteryFrm : BaseFragment() {
+class BatteryFrm : BaseFragment(R.layout.frm_dev_battery) {
     private lateinit var mBinding: FrmDevBatteryBinding
     var health = 0
     var iconSmall = 0
@@ -31,7 +31,7 @@ class BatteryFrm : BaseFragment() {
     var deviceStatus = 0
 
     companion object {
-        val TAG = BatteryFrm::class.java.simpleName
+        val TAG = BatteryFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): BatteryFrm {
             val fragment = BatteryFrm()
             fragment.arguments = bundle
@@ -39,11 +39,7 @@ class BatteryFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_dev_battery
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmDevBatteryBinding
         init()
     }

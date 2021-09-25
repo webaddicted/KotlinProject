@@ -6,7 +6,6 @@ import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.View
 import android.widget.ImageView
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Lifecycle
@@ -19,12 +18,12 @@ import com.bumptech.glide.request.target.DrawableImageViewTarget
 import com.bumptech.glide.request.target.Target
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.FrmLandingPageBinding
-import com.webaddicted.kotlinproject.global.common.Lg
+import com.webaddicted.kotlinproject.global.common.GlobalUtility
 import com.webaddicted.kotlinproject.global.customview.UIAlphaFrame
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
 
-class LandingPageFrm : BaseFragment() {
+class LandingPageFrm : BaseFragment(R.layout.frm_landing_page) {
     private lateinit var mBinding: FrmLandingPageBinding
     private val urls = arrayOf(
         "https://image.tmdb.org/t/p/original/q2BrsPEztd0L1cueuFIZakHObl7.jpg",
@@ -43,7 +42,7 @@ class LandingPageFrm : BaseFragment() {
     private var frame: UIAlphaFrame? = null
 
     companion object {
-        val TAG = LandingPageFrm::class.java.simpleName
+        val TAG = LandingPageFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): LandingPageFrm {
             val fragment = LandingPageFrm()
             fragment.arguments = bundle
@@ -51,11 +50,7 @@ class LandingPageFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_landing_page
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmLandingPageBinding
         init()
     }
@@ -64,6 +59,7 @@ class LandingPageFrm : BaseFragment() {
         frame = UIAlphaFrame(mBinding.root)
         prepareGrid(urls[0])
     }
+
     private fun prepareGrid(url: String) {
         Glide.with(this)
             .load(url)
@@ -100,7 +96,7 @@ class LandingPageFrm : BaseFragment() {
                     } else {
                         frame!!.changeAlphaTo(Color.BLACK)
 //                        setStatusBarColor(Color.BLACK)
-                        Lg.d(TAG,"Not an bitmap drawable")
+                        GlobalUtility.print(TAG, "Not an bitmap drawable")
                         if (image) {
                             fade(mBinding.titleImage, mBinding.titleImageTrue)
                         } else {
@@ -125,7 +121,7 @@ class LandingPageFrm : BaseFragment() {
                 val real = index % urls.size
                 if (lifecycle.currentState
                         .isAtLeast(Lifecycle.State.STARTED)
-                ) prepareGrid(urls[real]) else Lg.d(TAG,"Delayed finished")
+                ) prepareGrid(urls[real]) else GlobalUtility.print(TAG, "Delayed finished")
             }, 5000)
     }
 

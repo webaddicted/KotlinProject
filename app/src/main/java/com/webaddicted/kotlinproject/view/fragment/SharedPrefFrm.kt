@@ -16,11 +16,11 @@ import com.webaddicted.kotlinproject.global.constant.PreferenceConstant.Companio
 import com.webaddicted.kotlinproject.model.bean.preference.PreferenceBean
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
-class SharedPrefFrm : BaseFragment() {
+class SharedPrefFrm : BaseFragment(R.layout.frm_shared_pref) {
     private lateinit var mBinding: FrmSharedPrefBinding
 
     companion object {
-        val TAG = SharedPrefFrm::class.java.simpleName
+        val TAG = SharedPrefFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): SharedPrefFrm {
             val fragment = SharedPrefFrm()
             fragment.arguments = bundle
@@ -28,11 +28,7 @@ class SharedPrefFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_shared_pref
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmSharedPrefBinding
         init()
         clickListener()
@@ -64,7 +60,7 @@ class SharedPrefFrm : BaseFragment() {
     }
 
     private fun setValuePref() {
-        var prefUer = PreferenceBean().apply {
+        val prefUer = PreferenceBean().apply {
             name = "Deepak Sharma"
             gender = "M"
             age = 24
@@ -76,12 +72,24 @@ class SharedPrefFrm : BaseFragment() {
     }
 
     private fun getValuePref() {
-        var userInfo = preferenceMgr.getUserInfo()
-        var userInfoString = "<br><font color='#000000'>Name : </font>" + userInfo.name+"<br>" +
-                "<font color='"+ ContextCompat.getColor(context!!,R.color.black)+"'>Gender : </font>" + userInfo.gender + "<br>" +
-                "<font color='"+ContextCompat.getColor(context!!,R.color.black)+"'>Age : </font>" + userInfo.age + "<br>" +
-                "<font color='"+ContextCompat.getColor(context!!,R.color.black)+"'>Weight : </font>" + userInfo.weight + "<br>" +
-                "<font color='"+ContextCompat.getColor(context!!,R.color.black)+"'>Married : </font>" + userInfo.isMarried + "<br>"
+        val userInfo = preferenceMgr.getUserInfo()
+        val userInfoString = "<br><font color='#000000'>Name : </font>" + userInfo.name + "<br>" +
+                "<font color='" + ContextCompat.getColor(
+            mActivity,
+            R.color.black
+        ) + "'>Gender : </font>" + userInfo.gender + "<br>" +
+                "<font color='" + ContextCompat.getColor(
+            mActivity,
+            R.color.black
+        ) + "'>Age : </font>" + userInfo.age + "<br>" +
+                "<font color='" + ContextCompat.getColor(
+            mActivity,
+            R.color.black
+        ) + "'>Weight : </font>" + userInfo.weight + "<br>" +
+                "<font color='" + ContextCompat.getColor(
+            mActivity,
+            R.color.black
+        ) + "'>Married : </font>" + userInfo.isMarried + "<br>"
         mBinding.txtGetPreference.text = Html.fromHtml(userInfoString, Html.FROM_HTML_MODE_LEGACY)
     }
 
@@ -90,12 +98,24 @@ class SharedPrefFrm : BaseFragment() {
         preferenceMgr.removeKey(PREF_USER_NAME)
         preferenceMgr.removeKey(PREF_USER_AGE)
         preferenceMgr.removeKey(PREF_USER_IS_MARRIED)
-        var userInfo = preferenceMgr.getUserInfo()
-        var userInfoString = "<br><font color='#000000'>Name : </font>" + userInfo.name + "<br>" +
-                "<font color='"+ContextCompat.getColor(context!!,R.color.black)+"'>Gender : </font>" + userInfo.gender + "<br>" +
-                "<font color='"+ContextCompat.getColor(context!!,R.color.black)+"'>Age : </font>" + userInfo.age + "<br>" +
-                "<font color='"+ContextCompat.getColor(context!!,R.color.black)+"'>Weight : </font>" + userInfo.weight + "<br>" +
-                "<font color='"+ContextCompat.getColor(context!!,R.color.black)+"'>Married : </font>" + userInfo.isMarried + "<br>"
+        val userInfo = preferenceMgr.getUserInfo()
+        val userInfoString = "<br><font color='#000000'>Name : </font>" + userInfo.name + "<br>" +
+                "<font color='" + ContextCompat.getColor(
+            mActivity,
+            R.color.black
+        ) + "'>Gender : </font>" + userInfo.gender + "<br>" +
+                "<font color='" + ContextCompat.getColor(
+            mActivity,
+            R.color.black
+        ) + "'>Age : </font>" + userInfo.age + "<br>" +
+                "<font color='" + ContextCompat.getColor(
+            mActivity,
+            R.color.black
+        ) + "'>Weight : </font>" + userInfo.weight + "<br>" +
+                "<font color='" + ContextCompat.getColor(
+            mActivity,
+            R.color.black
+        ) + "'>Married : </font>" + userInfo.isMarried + "<br>"
         mBinding.txtRemoveKey.text = Html.fromHtml(userInfoString, Html.FROM_HTML_MODE_LEGACY)
     }
 

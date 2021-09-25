@@ -14,12 +14,12 @@ import com.webaddicted.kotlinproject.view.base.BaseFragment
 import java.util.*
 import kotlin.collections.ArrayList
 
-class CircleFrm : BaseFragment() {
+class CircleFrm : BaseFragment(R.layout.frm_news) {
     private lateinit var mBinding: FrmNewsBinding
     private lateinit var newsAdapter: CircleGameAdapter
 
     companion object {
-        val TAG = CircleFrm::class.java.simpleName
+        val TAG = CircleFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): CircleFrm {
             val fragment = CircleFrm()
             fragment.arguments = bundle
@@ -27,11 +27,7 @@ class CircleFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_news
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmNewsBinding
         init()
         clickListener()
@@ -56,7 +52,7 @@ class CircleFrm : BaseFragment() {
     }
 
     private fun setAdapter() {
-        var circleBean = setCircleGameBean()
+        val circleBean = setCircleGameBean()
         Collections.sort(circleBean, CircleGameBean())
         newsAdapter = CircleGameAdapter(this, circleBean)
         mBinding.rvNewsChannel.layoutManager = LinearLayoutManager(activity)
@@ -64,7 +60,7 @@ class CircleFrm : BaseFragment() {
     }
 
     private fun setCircleGameBean(): ArrayList<CircleGameBean> {
-        var languageBeanList = ArrayList<CircleGameBean>()
+        val languageBeanList = ArrayList<CircleGameBean>()
         languageBeanList.add(CircleGameBean().apply {
             id = "0"
             Name = "top 3 game you have played"
@@ -114,7 +110,7 @@ class CircleFrm : BaseFragment() {
      * navigate on fragment
      * @param tag represent navigation activity
      */
-    private fun navigateScreen(tag: String, bundle: Bundle) {
+    private fun navigateScreen(tag: String?, bundle: Bundle) {
         var frm: Fragment? = null
         when (tag) {
             ProfileFrm.TAG -> frm = ProfileFrm.getInstance(Bundle())

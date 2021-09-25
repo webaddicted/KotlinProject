@@ -7,18 +7,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.appbar.AppBarLayout
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.FrmCollapseToolbarBehavBinding
-import com.webaddicted.kotlinproject.global.common.Lg
+import com.webaddicted.kotlinproject.global.common.GlobalUtility
 import com.webaddicted.kotlinproject.view.adapter.CommonAdapter
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 import kotlin.math.abs
 
 
-class CollapseToolbarBehavFrm : BaseFragment() {
+class CollapseToolbarBehavFrm : BaseFragment(R.layout.frm_collapse_toolbar_behav) {
     private lateinit var adapter: CommonAdapter
     private lateinit var mBinding: FrmCollapseToolbarBehavBinding
 
     companion object {
-        val TAG = CollapseToolbarBehavFrm::class.java.simpleName
+        val TAG = CollapseToolbarBehavFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): CollapseToolbarBehavFrm {
             val fragment = CollapseToolbarBehavFrm()
             fragment.arguments = bundle
@@ -26,11 +26,7 @@ class CollapseToolbarBehavFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_collapse_toolbar_behav
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmCollapseToolbarBehavBinding
         init()
         clickListener()
@@ -78,12 +74,12 @@ class CollapseToolbarBehavFrm : BaseFragment() {
                 mBinding.rippleBackground.startRippleAnimation()
             }
             if (abs(verticalOffset / mBinding.appbar.totalScrollRange.toFloat()) >= 1) {
-                Lg.d(
+                GlobalUtility.print(
                     TAG,
                     "scroll if : " + abs(verticalOffset / mBinding.appbar.totalScrollRange.toFloat())
                 )
             } else {
-                Lg.d(
+                GlobalUtility.print(
                     TAG,
                     "scroll: else : " + abs(verticalOffset / mBinding.appbar.totalScrollRange.toFloat())
                 )

@@ -17,13 +17,13 @@ import com.webaddicted.kotlinproject.databinding.FrmDevBluetoothBinding
 import com.webaddicted.kotlinproject.global.common.visible
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
-class BluetoothFrm : BaseFragment() {
+class BluetoothFrm : BaseFragment(R.layout.frm_dev_bluetooth) {
     private lateinit var mBluetoothAdapter: BluetoothAdapter
     private lateinit var mBinding: FrmDevBluetoothBinding
     private val REQUEST_ENABLE_BT = 1
 
     companion object {
-        val TAG = BluetoothFrm::class.java.simpleName
+        val TAG = BluetoothFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): BluetoothFrm {
             val fragment = BluetoothFrm()
             fragment.arguments = bundle
@@ -31,11 +31,7 @@ class BluetoothFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_dev_bluetooth
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmDevBluetoothBinding
         init()
         clickListener()
@@ -43,7 +39,7 @@ class BluetoothFrm : BaseFragment() {
 
     private fun init() {
         val filter = IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED)
-        activity?.registerReceiver(mbluetoothStateReceiver, filter)
+        activity?.registerReceiver(mBluetoothStateReceiver, filter)
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
         mBinding.btAnimView.visible()
         getLocalBluetoothName()
@@ -102,12 +98,11 @@ class BluetoothFrm : BaseFragment() {
         }
     }
 
-    private val mbluetoothStateReceiver = object : BroadcastReceiver() {
+    private val mBluetoothStateReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             val action = intent?.action
             if (action == BluetoothAdapter.ACTION_STATE_CHANGED) {
-                val state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR)
-                when (state) {
+                when (intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR)) {
                     BluetoothAdapter.STATE_OFF -> {
                         mBinding.txtBtState.text =
                             getString(R.string.bt_state) + "              :     " + resources.getString(
@@ -137,7 +132,7 @@ class BluetoothFrm : BaseFragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        activity?.unregisterReceiver(mbluetoothStateReceiver)
+        activity?.unregisterReceiver(mBluetoothStateReceiver)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -14,24 +14,20 @@ import com.webaddicted.kotlinproject.view.fragment.ExoPlayerRecyclerFrm
 /**
  * Created by Deepak Sharma on 01/07/19.
  */
-class ExoPlayerActivity : BaseActivity() {
+class ExoPlayerActivity : BaseActivity(R.layout.activity_common) {
     private lateinit var mBinding: ActivityCommonBinding
 
     companion object {
         val TAG: String = ExoPlayerActivity::class.java.simpleName
-        val OPEN_FRM = "openFrm"
-        fun newIntent(activity: Activity, frmName: String) {
-            var intent = Intent(activity, ExoPlayerActivity::class.java)
+        const val OPEN_FRM = "openFrm"
+        fun newIntent(activity: Activity, frmName: String?) {
+            val intent = Intent(activity, ExoPlayerActivity::class.java)
             intent.putExtra(OPEN_FRM, frmName)
             activity.startActivity(intent)
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.activity_common
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as ActivityCommonBinding
         init()
     }
@@ -46,7 +42,7 @@ class ExoPlayerActivity : BaseActivity() {
      * navigate on fragment
      * @param tag represent navigation activity
      */
-    private fun navigateScreen(tag: String) {
+    private fun navigateScreen(tag: String?) {
         var frm: Fragment? = null
         when (tag) {
             ExoPlayerRecyclerFrm.TAG -> frm = ExoPlayerRecyclerFrm.getInstance(Bundle())

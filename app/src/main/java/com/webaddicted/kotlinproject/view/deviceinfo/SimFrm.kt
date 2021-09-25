@@ -9,7 +9,6 @@ import android.os.Build
 import android.os.Bundle
 import android.telephony.SubscriptionManager
 import android.telephony.TelephonyManager
-import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,14 +21,14 @@ import com.webaddicted.kotlinproject.model.bean.deviceinfo.SimInfo
 import com.webaddicted.kotlinproject.view.adapter.SimAdapter
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
-class SimFrm : BaseFragment() {
+class SimFrm : BaseFragment(R.layout.frm_dev_sim) {
     private lateinit var mAdapter: SimAdapter
     private lateinit var mBinding: FrmDevSimBinding
     private var telephonyManager: TelephonyManager? = null
     private var simInfoDataList: ArrayList<SimInfo>? = ArrayList()
 
     companion object {
-        val TAG = SimFrm::class.java.simpleName
+        val TAG = SimFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): SimFrm {
             val fragment = SimFrm()
             fragment.arguments = bundle
@@ -37,11 +36,7 @@ class SimFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_dev_sim
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmDevSimBinding
         init()
     }
@@ -214,19 +209,11 @@ class SimFrm : BaseFragment() {
     @SuppressLint("MissingPermission", "HardwareIds")
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP_MR1)
     private fun isSimAvailable(context: Activity, slotId: Int): Boolean {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
-            val sManager =
-                context.getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE) as SubscriptionManager
-            val infoSim = sManager.getActiveSubscriptionInfoForSimSlotIndex(slotId)
-            if (infoSim != null) {
-                return true
-            }
-        } else {
-            val telephonyManager =
-                context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-            if (telephonyManager.simSerialNumber != null) {
-                return true
-            }
+        val sManager =
+            context.getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE) as SubscriptionManager
+        val infoSim = sManager.getActiveSubscriptionInfoForSimSlotIndex(slotId)
+        if (infoSim != null) {
+            return true
         }
         return false
     }

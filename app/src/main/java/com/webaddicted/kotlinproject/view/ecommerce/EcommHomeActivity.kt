@@ -16,22 +16,18 @@ import com.webaddicted.kotlinproject.view.base.BaseActivity
 /**
  * Created by Deepak Sharma on 01/07/19.
  */
-class EcommHomeActivity : BaseActivity() {
+class EcommHomeActivity : BaseActivity(R.layout.activity_ecom_home) {
     private var imgView: ImageView? = null
     private lateinit var mBinding: ActivityEcomHomeBinding
 
     companion object {
-        val TAG: String = EcommHomeActivity::class.java.simpleName
+        val TAG = EcommHomeActivity::class.qualifiedName
         fun newIntent(activity: Activity) {
             activity.startActivity(Intent(activity, EcommHomeActivity::class.java))
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.activity_ecom_home
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as ActivityEcomHomeBinding
         navigateScreen(EcommHomeFrm.TAG)
         navigationDrawer()
@@ -70,7 +66,7 @@ class EcommHomeActivity : BaseActivity() {
      * navigate on fragment
      * @param tag represent navigation activity
      */
-    private fun navigateScreen(tag: String) {
+    private fun navigateScreen(tag: String?) {
         var frm: Fragment? = null
         when (tag) {
             EcommHomeFrm.TAG -> frm = EcommHomeFrm.getInstance(Bundle())

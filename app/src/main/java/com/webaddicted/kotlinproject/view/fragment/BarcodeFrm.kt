@@ -14,12 +14,12 @@ import org.json.JSONException
 import org.json.JSONObject
 
 
-class BarcodeFrm : BaseFragment() {
+class BarcodeFrm : BaseFragment(R.layout.frm_barcode) {
     private lateinit var mBinding: FrmBarcodeBinding
     private var qrScan: IntentIntegrator? = null
 
     companion object {
-        val TAG = BarcodeFrm::class.java.simpleName
+        val TAG = BarcodeFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): BarcodeFrm {
             val fragment = BarcodeFrm()
             fragment.arguments = bundle
@@ -27,11 +27,7 @@ class BarcodeFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_barcode
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmBarcodeBinding
         init()
         clickListener()

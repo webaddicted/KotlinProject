@@ -17,11 +17,10 @@ import java.util.*
 /**
  * Created by Deepak Sharma on 01/07/19.
  */
-class SpeechTextActivity : BaseActivity() {
-
+class SpeechTextActivity : BaseActivity(R.layout.activity_spech_text) {
     private lateinit var mBinding: ActivitySpechTextBinding
     private var mTextToSpeechListener: TextToSpeech? = null
-    val REQUEST_CODE_SPEECH_INPUT = 5003
+    private val REQUEST_CODE_SPEECH_INPUT = 5003
 
     companion object {
         val TAG: String = SpeechTextActivity::class.java.simpleName
@@ -30,11 +29,7 @@ class SpeechTextActivity : BaseActivity() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.activity_spech_text
-    }
-
-    override fun initUI(binding: ViewDataBinding) {
+    override fun onBindTo(binding: ViewDataBinding) {
         mBinding = binding as ActivitySpechTextBinding
         init()
         clickListener()

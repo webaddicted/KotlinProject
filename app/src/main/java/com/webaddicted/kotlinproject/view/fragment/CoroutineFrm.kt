@@ -15,12 +15,12 @@ import kotlinx.coroutines.*
 import java.util.*
 import java.util.concurrent.TimeUnit
 
-class CoroutineFrm : BaseFragment() {
+class CoroutineFrm : BaseFragment(R.layout.frm_coroutine) {
     private lateinit var mBinding: FrmCoroutineBinding
     private lateinit var job: Job
 
     companion object {
-        val TAG = CoroutineFrm::class.java.simpleName
+        val TAG = CoroutineFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): CoroutineFrm {
             val fragment = CoroutineFrm()
             fragment.arguments = bundle
@@ -28,11 +28,7 @@ class CoroutineFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_coroutine
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmCoroutineBinding
         init()
         clickListener()
@@ -90,8 +86,8 @@ class CoroutineFrm : BaseFragment() {
         textView.text = "Step 1 "
         GlobalScope.launch(Dispatchers.Main + job) {
             textView.text = textView.text.toString() + "\nStep 2"
-            var result1 = loadData(mBinding.txtSequentially)
-            var result2 = loadData(mBinding.txtSequentially)
+            val result1 = loadData(mBinding.txtSequentially)
+            val result2 = loadData(mBinding.txtSequentially)
             textView.text = textView.text.toString() + "\nStep 5 :- result1 - $result1 \n result2 - $result2"
         }
         textView.text = textView.text.toString() + "\nOut of launch "
@@ -150,7 +146,7 @@ class CoroutineFrm : BaseFragment() {
         return "Data is available: ${Random().nextInt()}"
     }
 
-    fun navigateScreen(tag: String) {
+    fun navigateScreen(tag: String?) {
         var frm: Fragment? = null
         when (tag) {
             CoroutineLifecycleAwareFrm.TAG -> frm = CoroutineLifecycleAwareFrm.getInstance(Bundle())

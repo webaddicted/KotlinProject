@@ -1,5 +1,6 @@
 package com.webaddicted.kotlinproject.view.fcmkit
 
+//import com.google.firebase.iid.FirebaseInstanceId
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.ViewDataBinding
@@ -7,7 +8,6 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
-//import com.google.firebase.iid.FirebaseInstanceId
 import com.webaddicted.kotlinproject.BuildConfig
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.apiutils.ApiConstant
@@ -23,9 +23,8 @@ import com.webaddicted.kotlinproject.view.dialog.ImagePickerDialog
 import com.webaddicted.kotlinproject.view.fragment.ZoomImageFrm
 import com.webaddicted.kotlinproject.view.interfac.OnImageActionListener
 import java.io.File
-import java.util.ArrayList
 
-class FcmSignupFrm : BaseFragment() {
+class FcmSignupFrm : BaseFragment(R.layout.frm_fcm_signup) {
     private var socialLoginRespo: FcmSocialLoginRespoBean? = null
     private var imgPickerDialog: ImagePickerDialog? = null
     private lateinit var mBinding: FrmFcmSignupBinding
@@ -33,9 +32,9 @@ class FcmSignupFrm : BaseFragment() {
     private var profileImageFile: File? = null
 
     companion object {
-        val TAG = FcmSignupFrm::class.java.simpleName
-        val SOCIAL_RESPO = "SOCIAL_RESPO"
-        val OPEN_FROM = "OPEN_FROM"
+        val TAG = FcmSignupFrm::class.qualifiedName
+        const val SOCIAL_RESPO = "SOCIAL_RESPO"
+        const val OPEN_FROM = "OPEN_FROM"
         fun getInstance(bundle: Bundle): FcmSignupFrm {
             val fragment = FcmSignupFrm()
             fragment.arguments = bundle
@@ -43,11 +42,7 @@ class FcmSignupFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_fcm_signup
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmFcmSignupBinding
         init()
         clickListener()
@@ -169,7 +164,7 @@ class FcmSignupFrm : BaseFragment() {
         })
     }
 
-    private fun navigateScreen(tag: String, bundle: Bundle) {
+    private fun navigateScreen(tag: String?, bundle: Bundle) {
         var frm: Fragment? = null
         when (tag) {
             FcmOtpFrm.TAG -> frm = FcmOtpFrm.getInstance(bundle)

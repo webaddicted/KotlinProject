@@ -17,7 +17,7 @@ import com.webaddicted.kotlinproject.view.interfac.AlertRetryDialogListener
 
 class DialogUtil {
     companion object {
-        private val TAG = DialogUtil::class.java.simpleName
+        private val TAG = DialogUtil::class.qualifiedName
 //    {START SHOW DIALOG STYLE}
 //    apply on resume method
 

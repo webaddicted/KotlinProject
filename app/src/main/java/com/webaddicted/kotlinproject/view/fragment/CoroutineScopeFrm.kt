@@ -15,7 +15,7 @@ import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.coroutines.CoroutineContext
 
-abstract class ScopedFragment : BaseFragment(), CoroutineScope {
+abstract class ScopedFragment(frmCoroutine: Int) : BaseFragment(frmCoroutine), CoroutineScope {
 
     private lateinit var job: Job
     override val coroutineContext: CoroutineContext
@@ -32,22 +32,19 @@ abstract class ScopedFragment : BaseFragment(), CoroutineScope {
     }
 }
 
-class CoroutineScopeFrm : ScopedFragment() {
+class CoroutineScopeFrm : ScopedFragment(R.layout.frm_coroutine) {
     private lateinit var mBinding: FrmCoroutineBinding
 
     companion object {
-        val TAG = CoroutineScopeFrm::class.java.simpleName
+        val TAG = CoroutineScopeFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): CoroutineScopeFrm {
             val fragment = CoroutineScopeFrm()
             fragment.arguments = bundle
             return fragment
         }
     }
-    override fun getLayout(): Int {
-        return R.layout.frm_coroutine
-    }
 
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmCoroutineBinding
         init()
         clickListener()
@@ -89,7 +86,7 @@ class CoroutineScopeFrm : ScopedFragment() {
         textView.text = "Step 1 "
         launch{
             textView.text = textView.text.toString() + "\nStep 2"
-            var result = loadData(mBinding.txtAndroidScoped)
+            val result = loadData(mBinding.txtAndroidScoped)
             textView.text = textView.text.toString() + "\nStep 5 :- result  :- $result"
         }
         textView.text = textView.text.toString() + "\nOut of launch "

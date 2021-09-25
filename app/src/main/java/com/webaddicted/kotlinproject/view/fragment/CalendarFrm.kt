@@ -1,32 +1,24 @@
 package com.webaddicted.kotlinproject.view.fragment
 
-import android.os.Build
+//import com.applandeo.materialcalendarview.utils.DateUtils
 import android.os.Bundle
 import android.view.View
-import androidx.annotation.RequiresApi
 import androidx.databinding.ViewDataBinding
-//import com.applandeo.materialcalendarview.utils.DateUtils
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.FrmCalendarBinding
 import com.webaddicted.kotlinproject.view.base.BaseFragment
-import java.text.ParseException
-import java.text.SimpleDateFormat
-import java.util.*
 
-class CalendarFrm : BaseFragment() {
+class CalendarFrm : BaseFragment(R.layout.frm_calendar) {
     private lateinit var mBinding: FrmCalendarBinding
     companion object {
-        val TAG = CalendarFrm::class.java.simpleName
+        val TAG = CalendarFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): CalendarFrm {
             val fragment = CalendarFrm()
             fragment.arguments = bundle
             return fragment
         }
     }
-    override fun getLayout(): Int {
-        return R.layout.frm_calendar
-    }
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmCalendarBinding
         init()
         clickListener()

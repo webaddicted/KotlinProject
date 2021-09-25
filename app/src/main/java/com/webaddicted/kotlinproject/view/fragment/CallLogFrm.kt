@@ -9,7 +9,6 @@ import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.FrmSmsBinding
 import com.webaddicted.kotlinproject.global.calllog.LogObject
 import com.webaddicted.kotlinproject.global.calllog.LogsManager
-import com.webaddicted.kotlinproject.global.common.GlobalUtility
 import com.webaddicted.kotlinproject.global.common.PermissionHelper
 import com.webaddicted.kotlinproject.global.common.gone
 import com.webaddicted.kotlinproject.global.common.visible
@@ -18,13 +17,13 @@ import com.webaddicted.kotlinproject.view.base.BaseFragment
 import kotlinx.coroutines.*
 
 
-class CallLogFrm : BaseFragment() {
+class CallLogFrm : BaseFragment(R.layout.frm_sms) {
     private var callLogsBean: MutableList<LogObject>? = null
     private lateinit var mAdapter: CallLogAdapter
     private lateinit var mBinding: FrmSmsBinding
 
     companion object {
-        val TAG = CallLogFrm::class.java.simpleName
+        val TAG = CallLogFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): CallLogFrm {
             val fragment = CallLogFrm()
             fragment.arguments = bundle
@@ -32,11 +31,7 @@ class CallLogFrm : BaseFragment() {
         }
     }
 
-    override fun getLayout(): Int {
-        return R.layout.frm_sms
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmSmsBinding
         init()
         clickListener()
@@ -100,4 +95,3 @@ class CallLogFrm : BaseFragment() {
         callLogsBean = logsManager.getLogs(LogsManager.ALL_CALLS)
     }
 }
-

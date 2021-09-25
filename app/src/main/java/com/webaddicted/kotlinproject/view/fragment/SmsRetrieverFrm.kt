@@ -1,39 +1,32 @@
 package com.webaddicted.kotlinproject.view.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.ViewDataBinding
 import com.google.android.gms.auth.api.phone.SmsRetriever
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.OnSuccessListener
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.FrmSmsRetrieverBinding
+import com.webaddicted.kotlinproject.global.common.GlobalUtility
 import com.webaddicted.kotlinproject.global.common.KeyboardEventListener
 import com.webaddicted.kotlinproject.global.common.visible
 import com.webaddicted.kotlinproject.global.misc.AppSignatureHashHelper
 import com.webaddicted.kotlinproject.global.services.SMSReceiver
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 
-class SmsRetrieverFrm : BaseFragment() {
+class SmsRetrieverFrm : BaseFragment(R.layout.frm_sms_retriever) {
     private lateinit var mBinding: FrmSmsRetrieverBinding
 
     companion object {
-        val TAG = SmsRetrieverFrm::class.java.simpleName
+        val TAG = SmsRetrieverFrm::class.qualifiedName
         fun getInstance(bundle: Bundle): SmsRetrieverFrm {
             val fragment = SmsRetrieverFrm()
             fragment.arguments = bundle
             return fragment
         }
     }
-
-    override fun getLayout(): Int {
-        return R.layout.frm_sms_retriever
-    }
-
-    override fun initUI(binding: ViewDataBinding?, view: View) {
+    override fun onBindTo(binding: ViewDataBinding?) {
         mBinding = binding as FrmSmsRetrieverBinding
         init()
         clickListener()
@@ -79,18 +72,18 @@ class SmsRetrieverFrm : BaseFragment() {
         try {
             val appSignatureHashHelper = AppSignatureHashHelper(activity)
             // This code requires one time to get Hash keys do comment and share key
-            Log.d(TAG, "Apps Hash Key: " + appSignatureHashHelper.appSignatures.get(0))
+            GlobalUtility.print(TAG, "Apps Hash Key: " + appSignatureHashHelper.appSignatures.get(0))
             mBinding.txtHashCode.text = "Apps Hash Key : " + appSignatureHashHelper.appSignatures.get(0)
             val client = activity?.let { SmsRetriever.getClient(it) }
 
             val task = client?.startSmsRetriever()
-            task?.addOnSuccessListener(OnSuccessListener<Void> {
+            task?.addOnSuccessListener {
                 // API successfully started
-            })
+            }
 
-            task?.addOnFailureListener(OnFailureListener {
+            task?.addOnFailureListener {
                 // Fail to start API
-            })
+            }
         } catch (e: Exception) {
             e.printStackTrace()
         }
