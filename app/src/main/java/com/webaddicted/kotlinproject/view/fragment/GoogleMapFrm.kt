@@ -94,13 +94,13 @@ class GoogleMapFrm : BaseFragment(), OnMapReadyCallback, GoogleMap.OnMapClickLis
     }
 
     private fun stopGeoFancy() {
-        GlobalUtility.showOfflineNotification(activity!!, "stop geo fency", "test work flow")
+        GlobalUtility.showOfflineNotification(requireActivity(), "stop geo fency", "test work flow")
         (activity as MapActivity).stopGeoFencing(fancyMarker, geoFenceCircle)
     }
 
     private fun startGeoFancy() {
         if (fencyLocation != null) {
-            GlobalUtility.showOfflineNotification(activity!!, "start geo fency", "let move")
+            GlobalUtility.showOfflineNotification(requireActivity(), "start geo fency", "let move")
             val latLng = LatLng(fencyLocation!!.latitude, fencyLocation!!.longitude)
             fancyMarker?.remove()
             fancyMarker = googleMap?.addMarker(

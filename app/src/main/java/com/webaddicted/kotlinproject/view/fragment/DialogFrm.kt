@@ -1,7 +1,6 @@
 package com.webaddicted.kotlinproject.view.fragment
 
 import android.app.Dialog
-import android.content.DialogInterface
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -60,56 +59,48 @@ class DialogFrm : BaseFragment() {
         super.onClick(v)
         when (v.id) {
             R.id.btn_single_click -> DialogUtil.showOkDialog(
-                activity!!,
+                requireActivity(),
                 getString(R.string.app_name),
                 getString(R.string.dummyText),
-                getString(R.string.ok),
-                object :
-                    DialogInterface.OnClickListener {
-                    override fun onClick(dialog: DialogInterface, which: Int) {
-                        GlobalUtility.showToast("ok click $which")
-                        dialog.dismiss()
-                    }
-                })
+                getString(R.string.ok)
+            ) { dialog, which ->
+                GlobalUtility.showToast("ok click $which")
+                dialog.dismiss()
+            }
             R.id.btn_two_event_dialog -> DialogUtil.showOkCancelDialog(
-                activity!!,
+                requireActivity(),
                 getString(R.string.app_name),
                 getString(R.string.dummyText),
-                object :
-                    DialogInterface.OnClickListener {
-                    override fun onClick(dialog: DialogInterface, which: Int) {
-                        GlobalUtility.showToast("ok click")
-                        dialog.dismiss()
-                    }
-                },
-                object :
-                    DialogInterface.OnClickListener {
-                    override fun onClick(dialog: DialogInterface, which: Int) {
-                        GlobalUtility.showToast("cancel click")
-                        dialog.dismiss()
-                    }
-                })
+                { dialog, which ->
+                    GlobalUtility.showToast("ok click")
+                    dialog.dismiss()
+                }
+            ) { dialog, which ->
+                GlobalUtility.showToast("cancel click")
+                dialog.dismiss()
+            }
             R.id.btn_custom_dialog -> customDialog()
             R.id.btn_dialog_fragment -> {
                 val loginDialog = LoginDialog()
-                fragmentManager?.let { loginDialog.show(it, LoginDialog.TAG) }
+                parentFragmentManager.let { loginDialog.show(it, LoginDialog.TAG) }
             }
-            R.id.btn_selection_list -> DialogUtil.getSingleChoiceDialog(activity!!,
+            R.id.btn_selection_list -> DialogUtil.getSingleChoiceDialog(requireActivity(),
                 resources.getString(R.string.select_country),
                 getCountryList(),
-                DialogInterface.OnClickListener { dialog, position ->
+                { dialog, position ->
                     if (position > 0)
-                        activity?.showToast(getCountryList().get(position - 1).toString())
+                        activity?.showToast(getCountryList()[position - 1])
                     dialog.dismiss()
                 },
-                DialogInterface.OnClickListener { dialog, position -> dialog.dismiss() })
-            R.id.btn_list_dialog -> DialogUtil.showListDialog(activity!!,
+                { dialog, position -> dialog.dismiss() })
+            R.id.btn_list_dialog -> DialogUtil.showListDialog(
+                requireActivity(),
                 resources.getString(R.string.select_country),
-                getCountryList(),
-                DialogInterface.OnClickListener { dialog, which ->
-                    activity?.showToast(getCountryList().get(which).toString())
-                    dialog.dismiss()
-                })
+                getCountryList()
+            ) { dialog, which ->
+                activity?.showToast(getCountryList()[which])
+                dialog.dismiss()
+            }
             R.id.img_back -> activity?.onBackPressed()
         }
     }
@@ -125,27 +116,26 @@ class DialogFrm : BaseFragment() {
     }
 
     private fun customDialog() {
-        val dialog = Dialog(activity!!, R.style.AlertDialogStyle)
+        val dialog = Dialog(requireActivity(), R.style.AlertDialogStyle)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.window!!.attributes.windowAnimations = R.style.DialogSlideUpAnimation
-        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.window?.attributes?.windowAnimations = R.style.DialogSlideUpAnimation
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val dialogBinding = GlobalUtility.getLayoutBinding(
-            activity!!,
+            requireActivity(),
             R.layout.dialog_custom
         ) as DialogCustomBinding
         dialog.setContentView(dialogBinding.root)
         dialogBinding.txtTitle.text = getString(R.string.app_name)
         dialogBinding.txtMessage.text = resources.getString(R.string.dummyText)
-        dialogBinding.btnOk.setOnClickListener({ v ->
+        dialogBinding.btnOk.setOnClickListener { v ->
             GlobalUtility.showToast(resources.getString(R.string.ok))
             dialog.dismiss()
-        })
-        dialogBinding.txtCancel.setOnClickListener({ v ->
+        }
+        dialogBinding.txtCancel.setOnClickListener { v ->
             activity?.showToast(resources.getString(R.string.cancel))
             dialog.dismiss()
-        })
+        }
         dialog.show()
     }
-
 }
 

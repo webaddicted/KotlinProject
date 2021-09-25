@@ -34,6 +34,7 @@ abstract class BaseFcmFragment : Fragment(), View.OnClickListener,
     private lateinit var mBinding: ViewDataBinding
     private var loaderDialog: LoaderDialog? = null
     abstract fun getLayout(): Int
+    protected val mActivity by lazy { requireActivity() }
     protected abstract fun initUI(binding: ViewDataBinding?, view: View)
 
     override fun onCreateView(
@@ -151,11 +152,11 @@ abstract class BaseFcmFragment : Fragment(), View.OnClickListener,
         multiplePermission.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         multiplePermission.add(Manifest.permission.READ_EXTERNAL_STORAGE)
         multiplePermission.add(Manifest.permission.CAMERA)
-        if (PermissionHelper.checkMultiplePermission(activity!!, multiplePermission)) {
+        if (PermissionHelper.checkMultiplePermission(requireActivity(), multiplePermission)) {
             FileHelper.createApplicationFolder()
             onPermissionGranted(multiplePermission)
         } else
-            PermissionHelper.requestMultiplePermission(activity!!, multiplePermission, this)
+            PermissionHelper.requestMultiplePermission(requireActivity(), multiplePermission, this)
     }
 
 
@@ -167,11 +168,11 @@ abstract class BaseFcmFragment : Fragment(), View.OnClickListener,
         multiplePermission.add(Manifest.permission.ACCESS_FINE_LOCATION)
         multiplePermission.add(Manifest.permission.ACCESS_COARSE_LOCATION)
         if (PermissionHelper.checkMultiplePermission(
-                activity!!,
+                requireActivity(),
                 multiplePermission
             )
         ) onPermissionGranted(multiplePermission)
-        else PermissionHelper.requestMultiplePermission(activity!!, multiplePermission, this)
+        else PermissionHelper.requestMultiplePermission(requireActivity(), multiplePermission, this)
     }
 
     override fun onPermissionGranted(mCustomPermission: List<String>) {

@@ -153,6 +153,6 @@ class BatteryFrm : BaseFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        LocalBroadcastManager.getInstance(activity!!).unregisterReceiver(mBatInfoReceiver)
+        LocalBroadcastManager.getInstance(requireActivity()).unregisterReceiver(mBatInfoReceiver)
     }
 }

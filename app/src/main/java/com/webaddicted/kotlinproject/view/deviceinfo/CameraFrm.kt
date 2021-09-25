@@ -26,7 +26,6 @@ import com.webaddicted.kotlinproject.global.common.gone
 import com.webaddicted.kotlinproject.global.common.visible
 import com.webaddicted.kotlinproject.model.camera.CameraBean
 import com.webaddicted.kotlinproject.view.adapter.CameraAdapter
-import com.webaddicted.kotlinproject.view.adapter.SimAdapter
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 import kotlinx.coroutines.*
 
@@ -104,7 +103,7 @@ class CameraFrm : BaseFragment() {
         val multiplePermission = ArrayList<String>()
         multiplePermission.add(Manifest.permission.CAMERA)
         PermissionHelper.requestMultiplePermission(
-            activity!!,
+            requireActivity(),
             multiplePermission,
             object : PermissionHelper.Companion.PermissionListener {
                 override fun onPermissionGranted(mCustomPermission: List<String>) {
@@ -124,12 +123,12 @@ class CameraFrm : BaseFragment() {
 
     private fun tabSelector(textview1: TextView, textview2: TextView) {
         /*** Set text color */
-        textview1.setTextColor(ContextCompat.getColor(activity!!, R.color.white_par))
-        textview2.setTextColor(ContextCompat.getColor(activity!!, R.color.black_par))
+        textview1.setTextColor(ContextCompat.getColor(requireActivity(), R.color.white_par))
+        textview2.setTextColor(ContextCompat.getColor(requireActivity(), R.color.black_par))
 
         /*** Background color */
-        textview1.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.app_color_par))
-        textview2.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.transprant))
+        textview1.setBackgroundColor(ContextCompat.getColor(requireActivity(), R.color.app_color_par))
+        textview2.setBackgroundColor(ContextCompat.getColor(requireActivity(), R.color.transprant))
 
         /*** Set background drawable */
         textview1.setBackgroundResource(R.drawable.rectangle_fill)

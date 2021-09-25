@@ -74,7 +74,7 @@ class PhoneImageFrm : BaseFragment() {
         locationList.add(Manifest.permission.READ_EXTERNAL_STORAGE)
         locationList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         PermissionHelper.requestMultiplePermission(
-            activity!!,
+            requireActivity(),
             locationList,
             object : PermissionHelper.Companion.PermissionListener {
                 override fun onPermissionGranted(mCustomPermission: List<String>) {

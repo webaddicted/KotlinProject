@@ -169,11 +169,11 @@ class FcmSocialLoginFrm : BaseFragment(), OnSocialLoginListener {
                         viewModel.setFcmFoodUserInfo(note!!)
                         break
                     }
-                    FcmFoodHomeActivity.newIntent(activity!!)
+                    FcmFoodHomeActivity.newIntent(requireActivity())
                 } else {
                     val respo = FcmSocialLoginRespoBean().apply {
                         uuid = loginResponse?.userid
-                        imei = GlobalUtility.getDeviceIMEI(activity!!)
+                        imei = GlobalUtility.getDeviceIMEI(requireActivity())
                         tokenId = loginResponse?.tokenId
                         userName = loginResponse?.userName
                         userEmailId = loginResponse?.userEmailId

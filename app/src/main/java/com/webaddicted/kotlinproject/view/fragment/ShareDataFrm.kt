@@ -93,7 +93,7 @@ class ShareDataFrm : BaseFragment() {
     }
 
     private fun chooseFile(isShareImgText: Boolean) {
-        mediaPicker.selectMediaOption(activity!!,
+        mediaPicker.selectMediaOption(mActivity,
             MediaPickerType.SELECT_IMAGE,
             FileHelper.subFolder(),
             object : MediaPickerUtils.ImagePickerListener {
@@ -161,14 +161,14 @@ class ShareDataFrm : BaseFragment() {
         locationList.add(Manifest.permission.READ_EXTERNAL_STORAGE)
         locationList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         PermissionHelper.requestMultiplePermission(
-            activity!!,
+            mActivity,
             locationList,
             object : PermissionHelper.Companion.PermissionListener {
                 override fun onPermissionGranted(mCustomPermission: List<String>) {
                     FileHelper.createApplicationFolder()
                     val url = "http://housedocs.house.gov/edlabor/AAHCA-BillText-071409.pdf"
                     val file = File(FileHelper.subFolder(), FileHelper.getFileName(url))
-                    if (file.exists()) FileHelper.openFile(shareDataFrm.activity!! ,file)
+                    if (file.exists()) FileHelper.openFile(mActivity,file)
                     else DownloadFile(shareDataFrm, url).execute()
                 }
 
@@ -252,7 +252,7 @@ class ShareDataFrm : BaseFragment() {
                 if (progressDialog != null && progressDialog?.isShowing!!)
                     progressDialog?.dismiss()
                 val file = File(FileHelper.appFolder(), FileHelper.getFileName(strUrl))
-                if (file.exists()) FileHelper.openFile(shareDataFrm.activity!! ,file)
+                if (file.exists()) FileHelper.openFile(shareDataFrm.mActivity,file)
                 // Display File path after downloading
             } catch (exp: java.lang.Exception) {
                 exp.printStackTrace()

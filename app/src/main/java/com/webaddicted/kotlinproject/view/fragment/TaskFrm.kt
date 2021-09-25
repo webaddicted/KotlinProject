@@ -182,8 +182,8 @@ class TaskFrm : BaseFragment() {
             false
         )
         mBinding.recyclerView.adapter = mHomeAdapter
-        mBinding.swipeView.setColorSchemeColors(ContextCompat.getColor(activity!!, R.color.white))
-        mBinding.swipeView.setWaveColor(ContextCompat.getColor(activity!!, R.color.app_color))
+        mBinding.swipeView.setColorSchemeColors(ContextCompat.getColor(requireActivity(), R.color.white))
+        mBinding.swipeView.setWaveColor(ContextCompat.getColor(requireActivity(), R.color.app_color))
         mBinding.swipeView.setOnRefreshListener {
             Handler().postDelayed({
                 mBinding.swipeView.isRefreshing = false
@@ -330,7 +330,7 @@ class TaskFrm : BaseFragment() {
 
     override fun onPermissionGranted(mCustomPermission: List<String>) {
         super.onPermissionGranted(mCustomPermission)
-        GlobalUtility.captureScreen(activity!!)
+        GlobalUtility.captureScreen(requireActivity())
         activity?.showToast("Screen capture successfully")
     }
 
@@ -344,7 +344,7 @@ class TaskFrm : BaseFragment() {
     }
 
     private fun showPopupMenu(view: View) { // inflate menu
-        val popup = PopupMenu(activity!!, view)
+        val popup = PopupMenu(requireActivity(), view)
         val inflater: MenuInflater = popup.menuInflater
         inflater.inflate(R.menu.menu_sort, popup.menu)
         popup.setOnMenuItemClickListener(MyMenuItemClickListen(this))
@@ -368,7 +368,7 @@ class TaskFrm : BaseFragment() {
             Executors.newSingleThreadExecutor()
         val myBiometricPrompt =
             BiometricPrompt(
-                activity!!,
+                requireActivity(),
                 newExecutor,
                 object : BiometricPrompt.AuthenticationCallback() {
                     override fun onAuthenticationError(

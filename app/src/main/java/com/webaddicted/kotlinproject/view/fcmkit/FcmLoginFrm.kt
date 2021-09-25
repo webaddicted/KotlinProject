@@ -90,7 +90,7 @@ class FcmLoginFrm : BaseFragment() {
 //                        viewModel.setFcmFoodUserInfo(note)
                         break
                     }
-                    FcmFoodHomeActivity.newIntent(activity!!)
+                    FcmFoodHomeActivity.newIntent(mActivity)
                 } else
                     GlobalUtility.showToast(getString(R.string.account_does_not_exist))
             }

@@ -18,7 +18,6 @@ import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.apiutils.ApiResponse
 import com.webaddicted.kotlinproject.global.common.*
 import com.webaddicted.kotlinproject.global.sharedpref.PreferenceMgr
-import com.webaddicted.kotlinproject.model.bean.eventBus.EventBusListener
 import com.webaddicted.kotlinproject.view.dialog.LoaderDialog
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -35,6 +34,7 @@ abstract class BaseFragment : Fragment(), View.OnClickListener,
     private var loaderDialog: LoaderDialog? = null
     protected val mediaPicker: MediaPickerUtils by inject()
     protected val preferenceMgr: PreferenceMgr by inject()
+    protected val mActivity by lazy { requireActivity() }
     abstract fun getLayout(): Int
     protected abstract fun initUI(binding: ViewDataBinding?, view: View)
 
@@ -62,9 +62,10 @@ abstract class BaseFragment : Fragment(), View.OnClickListener,
 
     protected fun showApiLoader() {
         if (loaderDialog != null) {
-            val fragment = fragmentManager?.findFragmentByTag(LoaderDialog.TAG)
-            if (fragment != null) fragmentManager?.beginTransaction()?.remove(fragment)?.commit()
-            loaderDialog?.show(fragmentManager!!, LoaderDialog.TAG)
+            val fragment = mActivity.supportFragmentManager.findFragmentByTag(LoaderDialog.TAG)
+            if (fragment != null) mActivity.supportFragmentManager.beginTransaction().remove(fragment)
+                .commit()
+            loaderDialog?.show(parentFragmentManager, LoaderDialog.TAG)
         }
     }
 
@@ -100,7 +101,7 @@ abstract class BaseFragment : Fragment(), View.OnClickListener,
     }
 
     @Subscribe
-    fun eventBusListener(eventBusListener: EventBusListener) {
+    fun eventBusListener() {
     }
 
     protected fun navigateFragment(
@@ -147,7 +148,7 @@ abstract class BaseFragment : Fragment(), View.OnClickListener,
     override fun onClick(v: View) {
         activity?.let { GlobalUtility.hideKeyboard(it) }
         GlobalUtility.avoidDoubleClicks(v)
-        GlobalUtility.Companion.btnClickAnimation(v)
+        GlobalUtility.btnClickAnimation(v)
     }
 
     fun checkStoragePermission() {
@@ -155,11 +156,11 @@ abstract class BaseFragment : Fragment(), View.OnClickListener,
         multiplePermission.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         multiplePermission.add(Manifest.permission.READ_EXTERNAL_STORAGE)
         multiplePermission.add(Manifest.permission.CAMERA)
-        if (PermissionHelper.checkMultiplePermission(activity!!, multiplePermission)) {
+        if (PermissionHelper.checkMultiplePermission(mActivity, multiplePermission)) {
             FileHelper.createApplicationFolder()
             onPermissionGranted(multiplePermission)
         } else
-            PermissionHelper.requestMultiplePermission(activity!!, multiplePermission, this)
+            PermissionHelper.requestMultiplePermission(mActivity, multiplePermission, this)
     }
 
 
@@ -171,11 +172,11 @@ abstract class BaseFragment : Fragment(), View.OnClickListener,
         multiplePermission.add(Manifest.permission.ACCESS_FINE_LOCATION)
         multiplePermission.add(Manifest.permission.ACCESS_COARSE_LOCATION)
         if (PermissionHelper.checkMultiplePermission(
-                activity!!,
+                mActivity,
                 multiplePermission
             )
         ) onPermissionGranted(multiplePermission)
-        else PermissionHelper.requestMultiplePermission(activity!!, multiplePermission, this)
+        else PermissionHelper.requestMultiplePermission(mActivity, multiplePermission, this)
     }
 
     override fun onPermissionGranted(mCustomPermission: List<String>) {

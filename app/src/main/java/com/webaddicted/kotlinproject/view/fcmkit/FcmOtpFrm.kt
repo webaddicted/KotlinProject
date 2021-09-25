@@ -135,7 +135,7 @@ class FcmOtpFrm : BaseFragment() {
             phoneNumber,  // Phone number to verify
             PHONE_AUTH_TIMEOUT,  // Timeout duration
             TimeUnit.SECONDS,  // Unit of timeout
-            activity!!,  // Activity (for callback binding)
+            mActivity,  // Activity (for callback binding)
             mCallbacks!!
         )
         checkOtpVerifyFirstTime = false
@@ -149,7 +149,7 @@ class FcmOtpFrm : BaseFragment() {
             phoneNumber,  // Phone number to verify
             PHONE_AUTH_TIMEOUT,  // Timeout duration
             TimeUnit.SECONDS,  // Unit of timeout
-            activity!!,  // Activity (for callback binding)
+            mActivity,  // Activity (for callback binding)
             mCallbacks!!,  // OnVerificationStateChangedCallbacks
             token
         ) // ForceResendingToken from callbacks
@@ -179,9 +179,9 @@ class FcmOtpFrm : BaseFragment() {
     }
 
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
-        mAuth?.signInWithCredential(credential)?.addOnCompleteListener(activity!!) { task ->
+        mAuth?.signInWithCredential(credential)?.addOnCompleteListener(mActivity) { task ->
             if (task.isSuccessful) {
-                val user = task.result!!.user
+                val user = task.result.user
                 if (openFrom.equals(FcmForgotPassFrm.TAG)) validate()
                 else verifyUser()
             } else {
@@ -199,7 +199,7 @@ class FcmOtpFrm : BaseFragment() {
         if (openFrom.equals(FcmForgotPassFrm.TAG)) {
             dbRef.child(socialLoginRespo?.userMobileno!!).child(ApiConstant.FCM_USERS_PASSWORD)
                 .setValue(mBinding.edtPwd.text.toString())
-            FcmFoodActivity.newIntent(activity!!)
+            FcmFoodActivity.newIntent(mActivity)
         } else if (socialLoginRespo?.profileImgFile != null && socialLoginRespo?.profileImgFile?.exists()!!) {
             uploadImage(dbRef)
         } else {
@@ -211,7 +211,7 @@ class FcmOtpFrm : BaseFragment() {
         dbRef.child(socialLoginRespo?.userMobileno!!).setValue(socialLoginRespo)
 //        databaseReference.push()
         GlobalUtility.showToast(getString(R.string.account_successfully_created))
-        FcmFoodActivity.newIntent(activity!!)
+        FcmFoodActivity.newIntent(mActivity)
     }
 
     private fun uploadImage(dbRef: DatabaseReference) {

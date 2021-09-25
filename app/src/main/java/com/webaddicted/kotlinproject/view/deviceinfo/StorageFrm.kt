@@ -83,7 +83,7 @@ class StorageFrm : BaseFragment() {
         ).toFloat()
 
         if (getExternalMounts()?.size!! > 0) {
-            val dirs: Array<File> = ContextCompat.getExternalFilesDirs(activity!!, null)
+            val dirs: Array<File> = ContextCompat.getExternalFilesDirs(requireActivity(), null)
             mBinding.llExtMemory.visibility = View.VISIBLE
             /** External Memory usage */
             val totalExternalValue = getTotalExternalMemorySize(dirs)

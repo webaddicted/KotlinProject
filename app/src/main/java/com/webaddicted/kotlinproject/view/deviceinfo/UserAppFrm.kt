@@ -56,7 +56,7 @@ class UserAppFrm : BaseFragment() {
     }
 
     private fun setAdapter() {
-        mAdapter = AppsAdapter(activity!!, appType!!, appList)
+        mAdapter = AppsAdapter(requireActivity(), appType!!, appList)
         mBinding.rvApps.layoutManager = LinearLayoutManager(
             activity,
             LinearLayoutManager.VERTICAL,

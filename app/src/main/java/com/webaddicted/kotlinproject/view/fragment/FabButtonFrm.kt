@@ -120,21 +120,21 @@ class FabButtonFrm : BaseFragment() {
         mBinding.menuRed.addMenuButton(programFab1)
         programFab1.setOnClickListener {
             programFab1.setLabelColors(
-                ContextCompat.getColor(activity!!, R.color.grey),
-                ContextCompat.getColor(activity!!, R.color.light_grey),
+                ContextCompat.getColor(requireActivity(), R.color.grey),
+                ContextCompat.getColor(requireActivity(), R.color.light_grey),
                 ContextCompat.getColor(
-                    activity!!,
+                    requireActivity(),
                     R.color.white_transparent
                 )
             )
             programFab1.setLabelTextColor(
                 ContextCompat.getColor(
-                    activity!!,
+                    requireActivity(),
                     R.color.black
                 )
             )
         }
-        fffff()
+        menuData()
         val context =
             ContextThemeWrapper(activity, R.style.MenuButtonsStyle)
         val programFab2 =
@@ -162,7 +162,7 @@ class FabButtonFrm : BaseFragment() {
     //    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
     //        super.onActivityCreated(savedInstanceState);
     //
-    fun fffff() {
+    private fun menuData() {
         menus.add(mBinding.menuDown)
         menus.add(mBinding.menuRed)
         menus.add(mBinding.menuYellow)
@@ -170,8 +170,7 @@ class FabButtonFrm : BaseFragment() {
         menus.add(mBinding.menuBlue)
         menus.add(mBinding.menuLabelsRight)
         mBinding.menuYellow.setOnMenuToggleListener { opened ->
-            val text: String
-            text = if (opened) {
+            val text: String = if (opened) {
                 "Menu opened"
             } else {
                 "Menu closed"

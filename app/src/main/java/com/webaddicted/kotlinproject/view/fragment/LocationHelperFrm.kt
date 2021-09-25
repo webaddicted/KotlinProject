@@ -78,7 +78,7 @@ class LocationHelperFrm : BaseFragment() {
 
     private fun fetchLocation() {
         LocationHelper.getLocation(
-            activity!!,
+            mActivity,
             object : LocationHelper.Companion.LocationChangeListener {
                 override fun onUpdatedLocation(location: Location, address: String) {
                     Lg.d(TAG, "updatedLat: ${location.latitude} long: ${location.longitude}")
@@ -100,7 +100,7 @@ class LocationHelperFrm : BaseFragment() {
     }
     private fun fetchUpdatedLocation() {
         LocationHelper.getLocation(
-            activity!!,
+            mActivity,
             3,3,5,
             object : LocationHelper.Companion.LocationChangeListener {
                 override fun onUpdatedLocation(location: Location, address: String) {

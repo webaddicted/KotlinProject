@@ -81,7 +81,7 @@ class MLKitFrm : BaseFragment() {
 //            getString(R.string.barcode_scanner) -> {
 //                mBinding.imgOnDevice.setImageDrawable(
 //                    ContextCompat.getDrawable(
-//                        activity!!,
+//                        requireActivity(),
 //                        R.drawable.barcode_type
 //                    )
 //                )
@@ -135,7 +135,7 @@ class MLKitFrm : BaseFragment() {
 //            }
 //            R.id.btn_cloud -> requestCamera(MediaPickerType.CAPTURE_IMAGE, false)
 //            R.id.txt_dest_lang -> {
-//                DialogUtil.getSingleChoiceDialog(activity!!,
+//                DialogUtil.getSingleChoiceDialog(requireActivity(),
 //                    resources.getString(R.string.select_language),
 //                    FirebaseTranslateLanguage.getAllLanguages().toList(),
 //                    DialogInterface.OnClickListener { dialog, position ->
@@ -187,7 +187,7 @@ class MLKitFrm : BaseFragment() {
 //    private fun textRecognizerOnDevice(file: File) {
 //        mBinding.txtOnDeviceResult.text = ""
 //        mBinding.imgOnDevice.showImage(file, getPlaceHolder(3))
-//        val image = FirebaseVisionImage.fromFilePath(activity!!, Uri.fromFile(file))
+//        val image = FirebaseVisionImage.fromFilePath(requireActivity(), Uri.fromFile(file))
 //        val detector = FirebaseVision.getInstance().onDeviceTextRecognizer
 //        detector.processImage(image).addOnSuccessListener { firebaseVisionText ->
 //            if (firebaseVisionText.textBlocks.size == 0) {
@@ -209,7 +209,7 @@ class MLKitFrm : BaseFragment() {
 //    private fun textRecognizerCloud(file: File) {
 //        mBinding.txtCloudResult.text = ""
 //        mBinding.imgCloud.showImage(file, getPlaceHolder(3))
-//        val image = FirebaseVisionImage.fromFilePath(activity!!, Uri.fromFile(file))
+//        val image = FirebaseVisionImage.fromFilePath(requireActivity(), Uri.fromFile(file))
 //        val detector = FirebaseVision.getInstance().cloudDocumentTextRecognizer
 //        detector.processImage(image).addOnSuccessListener { firebaseVisionCloudText ->
 //            firebaseVisionCloudText.blocks.forEachIndexed { blocksindex, block ->
@@ -247,7 +247,7 @@ class MLKitFrm : BaseFragment() {
 //            .setClassificationMode(FirebaseVisionFaceDetectorOptions.ALL_CLASSIFICATIONS)
 //            .setLandmarkMode(FirebaseVisionFaceDetectorOptions.ALL_LANDMARKS)
 //            .build()
-//        val image = FirebaseVisionImage.fromFilePath(activity!!, Uri.fromFile(file))
+//        val image = FirebaseVisionImage.fromFilePath(requireActivity(), Uri.fromFile(file))
 //        val detector = FirebaseVision.getInstance().getVisionFaceDetector(options)
 //        detector.detectInImage(image)
 //            .addOnSuccessListener { results ->
@@ -321,7 +321,7 @@ class MLKitFrm : BaseFragment() {
 //            .setDetectorMode(FirebaseVisionObjectDetectorOptions.STREAM_MODE)
 //            .enableMultipleObjects()
 //            .enableClassification().build()
-//        val image = FirebaseVisionImage.fromFilePath(activity!!, Uri.fromFile(file))
+//        val image = FirebaseVisionImage.fromFilePath(requireActivity(), Uri.fromFile(file))
 //        val detector = FirebaseVision.getInstance().getOnDeviceObjectDetector(options)
 //        detector.processImage(image).addOnSuccessListener { results ->
 //            Lg.d(TAG, results.toString())
@@ -355,7 +355,7 @@ class MLKitFrm : BaseFragment() {
 //    private fun imageLabelOnDevice(file: File) {
 //        mBinding.txtOnDeviceResult.text = ""
 //        mBinding.imgOnDevice.showImage(file, getPlaceHolder(3))
-//        val image = FirebaseVisionImage.fromFilePath(activity!!, Uri.fromFile(file))
+//        val image = FirebaseVisionImage.fromFilePath(requireActivity(), Uri.fromFile(file))
 //        val detector = FirebaseVision.getInstance().onDeviceImageLabeler
 //        detector.processImage(image).addOnSuccessListener { results ->
 //            val strBuilder = StringBuilder()
@@ -372,7 +372,7 @@ class MLKitFrm : BaseFragment() {
 //    private fun imageLabelCloud(file: File) {
 //        mBinding.txtCloudResult.text = ""
 //        mBinding.imgCloud.showImage(file, getPlaceHolder(3))
-//        val image = FirebaseVisionImage.fromFilePath(activity!!, Uri.fromFile(file))
+//        val image = FirebaseVisionImage.fromFilePath(requireActivity(), Uri.fromFile(file))
 //        val detector = FirebaseVisionCloudImageLabelerOptions.Builder()
 //            .build().let { options ->
 //                FirebaseVision.getInstance().getCloudImageLabeler(options)
@@ -392,7 +392,7 @@ class MLKitFrm : BaseFragment() {
 //        showApiLoader()
 //        mBinding.txtOnDeviceResult.text = ""
 //        mBinding.imgOnDevice.showImage(file, getPlaceHolder(3))
-//        val image = FirebaseVisionImage.fromFilePath(activity!!, Uri.fromFile(file))
+//        val image = FirebaseVisionImage.fromFilePath(requireActivity(), Uri.fromFile(file))
 //        val detector = FirebaseVision.getInstance().visionBarcodeDetector
 //        detector.detectInImage(image).addOnSuccessListener { results ->
 //            hideApiLoader()
@@ -411,7 +411,7 @@ class MLKitFrm : BaseFragment() {
 //    private fun landmarkRegCloud(file: File) {
 //        mBinding.txtCloudResult.text = ""
 //        mBinding.imgCloud.showImage(file, getPlaceHolder(3))
-//        val image = FirebaseVisionImage.fromFilePath(activity!!, Uri.fromFile(file))
+//        val image = FirebaseVisionImage.fromFilePath(requireActivity(), Uri.fromFile(file))
 //        val options = FirebaseVisionCloudDetectorOptions.Builder()
 //            .setMaxResults(10)
 //            .setModelType(FirebaseVisionCloudDetectorOptions.STABLE_MODEL)

@@ -79,7 +79,7 @@ class ImagePickerDialog : BaseDialog() {
         }
     }
     private fun mediaImagePicker(@MediaPickerType.MediaType captureImage: Int) {
-        mediaPicker.selectMediaOption(activity!!,
+        mediaPicker.selectMediaOption(requireActivity(),
             captureImage,
             FileHelper.subFolder(),
             object : MediaPickerUtils.ImagePickerListener {

@@ -135,7 +135,7 @@ class ServiceFrm : BaseFragment() {
         myReceiver = MyReceiver()
         val intentFilter = IntentFilter()
         intentFilter.addAction(FILTER_ACTION_KEY)
-        LocalBroadcastManager.getInstance(activity!!).registerReceiver(myReceiver!!, intentFilter)
+        LocalBroadcastManager.getInstance(requireActivity()).registerReceiver(myReceiver!!, intentFilter)
     }
 
     private inner class MyReceiver : BroadcastReceiver() {

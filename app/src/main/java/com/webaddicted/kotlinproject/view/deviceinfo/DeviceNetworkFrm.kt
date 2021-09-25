@@ -50,7 +50,7 @@ class DeviceNetworkFrm : BaseFragment() {
         }
 
         when {
-            GlobalUtility.isWifiConnected(activity!!) == resources.getString(R.string.wifi) -> {
+            GlobalUtility.isWifiConnected(requireActivity()) == resources.getString(R.string.wifi) -> {
                 val wifiManager =
                     activity?.applicationContext?.getSystemService(Context.WIFI_SERVICE) as WifiManager
                 val wifiInfo = wifiManager.connectionInfo
@@ -64,7 +64,7 @@ class DeviceNetworkFrm : BaseFragment() {
                             )}<br>" +
                             "<font color=\"$txtColor\">Link Speed : </font>${wifiInfo.linkSpeed} Mbps<br>"
             }
-            GlobalUtility.isWifiConnected(activity!!) == activity?.getString(R.string.network) -> {
+            GlobalUtility.isWifiConnected(requireActivity()) == activity?.getString(R.string.network) -> {
                 networkInfo =
                     networkInfo + "<font color=\"$txtColor\">Data Type : </font>" + resources.getString(R.string.network) + "<br>" +
                             "<font color=\"$txtColor\">Network Type : </font>" + resources.getString(R.string.network) + "<br>" +

@@ -105,7 +105,7 @@ class FcmSignupFrm : BaseFragment() {
                     mBinding.imgProfile.showImage(file[0], getPlaceHolder(0))
                 }
             })
-        fragmentManager?.let { imgPickerDialog?.show(it, ImagePickerDialog.TAG) }
+        parentFragmentManager.let { imgPickerDialog?.show(it, ImagePickerDialog.TAG) }
     }
 
     private fun validate() {
@@ -143,7 +143,7 @@ class FcmSignupFrm : BaseFragment() {
                         socialLoginRespo?.userId = mBinding.edtMobile.text.toString()
                     } else {
                         socialLoginRespo = FcmSocialLoginRespoBean().apply {
-                            imei = GlobalUtility.getDeviceIMEI(activity!!)
+                            imei = GlobalUtility.getDeviceIMEI(mActivity)
                             userName = mBinding.edtName.text.toString()
                             userEmailId = mBinding.edtEmail.text.toString()
                             userMobileno = mBinding.edtMobile.text.toString()
@@ -182,7 +182,7 @@ class FcmSignupFrm : BaseFragment() {
         addBlankSpace(mBinding.bottomSpace)
     }
 
-    fun openImg() {
+    private fun openImg() {
         val bundle = Bundle()
         if (socialLoginRespo?.userImage!=null && socialLoginRespo?.userImage?.isNotEmpty()!!){
             bundle.putString(ZoomImageFrm.IMAGE_PATH, socialLoginRespo?.userImage)

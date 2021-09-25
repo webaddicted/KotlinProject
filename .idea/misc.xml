@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/drawable/edt_round_corner.xml" value="0.19583333333333333" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/drawable/ic_arrow_right.xml" value="0.19583333333333333" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/drawable/ic_back_icon.xml" value="0.19583333333333333" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/drawable/ic_battery.xml" value="0.19583333333333333" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/drawable/rectangle_fill.xml" value="0.19583333333333333" />
         <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/activity_common.xml" value="0.1796875" />
         <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/activity_cpu.xml" value="0.1796875" />
         <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/activity_ecom_home.xml" value="0.1796875" />
@@ -78,6 +83,7 @@
         <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_sms_retriever.xml" value="0.1796875" />
         <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_task_list.xml" value="0.1796875" />
         <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_timer.xml" value="0.1796875" />
+        <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_viewpager_tab.xml" value="0.11096014492753623" />
         <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_widget.xml" value="0.12001811594202899" />
         <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_work_manager.xml" value="0.1796875" />
         <entry key="..\:/project/Demo/KotlinProject/app/src/main/res/layout/frm_zoom.xml" value="0.1796875" />

@@ -97,7 +97,7 @@ class DynamicLayoutFrm : BaseFragment() {
         locationList.add(Manifest.permission.READ_EXTERNAL_STORAGE)
         locationList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         PermissionHelper.requestMultiplePermission(
-            activity!!,
+            requireActivity(),
             locationList,
             object : PermissionHelper.Companion.PermissionListener {
                 override fun onPermissionGranted(mCustomPermission: List<String>) {
@@ -134,7 +134,7 @@ class DynamicLayoutFrm : BaseFragment() {
 
             //set drawable in cell
             val myImage =
-                ContextCompat.getDrawable(activity!!,R.drawable.logo)
+                ContextCompat.getDrawable(requireActivity(),R.drawable.logo)
             val bitmap =
                 (myImage as BitmapDrawable).bitmap
             val stream = ByteArrayOutputStream()
@@ -284,7 +284,7 @@ class DynamicLayoutFrm : BaseFragment() {
             try {
                 val uri =
                     FileProvider.getUriForFile(
-                        activity!!,
+                        requireActivity(),
                         activity?.packageName + ".provider",
                         file
                     )

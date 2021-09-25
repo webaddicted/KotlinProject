@@ -36,7 +36,7 @@ class DialogUtil {
                     )
                 )
             )
-            dialog.window!!.decorView.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialog.window?.decorView?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             val lp = WindowManager.LayoutParams()
             val window = dialog.window
             lp.copyFrom(window!!.attributes)
@@ -63,12 +63,10 @@ class DialogUtil {
                         )
                     )
                 )
-                dialog.window!!.decorView.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                if (dialog != null) {
-                    val width = ViewGroup.LayoutParams.MATCH_PARENT
-                    val height = ViewGroup.LayoutParams.MATCH_PARENT
-                    dialog.window!!.setLayout(width, height)
-                }
+                dialog.window?.decorView?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                val width = ViewGroup.LayoutParams.MATCH_PARENT
+                val height = ViewGroup.LayoutParams.MATCH_PARENT
+                dialog.window?.setLayout(width, height)
                 val lp = WindowManager.LayoutParams()
                 val window = dialog.window
                 lp.copyFrom(window!!.attributes)
@@ -96,12 +94,10 @@ class DialogUtil {
                         )
                     )
                 )
-                dialog.window!!.decorView.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                if (dialog != null) {
-                    val width = ViewGroup.LayoutParams.MATCH_PARENT
-                    val height = ViewGroup.LayoutParams.MATCH_PARENT
-                    dialog.window!!.setLayout(width, height)
-                }
+                dialog.window?.decorView?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                val width = ViewGroup.LayoutParams.MATCH_PARENT
+                val height = ViewGroup.LayoutParams.MATCH_PARENT
+                dialog.window!!.setLayout(width, height)
                 val lp = WindowManager.LayoutParams()
                 val window = dialog.window
                 lp.copyFrom(window!!.attributes)
@@ -129,21 +125,20 @@ class DialogUtil {
             )
             val lp = WindowManager.LayoutParams()
             val window = dialog.window
-            lp.copyFrom(window!!.attributes)
+            lp.copyFrom(window?.attributes)
             //This makes the dialog take up the full width
             //lp.width = WindowManager.LayoutParams.MATCH_PARENT;
             lp.width = dialog.context.resources.displayMetrics.widthPixels
             //  lp.height = (int) (dialog.getContext().getResources().getDisplayMetrics().heightPixels * 0.55);
-            window.attributes = lp
+            window?.attributes = lp
         }
-
 
 
         /**
          * createMessageAlert dialog
          *
          * @param title               return dialog title string value
-         * @param messgae             return dialog messge
+         * @param message             return dialog messge
          * @param btnOk               return button name event
          * @param btnCancel           return button name event
          * @param btnRetry            return button click event
@@ -152,22 +147,22 @@ class DialogUtil {
         fun alertFunction(
             context: Context?,
             title: String,
-            messgae: String?,
+            message: String?,
             btnOk: String,
             btnCancel: String,
             btnRetry: String,
             alertDialogListener: AlertRetryDialogListener
         ): AlertDialog {
-            var dialogAnimation = R.style.DialogSlideUpAnimation
+            val dialogAnimation = R.style.DialogSlideUpAnimation
             val builder = AlertDialog.Builder(context, R.style.AlertDialogStyle)
             builder.setCancelable(false)
             builder.setTitle(title)
-            builder.setMessage(messgae)
+            builder.setMessage(message)
             builder.setPositiveButton(btnOk) { dialog, which -> alertDialogListener.okClick() }
             builder.setNegativeButton(btnCancel) { dialog, which -> alertDialogListener.cancelClick() }
             builder.setNeutralButton(btnRetry) { dialogInterface, i -> alertDialogListener.okRetry() }
             val dialogs = builder.create()
-            dialogs.window!!.attributes.windowAnimations = dialogAnimation
+            dialogs.window?.attributes?.windowAnimations = dialogAnimation
             dialogs.show()
             return dialogs
         }
@@ -180,7 +175,7 @@ class DialogUtil {
             btnCancel: String,
             alertDialogListener: AlertDialogListener
         ): AlertDialog {
-            var dialogAnimation = R.style.DialogSlideUpAnimation
+            val dialogAnimation = R.style.DialogSlideUpAnimation
             val builder = AlertDialog.Builder(context, R.style.AlertDialogStyle)
             builder.setCancelable(false)
             builder.setTitle(title)
@@ -188,7 +183,7 @@ class DialogUtil {
             builder.setPositiveButton(btnOk) { dialog, which -> alertDialogListener.okClick() }
             builder.setNegativeButton(btnCancel) { dialog, which -> alertDialogListener.cancelClick() }
             val dialogs = builder.create()
-            dialogs.window!!.attributes.windowAnimations = dialogAnimation
+            dialogs.window?.attributes?.windowAnimations = dialogAnimation
             dialogs.show()
             return dialogs
         }
@@ -196,18 +191,18 @@ class DialogUtil {
         fun createMessageAlert(
             context: Context?,
             title: String,
-            messgae: String,
+            message: String,
             btnOk: String,
             btnListener: DialogInterface.OnClickListener
         ): AlertDialog {
-            var dialogAnimation = R.style.DialogSlideUpAnimation
+            val dialogAnimation = R.style.DialogSlideUpAnimation
             val builder = AlertDialog.Builder(context, R.style.AlertDialogStyle)
             builder.setCancelable(false)
             builder.setTitle(title)
-            builder.setMessage(messgae)
+            builder.setMessage(message)
             builder.setPositiveButton(btnOk, btnListener)
             val dialogs = builder.create()
-            dialogs.window!!.attributes.windowAnimations = dialogAnimation
+            dialogs.window?.attributes?.windowAnimations = dialogAnimation
             dialogs.show()
             return dialogs
         }
@@ -227,7 +222,7 @@ class DialogUtil {
             okBtn: String,
             okListener: DialogInterface.OnClickListener
         ): AlertDialog {
-            return showOkDialog(
+            return showOKDialog(
                 context,
                 R.style.AlertDialogStyle,
                 R.style.DialogLeftRightAnimation,
@@ -252,7 +247,7 @@ class DialogUtil {
          * @param okListener      button click listener
          * @return dialog
          */
-        fun showOkDialog(
+        fun showOKDialog(
             context: Context,
             style: Int,
             dialogAnimation: Int,
@@ -264,15 +259,16 @@ class DialogUtil {
             okListener: DialogInterface.OnClickListener
         ): AlertDialog {
             val alertDialog = AlertDialog.Builder(context, style).create()
-            alertDialog.window!!.attributes.windowAnimations = dialogAnimation
-            if (title != null) alertDialog.setTitle(title)
-            if (msg != null) alertDialog.setMessage(msg)
+            alertDialog.window?.attributes?.windowAnimations = dialogAnimation
+            alertDialog.setTitle(title)
+            alertDialog.setMessage(msg)
             if (icon > 0) alertDialog.setIcon(icon)
             alertDialog.setCancelable(isCancelable)
-            alertDialog.setButton(okBtn, okListener)
+            alertDialog.setButton(0, okBtn, okListener)
             alertDialog.show()
             return alertDialog
         }
+
         /**
          * @param context        referance of activity
          * @param title          title of dialog
@@ -288,7 +284,7 @@ class DialogUtil {
             okListener: DialogInterface.OnClickListener,
             cancelListener: DialogInterface.OnClickListener
         ): AlertDialog.Builder {
-            return showOkCancelDialog(
+            return showOKCancelDialog(
                 context,
                 R.style.AlertDialogStyle,
                 R.style.DialogSlideUpAnimation,
@@ -317,7 +313,7 @@ class DialogUtil {
          * @param cancelListener  cancel button click listener
          * @return dialog
          */
-        fun showOkCancelDialog(
+        fun showOKCancelDialog(
             context: Context,
             style: Int,
             dialogAnimation: Int,
@@ -331,8 +327,8 @@ class DialogUtil {
             cancelListener: DialogInterface.OnClickListener
         ): AlertDialog.Builder {
             val alertDialog = AlertDialog.Builder(context, style)
-            if (title != null) alertDialog.setTitle(title)
-            if (msg != null) alertDialog.setMessage(msg)
+            alertDialog.setTitle(title)
+            alertDialog.setMessage(msg)
             if (icon > 0) alertDialog.setIcon(icon)
             alertDialog.setCancelable(isCancelable)
             alertDialog.setPositiveButton(okBtn, okListener)
@@ -412,7 +408,7 @@ class DialogUtil {
             builder.setPositiveButton(okBtn, okListener)
             builder.setNegativeButton(cancelBtn, cancelListener)
             val alertDialog = builder.create()
-            alertDialog.window!!.attributes.windowAnimations = dialogAnimation
+            alertDialog.window?.attributes?.windowAnimations = dialogAnimation
             alertDialog.show()
             return alertDialog
         }
@@ -472,7 +468,5 @@ class DialogUtil {
             alertDialog.show()
             return alertDialog
         }
-
-
     }
 }

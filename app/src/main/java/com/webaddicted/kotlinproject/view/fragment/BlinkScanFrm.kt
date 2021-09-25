@@ -99,7 +99,7 @@ class BlinkScanFrm : BaseFragment() {
 
     private fun showMessage(message: String) {
         DialogUtil.showOkDialog(
-            activity!!,
+            requireActivity(),
             getString(R.string.app_name),
             message,
             getString(R.string.ok), object :

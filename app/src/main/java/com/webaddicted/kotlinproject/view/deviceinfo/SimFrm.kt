@@ -67,7 +67,7 @@ class SimFrm : BaseFragment() {
         val locationList = java.util.ArrayList<String>()
         locationList.add(Manifest.permission.READ_PHONE_STATE)
         PermissionHelper.requestMultiplePermission(
-            activity!!,
+            requireActivity(),
             locationList,
             object : PermissionHelper.Companion.PermissionListener {
                 override fun onPermissionGranted(mCustomPermission: List<String>) {
@@ -84,7 +84,7 @@ class SimFrm : BaseFragment() {
     @SuppressLint("MissingPermission", "HardwareIds")
     private fun retrieveSimInformation(telephonyManager: TelephonyManager) {
         if (isSimAvailable(
-                activity!!,
+                requireActivity(),
                 0
             ) && telephonyManager.simState == TelephonyManager.SIM_STATE_READY
         ) {
