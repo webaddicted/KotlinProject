@@ -116,7 +116,7 @@ class LandingPageFrm : BaseFragment() {
     }
 
 //    private fun setStatusBarColor(color: Int) {
-//        (requireActivity() as BaseActivity).setStatusBarColor(color)
+//        (mActivity as BaseActivity).setStatusBarColor(color)
 //    }
 
     private fun startRunner(index: Int) {

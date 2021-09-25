@@ -59,7 +59,7 @@ class DialogFrm : BaseFragment() {
         super.onClick(v)
         when (v.id) {
             R.id.btn_single_click -> DialogUtil.showOkDialog(
-                requireActivity(),
+                mActivity,
                 getString(R.string.app_name),
                 getString(R.string.dummyText),
                 getString(R.string.ok)
@@ -68,7 +68,7 @@ class DialogFrm : BaseFragment() {
                 dialog.dismiss()
             }
             R.id.btn_two_event_dialog -> DialogUtil.showOkCancelDialog(
-                requireActivity(),
+                mActivity,
                 getString(R.string.app_name),
                 getString(R.string.dummyText),
                 { dialog, which ->
@@ -84,7 +84,7 @@ class DialogFrm : BaseFragment() {
                 val loginDialog = LoginDialog()
                 parentFragmentManager.let { loginDialog.show(it, LoginDialog.TAG) }
             }
-            R.id.btn_selection_list -> DialogUtil.getSingleChoiceDialog(requireActivity(),
+            R.id.btn_selection_list -> DialogUtil.getSingleChoiceDialog(mActivity,
                 resources.getString(R.string.select_country),
                 getCountryList(),
                 { dialog, position ->
@@ -94,7 +94,7 @@ class DialogFrm : BaseFragment() {
                 },
                 { dialog, position -> dialog.dismiss() })
             R.id.btn_list_dialog -> DialogUtil.showListDialog(
-                requireActivity(),
+                mActivity,
                 resources.getString(R.string.select_country),
                 getCountryList()
             ) { dialog, which ->
@@ -116,12 +116,12 @@ class DialogFrm : BaseFragment() {
     }
 
     private fun customDialog() {
-        val dialog = Dialog(requireActivity(), R.style.AlertDialogStyle)
+        val dialog = Dialog(mActivity, R.style.AlertDialogStyle)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.window?.attributes?.windowAnimations = R.style.DialogSlideUpAnimation
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val dialogBinding = GlobalUtility.getLayoutBinding(
-            requireActivity(),
+            mActivity,
             R.layout.dialog_custom
         ) as DialogCustomBinding
         dialog.setContentView(dialogBinding.root)

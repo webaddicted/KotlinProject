@@ -77,7 +77,7 @@ class CallLogFrm : BaseFragment() {
         locationList.add(Manifest.permission.READ_CALL_LOG)
         locationList.add(Manifest.permission.READ_CONTACTS)
         PermissionHelper.requestMultiplePermission(
-            requireActivity(),
+            mActivity,
             locationList,
             object : PermissionHelper.Companion.PermissionListener {
                 override fun onPermissionGranted(mCustomPermission: List<String>) {

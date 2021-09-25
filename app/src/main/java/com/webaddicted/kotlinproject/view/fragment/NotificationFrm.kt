@@ -410,7 +410,7 @@ class NotificationFrm : BaseFragment() {
             inboxStyle = NotificationCompat.InboxStyle()
             val nManager =
                 activity?.getSystemService(NOTIFICATION_SERVICE) as NotificationManager?
-            val builder: NotificationCompat.Builder = NotificationCompat.Builder(requireActivity())
+            val builder: NotificationCompat.Builder = NotificationCompat.Builder(mActivity)
             builder.setContentTitle("Lanes")
             builder.setContentText("Notification from Lanes $value")
             builder.setSmallIcon(R.mipmap.ic_launcher)

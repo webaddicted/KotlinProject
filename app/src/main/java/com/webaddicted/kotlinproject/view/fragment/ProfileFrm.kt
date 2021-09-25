@@ -65,7 +65,7 @@ class ProfileFrm : BaseFragment() {
                     mBinding.imgProfile.showImage(file.get(0), getPlaceHolder(0))
                 }
             })
-        fragmentManager?.let { imgPickerDialog.show(it, ImagePickerDialog.TAG) }
+        mActivity.supportFragmentManager.let { imgPickerDialog.show(it, ImagePickerDialog.TAG) }
     }
 
 }

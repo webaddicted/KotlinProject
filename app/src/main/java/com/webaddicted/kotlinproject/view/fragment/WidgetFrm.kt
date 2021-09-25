@@ -90,7 +90,7 @@ class WidgetFrm : BaseFragment(), DatePickerDialog.OnDateSetListener,
         mBinding.pbCircular.progress = 0
         mBinding.pbCircular.secondaryProgress = 100
         mBinding.pbCircular.max = 100
-        mBinding.pbCircular.progressDrawable = ContextCompat.getDrawable(requireActivity(),R.drawable.pb_circulare)
+        mBinding.pbCircular.progressDrawable = ContextCompat.getDrawable(mActivity,R.drawable.pb_circulare)
         var progressBarStatus = 0
         thread = Thread(Runnable {
             while (progressBarStatus < 100) {
@@ -119,7 +119,7 @@ class WidgetFrm : BaseFragment(), DatePickerDialog.OnDateSetListener,
     private fun setEditText() {
         val adapter =
             ArrayAdapter(
-                requireActivity(),
+                mActivity,
                 android.R.layout.simple_list_item_1,
                 multiArray
             )
@@ -149,7 +149,7 @@ class WidgetFrm : BaseFragment(), DatePickerDialog.OnDateSetListener,
     }
 
     private fun showPopupMenu(view: View) { // inflate menu
-        val popup = PopupMenu(requireActivity(), view)
+        val popup = PopupMenu(mActivity, view)
         val inflater: MenuInflater = popup.menuInflater
         inflater.inflate(R.menu.menu_gridview, popup.menu)
         popup.setOnMenuItemClickListener { menuItem ->

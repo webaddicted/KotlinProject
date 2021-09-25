@@ -80,7 +80,7 @@ class BluetoothFrm : BaseFragment() {
             mBinding.btnBtOnOff.isEnabled = false
             mBinding.btnBtOnOff.setBackgroundColor(
                 ContextCompat.getColor(
-                    requireActivity(),
+                    mActivity,
                     R.color.divider
                 )
             )
@@ -90,7 +90,7 @@ class BluetoothFrm : BaseFragment() {
             mBinding.btnBtOnOff.text = resources.getString(R.string.turn_on_bluetooth)
             mBinding.btnBtOnOff.setBackgroundColor(
                 ContextCompat.getColor(
-                    requireActivity(),
+                    mActivity,
                     R.color.app_color
                 )
             )
@@ -116,7 +116,7 @@ class BluetoothFrm : BaseFragment() {
                         mBinding.btnBtOnOff.isEnabled = true
                         mBinding.btnBtOnOff.setBackgroundColor(
                             ContextCompat.getColor(
-                                requireActivity(),
+                                mActivity,
                                 R.color.colorPrimary
                             )
                         )
@@ -125,7 +125,7 @@ class BluetoothFrm : BaseFragment() {
                         mBinding.btnBtOnOff.isEnabled = false
                         mBinding.btnBtOnOff.setBackgroundColor(
                             ContextCompat.getColor(
-                                requireActivity(),
+                                mActivity,
                                 R.color.divider
                             )
                         )
@@ -150,7 +150,7 @@ class BluetoothFrm : BaseFragment() {
             mBinding.btnBtOnOff.isEnabled = false
             mBinding.btnBtOnOff.setBackgroundColor(
                 ContextCompat.getColor(
-                    requireActivity(),
+                    mActivity,
                     R.color.divider
                 )
             )
@@ -158,7 +158,7 @@ class BluetoothFrm : BaseFragment() {
             mBinding.btnBtOnOff.isEnabled = true
             mBinding.btnBtOnOff.setBackgroundColor(
                 ContextCompat.getColor(
-                    requireActivity(),
+                    mActivity,
                     R.color.app_color
                 )
             )

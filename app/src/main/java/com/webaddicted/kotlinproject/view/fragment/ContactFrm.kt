@@ -93,7 +93,7 @@ class ContactFrm : BaseFragment() {
         locationList.add(Manifest.permission.WRITE_CONTACTS)
         locationList.add(Manifest.permission.READ_CONTACTS)
         PermissionHelper.requestMultiplePermission(
-            requireActivity(),
+            mActivity,
             locationList,
             object : PermissionHelper.Companion.PermissionListener {
                 override fun onPermissionGranted(mCustomPermission: List<String>) {

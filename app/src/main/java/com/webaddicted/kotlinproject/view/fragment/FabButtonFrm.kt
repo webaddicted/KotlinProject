@@ -120,16 +120,16 @@ class FabButtonFrm : BaseFragment() {
         mBinding.menuRed.addMenuButton(programFab1)
         programFab1.setOnClickListener {
             programFab1.setLabelColors(
-                ContextCompat.getColor(requireActivity(), R.color.grey),
-                ContextCompat.getColor(requireActivity(), R.color.light_grey),
+                ContextCompat.getColor(mActivity, R.color.grey),
+                ContextCompat.getColor(mActivity, R.color.light_grey),
                 ContextCompat.getColor(
-                    requireActivity(),
+                    mActivity,
                     R.color.white_transparent
                 )
             )
             programFab1.setLabelTextColor(
                 ContextCompat.getColor(
-                    requireActivity(),
+                    mActivity,
                     R.color.black
                 )
             )

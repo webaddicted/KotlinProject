@@ -164,9 +164,9 @@ class DisplayFrm : BaseFragment() {
         resoluationInfo += "<font color=\"$txtColor\">Usable Height : </font>${size.y.toString().plus(resources.getString(R.string.px))}<br>"
 
         /*** Screen density independent width and height */
-        resoluationInfo += "<font color=\"$txtColor\">Display Independent Width : </font>${GlobalUtility.pxToDp(requireActivity(), dm.widthPixels).toString()
+        resoluationInfo += "<font color=\"$txtColor\">Display Independent Width : </font>${GlobalUtility.pxToDp(mActivity, dm.widthPixels).toString()
             .plus(resources.getString(R.string.dp))}<br>"
-        resoluationInfo += "<font color=\"$txtColor\">Display Independent Height : </font>${GlobalUtility.pxToDp(requireActivity(), dm.heightPixels).toString()
+        resoluationInfo += "<font color=\"$txtColor\">Display Independent Height : </font>${GlobalUtility.pxToDp(mActivity, dm.heightPixels).toString()
             .plus(resources.getString(R.string.dp))}<br>"
         mBinding.txtResolInfo.text = Html.fromHtml(resoluationInfo, Html.FROM_HTML_MODE_LEGACY)
     }

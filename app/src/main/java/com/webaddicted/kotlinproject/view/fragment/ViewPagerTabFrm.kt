@@ -132,7 +132,7 @@ class ViewPagerTabFrm : BaseFragment() {
     }
 
     private fun dynamicSetupViewPager2(viewPager: ViewPager2) {
-        val adapter = ViewPager2Adapter(requireActivity())
+        val adapter = ViewPager2Adapter(mActivity)
         val frmCalender = CalendarFrm()
         val frmAnim = AnimationFrm()
         val frmBlink = BlinkScanFrm()

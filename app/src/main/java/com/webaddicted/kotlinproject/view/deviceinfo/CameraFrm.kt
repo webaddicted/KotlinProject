@@ -103,7 +103,7 @@ class CameraFrm : BaseFragment() {
         val multiplePermission = ArrayList<String>()
         multiplePermission.add(Manifest.permission.CAMERA)
         PermissionHelper.requestMultiplePermission(
-            requireActivity(),
+            mActivity,
             multiplePermission,
             object : PermissionHelper.Companion.PermissionListener {
                 override fun onPermissionGranted(mCustomPermission: List<String>) {
@@ -123,12 +123,12 @@ class CameraFrm : BaseFragment() {
 
     private fun tabSelector(textview1: TextView, textview2: TextView) {
         /*** Set text color */
-        textview1.setTextColor(ContextCompat.getColor(requireActivity(), R.color.white_par))
-        textview2.setTextColor(ContextCompat.getColor(requireActivity(), R.color.black_par))
+        textview1.setTextColor(ContextCompat.getColor(mActivity, R.color.white_par))
+        textview2.setTextColor(ContextCompat.getColor(mActivity, R.color.black_par))
 
         /*** Background color */
-        textview1.setBackgroundColor(ContextCompat.getColor(requireActivity(), R.color.app_color_par))
-        textview2.setBackgroundColor(ContextCompat.getColor(requireActivity(), R.color.transprant))
+        textview1.setBackgroundColor(ContextCompat.getColor(mActivity, R.color.app_color_par))
+        textview2.setBackgroundColor(ContextCompat.getColor(mActivity, R.color.transprant))
 
         /*** Set background drawable */
         textview1.setBackgroundResource(R.drawable.rectangle_fill)

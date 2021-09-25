@@ -83,8 +83,8 @@ class NewsFrm : BaseFragment() {
             }
         })
         mBinding.rvNewsChannel.adapter = newsAdapter
-        mBinding.swipeView.setColorSchemeColors(ContextCompat.getColor(requireActivity(),R.color.white))
-        mBinding.swipeView.setWaveColor(ContextCompat.getColor(requireActivity(),R.color.app_color))
+        mBinding.swipeView.setColorSchemeColors(ContextCompat.getColor(mActivity,R.color.white))
+        mBinding.swipeView.setWaveColor(ContextCompat.getColor(mActivity,R.color.app_color))
         mBinding.swipeView.setOnRefreshListener {
             Handler().postDelayed({
                 mBinding.swipeView.isRefreshing = false

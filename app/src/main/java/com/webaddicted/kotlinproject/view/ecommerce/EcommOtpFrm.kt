@@ -54,7 +54,7 @@ class EcommOtpFrm : BaseFragment() {
 
     private fun validate() {
         if (ValidationHelper.validateCode(mBinding.edtOtp))
-            EcommHomeActivity.newIntent(requireActivity())
+            EcommHomeActivity.newIntent(mActivity)
     }
 
     override fun onResume() {

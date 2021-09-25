@@ -17,12 +17,10 @@ import com.google.firebase.storage.StorageReference
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.apiutils.ApiResponse
 import com.webaddicted.kotlinproject.global.common.*
-import com.webaddicted.kotlinproject.global.sharedpref.PreferenceMgr
 import com.webaddicted.kotlinproject.model.bean.eventBus.EventBusListener
 import com.webaddicted.kotlinproject.view.dialog.LoaderDialog
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
-import org.koin.android.ext.android.inject
 import java.io.File
 
 /**
@@ -60,9 +58,11 @@ abstract class BaseFcmFragment : Fragment(), View.OnClickListener,
 
     protected fun showApiLoader() {
         if (loaderDialog != null) {
-            val fragment = fragmentManager?.findFragmentByTag(LoaderDialog.TAG)
-            if (fragment != null) fragmentManager?.beginTransaction()?.remove(fragment)?.commit()
-            loaderDialog?.show(fragmentManager!!, LoaderDialog.TAG)
+            val fragment = mActivity.supportFragmentManager.findFragmentByTag(LoaderDialog.TAG)
+            if (fragment != null) mActivity.supportFragmentManager.beginTransaction()
+                .remove(fragment)
+                .commit()
+            loaderDialog?.show(mActivity.supportFragmentManager, LoaderDialog.TAG)
         }
     }
 
@@ -152,11 +152,11 @@ abstract class BaseFcmFragment : Fragment(), View.OnClickListener,
         multiplePermission.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         multiplePermission.add(Manifest.permission.READ_EXTERNAL_STORAGE)
         multiplePermission.add(Manifest.permission.CAMERA)
-        if (PermissionHelper.checkMultiplePermission(requireActivity(), multiplePermission)) {
+        if (PermissionHelper.checkMultiplePermission(mActivity, multiplePermission)) {
             FileHelper.createApplicationFolder()
             onPermissionGranted(multiplePermission)
         } else
-            PermissionHelper.requestMultiplePermission(requireActivity(), multiplePermission, this)
+            PermissionHelper.requestMultiplePermission(mActivity, multiplePermission, this)
     }
 
 
@@ -168,11 +168,11 @@ abstract class BaseFcmFragment : Fragment(), View.OnClickListener,
         multiplePermission.add(Manifest.permission.ACCESS_FINE_LOCATION)
         multiplePermission.add(Manifest.permission.ACCESS_COARSE_LOCATION)
         if (PermissionHelper.checkMultiplePermission(
-                requireActivity(),
+                mActivity,
                 multiplePermission
             )
         ) onPermissionGranted(multiplePermission)
-        else PermissionHelper.requestMultiplePermission(requireActivity(), multiplePermission, this)
+        else PermissionHelper.requestMultiplePermission(mActivity, multiplePermission, this)
     }
 
     override fun onPermissionGranted(mCustomPermission: List<String>) {

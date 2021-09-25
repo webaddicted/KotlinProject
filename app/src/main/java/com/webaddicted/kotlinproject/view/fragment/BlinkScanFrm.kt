@@ -99,18 +99,16 @@ class BlinkScanFrm : BaseFragment() {
 
     private fun showMessage(message: String) {
         DialogUtil.showOkDialog(
-            requireActivity(),
+            mActivity,
             getString(R.string.app_name),
             message,
-            getString(R.string.ok), object :
-                DialogInterface.OnClickListener {
-                override fun onClick(dialog: DialogInterface, which: Int) {
-                    dialog.dismiss()
-                    var intent = Intent(activity, CameraActivity::class.java)
-                    intent.putExtra("isOpenFronCamera", isSelfieClick)
-                    activity?.startActivity(intent)
-                }
-            })
+            getString(R.string.ok)
+        ) { dialog, which ->
+            dialog.dismiss()
+            val intent = Intent(activity, CameraActivity::class.java)
+            intent.putExtra("isOpenFronCamera", isSelfieClick)
+            activity?.startActivity(intent)
+        }
     }
 }
 

@@ -94,13 +94,13 @@ class GoogleMapFrm : BaseFragment(), OnMapReadyCallback, GoogleMap.OnMapClickLis
     }
 
     private fun stopGeoFancy() {
-        GlobalUtility.showOfflineNotification(requireActivity(), "stop geo fency", "test work flow")
+        GlobalUtility.showOfflineNotification(mActivity, "stop geo fency", "test work flow")
         (activity as MapActivity).stopGeoFencing(fancyMarker, geoFenceCircle)
     }
 
     private fun startGeoFancy() {
         if (fencyLocation != null) {
-            GlobalUtility.showOfflineNotification(requireActivity(), "start geo fency", "let move")
+            GlobalUtility.showOfflineNotification(mActivity, "start geo fency", "let move")
             val latLng = LatLng(fencyLocation!!.latitude, fencyLocation!!.longitude)
             fancyMarker?.remove()
             fancyMarker = googleMap?.addMarker(
@@ -123,8 +123,8 @@ class GoogleMapFrm : BaseFragment(), OnMapReadyCallback, GoogleMap.OnMapClickLis
         val circleOptions = CircleOptions()
             .center(fancyMarker?.position)
             .radius(AppConstant.GEOFENCE_RADIUS.toDouble())
-            .fillColor(ContextCompat.getColor(context!!,R.color.geo_fency_color))
-            .strokeColor(ContextCompat.getColor(context!!,R.color.geo_fency_color))
+            .fillColor(ContextCompat.getColor(mActivity,R.color.geo_fency_color))
+            .strokeColor(ContextCompat.getColor(mActivity,R.color.geo_fency_color))
             .strokeWidth(1f)
         geoFenceCircle = googleMap?.addCircle(circleOptions)
     }

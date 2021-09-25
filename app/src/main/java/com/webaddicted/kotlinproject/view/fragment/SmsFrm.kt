@@ -78,7 +78,7 @@ class SmsFrm : BaseFragment() {
         locationList.add(Manifest.permission.RECEIVE_SMS)
         locationList.add(Manifest.permission.READ_SMS)
         PermissionHelper.requestMultiplePermission(
-            requireActivity(),
+            mActivity,
             locationList,
             object : PermissionHelper.Companion.PermissionListener {
                 override fun onPermissionGranted(mCustomPermission: List<String>) {
