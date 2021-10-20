@@ -2,8 +2,6 @@ package com.webaddicted.kotlinproject.view.fragment
 
 import android.content.res.Configuration
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.MenuInflater
@@ -13,7 +11,6 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.PopupMenu
 import androidx.biometric.BiometricPrompt
 import androidx.biometric.BiometricPrompt.PromptInfo
-import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -179,13 +176,13 @@ class TaskFrm : BaseFragment(R.layout.frm_task_list) {
             false
         )
         mBinding.recyclerView.adapter = mHomeAdapter
-        mBinding.swipeView.setColorSchemeColors(ContextCompat.getColor(mActivity, R.color.white))
-        mBinding.swipeView.setWaveColor(ContextCompat.getColor(mActivity, R.color.app_color))
-        mBinding.swipeView.setOnRefreshListener {
-            Handler(Looper.getMainLooper()).postDelayed({
-                mBinding.swipeView.isRefreshing = false
-            }, 1800)
-        }
+//        mBinding.swipeView.setColorSchemeColors(ContextCompat.getColor(mActivity, R.color.white))
+//        mBinding.swipeView.setWaveColor(ContextCompat.getColor(mActivity, R.color.app_color))
+//        mBinding.swipeView.setOnRefreshListener {
+//            Handler(Looper.getMainLooper()).postDelayed({
+//                mBinding.swipeView.isRefreshing = false
+//            }, 1800)
+//        }
     }
 
     fun onClicks(click: String) {

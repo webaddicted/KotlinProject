@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools">
+       >
     <!--<data>-->
 
     <!--&lt;!&ndash;<variable&ndash;&gt;-->
@@ -30,17 +29,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
-                <jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout
-                        android:id="@+id/swipe_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:elevation="@dimen/dp10">
-
                     <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/rv_news_channel"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" />
-                </jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout>
 
             </LinearLayout>
 

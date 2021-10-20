@@ -1,12 +1,14 @@
 package com.webaddicted.kotlinproject.view.adapter
 
 import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.databinding.ViewDataBinding
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.RowCircleBinding
+import com.webaddicted.kotlinproject.global.common.AppApplication
 import com.webaddicted.kotlinproject.global.common.gone
 import com.webaddicted.kotlinproject.global.common.showImage
 import com.webaddicted.kotlinproject.global.common.visible
@@ -19,14 +21,17 @@ import com.webaddicted.kotlinproject.view.fragment.CircleFrm
 /**
  * Today's Top game list & animation handle in same adapter
  */
-class CircleGameAdapter(private var frm:BaseFragment,private var mFilterBean: ArrayList<CircleGameBean>?) : BaseAdapter() {
+class CircleGameAdapter(
+    private var frm: BaseFragment,
+    private var mFilterBean: ArrayList<CircleGameBean>?
+) : BaseAdapter() {
 
     private var slideAnmimations: Animation
     private var slideAnmimation: Animation
 
     init {
-        slideAnmimation = AnimationUtils.loadAnimation(mContext, R.anim.bounce_game)
-        slideAnmimations = AnimationUtils.loadAnimation(mContext, R.anim.bounce_game)
+        slideAnmimation = AnimationUtils.loadAnimation(frm.context, R.anim.bounce_game)
+        slideAnmimations = AnimationUtils.loadAnimation(frm.context, R.anim.bounce_game)
     }
 
     override fun getListSize(): Int {
@@ -50,7 +55,7 @@ class CircleGameAdapter(private var frm:BaseFragment,private var mFilterBean: Ar
             //            mBinding.imgSecond.startAnimation(slideAnmimation);
             rowBinding.imgThird.animation = slideAnmimation
             //            mBinding.imgFourth.startAnimation(slideAnmimation);
-            Handler().postDelayed({
+            Handler(Looper.getMainLooper()).postDelayed({
                 rowBinding.imgSecond.animation = slideAnmimations
                 rowBinding.imgFourth.animation = slideAnmimations
             }, 1000)
@@ -122,27 +127,27 @@ class CircleGameAdapter(private var frm:BaseFragment,private var mFilterBean: Ar
      * circle image row item click
      */
     private fun clickEvent(mBinding: RowCircleBinding, position: Int) {
-        onClickListener(mBinding,mBinding.imgFirst, position)
-        onClickListener(mBinding,mBinding.txtFirst, position)
-        onClickListener(mBinding,mBinding.imgSecond, position)
-        onClickListener(mBinding,mBinding.txtSecond, position)
-        onClickListener(mBinding,mBinding.imgThird, position)
-        onClickListener(mBinding,mBinding.txtThird, position)
-        onClickListener(mBinding,mBinding.imgFourth, position)
-        onClickListener(mBinding,mBinding.txtFourth, position)
+        onClickListener(mBinding, mBinding.imgFirst, position)
+        onClickListener(mBinding, mBinding.txtFirst, position)
+        onClickListener(mBinding, mBinding.imgSecond, position)
+        onClickListener(mBinding, mBinding.txtSecond, position)
+        onClickListener(mBinding, mBinding.imgThird, position)
+        onClickListener(mBinding, mBinding.txtThird, position)
+        onClickListener(mBinding, mBinding.imgFourth, position)
+        onClickListener(mBinding, mBinding.txtFourth, position)
     }
 
 
-    override fun getClickEvent(mRowBinding: ViewDataBinding,view: View?, position: Int) {
-        super.getClickEvent(mRowBinding,view, position)
+    override fun getClickEvent(mRowBinding: ViewDataBinding, view: View?, position: Int) {
+        super.getClickEvent(mRowBinding, view, position)
         val currentPosi = position + 1
         var categoriesBean: CircleGameBean? = null
-            when (view?.id) {
-                R.id.img_first -> categoriesBean = getGameInfo(currentPosi, 0)
-                R.id.img_second -> categoriesBean = getGameInfo(currentPosi, 1)
-                R.id.img_third -> categoriesBean = getGameInfo(currentPosi, 2)
-                R.id.img_fourth -> categoriesBean = getGameInfo(currentPosi, 3)
-            }
+        when (view?.id) {
+            R.id.img_first -> categoriesBean = getGameInfo(currentPosi, 0)
+            R.id.img_second -> categoriesBean = getGameInfo(currentPosi, 1)
+            R.id.img_third -> categoriesBean = getGameInfo(currentPosi, 2)
+            R.id.img_fourth -> categoriesBean = getGameInfo(currentPosi, 3)
+        }
         if (frm is FcmHomeFrm)
             (frm as FcmHomeFrm).openImg(categoriesBean?.Image)
         else if (frm is CircleFrm)
@@ -175,19 +180,19 @@ class CircleGameAdapter(private var frm:BaseFragment,private var mFilterBean: Ar
                 mBinding.txtSecond.text = getGameInfo(currentPos, 1).Name
                 mBinding.txtThird.text = getGameInfo(currentPos, 2).Name
                 mBinding.txtFourth.text = getGameInfo(currentPos, 3).Name
-                    mBinding.imgFirst.showImage(
+                mBinding.imgFirst.showImage(
                     getGameInfo(currentPos, 0).Image,
                     getPlaceHolder(3)
                 )
-                    mBinding.imgSecond.showImage(
+                mBinding.imgSecond.showImage(
                     getGameInfo(currentPos, 1).Image,
                     getPlaceHolder(3)
                 )
-                    mBinding.imgThird.showImage(
+                mBinding.imgThird.showImage(
                     getGameInfo(currentPos, 2).Image,
                     getPlaceHolder(3)
                 )
-                    mBinding.imgFourth.showImage(
+                mBinding.imgFourth.showImage(
                     getGameInfo(currentPos, 3).Image,
                     getPlaceHolder(3)
                 )
@@ -206,7 +211,7 @@ class CircleGameAdapter(private var frm:BaseFragment,private var mFilterBean: Ar
                     getGameInfo(currentPos, 0).Image,
                     getPlaceHolder(3)
                 )
-                    mBinding.imgSecond.showImage(
+                mBinding.imgSecond.showImage(
                     getGameInfo(currentPos, 1).Image,
                     getPlaceHolder(3)
                 )
@@ -215,15 +220,15 @@ class CircleGameAdapter(private var frm:BaseFragment,private var mFilterBean: Ar
                 mBinding.txtFirst.text = getGameInfo(currentPos, 0).Name
                 mBinding.txtSecond.text = getGameInfo(currentPos, 1).Name
                 mBinding.txtThird.text = getGameInfo(currentPos, 2).Name
-                    mBinding.imgFirst.showImage(
+                mBinding.imgFirst.showImage(
                     getGameInfo(currentPos, 0).Image,
                     getPlaceHolder(3)
                 )
-                    mBinding.imgSecond.showImage(
+                mBinding.imgSecond.showImage(
                     getGameInfo(currentPos, 1).Image,
                     getPlaceHolder(3)
                 )
-                    mBinding.imgThird.showImage(
+                mBinding.imgThird.showImage(
                     getGameInfo(currentPos, 2).Image,
                     getPlaceHolder(3)
                 )
@@ -258,6 +263,7 @@ class CircleGameAdapter(private var frm:BaseFragment,private var mFilterBean: Ar
         } else
             0
     }
+
     fun notifyAdapter(prodList: ArrayList<CircleGameBean>) {
         mFilterBean = prodList
         notifyDataSetChanged()

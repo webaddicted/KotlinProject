@@ -264,7 +264,8 @@ class DialogUtil {
             alertDialog.setMessage(msg)
             if (icon > 0) alertDialog.setIcon(icon)
             alertDialog.setCancelable(isCancelable)
-            alertDialog.setButton(0, okBtn, okListener)
+//            alertDialog.setPositiveButton(okBtn, okListener)
+            alertDialog.setButton(okBtn, okListener)
             alertDialog.show()
             return alertDialog
         }

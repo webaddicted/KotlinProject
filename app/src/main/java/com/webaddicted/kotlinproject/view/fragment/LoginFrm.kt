@@ -60,10 +60,15 @@ class LoginFrm : BaseFragment(R.layout.frm_login) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.btn_login -> validate()
+            R.id.btn_login ->
+                activity?.let {
+                    HomeActivity.newIntent(
+                        it
+                    )
+                }
+//            validate()
             R.id.btn_signup -> navigateScreen(SignupFrm.TAG)
             R.id.txt_forgot_psw -> {
-
             }
         }
     }
@@ -77,12 +82,13 @@ class LoginFrm : BaseFragment(R.layout.frm_login) {
     }
 
     private fun validate() {
+
 //        Log.d("TAG", "Validate --- ${isValid(mBinding.edtEmail.text.toString())}")
 
         if (ValidationHelper.validateEmail(mBinding.edtEmail, mBinding.wrapperEmail) &&
             ValidationHelper.validatePwd(mBinding.edtPassword, mBinding.wrapperPassword)
         ) {
-            val userInfo = commonViewModel.getCouponsBySize(mBinding.edtEmail.text.toString())
+            val userInfo = commonViewModel.getEmailId(mBinding.edtEmail.text.toString())
             when {
                 userInfo == null -> GlobalUtility.showToast(resources.getString(R.string.create_an_account))
                 userInfo.password.equals(mBinding.edtPassword.text.toString()) -> activity?.let {

@@ -1,8 +1,6 @@
 package com.webaddicted.kotlinproject.view.fragment
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.databinding.ViewDataBinding
@@ -79,13 +77,13 @@ class NewsFrm : BaseFragment(R.layout.frm_news) {
             }
         })
         mBinding.rvNewsChannel.adapter = newsAdapter
-        mBinding.swipeView.setColorSchemeColors(ContextCompat.getColor(mActivity,R.color.white))
-        mBinding.swipeView.setWaveColor(ContextCompat.getColor(mActivity,R.color.app_color))
-        mBinding.swipeView.setOnRefreshListener {
-            Handler(Looper.getMainLooper()).postDelayed({
-                mBinding.swipeView.isRefreshing = false
-            }, 1000)
-        }
+//        mBinding.swipeView.setColorSchemeColors(ContextCompat.getColor(mActivity,R.color.white))
+//        mBinding.swipeView.setWaveColor(ContextCompat.getColor(mActivity,R.color.app_color))
+//        mBinding.swipeView.setOnRefreshListener {
+//            Handler(Looper.getMainLooper()).postDelayed({
+//                mBinding.swipeView.isRefreshing = false
+//            }, 1000)
+//        }
     }
 
     private fun callApi() {

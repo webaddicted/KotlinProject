@@ -19,7 +19,7 @@ class CommonViewModel : BaseViewModel() {
         userInfoDao.getUserInfo()
     }
 
-    fun getCouponsBySize(emailId: String): UserInfoEntity {
+    fun getEmailId(emailId: String): UserInfoEntity {
         return userInfoDao.getCouponsBySize(emailId)
     }
 

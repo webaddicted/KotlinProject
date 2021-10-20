@@ -36,10 +36,6 @@
                 <!--                        android:layout_height="wrap_content"-->
                 <!--                        android:orientation="vertical">-->
 
-                <jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout
-                        android:id="@+id/swipe_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
 
                     <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/recyclerView"
@@ -50,7 +46,6 @@
                             android:divider="@android:color/transparent"
                             android:nestedScrollingEnabled="false"
                             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-                </jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout>
 
                 <!--                    <LinearLayout-->
                 <!--                            android:id="@+id/bottom_space"-->

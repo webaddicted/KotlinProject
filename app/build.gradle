@@ -77,11 +77,11 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.30"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.31"
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.android.support:design:31.0.0'
     implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
     implementation 'androidx.biometric:biometric:1.1.0'
     implementation 'androidx.core:core-ktx:1.6.0'
     testImplementation 'junit:junit:4.13.2'
@@ -96,12 +96,12 @@ dependencies {
     //fcm
 //    implementation 'com.google.firebase:firebase-core:17.2.3'
     implementation 'com.google.firebase:firebase-auth:21.0.1'
-    implementation 'com.google.firebase:firebase-database:20.0.1'
+    implementation 'com.google.firebase:firebase-database:20.0.2'
     implementation 'com.google.firebase:firebase-storage:20.0.0'
     implementation 'com.google.firebase:firebase-messaging:22.0.0'
 //    implementation 'com.firebaseui:firebase-ui-database:1.2.0'
-    implementation 'com.google.firebase:firebase-analytics:19.0.1'
-    implementation 'com.google.firebase:firebase-crashlytics:18.2.1'
+    implementation 'com.google.firebase:firebase-analytics:19.0.2'
+    implementation 'com.google.firebase:firebase-crashlytics:18.2.3'
 //    implementation 'com.google.firebase:firebase-ml-vision:24.0.1'
     // If you want to detect face contours (landmark detection and classification
     // don't require this additional model):
@@ -117,7 +117,7 @@ dependencies {
 //    Google
     implementation 'com.google.android.gms:play-services-auth:19.2.0'
 //    Facebook
-    implementation 'com.facebook.android:facebook-android-sdk:11.3.0'
+    implementation 'com.facebook.android:facebook-android-sdk:12.0.1'
 //    twitter
     implementation 'com.twitter.sdk.android:twitter-core:3.1.1'
     implementation 'com.twitter.sdk.android:twitter:3.1.1'
@@ -161,12 +161,11 @@ dependencies {
 //    fonts
     implementation "uk.co.chrisjenx:calligraphy:$CALLIGRAPHY_VERSION"
 //    Event bus
-    implementation "org.greenrobot:eventbus:3.2.0"
 //    view pager dot indicator
     implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:2.1.2'
 //    custom calendar
 //    implementation project(path: ':calendarlibrary')
-    implementation 'com.airbnb.android:lottie:4.1.0'
+    implementation 'com.airbnb.android:lottie:4.2.0'
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.ss.bannerslider:bannerslider:1.8.0'
     implementation 'com.google.android.gms:play-services-vision:20.1.3'
@@ -180,10 +179,10 @@ dependencies {
     implementation 'com.github.gcacace:signature-pad:1.3.1'
     implementation 'com.github.clans:fab:1.6.4'
     implementation files('libs/itextpdf-5.4.3.jar')
-    implementation 'com.google.android.exoplayer:exoplayer:2.15.0'
+    implementation 'com.google.android.exoplayer:exoplayer:2.15.1'
 //    for PIP
-    implementation 'com.google.android.exoplayer:extension-mediasession:2.15.0'
-    implementation 'com.github.recruit-lifestyle:WaveSwipeRefreshLayout:1.6'
+    implementation 'com.google.android.exoplayer:extension-mediasession:2.15.1'
+//    implementation 'com.github.recruit-lifestyle:WaveSwipeRefreshLayout:1.6'
 //    ripple effect animation
     implementation 'com.skyfishjy.ripplebackground:library:1.0.1'
 //    implementation 'com.github.florent37:arclayout:1.0.4'

@@ -19,8 +19,7 @@ import com.webaddicted.kotlinproject.apiutils.ApiResponse
 import com.webaddicted.kotlinproject.global.common.*
 import com.webaddicted.kotlinproject.global.sharedpref.PreferenceMgr
 import com.webaddicted.kotlinproject.view.dialog.LoaderDialog
-import org.greenrobot.eventbus.EventBus
-import org.greenrobot.eventbus.Subscribe
+
 import org.koin.android.ext.android.inject
 import java.io.File
 
@@ -44,8 +43,6 @@ abstract class BaseFragment(private val layoutId: Int) : Fragment(), View.OnClic
     ): View? {
 //        return super.onCreateView(inflater, container, savedInstanceState)
         mBinding = DataBindingUtil.inflate(inflater, layoutId, container, false)
-        if (!EventBus.getDefault().isRegistered(this))
-            EventBus.getDefault().register(this)
         return mBinding.root
     }
 
@@ -96,15 +93,6 @@ abstract class BaseFragment(private val layoutId: Int) : Fragment(), View.OnClic
         activity?.let { GlobalUtility.hideKeyboard(it) }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        if (EventBus.getDefault().isRegistered(this))
-            EventBus.getDefault().unregister(this)
-    }
-
-    @Subscribe
-    fun eventBusListener() {
-    }
 
     protected fun navigateFragment(
         layoutContainer: Int,

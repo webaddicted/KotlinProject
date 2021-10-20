@@ -11,7 +11,7 @@ interface UserInfoDao {
     @Query("SELECT * FROM user_info")
     fun getUserInfo(): List<UserInfoEntity>
 
-    @Query("SELECT * FROM user_info WHERE  email >= :emailId")
+    @Query("SELECT * FROM user_info WHERE email >= :emailId")
     fun getCouponsBySize(emailId: String): UserInfoEntity
 
     @Delete

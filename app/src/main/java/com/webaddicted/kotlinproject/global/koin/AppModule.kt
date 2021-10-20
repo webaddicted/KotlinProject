@@ -5,6 +5,7 @@ import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.webaddicted.kotlinproject.BuildConfig
 import com.webaddicted.kotlinproject.apiutils.ApiConstant
 import com.webaddicted.kotlinproject.apiutils.ApiServices
 import com.webaddicted.kotlinproject.apiutils.ReflectionUtil
@@ -37,7 +38,7 @@ val appModule = module {
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
         val httpClient = OkHttpClient.Builder()
-        httpClient.addInterceptor(loggingInterceptor)
+        if (BuildConfig.DEBUG)httpClient.addInterceptor(loggingInterceptor)
         httpClient.connectTimeout(ApiConstant.API_TIME_OUT, TimeUnit.MILLISECONDS)
         httpClient.addInterceptor { chain ->
             val request = chain.request().newBuilder().build()

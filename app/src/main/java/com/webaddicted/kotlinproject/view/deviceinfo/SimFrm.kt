@@ -95,13 +95,15 @@ class SimFrm : BaseFragment(R.layout.frm_dev_sim) {
             simInfoDataList?.add(
                 SimInfo(
                     "Integrated circuit card identifier (ICCID)",
-                    telephonyManager.simSerialNumber!!
+//                    telephonyManager.simSerialNumber?:
+                    getString(R.string.not_available)
                 )
             )
             simInfoDataList?.add(
                 SimInfo(
                     "Unique device ID (IMEI or MEID/ESN for CDMA)",
-                    telephonyManager.getImei(0)
+//                    telephonyManager.getImei(0)
+                "INEI not available"
                 )
             )
             simInfoDataList?.add(
