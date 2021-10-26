@@ -61,12 +61,12 @@ class LoginFrm : BaseFragment(R.layout.frm_login) {
         super.onClick(v)
         when (v.id) {
             R.id.btn_login ->
-                activity?.let {
-                    HomeActivity.newIntent(
-                        it
-                    )
-                }
-//            validate()
+//                activity?.let {
+//                    HomeActivity.newIntent(
+//                        it
+//                    )
+//                }
+            validate()
             R.id.btn_signup -> navigateScreen(SignupFrm.TAG)
             R.id.txt_forgot_psw -> {
             }

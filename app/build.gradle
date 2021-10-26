@@ -131,7 +131,8 @@ dependencies {
 
 //    Room database
     implementation "androidx.room:room-runtime:2.3.0"
-    annotationProcessor "androidx.room:room-compiler:2.3.0"
+    kapt "androidx.room:room-compiler:2.3.0"
+    implementation "androidx.room:room-ktx:2.3.0"
 //    kapt "android.arch.persistence.room:compiler:1.1.1"
 //Check local database by chrome:/ inspect
     implementation "com.facebook.stetho:stetho:1.6.0"
