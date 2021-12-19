@@ -16,6 +16,9 @@ Gives a detailed explanation of working all the features/functionality/integrati
 
 [![Kotlin Demo](https://img.shields.io/badge/Kotlin%20Demo%20-Apk-brightgreen.svg?style=for-the-badge&logo=android)](https://github.com/webaddicted/KotlinProject/tree/master/apk/KotlinDemo.apk)
 
+## GIF
+<img src="screenshot/fun.webp" width="500">
+
 
 ## Feature/screen/design
 
