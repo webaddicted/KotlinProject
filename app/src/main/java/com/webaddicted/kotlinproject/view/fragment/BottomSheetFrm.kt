@@ -1,6 +1,8 @@
 package com.webaddicted.kotlinproject.view.fragment
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.widget.LinearLayout
 import androidx.annotation.NonNull
@@ -36,6 +38,14 @@ class BottomSheetFrm : BaseFragment(R.layout.frm_bottom_sheet) {
         mBinding.toolbar.imgBack.visible()
         mBinding.toolbar.txtToolbarTitle.text = resources.getString(R.string.bottom_sheet)
         sheetBehavior = BottomSheetBehavior.from(mBinding.includeBottomSheet.bottomSheet)
+        sheetBehavior.peekHeight = 200
+        sheetBehavior.isHideable = true
+        sheetBehavior.disableShapeAnimations()
+        sheetBehavior.expandedOffset = 200
+        sheetBehavior.halfExpandedRatio =0.8f
+//
+        sheetBehavior.isFitToContents = false
+//        sheetBehavior.setContentView(R.layout.layout_bottom_sheet);
         sheetBehavior.setBottomSheetCallback(object : BottomSheetCallback() {
             override fun onStateChanged(
                 @NonNull bottomSheet: View,
@@ -63,6 +73,9 @@ class BottomSheetFrm : BaseFragment(R.layout.frm_bottom_sheet) {
             ) {
             }
         })
+
+        Handler(Looper.getMainLooper()).postDelayed({    sheetBehavior.isDraggable = false }, 2500)
+
     }
 
     private fun clickListener() {

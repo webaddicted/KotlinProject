@@ -3,11 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/Demo/KotlinProject/app/src/main/res/drawable/bottom_round_btn_corner.xml" value="0.2203125" />
+        <entry key="..\:/AndroidStudioProjects/Demo/KotlinProject/app/src/main/res/drawable/rectangle_fill.xml" value="0.2203125" />
+        <entry key="..\:/AndroidStudioProjects/Demo/KotlinProject/app/src/main/res/drawable/round_btn_corner.xml" value="0.2203125" />
+        <entry key="..\:/AndroidStudioProjects/Demo/KotlinProject/app/src/main/res/drawable/round_corner_strock.xml" value="0.2203125" />
+        <entry key="..\:/AndroidStudioProjects/Demo/KotlinProject/app/src/main/res/layout/bottom_sheet.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/Demo/KotlinProject/app/src/main/res/layout/bottom_sheet1.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/Demo/KotlinProject/app/src/main/res/layout/bottom_sheet_content.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/Demo/KotlinProject/app/src/main/res/layout/frm_bottom_navi.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/Demo/KotlinProject/app/src/main/res/layout/frm_bottom_sheet.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/Demo/KotlinProject/app/src/main/res/layout/frm_dev_user_app.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidStudioProjects/Demo/KotlinProject/app/src/main/res/layout/frm_news.xml" value="0.1" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

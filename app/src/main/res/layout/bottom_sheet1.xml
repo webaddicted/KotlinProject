@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transprant"
+            android:orientation="vertical">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp" />
+
+        <LinearLayout
+                android:id="@+id/bottom_sheet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transprant"
+                android:minHeight="@dimen/dp256"
+                android:orientation="vertical"
+                app:behavior_hideable="true"
+                app:behavior_peekHeight="56dp"
+                app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+            <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                    <ImageView
+                            android:layout_width="@dimen/dp30"
+                            android:layout_height="@dimen/dp30"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_arrow_right" />
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bottom_round_btn_corner"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                            <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/dp5"
+                                    android:layout_weight="2"
+                                    android:text="Order Details"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
+
+                            <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="right"
+                                    android:text="₹435.00"
+                                    android:textColor="@color/black"
+                                    android:textSize="15dp"
+                                    android:textStyle="bold"></TextView>
+                        </LinearLayout>
+
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Chicken Fried Rice 1x1"
+                                android:textColor="@color/gray_818181" />
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Paneer Tikka 1x2"
+                                android:textColor="@color/gray_818181" />
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp5"
+                                android:text="Delivery Address"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Flat No 404, Skyline Apartments, Vizag - 500576"
+                                android:textColor="@color/gray_818181" />
+
+                        <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="30dp"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:text="PROCEED PAYMENT"
+                                android:textColor="@color/white" />
+
+                        <com.webaddicted.kotlinproject.global.customview.ZoomImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp350"
+                                android:layout_marginTop="5dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/good_night_img" />
+
+                        <com.webaddicted.kotlinproject.global.customview.ZoomImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp350"
+                                android:layout_marginTop="5dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/good_night_img" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

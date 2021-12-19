@@ -77,14 +77,14 @@ class BottomSheetBehavFrm : BaseFragment(R.layout.frm_bottom_sheet) {
     }
 
     private fun setAdapter() {
-        mBinding.bottomSheetBehav.imgNoDataFound.gone()
-        adapter = CommonAdapter()
-        mBinding.bottomSheetBehav.rvApps.layoutManager = LinearLayoutManager(
-            activity,
-            LinearLayoutManager.VERTICAL,
-            false
-        )
-        mBinding.bottomSheetBehav.rvApps.adapter = adapter
+//        mBinding.bottomSheetBehav.imgNoDataFound.gone()
+//        adapter = CommonAdapter()
+//        mBinding.bottomSheetBehav.rvApps.layoutManager = LinearLayoutManager(
+//            activity,
+//            LinearLayoutManager.VERTICAL,
+//            false
+//        )
+//        mBinding.bottomSheetBehav.rvApps.adapter = adapter
     }
 }
 

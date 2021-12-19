@@ -5,12 +5,11 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 android {
-    compileSdkVersion 31
-    buildToolsVersion '30.0.3'
+    compileSdkVersion 32
     defaultConfig {
         applicationId "com.webaddicted.kotlinproject"
         minSdkVersion 24
-        targetSdkVersion 31
+        targetSdkVersion 32
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -77,31 +76,31 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.31"
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.android.support:design:31.0.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.10"
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'com.android.support:design:32.0.0'
     implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
     implementation 'androidx.biometric:biometric:1.1.0'
-    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.core:core-ktx:1.7.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test:runner:1.4.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation "android.arch.lifecycle:common-java8:1.1.1"
     //    location
-    implementation 'com.google.android.gms:play-services-location:18.0.0'
+    implementation 'com.google.android.gms:play-services-location:19.0.0'
 //    implementation 'com.google.android.gms:play-services-location:11.0.2'
-    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+    implementation 'com.google.android.gms:play-services-maps:18.0.1'
 //    implementation 'com.google.android.gms:play-services-places:17.0.0'
     //fcm
 //    implementation 'com.google.firebase:firebase-core:17.2.3'
     implementation 'com.google.firebase:firebase-auth:21.0.1'
-    implementation 'com.google.firebase:firebase-database:20.0.2'
+    implementation 'com.google.firebase:firebase-database:20.0.3'
     implementation 'com.google.firebase:firebase-storage:20.0.0'
-    implementation 'com.google.firebase:firebase-messaging:22.0.0'
+    implementation 'com.google.firebase:firebase-messaging:23.0.0'
 //    implementation 'com.firebaseui:firebase-ui-database:1.2.0'
-    implementation 'com.google.firebase:firebase-analytics:19.0.2'
-    implementation 'com.google.firebase:firebase-crashlytics:18.2.3'
+    implementation 'com.google.firebase:firebase-analytics:20.0.1'
+    implementation 'com.google.firebase:firebase-crashlytics:18.2.6'
 //    implementation 'com.google.firebase:firebase-ml-vision:24.0.1'
     // If you want to detect face contours (landmark detection and classification
     // don't require this additional model):
@@ -115,24 +114,24 @@ dependencies {
     implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
 
 //    Google
-    implementation 'com.google.android.gms:play-services-auth:19.2.0'
+    implementation 'com.google.android.gms:play-services-auth:20.0.0'
 //    Facebook
     implementation 'com.facebook.android:facebook-android-sdk:12.0.1'
 //    twitter
     implementation 'com.twitter.sdk.android:twitter-core:3.1.1'
     implementation 'com.twitter.sdk.android:twitter:3.1.1'
 //    START sms retriever
-    implementation 'com.google.android.gms:play-services-base:17.6.0'
-    implementation 'com.google.android.gms:play-services-identity:17.0.1'
-    implementation 'com.google.android.gms:play-services-auth:19.2.0'
-    implementation 'com.google.android.gms:play-services-auth-api-phone:17.5.1'
+    implementation 'com.google.android.gms:play-services-base:18.0.0'
+    implementation 'com.google.android.gms:play-services-identity:18.0.0'
+    implementation 'com.google.android.gms:play-services-auth:20.0.0'
+    implementation 'com.google.android.gms:play-services-auth-api-phone:18.0.0'
 //    END sms retriever
 
 
 //    Room database
-    implementation "androidx.room:room-runtime:2.3.0"
-    kapt "androidx.room:room-compiler:2.3.0"
-    implementation "androidx.room:room-ktx:2.3.0"
+    implementation "androidx.room:room-runtime:2.4.0"
+    kapt "androidx.room:room-compiler:2.4.0"
+    implementation "androidx.room:room-ktx:2.4.0"
 //    kapt "android.arch.persistence.room:compiler:1.1.1"
 //Check local database by chrome:/ inspect
     implementation "com.facebook.stetho:stetho:1.6.0"
@@ -149,8 +148,8 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2"
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$KOTLIN_COROUTINE_ADAPTER_FACTORY_VERSION"
 //    Kotlin coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2-native-mt"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2-native-mt"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
 //    Koin
     implementation "org.koin:koin-android:$KOIN_VERSION"
     implementation "org.koin:koin-androidx-scope:$KOIN_VERSION"
@@ -158,7 +157,7 @@ dependencies {
 
     implementation "com.github.bumptech.glide:glide:4.12.0"
 //    jetpack pagination
-    implementation "androidx.paging:paging-runtime-ktx:3.0.1"
+    implementation "androidx.paging:paging-runtime-ktx:3.1.0"
 //    fonts
     implementation "uk.co.chrisjenx:calligraphy:$CALLIGRAPHY_VERSION"
 //    Event bus
@@ -180,9 +179,9 @@ dependencies {
     implementation 'com.github.gcacace:signature-pad:1.3.1'
     implementation 'com.github.clans:fab:1.6.4'
     implementation files('libs/itextpdf-5.4.3.jar')
-    implementation 'com.google.android.exoplayer:exoplayer:2.15.1'
+    implementation 'com.google.android.exoplayer:exoplayer:2.16.1'
 //    for PIP
-    implementation 'com.google.android.exoplayer:extension-mediasession:2.15.1'
+    implementation 'com.google.android.exoplayer:extension-mediasession:2.16.1'
 //    implementation 'com.github.recruit-lifestyle:WaveSwipeRefreshLayout:1.6'
 //    ripple effect animation
     implementation 'com.skyfishjy.ripplebackground:library:1.0.1'
