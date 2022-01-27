@@ -88,7 +88,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation "android.arch.lifecycle:common-java8:1.1.1"
     //    location
-    implementation 'com.google.android.gms:play-services-location:19.0.0'
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
 //    implementation 'com.google.android.gms:play-services-location:11.0.2'
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
 //    implementation 'com.google.android.gms:play-services-places:17.0.0'
@@ -100,7 +100,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:23.0.0'
 //    implementation 'com.firebaseui:firebase-ui-database:1.2.0'
     implementation 'com.google.firebase:firebase-analytics:20.0.2'
-    implementation 'com.google.firebase:firebase-crashlytics:18.2.6'
+    implementation 'com.google.firebase:firebase-crashlytics:18.2.7'
 //    implementation 'com.google.firebase:firebase-ml-vision:24.0.1'
     // If you want to detect face contours (landmark detection and classification
     // don't require this additional model):
@@ -126,7 +126,6 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:20.0.1'
     implementation 'com.google.android.gms:play-services-auth-api-phone:18.0.1'
 //    END sms retriever
-
 
 //    Room database
     implementation "androidx.room:room-runtime:2.4.1"
