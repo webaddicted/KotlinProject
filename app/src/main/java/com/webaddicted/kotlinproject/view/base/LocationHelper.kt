@@ -119,7 +119,7 @@ abstract class LocationHelper {
 
             if (resultCode != ConnectionResult.SUCCESS) {
                 if (googleApiAvailability.isUserResolvableError(resultCode)) {
-                    googleApiAvailability.getErrorDialog(activity, resultCode, 1000).show()
+                    googleApiAvailability.getErrorDialog(activity, resultCode, 1000)?.show()
                 } else {
                     locationChangeListener.onError("This device is not supported.")
                     Toast.makeText(
@@ -146,7 +146,7 @@ abstract class LocationHelper {
 
             val result =
                 LocationServices.SettingsApi.checkLocationSettings(
-                    mGoogleApiClient,
+                    mGoogleApiClient!!,
                     builder.build()
                 )
 
@@ -193,8 +193,8 @@ abstract class LocationHelper {
             //        criteria.setCostAllowed(true);
             if (mGoogleApiClient!!.isConnected) {
                 LocationServices.FusedLocationApi.requestLocationUpdates(
-                    mGoogleApiClient,
-                    mLocationRequest,
+                    mGoogleApiClient!!,
+                    mLocationRequest!!,
                     this
                 )
             } else {
@@ -205,7 +205,7 @@ abstract class LocationHelper {
         fun stopLocationUpdates() {
             if (mGoogleApiClient != null && mGoogleApiClient!!.isConnected) {
                 LocationServices.FusedLocationApi.removeLocationUpdates(
-                    mGoogleApiClient,
+                    mGoogleApiClient!!,
                     this as LocationListener
                 )
             }
@@ -229,7 +229,7 @@ abstract class LocationHelper {
 
         private fun initLocationCallBack() {
             locationCallback = object : LocationCallback() {
-                override fun onLocationResult(locationResult: LocationResult?) {
+                override fun onLocationResult(locationResult: LocationResult) {
                     super.onLocationResult(locationResult)
                     locationChangeListener.onUpdatedLocation(locationResult?.lastLocation!!, "")
                     fusedLocationProviderClient.removeLocationUpdates(locationCallback)
@@ -248,9 +248,9 @@ abstract class LocationHelper {
                 val location = it.result
                 if (location == null) {
                     fusedLocationProviderClient.requestLocationUpdates(
-                        mLocationRequest,
+                        mLocationRequest!!,
                         locationCallback,
-                        Looper.myLooper()
+                        Looper.myLooper()!!
                     )
                 } else locationChangeListener.onUpdatedLocation(location, "")
             }

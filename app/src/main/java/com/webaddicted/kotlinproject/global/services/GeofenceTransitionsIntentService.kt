@@ -14,8 +14,8 @@ class GeofenceTransitionsIntentService : IntentService("GeofenceTransitionsInten
 
         Log.i(TAG, "onHandleIntent")
 
-        val geofencingEvent = GeofencingEvent.fromIntent(intent)
-        if (geofencingEvent.hasError()) {
+        val geofencingEvent = intent?.let { GeofencingEvent.fromIntent(it) }
+        if (geofencingEvent!!.hasError()) {
             //String errorMessage = GeofenceErrorMessages.getErrorString(this,
             //      geofencingEvent.getErrorCode());
             Log.e(TAG, "Goefencing Error " + geofencingEvent.errorCode)

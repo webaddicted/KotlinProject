@@ -45,13 +45,15 @@ class GoogleAuth {
             )
             if (mAuth != null) {
                 if (mAuth.currentUser == null) {
-                    val gso = GoogleSignInOptions.Builder(
-                        GoogleSignInOptions.DEFAULT_SIGN_IN
-                    )
-                        .requestIdToken(clientId)
-                        .requestEmail()
-                        .build()
-                    mGoogleSignInClient = GoogleSignIn.getClient(activity, gso)
+                    val gso = clientId?.let {
+                        GoogleSignInOptions.Builder(
+                            GoogleSignInOptions.DEFAULT_SIGN_IN
+                        )
+                            .requestIdToken(it)
+                            .requestEmail()
+                            .build()
+                    }
+                    mGoogleSignInClient = gso?.let { GoogleSignIn.getClient(activity, it) }
                     val signInIntent = mGoogleSignInClient?.signInIntent
                     activity.startActivityForResult(
                         signInIntent,

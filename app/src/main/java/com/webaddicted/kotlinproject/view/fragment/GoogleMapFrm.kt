@@ -116,7 +116,7 @@ class GoogleMapFrm : BaseFragment(R.layout.frm_google_map), OnMapReadyCallback, 
         if (geoFenceCircle != null)
             geoFenceCircle!!.remove()
         val circleOptions = CircleOptions()
-            .center(fancyMarker?.position)
+            .center(fancyMarker?.position!!)
             .radius(AppConstant.GEOFENCE_RADIUS.toDouble())
             .fillColor(ContextCompat.getColor(mActivity,R.color.geo_fency_color))
             .strokeColor(ContextCompat.getColor(mActivity,R.color.geo_fency_color))
@@ -132,7 +132,7 @@ class GoogleMapFrm : BaseFragment(R.layout.frm_google_map), OnMapReadyCallback, 
         }
     }
 
-    override fun onMapClick(latLng: LatLng?) {
+    override fun onMapClick(latLng: LatLng) {
         if (latLng != null) {
              googleMap?.addMarker(
                 MarkerOptions().position(latLng).title("This is Me").icon(
@@ -149,7 +149,7 @@ class GoogleMapFrm : BaseFragment(R.layout.frm_google_map), OnMapReadyCallback, 
         }
     }
 
-    override fun onMapReady(map: GoogleMap?) {
+    override fun onMapReady(map: GoogleMap) {
         if (map != null) {
             googleMap = map
         }

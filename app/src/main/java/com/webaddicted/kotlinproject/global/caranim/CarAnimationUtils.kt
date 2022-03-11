@@ -8,7 +8,7 @@ import kotlin.math.sin
 
 object CarAnimationUtils {
     fun isMarkerVisible(googleMap: GoogleMap, newLocation: LatLng?): Boolean {
-        return googleMap.projection.visibleRegion.latLngBounds.contains(newLocation)
+        return newLocation?.let { googleMap.projection.visibleRegion.latLngBounds.contains(it) }!!
     }
 
     fun bearingBetweenLocations(latLng1: LatLng, latLng2: LatLng): Double {

@@ -101,7 +101,7 @@ abstract class BaseLocation(private val layoutId: Int) : BaseActivity(layoutId),
 
         if (resultCode != ConnectionResult.SUCCESS) {
             if (googleApiAvailability.isUserResolvableError(resultCode)) {
-                googleApiAvailability.getErrorDialog(this, resultCode, 1000).show()
+                googleApiAvailability.getErrorDialog(this, resultCode, 1000)?.show()
             } else {
                 Toast.makeText(
                     applicationContext,
@@ -126,7 +126,7 @@ abstract class BaseLocation(private val layoutId: Int) : BaseActivity(layoutId),
         val builder = LocationSettingsRequest.Builder().addLocationRequest(mLocationRequest!!)
 
         val result =
-            LocationServices.SettingsApi.checkLocationSettings(mGoogleApiClient, builder.build())
+            LocationServices.SettingsApi.checkLocationSettings(mGoogleApiClient!!, builder.build())
 
         result.setResultCallback { locationSettingsResult ->
             val status = locationSettingsResult.status
@@ -159,21 +159,23 @@ abstract class BaseLocation(private val layoutId: Int) : BaseActivity(layoutId),
         mFancyMarker = fancyMarker
         createGeofences(location.latitude, location.longitude)
         try {
-            LocationServices.GeofencingApi.addGeofences(
-                mGoogleApiClient,
-                getGeofencingRequest(),
-                getGeofencePendingIntent()
-            ).setResultCallback(ResultCallback<Status> { status ->
-                if (status.isSuccess) {
-                    Lg.i(TAG, "Saving Geofence")
+            mGoogleApiClient?.let {
+                LocationServices.GeofencingApi.addGeofences(
+                    it,
+                    getGeofencingRequest(),
+                    getGeofencePendingIntent()!!
+                ).setResultCallback(ResultCallback<Status> { status ->
+                    if (status.isSuccess) {
+                        Lg.i(TAG, "Saving Geofence")
 
-                } else {
-                    Lg.e(
-                        TAG, "Registering geofence failed: " + status.statusMessage +
-                                " : " + status.statusCode
-                    )
-                }
-            })
+                    } else {
+                        Lg.e(
+                            TAG, "Registering geofence failed: " + status.statusMessage +
+                                    " : " + status.statusCode
+                        )
+                    }
+                })
+            }
 
         } catch (securityException: SecurityException) {
             // Catch exception generated if the app does not use ACCESS_FINE_LOCATION permission.
@@ -199,7 +201,7 @@ abstract class BaseLocation(private val layoutId: Int) : BaseActivity(layoutId),
     private fun getGeofencingRequest(): GeofencingRequest {
         val builder = GeofencingRequest.Builder()
         builder.setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER)
-        builder.addGeofences(mGeofenceList)
+        builder.addGeofences(mGeofenceList!!)
         return builder.build()
     }
 
@@ -218,8 +220,8 @@ abstract class BaseLocation(private val layoutId: Int) : BaseActivity(layoutId),
     // Clear Geofence
      fun stopGeoFencing(fancyMarker: Marker?, geoFenceCircle: Circle?) {
             LocationServices.GeofencingApi.removeGeofences(
-                mGoogleApiClient,
-                getGeofencePendingIntent()
+                mGoogleApiClient!!,
+                getGeofencePendingIntent()!!
             ).setResultCallback { status ->
                 if (status.isSuccess) {
                     fancyMarker?.remove()
@@ -246,8 +248,8 @@ abstract class BaseLocation(private val layoutId: Int) : BaseActivity(layoutId),
         //        criteria.setCostAllowed(true);
         if (mGoogleApiClient!!.isConnected) {
             LocationServices.FusedLocationApi.requestLocationUpdates(
-                mGoogleApiClient,
-                mLocationRequest,
+                mGoogleApiClient!!,
+                mLocationRequest!!,
                 this
             )
         } else {
@@ -258,8 +260,8 @@ abstract class BaseLocation(private val layoutId: Int) : BaseActivity(layoutId),
     protected fun stopLocationUpdates() {
         if (mGoogleApiClient != null && mGoogleApiClient!!.isConnected) {
             LocationServices.FusedLocationApi.removeLocationUpdates(
-                mGoogleApiClient,
-                this as com.google.android.gms.location.LocationListener
+                mGoogleApiClient!!,
+                this as LocationListener
             )
         }
         cleanUpLocation()
@@ -302,8 +304,8 @@ abstract class BaseLocation(private val layoutId: Int) : BaseActivity(layoutId),
 
      fun initLocationCallBack() {
         locationCallback = object : LocationCallback() {
-            override fun onLocationResult(locationResult: LocationResult?) {
-                super.onLocationResult(locationResult)
+            override fun onLocationResult(locationResult: LocationResult) {
+                locationResult?.let { super.onLocationResult(it) }
                 getCurrentLocation(locationResult!!.lastLocation, null)
                 fusedLocationProviderClient.removeLocationUpdates(locationCallback)
             }
@@ -319,7 +321,7 @@ abstract class BaseLocation(private val layoutId: Int) : BaseActivity(layoutId),
             fusedLocationProviderClient.lastLocation.addOnCompleteListener {
                 val location = it.result
                 if (location == null) {
-                    fusedLocationProviderClient.requestLocationUpdates(mLocationRequest, locationCallback, Looper.myLooper())
+                    fusedLocationProviderClient.requestLocationUpdates(mLocationRequest!!, locationCallback, Looper.myLooper()!!)
                 } else {
                     getCurrentLocation(location, null)
                 }

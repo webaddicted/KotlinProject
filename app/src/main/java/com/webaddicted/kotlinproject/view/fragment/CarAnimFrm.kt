@@ -84,7 +84,7 @@ class CarAnimFrm : BaseFragment(R.layout.frm_google_map), OnMapReadyCallback,
         }
     }
 
-    override fun onMapClick(latLng: LatLng?) {
+    override fun onMapClick(latLng: LatLng) {
         if (latLng != null) {
             googleMap?.addMarker(
                 MarkerOptions().position(latLng).title("This is Me").icon(
@@ -98,7 +98,7 @@ class CarAnimFrm : BaseFragment(R.layout.frm_google_map), OnMapReadyCallback,
         }
     }
 
-    override fun onMapReady(map: GoogleMap?) {
+    override fun onMapReady(map: GoogleMap) {
         if (map != null) {
             googleMap = map
         }
