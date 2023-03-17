@@ -30,7 +30,7 @@
                         android:layout_height="@dimen/dp50"
                         android:layout_marginLeft="@dimen/dp15"
                         android:layout_marginRight="@dimen/dp15"
-                        android:background="@color/gray_f6f6f6"
+                        android:background="@color/grey_f6f6f6"
                         android:text="enter text"
                         android:textColor="#D81B60" />
 

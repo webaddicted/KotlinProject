@@ -38,7 +38,7 @@
                     android:layout_weight=".03"
                     android:gravity="center_vertical"
                     android:text=":"
-                    android:textColor="@color/gray"
+                    android:textColor="@color/grey_semilight"
                     tools:ignore="MissingPrefix"
                     tools:targetApi="jelly_bean" />
 
@@ -52,7 +52,7 @@
                     android:gravity="center_vertical"
                     android:maxLines="30"
                     android:paddingStart="2dp"
-                    android:textColor="@color/gray_CDCDCD"
+                    android:textColor="@color/grey_cdcdcd"
                     android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>

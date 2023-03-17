@@ -99,13 +99,13 @@
                         android:background="@drawable/edt_round_corner"
                         android:drawableLeft="@drawable/ic_search"
                         android:drawablePadding="@dimen/dp5"
-                        android:drawableTint="@color/gray"
+                        android:drawableTint="@color/grey_semilight"
                         android:ems="10"
                         android:hint="search"
                         android:imeOptions="actionSend"
                         android:inputType="textPersonName"
                         android:paddingLeft="@dimen/dp15"
-                        android:textColorHint="@color/gray" />
+                        android:textColorHint="@color/grey_semilight" />
 
             </LinearLayout>
 

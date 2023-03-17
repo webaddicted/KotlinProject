@@ -94,7 +94,7 @@
                                     android:layout_width="@dimen/dp25"
                                     android:layout_height="@dimen/dp25"
                                     android:src="@drawable/ic_profile"
-                                    app:tint="@color/gray_CDCDCD"
+                                    app:tint="@color/grey_cdcdcd"
                                     android:visibility="gone" />
 
                             <ImageView
@@ -103,7 +103,7 @@
                                     android:layout_height="@dimen/dp25"
                                     android:layout_marginLeft="@dimen/dp5"
                                     android:src="@drawable/ic_option"
-                                    app:tint="@color/gray_CDCDCD"
+                                    app:tint="@color/grey_cdcdcd"
                                     android:visibility="gone" />
                         </LinearLayout>
                     </RelativeLayout>

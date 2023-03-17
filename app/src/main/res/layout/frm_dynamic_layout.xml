@@ -58,7 +58,7 @@
                             android:layout_weight="0.23"
                             android:gravity="center"
                             android:text="@string/date"
-                            android:textColor="@color/gray_CDCDCD"
+                            android:textColor="@color/grey_cdcdcd"
                             android:textSize="@dimen/sp15"
                             android:textStyle="bold|italic" />
 
@@ -76,7 +76,7 @@
                             android:layout_weight="0.25"
                             android:gravity="center"
                             android:text="@string/particulars"
-                            android:textColor="@color/gray_CDCDCD"
+                            android:textColor="@color/grey_cdcdcd"
                             android:textSize="@dimen/sp15"
                             android:textStyle="bold|italic" />
 
@@ -94,7 +94,7 @@
                             android:gravity="center"
                             android:layout_gravity="center"
                             android:text="@string/vch_type"
-                            android:textColor="@color/gray_CDCDCD"
+                            android:textColor="@color/grey_cdcdcd"
                             android:textSize="@dimen/sp15"
                             android:textStyle="bold|italic" />
 
@@ -112,7 +112,7 @@
                             android:gravity="center"
                             android:text="@string/vch_no"
                             android:layout_gravity="center"
-                            android:textColor="@color/gray_CDCDCD"
+                            android:textColor="@color/grey_cdcdcd"
                             android:textSize="@dimen/sp15"
                             android:textStyle="bold|italic" />
 
@@ -130,7 +130,7 @@
                             android:gravity="center"
                             android:layout_gravity="center"
                             android:text="@string/debit"
-                            android:textColor="@color/gray_CDCDCD"
+                            android:textColor="@color/grey_cdcdcd"
                             android:textSize="@dimen/sp15"
                             android:textStyle="bold|italic" />
 
@@ -148,7 +148,7 @@
                             android:gravity="center"
                             android:text="@string/credit"
                             android:layout_gravity="center"
-                            android:textColor="@color/gray_CDCDCD"
+                            android:textColor="@color/grey_cdcdcd"
                             android:textSize="@dimen/sp15"
                             android:textStyle="bold|italic" />
                 </LinearLayout>

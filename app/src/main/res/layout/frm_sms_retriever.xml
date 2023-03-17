@@ -33,7 +33,7 @@
                         android:layout_marginTop="@dimen/dp15"
                         android:layout_marginRight="@dimen/dp15"
                         android:text="@string/refresh_hash_code"
-                        android:textColor="@color/gray" />
+                        android:textColor="@color/grey_semilight" />
 
                 <Button
                         android:id="@+id/btn_hashcode"
@@ -76,7 +76,7 @@
                                 android:layout_marginBottom="5dp"
                                 android:gravity="center"
                                 android:text="@string/six_digit_otp"
-                                android:textColor="@color/gray" />
+                                android:textColor="@color/grey_semilight" />
 
                         <TextView
                                 android:id="@+id/txt_MobileNo"
@@ -143,7 +143,7 @@
                                     android:layout_width="@dimen/dp50"
                                     android:layout_height="@dimen/dp1"
                                     android:layout_gravity="center_horizontal"
-                                    android:background="@color/gray_CDCDCD" />
+                                    android:background="@color/grey_cdcdcd" />
 
                             <TextView
                                     android:id="@+id/txt_ResendOTP"

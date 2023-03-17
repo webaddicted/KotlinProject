@@ -83,14 +83,14 @@
                                 android:layout_height="wrap_content"
                                 android:hint="@string/first_name"
                                 app:helperText="@string/enter_first_name"
-                                android:textColorHint="@color/gray_818181"
+                                android:textColorHint="@color/grey_818181"
                                 app:helperTextEnabled="true">
 
                             <com.google.android.material.textfield.TextInputEditText
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:textColor="@color/black"
-                                    android:textColorHint="@color/gray_818181"
+                                    android:textColorHint="@color/grey_818181"
                                     custom:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,7 +99,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/dp8"
                                 android:hint="@string/password"
-                                android:textColorHint="@color/gray_818181"
+                                android:textColorHint="@color/grey_818181"
                                 app:endIconMode="password_toggle"
                                 app:errorEnabled="true"
                                 app:helperText="@string/password"
@@ -108,7 +108,7 @@
                             <com.google.android.material.textfield.TextInputEditText
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:textColorHint="@color/gray_818181"
+                                    android:textColorHint="@color/grey_818181"
                                     android:textColor="@color/black"
                                     android:inputType="textPassword" />
                         </com.google.android.material.textfield.TextInputLayout>
@@ -119,7 +119,7 @@
                                 android:layout_marginTop="@dimen/dp8"
                                 android:hint="@string/enter_first_name"
                                 app:errorEnabled="true"
-                                android:textColorHint="@color/gray_818181"
+                                android:textColorHint="@color/grey_818181"
                                 app:helperText="@string/enter_first_name"
                                 app:helperTextEnabled="true">
 
@@ -128,7 +128,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:clickable="false"
-                                    android:textColorHint="@color/gray_818181"
+                                    android:textColorHint="@color/grey_818181"
                                     android:textColor="@color/black"
                                     android:focusableInTouchMode="false"
                                     android:longClickable="false" />
@@ -140,14 +140,14 @@
                                 android:layout_marginTop="@dimen/dp8"
                                 android:enabled="false"
                                 android:hint="@string/enter_last_name"
-                                android:textColorHint="@color/gray_818181"
+                                android:textColorHint="@color/grey_818181"
                                 app:helperText="@string/enter_last_name"
                                 app:helperTextEnabled="true">
 
                             <com.google.android.material.textfield.TextInputEditText
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/dp50"
-                                    android:textColorHint="@color/gray_818181"
+                                    android:textColorHint="@color/grey_818181"
                                     android:textColor="@color/black"
                                     android:background="@drawable/rectangle_unfill"
                                     android:paddingLeft="@dimen/dp10" />
@@ -159,7 +159,7 @@
                                 android:layout_height="@dimen/dp45"
                                 android:layout_marginTop="@dimen/dp8"
                                 android:layout_marginBottom="@dimen/dp10"
-                                android:textColorHint="@color/gray_818181"
+                                android:textColorHint="@color/grey_818181"
                                 android:background="@drawable/edt_round_corner"
                                 android:hint="@string/enter_first_name"
                                 android:paddingLeft="@dimen/dp10" />
@@ -169,11 +169,11 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/dp10"
-                                android:textColorHint="@color/gray_818181"
+                                android:textColorHint="@color/grey_818181"
                                 android:textColor="@color/black"
                                 android:drawablePadding="@dimen/dp4"
                                 android:ems="10"
-                                app:hintTextColor="@color/gray_818181"
+                                app:hintTextColor="@color/grey_818181"
                                 android:hint="Select country"
                                 android:textAppearance="@style/TextAppearance_open_sans_semibold" />
 
@@ -183,7 +183,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/dp10"
                                 android:ems="10"
-                                android:textColorHint="@color/gray_818181"
+                                android:textColorHint="@color/grey_818181"
                                 android:textColor="@color/black"
                                 android:hint="Select multiple country"
                                 android:textAppearance="@style/TextAppearance_open_sans_semibold" />
@@ -289,10 +289,10 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:numStars="5"
-                                android:progressBackgroundTint="@color/gray_CDCDCD"
+                                android:progressBackgroundTint="@color/grey_cdcdcd"
                                 android:progressTint="@color/app_color"
                                 android:rating="3"
-                                android:secondaryProgressTint="@color/gray_CDCDCD"
+                                android:secondaryProgressTint="@color/grey_cdcdcd"
                                 android:stepSize="0.5" />
 
                         <TextView
@@ -463,7 +463,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/dp18"
-                                android:shadowColor="@color/gray_818181"
+                                android:shadowColor="@color/grey_818181"
                                 android:layout_marginBottom="@dimen/dp5"
                                 android:switchTextAppearance="@style/switch_text_appearance"
                                 android:textOff="OFF"
@@ -506,7 +506,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/dp8"
                                 android:indeterminate="true"
-                                android:outlineSpotShadowColor="@color/gray" />
+                                android:outlineSpotShadowColor="@color/grey_semilight" />
 
                         <ProgressBar
                                 android:id="@+id/pb_medium"
@@ -523,7 +523,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/dp8"
                                 android:indeterminate="true"
-                                android:outlineSpotShadowColor="@color/gray" />
+                                android:outlineSpotShadowColor="@color/grey_semilight" />
 
                         <ProgressBar
                                 style="?android:attr/progressBarStyleHorizontal"

@@ -79,13 +79,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Chicken Fried Rice 1x1"
-                                android:textColor="@color/gray_818181" />
+                                android:textColor="@color/grey_818181" />
 
                         <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Paneer Tikka 1x2"
-                                android:textColor="@color/gray_818181" />
+                                android:textColor="@color/grey_818181" />
 
                         <TextView
                                 android:layout_width="wrap_content"
@@ -99,7 +99,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Flat No 404, Skyline Apartments, Vizag - 500576"
-                                android:textColor="@color/gray_818181" />
+                                android:textColor="@color/grey_818181" />
 
                         <Button
                                 android:layout_width="match_parent"

@@ -59,7 +59,7 @@
                         app:errorTextAppearance="@style/ErrorText"
                         app:passwordToggleDrawable="@drawable/password_selector"
                         app:passwordToggleEnabled="true"
-                        app:passwordToggleTint="@color/gray">
+                        app:passwordToggleTint="@color/grey_semilight">
 
                     <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/edt_pwd"
@@ -106,7 +106,7 @@
                             style="@style/txt_black_normal_bold"
                             android:layout_gravity="center_vertical"
                             android:text="@string/dont_have_account"
-                            android:textColor="@color/gray_818181" />
+                            android:textColor="@color/grey_818181" />
 
                     <TextView
                             android:id="@+id/txt_sign_up"

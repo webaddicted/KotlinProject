@@ -69,19 +69,19 @@
                 <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@color/gray_EAEBED" />
+                        android:background="@color/grey_eaebed" />
 
                 <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/gray_74f6f6f6"
+                        android:background="@color/grey_74f6f6f6"
                         android:orientation="horizontal">
 
                     <TextView
                             style="@style/txt_black_normal"
                             android:layout_width="wrap_content"
                             android:layout_gravity="center"
-                            android:background="@color/gray_74f6f6f6"
+                            android:background="@color/grey_74f6f6f6"
                             android:gravity="center"
                             android:text="@string/sort"
                             android:textColor="@color/black"
@@ -115,7 +115,7 @@
                             app:tabMode="fixed"
                             app:tabSelectedTextColor="@color/black"
                             app:tabTextAppearance="@style/MyMenuTextAppearance1"
-                            app:tabTextColor="@color/gray"
+                            app:tabTextColor="@color/grey_semilight"
                             tools:ignore="SpeakableTextPresentCheck" />
 
 

@@ -306,7 +306,7 @@
     <style name="Separator_View">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/dp1</item>
-        <item name="android:background">@color/gray_CDCDCD</item>
+        <item name="android:background">@color/grey_cdcdcd</item>
     </style>
 
     <!--    {START PINK STYLE}-->
@@ -387,7 +387,7 @@
     <style name="txt_gray_small">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@color/gray</item>
+        <item name="android:textColor">@color/grey_semilight</item>
         <item name="android:textSize">@dimen/sp12</item>
         <item name="android:textAppearance">@style/TextAppearance_open_sans_semibold</item>
     </style>
@@ -395,7 +395,7 @@
     <style name="txt_gray_large_32">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@color/gray</item>
+        <item name="android:textColor">@color/grey_semilight</item>
         <item name="android:textSize">@dimen/sp32</item>
         <item name="android:gravity">center</item>
         <item name="android:textAppearance">@style/TextAppearance_open_sans_semibold</item>
@@ -404,7 +404,7 @@
     <style name="txt_gray_large">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@color/gray</item>
+        <item name="android:textColor">@color/grey_semilight</item>
         <item name="android:textSize">@dimen/sp16</item>
         <item name="android:gravity">center</item>
         <item name="android:textAppearance">@style/TextAppearance_open_sans_semibold</item>

@@ -34,7 +34,7 @@
                     <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="@color/gray_EAEBED" />
+                            android:background="@color/grey_eaebed" />
 
                     <TextView
                             style="@style/txt_black_normal"
@@ -64,7 +64,7 @@
                                 android:inputType="number"
                                 android:maxLength="6"
                                 android:textColor="@color/black"
-                                android:textColorHint="@color/gray_818181"
+                                android:textColorHint="@color/grey_818181"
                                 android:textSize="@dimen/sp13"
                                 tools:ignore="TouchTargetSizeCheck" />
 
@@ -119,7 +119,7 @@
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginBottom="@dimen/dp16"
                                 android:text="@string/resend_otp"
-                                android:textColor="@color/gray_818181"
+                                android:textColor="@color/grey_818181"
                                 android:textSize="@dimen/sp13" />
 
                         <LinearLayout

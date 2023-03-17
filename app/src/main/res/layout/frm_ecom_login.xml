@@ -25,7 +25,7 @@
             <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/gray_EAEBED" />
+                    android:background="@color/grey_eaebed" />
 
             <TextView
                     style="@style/txt_black_normal"
@@ -55,7 +55,7 @@
                         android:inputType="number"
                         android:maxLength="10"
                         android:textColor="@color/black"
-                        android:textColorHint="@color/gray_818181"
+                        android:textColorHint="@color/grey_818181"
                         android:textSize="@dimen/sp13"
                         tools:ignore="TouchTargetSizeCheck" />
 

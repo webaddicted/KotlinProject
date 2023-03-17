@@ -67,7 +67,7 @@
                                 android:layout_height="@dimen/dp25"
                                 android:src="@drawable/ic_profile"
                                 android:visibility="gone"
-                                app:tint="@color/gray_CDCDCD" />
+                                app:tint="@color/grey_cdcdcd" />
                         <ImageView
                                 android:id="@+id/img_theme"
                                 android:layout_width="@dimen/dp25"
@@ -75,7 +75,7 @@
                                 android:src="@drawable/ic_lightbulb"
                                 android:visibility="gone"
                                 android:layout_marginLeft="@dimen/dp5"
-                                app:tint="@color/gray_CDCDCD" />
+                                app:tint="@color/grey_cdcdcd" />
                         <ImageView
                                 android:id="@+id/img_sort"
                                 android:layout_width="@dimen/dp25"
@@ -83,7 +83,7 @@
                                 android:layout_marginLeft="@dimen/dp5"
                                 android:src="@drawable/ic_option"
                                 android:visibility="gone"
-                                app:tint="@color/gray_CDCDCD" />
+                                app:tint="@color/grey_cdcdcd" />
                     </LinearLayout>
                 </RelativeLayout>
 

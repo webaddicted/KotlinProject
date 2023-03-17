@@ -55,7 +55,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="5dp"
                         android:maxLines="3"
-                        android:textColor="@color/gray"
+                        android:textColor="@color/grey_semilight"
                         android:textSize="10sp"
                         tools:targetApi="jelly_bean" />
             </LinearLayout>

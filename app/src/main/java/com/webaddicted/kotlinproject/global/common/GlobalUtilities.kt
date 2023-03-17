@@ -53,6 +53,7 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
+
 /**
  * Created by Deepak Sharma on 01/07/19.
  */
@@ -456,7 +457,8 @@ class GlobalUtility {
                         R.mipmap.ic_launcher
                     )
                 )
-                notificationBuilder.setBadgeIconType(R.mipmap.ic_launcher_round)
+//                notificationBuilder.setBadgeIconType(R.mipmap.ic_launcher_round)
+                notificationBuilder.setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)
                 notificationBuilder.setContentTitle(title)
                 if (description != null) {
                     notificationBuilder.setContentText(description)
@@ -655,6 +657,7 @@ class GlobalUtility {
                     )
                 )
             }
+
         }
 
         fun setEnableView(edtView: TextInputEditText, isViewEditable: Boolean) {
@@ -667,7 +670,7 @@ class GlobalUtility {
                 edtView.isClickable = false
                 edtView.isLongClickable = false
                 edtView.isFocusableInTouchMode = false
-                edtView.setTextColor(edtView.context.getColor(R.color.gray))
+                edtView.setTextColor(edtView.context.getColor(R.color.grey_semilight))
             }
         }
 

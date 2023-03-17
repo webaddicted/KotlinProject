@@ -24,8 +24,8 @@
 
     <color name="green">#00de4a</color>
     <color name="brown">#bdbdbe</color>
-    <color name="gray">#BEBEBE</color>
-    <color name="gray_818181">#818181</color>
+    <color name="grey_semilight">#BEBEBE</color>
+    <color name="grey_818181">#818181</color>
     <color name="transprant">#00000000</color>
     <color name="grey">#DDDDDD</color>
     <color name="grey_light">#BADDDDDD</color>
@@ -43,11 +43,11 @@
     <color name="pink">#FF4081</color>
     <color name="green_00de4a">#00de4a</color>
     <color name="red_ff090b">#ff090b</color>
-    <color name="gray_CDCDCD">#CDCDCD</color>
-    <color name="gray_EAEBED">#EAEBED</color>
+    <color name="grey_cdcdcd">#CDCDCD</color>
+    <color name="grey_eaebed">#EAEBED</color>
     <color name="circular_pic_border">#5f707070</color>
-    <color name="gray_f6f6f6">#f6f6f6</color>
-    <color name="gray_74f6f6f6">#74f6f6f6</color>
+    <color name="grey_f6f6f6">#f6f6f6</color>
+    <color name="grey_74f6f6f6">#74f6f6f6</color>
 
     <color name="colorTextPrimary">#FFFFFF</color>
     <color name="colorTextDisable">#66FFFFFF</color>

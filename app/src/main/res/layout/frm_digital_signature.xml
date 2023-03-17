@@ -48,7 +48,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_centerInParent="true"
                                     android:text="Sign Here"
-                                    android:textColor="@color/gray_818181"
+                                    android:textColor="@color/grey_818181"
                                     android:textSize="@dimen/dp25" />
 
                             <com.github.gcacace.signaturepad.views.SignaturePad

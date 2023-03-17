@@ -171,16 +171,17 @@ class ExoPlayerPIPActivity : BaseActivity(R.layout.frm_exo_player_recycler) {
         }
     }
 
-    override fun onPictureInPictureModeChanged(
-        isInPictureInPictureMode: Boolean,
-        newConfig: Configuration?
-    ) {
-        if (newConfig != null) {
-            videoPosition = player.currentPosition
-            isInPipMode = !isInPictureInPictureMode
-        }
-        super.onPictureInPictureModeChanged(isInPictureInPictureMode, newConfig)
-    }
+
+//    override fun onPictureInPictureModeChanged(
+//        isInPictureInPictureMode: Boolean,
+//        newConfig: Configuration?
+//    ) {
+//        if (newConfig != null) {
+//            videoPosition = player.currentPosition
+//            isInPipMode = !isInPictureInPictureMode
+//        }
+//        super.onPictureInPictureModeChanged(isInPictureInPictureMode, newConfig)
+//    }
 
     //Called when the user touches the Home or Recents button to leave the app.
     override fun onUserLeaveHint() {

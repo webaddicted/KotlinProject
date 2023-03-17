@@ -42,7 +42,7 @@
                         style="@style/TextView_Regular"
                         android:maxLines="2"
                         android:text="@string/dummyText"
-                        android:textColor="@color/gray"
+                        android:textColor="@color/grey_semilight"
                         android:textSize="@dimen/sp14" />
 
             </LinearLayout>

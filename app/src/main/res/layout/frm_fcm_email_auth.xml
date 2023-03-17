@@ -51,7 +51,7 @@
                         app:errorTextAppearance="@style/ErrorText"
                         app:passwordToggleDrawable="@drawable/password_selector"
                         app:passwordToggleEnabled="true"
-                        app:passwordToggleTint="@color/gray">
+                        app:passwordToggleTint="@color/grey_semilight">
 
                     <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/edt_pwd"

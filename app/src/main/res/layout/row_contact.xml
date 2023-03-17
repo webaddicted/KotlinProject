@@ -65,7 +65,7 @@
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="3dp"
                         android:padding="2dp"
-                        android:textColor="@color/gray_818181"
+                        android:textColor="@color/grey_818181"
                         android:text="contactNumber"
                         android:textSize="15sp" />
 
@@ -75,7 +75,7 @@
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="3dp"
                         android:padding="2dp"
-                        android:textColor="@color/gray_818181"
+                        android:textColor="@color/grey_818181"
                         android:text="contactNumber"
                         android:textSize="15sp" />
 
@@ -85,7 +85,7 @@
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="3dp"
                         android:padding="2dp"
-                        android:textColor="@color/gray_818181"
+                        android:textColor="@color/grey_818181"
                         android:text="contactNumber"
                         android:textSize="15sp" />
             </LinearLayout>

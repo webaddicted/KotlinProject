@@ -112,7 +112,7 @@
                     android:layout_height="0.5dp"
                     android:layout_alignParentBottom="true"
                     android:layout_gravity="end"
-                    android:background="@color/gray_EAEBED" />
+                    android:background="@color/grey_eaebed" />
         </RelativeLayout>
 
 
@@ -120,7 +120,7 @@
                 android:layout_width="@dimen/dp1"
                 android:layout_height="match_parent"
                 android:layout_gravity="bottom"
-                android:background="@color/gray_EAEBED" />
+                android:background="@color/grey_eaebed" />
 
 
     </LinearLayout>

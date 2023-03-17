@@ -170,7 +170,7 @@ class WebViewActivity : BaseActivity(R.layout.activity_webview) {
             webView.isScrollbarFadingEnabled = true
             webView.isVerticalScrollBarEnabled = false
             webView.settings.userAgentString = "android"
-            webView.settings.setAppCacheEnabled(false)
+//            webView.settings.setAppCacheEnabled(false)
             webView.settings.domStorageEnabled = true
             webView.clearCache(true)
             webView.settings.pluginState = WebSettings.PluginState.ON

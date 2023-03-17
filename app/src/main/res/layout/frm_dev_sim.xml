@@ -45,7 +45,7 @@
                     android:layout_marginTop="10dp"
                     android:text="@string/sim_empty_screen"
                     android:textSize="15sp"
-                    android:textColor="@color/gray"
+                    android:textColor="@color/grey_semilight"
                     android:layout_gravity="center_horizontal"
                     tools:targetApi="jelly_bean"
                     tools:ignore="MissingPrefix" />
