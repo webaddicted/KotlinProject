@@ -105,6 +105,7 @@ class FabButtonFrm : BaseFragment(R.layout.frm_fab_btn) {
                     mBinding.fabProgress.setIndeterminate(true)
                     mProgressTypes!!.offer(ProgressType.PROGRESS_NO_BACKGROUND)
                 }
+                else -> { hideApiLoader()}
             }
         }
 

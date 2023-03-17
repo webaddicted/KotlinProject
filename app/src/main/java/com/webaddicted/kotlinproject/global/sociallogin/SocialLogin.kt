@@ -4,10 +4,8 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.util.Log
-import androidx.annotation.NonNull
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
-import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.global.sociallogin.auth.FacebookAuth
 import com.webaddicted.kotlinproject.global.sociallogin.auth.GoogleAuth
 import com.webaddicted.kotlinproject.global.sociallogin.auth.TwitterAuth
@@ -65,9 +63,9 @@ class SocialLogin {
         }
 
         fun googleLogin(
-            @NonNull activity: Activity,
-            @NonNull clientId: String?,
-            @NonNull loginResponse: OnSocialLoginListener?
+             activity: Activity,
+             clientId: String?,
+             loginResponse: OnSocialLoginListener?
         ){
             GoogleAuth.googleLogin(
                 activity,
@@ -82,10 +80,10 @@ class SocialLogin {
             FacebookAuth.fbLogin(activity, loginResponse)
         }
         fun twitterLogin(
-            @NonNull activity: Activity,
-            @NonNull twitter_consumer_key: String?,
-            @NonNull twitter_consumer_secret: String?,
-            @NonNull loginResponse: OnSocialLoginListener?
+             activity: Activity,
+             twitter_consumer_key: String?,
+             twitter_consumer_secret: String?,
+             loginResponse: OnSocialLoginListener?
         ) {
             TwitterAuth.twitterLogin(
                 activity,
@@ -118,6 +116,7 @@ class SocialLogin {
                         resultCode,
                         data
                     )
+                    else -> {}
                 }
             } else {
                 Log.d("TAG", "onActivityResult: login Failed")

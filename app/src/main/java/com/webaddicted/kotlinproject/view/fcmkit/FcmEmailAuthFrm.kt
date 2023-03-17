@@ -190,6 +190,7 @@ class FcmEmailAuthFrm : BaseFragment(R.layout.frm_fcm_email_auth) {
                     GlobalUtility.showToast("message successfully sent")
                 else GlobalUtility.showToast(getString(R.string.something_went_wrong)+response.toString())
             }
+            else -> { hideApiLoader()}
         }
     }
 }

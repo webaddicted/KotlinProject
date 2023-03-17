@@ -111,6 +111,7 @@ class NewsFrm : BaseFragment(R.layout.frm_news) {
                     mBinding.txtNoDataFound.visible()
                 else mBinding.txtNoDataFound.gone()
             }
+            else -> { hideApiLoader()}
         }
     }
 

@@ -77,6 +77,7 @@ abstract class BaseFcmFragment (private val layoutId: Int) : Fragment(), View.On
                     ValidationHelper.showSnackBar(view, response.errorMessage!!)
                 else activity?.showToast(getString(R.string.something_went_wrong))
             }
+            else -> { hideApiLoader()}
         }
     }
 

@@ -14,6 +14,12 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
 //        splits {
 //            abi {
 //                enable true
@@ -76,7 +82,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.10"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0"
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.android.support:design:33.0.0'
     implementation 'com.google.android.material:material:1.8.0'
@@ -181,9 +187,9 @@ dependencies {
     implementation 'com.github.gcacace:signature-pad:1.3.1'
     implementation 'com.github.clans:fab:1.6.4'
     implementation files('libs/itextpdf-5.4.3.jar')
-    implementation 'com.google.android.exoplayer:exoplayer:2.17.1'
+    implementation 'com.google.android.exoplayer:exoplayer:2.18.4'
 //    for PIP
-    implementation 'com.google.android.exoplayer:extension-mediasession:2.17.1'
+    implementation 'com.google.android.exoplayer:extension-mediasession:2.18.4'
 //    implementation 'com.github.recruit-lifestyle:WaveSwipeRefreshLayout:1.6'
 //    ripple effect animation
     implementation 'com.skyfishjy.ripplebackground:library:1.0.1'
