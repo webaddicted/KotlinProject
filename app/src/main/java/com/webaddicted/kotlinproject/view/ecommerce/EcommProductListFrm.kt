@@ -50,7 +50,7 @@ class EcommProductListFrm : BaseFragment(R.layout.frm_ecom_product) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> activity?.onBackPressed()
+            R.id.img_back -> backDispatcher.onBackPressed()
         }
     }
 

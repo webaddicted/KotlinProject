@@ -26,12 +26,11 @@ import com.webaddicted.kotlinproject.global.constant.AppConstant.Companion.GEOFE
 import com.webaddicted.kotlinproject.global.constant.AppConstant.Companion.GEOFENCE_REQ_ID
 import com.webaddicted.kotlinproject.global.services.GeofenceTransitionsIntentService
 import java.util.*
-import kotlin.collections.ArrayList
 
 /**
  * Created by deepaksharma
  */
-abstract class BaseLocation(private val layoutId: Int) : BaseActivity(layoutId), GoogleApiClient.ConnectionCallbacks,
+abstract class BaseLocation(layoutId: Int) : BaseActivity(layoutId), GoogleApiClient.ConnectionCallbacks,
     GoogleApiClient.OnConnectionFailedListener, LocationListener,
     PermissionHelper.Companion.PermissionListener {
     private var mFancyMarker: Marker? = null
@@ -55,13 +54,13 @@ abstract class BaseLocation(private val layoutId: Int) : BaseActivity(layoutId),
      * @param fastInterval - fast time interval
      * @param displacement - location update after a perticular distance
      */
-    fun getLocation(@NonNull timeInterval: Long, @NonNull fastInterval: Long, @NonNull displacement: Long) {
+    fun getLocation( timeInterval: Long,  fastInterval: Long,  displacement: Long) {
         stopLocationUpdates()
         this.isUpdateLocation = true
-        if (timeInterval > 0) INTERVAL = INTERVAL * timeInterval
-        if (fastInterval > 0) FASTEST_INTERVAL = FASTEST_INTERVAL * fastInterval
+        if (timeInterval > 0) INTERVAL *= timeInterval
+        if (fastInterval > 0) FASTEST_INTERVAL *= fastInterval
         //        if (displacement > 0)
-        MIN_DISTANCE_CHANGE_FOR_UPDATES = MIN_DISTANCE_CHANGE_FOR_UPDATES * displacement
+        MIN_DISTANCE_CHANGE_FOR_UPDATES *= displacement
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         checkPermission()
 
@@ -164,17 +163,13 @@ abstract class BaseLocation(private val layoutId: Int) : BaseActivity(layoutId),
                     it,
                     getGeofencingRequest(),
                     getGeofencePendingIntent()!!
-                ).setResultCallback(ResultCallback<Status> { status ->
+                ).setResultCallback { status ->
                     if (status.isSuccess) {
                         Lg.i(TAG, "Saving Geofence")
-
                     } else {
-                        Lg.e(
-                            TAG, "Registering geofence failed: " + status.statusMessage +
-                                    " : " + status.statusCode
-                        )
+                        Lg.e(TAG, "Registering geofence failed: ${status.statusMessage} ${status.statusCode}"                        )
                     }
-                })
+                }
             }
 
         } catch (securityException: SecurityException) {
@@ -282,7 +277,7 @@ abstract class BaseLocation(private val layoutId: Int) : BaseActivity(layoutId),
 
 
     //        [Permission Start]
-    override fun onRequestPermissionsResult(@NonNull requestCode: Int, @NonNull permissions: Array<String>, @NonNull grantResults: IntArray) {
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>,  grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         PermissionHelper.onRequestPermissionsResult(this, requestCode, permissions, grantResults)
     }
@@ -305,8 +300,8 @@ abstract class BaseLocation(private val layoutId: Int) : BaseActivity(layoutId),
      fun initLocationCallBack() {
         locationCallback = object : LocationCallback() {
             override fun onLocationResult(locationResult: LocationResult) {
-                locationResult?.let { super.onLocationResult(it) }
-                getCurrentLocation(locationResult!!.lastLocation, null)
+                locationResult.let { super.onLocationResult(it) }
+                locationResult.lastLocation?.let { getCurrentLocation(it, null) }
                 fusedLocationProviderClient.removeLocationUpdates(locationCallback)
             }
         }
@@ -356,7 +351,7 @@ abstract class BaseLocation(private val layoutId: Int) : BaseActivity(layoutId),
      *
      * @param location
      */
-    private fun getAddress(@NonNull location: Location) {
+    private fun getAddress( location: Location) {
         var strAddress = ""
         val geocoder = Geocoder(this, Locale.getDefault())
         try {
@@ -381,7 +376,7 @@ abstract class BaseLocation(private val layoutId: Int) : BaseActivity(layoutId),
         getCurrentLocation(location, strAddress)
     }
 
-    protected abstract fun getCurrentLocation(@NonNull location: Location, @NonNull address: String?)
+    protected abstract fun getCurrentLocation( location: Location, address: String?)
 
     protected fun isAddressEnabled(showAddress: Boolean) {
         isShowAddress = showAddress

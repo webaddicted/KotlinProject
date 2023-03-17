@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.databinding.ViewDataBinding
@@ -38,6 +39,13 @@ class NavDrawerActivity : BaseActivity(R.layout.activity_nav_drawer) {
     }
 
     private fun init() {
+        backDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START))
+                    mBinding.drawerLayout.closeDrawer(GravityCompat.START)
+                else backDispatcher.onBackPressed()
+            }
+        })
         setNavigationColor(ContextCompat.getColor(context, R.color.app_color))
         mBinding.toolbar.imgNavRight.gone()
         mBinding.txtSuggest.text = "Swipe left for left navigation"
@@ -63,7 +71,7 @@ class NavDrawerActivity : BaseActivity(R.layout.activity_nav_drawer) {
         when (v.id) {
             R.id.img_nav_left -> openCloseDrawer(true)
             R.id.txt_create_lead, R.id.txt_logout, R.id.txt_home,
-            R.id.txt_profile, R.id.txt_faq -> onBackPressed()
+            R.id.txt_profile, R.id.txt_faq -> backDispatcher.onBackPressed()
         }
     }
 
@@ -71,14 +79,6 @@ class NavDrawerActivity : BaseActivity(R.layout.activity_nav_drawer) {
         if (openDrawer) mBinding.drawerLayout.openDrawer(GravityCompat.START)
         else mBinding.drawerLayout.closeDrawer(GravityCompat.START)
     }
-
-    override fun onBackPressed() {
-        if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START))
-            mBinding.drawerLayout.closeDrawer(GravityCompat.START)
-        else
-            super.onBackPressed()
-    }
-
     /**
      * navigate on fragment
      * @param tag represent navigation activity

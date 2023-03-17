@@ -4,11 +4,10 @@ import android.app.Activity
 import android.app.PictureInPictureParams
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.content.res.Configuration
 import android.os.Build
 import android.os.Handler
 import android.view.View
-import androidx.annotation.RequiresApi
+import androidx.activity.OnBackPressedCallback
 import androidx.databinding.ViewDataBinding
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.ui.PlayerView
@@ -52,6 +51,11 @@ class ExoPlayerPIPActivity : BaseActivity(R.layout.frm_exo_player_recycler) {
 //        mBinding.exoPlayer.visible()
 //        playerView = mBinding.exoPlayer
         startedPIPIInit()
+        backDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (packageManager.hasSystemFeature(PackageManager.FEATURE_PICTURE_IN_PICTURE) && isPIPModeeEnabled) { enterPIPMode() } else { backDispatcher.onBackPressed() }
+            }
+        })
     }
 
     private fun clickListener() {
@@ -61,7 +65,7 @@ class ExoPlayerPIPActivity : BaseActivity(R.layout.frm_exo_player_recycler) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> onBackPressed()
+            R.id.img_back -> backDispatcher.onBackPressed()
         }
     }
 
@@ -143,12 +147,9 @@ class ExoPlayerPIPActivity : BaseActivity(R.layout.frm_exo_player_recycler) {
         //Only finishAndRemoveTask does this.
         //But here we are using finish() because our Mininum SDK version is 16
         //If you use minSdkVersion as 21+ then remove finish() and use finishAndRemoveTask() instead
-        if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-            && packageManager.hasSystemFeature(PackageManager.FEATURE_PICTURE_IN_PICTURE)
-        ) {
-            finish()
+        if (packageManager.hasSystemFeature(PackageManager.FEATURE_PICTURE_IN_PICTURE)) { finish()
             //finishAndRemoveTask()
-        }
+         }
     }
 
     //    override fun onSaveInstanceState(outState: Bundle) {
@@ -160,16 +161,6 @@ class ExoPlayerPIPActivity : BaseActivity(R.layout.frm_exo_player_recycler) {
 //        super.onRestoreInstanceState(savedInstanceState)
 //        videoPosition = savedInstanceState!!.getLong(ARG_VIDEO_POSITION)
 //    }
-    override fun onBackPressed() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N
-            && packageManager.hasSystemFeature(PackageManager.FEATURE_PICTURE_IN_PICTURE)
-            && isPIPModeeEnabled
-        ) {
-            enterPIPMode()
-        } else {
-            super.onBackPressed()
-        }
-    }
 
 
 //    override fun onPictureInPictureModeChanged(
@@ -190,10 +181,8 @@ class ExoPlayerPIPActivity : BaseActivity(R.layout.frm_exo_player_recycler) {
     }
 
     @Suppress("DEPRECATION")
-    fun enterPIPMode() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N
-            && packageManager.hasSystemFeature(PackageManager.FEATURE_PICTURE_IN_PICTURE)
-        ) {
+    private fun enterPIPMode() {
+        if (packageManager.hasSystemFeature(PackageManager.FEATURE_PICTURE_IN_PICTURE)) {
             videoPosition = player.currentPosition
             playerView?.useController = false
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -213,11 +202,10 @@ class ExoPlayerPIPActivity : BaseActivity(R.layout.frm_exo_player_recycler) {
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.N)
-    fun checkPIPPermission() {
+    private fun checkPIPPermission() {
         isPIPModeeEnabled = isInPictureInPictureMode
         if (!isInPictureInPictureMode) {
-            onBackPressed()
+            backDispatcher.onBackPressed()
         }
     }
 }

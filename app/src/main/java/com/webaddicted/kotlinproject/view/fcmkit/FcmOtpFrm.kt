@@ -84,7 +84,7 @@ class FcmOtpFrm : BaseFragment(R.layout.frm_fcm_otp) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.include_back -> activity?.onBackPressed()
+            R.id.include_back -> backDispatcher.onBackPressed()
             R.id.txt_resend_otp -> {
                 if (checkOtpVerifyFirstTime) startPhoneNumberVerification(mobileNo!!)
                 else resendVerificationCode(mobileNo!!, mResendToken!!)

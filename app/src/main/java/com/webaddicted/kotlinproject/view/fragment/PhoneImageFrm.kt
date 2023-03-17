@@ -54,7 +54,7 @@ class PhoneImageFrm : BaseFragment(R.layout.frm_phone_image) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> activity?.onBackPressed()
+            R.id.img_back -> backDispatcher.onBackPressed()
             R.id.btn_all_image -> checkStoragePerm()
         }
     }

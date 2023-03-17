@@ -34,6 +34,7 @@ abstract class BaseFragment(private val layoutId: Int) : Fragment(), View.OnClic
     protected val mediaPicker: MediaPickerUtils by inject()
     protected val preferenceMgr: PreferenceMgr by inject()
     protected val mActivity by lazy { requireActivity() }
+    var backDispatcher = mActivity.onBackPressedDispatcher
     protected abstract fun onBindTo(binding: ViewDataBinding?)
 
     override fun onCreateView(

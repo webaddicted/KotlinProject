@@ -68,7 +68,7 @@ class BottomSheetBehavFrm : BaseFragment(R.layout.frm_bottom_sheet) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> activity?.onBackPressed()
+            R.id.img_back -> backDispatcher.onBackPressed()
             R.id.btn_bottom_sheet_dialog -> {
                 bottomSheetBehavior!!.peekHeight = 550//preview.getHeight() / 2
                 bottomSheetBehavior!!.setState(BottomSheetBehavior.STATE_COLLAPSED)

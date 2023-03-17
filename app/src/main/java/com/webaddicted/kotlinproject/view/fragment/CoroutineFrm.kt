@@ -55,7 +55,7 @@ class CoroutineFrm : BaseFragment(R.layout.frm_coroutine) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> activity?.onBackPressed()
+            R.id.img_back -> backDispatcher.onBackPressed()
             R.id.btn_launch -> launchCoroutine(mBinding.txtLaunch)
             R.id.btn_sequentially -> launchSequentially(mBinding.txtSequentially)
             R.id.btn_parallel -> launchParallel(mBinding.txtParallel)

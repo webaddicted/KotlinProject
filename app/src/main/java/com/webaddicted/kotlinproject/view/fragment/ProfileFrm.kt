@@ -51,7 +51,7 @@ class ProfileFrm : BaseFragment(R.layout.frm_profile) {
         when (v.id) {
             R.id.btn_capture_image -> requestCamera(MediaPickerType.CAPTURE_IMAGE)
             R.id.btn_pick_image -> requestCamera(MediaPickerType.SELECT_IMAGE)
-            R.id.img_back -> activity?.onBackPressed()
+            R.id.img_back -> backDispatcher.onBackPressed()
         }
     }
 

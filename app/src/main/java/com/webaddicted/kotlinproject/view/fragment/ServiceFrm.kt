@@ -65,7 +65,7 @@ class ServiceFrm : BaseFragment(R.layout.frm_services) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> activity?.onBackPressed()
+            R.id.img_back -> backDispatcher.onBackPressed()
             R.id.btn_start_normal_service -> activity?.startService(
                 Intent(
                     activity,

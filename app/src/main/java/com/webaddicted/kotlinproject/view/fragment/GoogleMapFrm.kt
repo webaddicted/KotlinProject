@@ -84,7 +84,7 @@ class GoogleMapFrm : BaseFragment(R.layout.frm_google_map), OnMapReadyCallback, 
             R.id.edt_search -> GlobalUtility.showToast("login hit")
             R.id.btn_geo_fencing_start -> startGeoFancy()
             R.id.btn_geo_fencing_stop -> stopGeoFancy()
-            R.id.img_back -> activity?.onBackPressed()
+            R.id.img_back -> backDispatcher.onBackPressed()
         }
     }
 

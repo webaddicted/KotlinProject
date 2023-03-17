@@ -3,6 +3,7 @@ package com.webaddicted.kotlinproject.view.activity
 import android.app.Activity
 import android.content.Intent
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.databinding.ViewDataBinding
@@ -10,6 +11,7 @@ import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.ActivityNavBothDrawerBinding
 import com.webaddicted.kotlinproject.global.common.AppApplication.Companion.context
 import com.webaddicted.kotlinproject.view.base.BaseActivity
+
 //import kotlinx.android.synthetic.main.nav_header_main.view.*
 
 /**
@@ -32,6 +34,19 @@ class NavBothSideDrawerActivity : BaseActivity(R.layout.activity_nav_both_drawer
     }
 
     private fun init() {
+        backDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                when {
+                    mBinding.drawerLayout.isDrawerOpen(GravityCompat.START) ->
+                        mBinding.drawerLayout.closeDrawer(GravityCompat.START)
+                    mBinding.drawerLayout.isDrawerOpen(GravityCompat.END) ->
+                        mBinding.drawerLayout.closeDrawer(GravityCompat.END)
+                    else -> {
+                        backDispatcher.onBackPressed()
+                    }
+                }
+            }
+        })
         setNavigationColor(ContextCompat.getColor(context, R.color.app_color))
         mBinding.toolbar.txtToolbarTitle.text = resources.getString(R.string.navigation_drawer)
         mBinding.txtSuggest.text =
@@ -60,8 +75,8 @@ class NavBothSideDrawerActivity : BaseActivity(R.layout.activity_nav_both_drawer
         when (v.id) {
             R.id.img_nav_left -> openCloseDrawer(GravityCompat.START)
             R.id.img_nav_right -> openCloseDrawer(GravityCompat.END)
-            R.id.txt_create_lead,R.id.txt_logout,R.id.txt_home,
-            R.id.txt_profile,R.id.txt_faq->onBackPressed()
+            R.id.txt_create_lead, R.id.txt_logout, R.id.txt_home,
+            R.id.txt_profile, R.id.txt_faq -> backDispatcher.onBackPressed()
         }
     }
 
@@ -69,18 +84,6 @@ class NavBothSideDrawerActivity : BaseActivity(R.layout.activity_nav_both_drawer
         if (!mBinding.drawerLayout.isDrawerOpen(openDrawer))
             mBinding.drawerLayout.openDrawer(openDrawer)
         else mBinding.drawerLayout.closeDrawer(openDrawer)
-    }
-
-    override fun onBackPressed() {
-        when {
-            mBinding.drawerLayout.isDrawerOpen(GravityCompat.START) ->
-                mBinding.drawerLayout.closeDrawer(GravityCompat.START)
-            mBinding.drawerLayout.isDrawerOpen(GravityCompat.END) ->
-                mBinding.drawerLayout.closeDrawer(GravityCompat.END)
-            else -> {
-                super.onBackPressed()
-            }
-        }
     }
 
 }

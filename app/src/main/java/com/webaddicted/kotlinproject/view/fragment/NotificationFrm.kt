@@ -74,7 +74,7 @@ class NotificationFrm : BaseFragment(R.layout.frm_notification) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> activity?.onBackPressed()
+            R.id.img_back -> backDispatcher.onBackPressed()
             R.id.btn_large_text -> largeTextNoti()
             R.id.btn_normal -> normalNoti()
             R.id.btn_add_message -> addMessageNoti()

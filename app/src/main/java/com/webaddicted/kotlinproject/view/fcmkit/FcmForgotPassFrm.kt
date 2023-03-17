@@ -51,7 +51,7 @@ class FcmForgotPassFrm : BaseFragment(R.layout.frm_fcm_forgot_pass) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.include_back -> activity?.onBackPressed()
+            R.id.include_back -> backDispatcher.onBackPressed()
             R.id.btn_forgot -> validate()
         }
     }

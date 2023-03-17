@@ -65,7 +65,7 @@ class RecyclerViewFrm : BaseFragment(R.layout.frm_recylcer_view) {
         super.onClick(v)
         list = getUrlBean()
         when (v.id) {
-            R.id.img_back -> activity?.onBackPressed()
+            R.id.img_back -> backDispatcher.onBackPressed()
             R.id.btn_list -> setListAdapter(
                 LinearLayoutManager(
                     activity,

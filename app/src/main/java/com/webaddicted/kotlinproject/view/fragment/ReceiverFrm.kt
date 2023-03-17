@@ -62,7 +62,7 @@ class ReceiverFrm : BaseFragment(R.layout.frm_receiver) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> activity?.onBackPressed()
+            R.id.img_back -> backDispatcher.onBackPressed()
             R.id.btn_normal -> normalReceiver()
             R.id.btn_custom -> customReceiver()
             R.id.btn_ordered -> orderedReceiver()

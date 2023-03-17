@@ -69,7 +69,7 @@ class BlinkScanFrm : BaseFragment(R.layout.frm_blink_scan) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> activity?.onBackPressed()
+            R.id.img_back -> backDispatcher.onBackPressed()
             R.id.img_scan_dl -> {
                 isSelfieClick = false
                 checkBlinkPermission()

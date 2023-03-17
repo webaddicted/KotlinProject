@@ -47,7 +47,7 @@ class CircleFrm : BaseFragment(R.layout.frm_news) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> activity?.onBackPressed()
+            R.id.img_back -> backDispatcher.onBackPressed()
         }
     }
 

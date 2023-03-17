@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.databinding.ViewDataBinding
@@ -44,6 +45,13 @@ class FcmFoodHomeActivity : BaseActivity(R.layout.activity_ecom_home) {
     }
 
     private fun init() {
+        backDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START))
+                    mBinding.drawerLayout.closeDrawer(GravityCompat.START)
+                else backDispatcher.onBackPressed()
+            }
+        })
         navigateScreen(FcmHomeFrm.TAG, Bundle())
         navigationDrawer()
     }
@@ -123,13 +131,6 @@ class FcmFoodHomeActivity : BaseActivity(R.layout.activity_ecom_home) {
         if (openDrawer) mBinding.drawerLayout.openDrawer(GravityCompat.START)
         else mBinding.drawerLayout.closeDrawer(GravityCompat.START)
     }
-
-    override fun onBackPressed() {
-        if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START))
-            mBinding.drawerLayout.closeDrawer(GravityCompat.START)
-        else super.onBackPressed()
-    }
-
     /**
      * navigate to welcome activity after Splash timer Delay
      */

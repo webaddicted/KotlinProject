@@ -62,7 +62,7 @@ class ShareDataFrm : BaseFragment(R.layout.frm_share) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> activity?.onBackPressed()
+            R.id.img_back -> backDispatcher.onBackPressed()
             R.id.btn_share_text -> shareText()
             R.id.btn_share_image -> chooseFile(false)
             R.id.btn_share_img_text -> chooseFile(true)

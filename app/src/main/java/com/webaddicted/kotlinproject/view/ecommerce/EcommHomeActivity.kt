@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import androidx.activity.OnBackPressedCallback
 import androidx.core.view.GravityCompat
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -34,6 +35,13 @@ class EcommHomeActivity : BaseActivity(R.layout.activity_ecom_home) {
     }
 
     private fun navigationDrawer() {
+        backDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START))
+                    mBinding.drawerLayout.closeDrawer(GravityCompat.START)
+                else backDispatcher.onBackPressed()
+            }
+        })
         val navView = mBinding.navView.getHeaderView(0)
 //        navView.txt_create_lead.setOnClickListener(this)
 //        navView.txt_logout.setOnClickListener(this)
@@ -51,17 +59,9 @@ class EcommHomeActivity : BaseActivity(R.layout.activity_ecom_home) {
         super.onClick(v)
         when (v.id) {
             R.id.txt_create_lead,R.id.txt_logout,R.id.txt_home,
-            R.id.txt_profile,R.id.txt_faq->onBackPressed()
+            R.id.txt_profile,R.id.txt_faq->backDispatcher.onBackPressed()
         }
     }
-
-    override fun onBackPressed() {
-        if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START))
-            mBinding.drawerLayout.closeDrawer(GravityCompat.START)
-        else
-            super.onBackPressed()
-    }
-
     /**
      * navigate on fragment
      * @param tag represent navigation activity

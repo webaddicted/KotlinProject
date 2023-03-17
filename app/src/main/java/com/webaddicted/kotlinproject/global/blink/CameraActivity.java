@@ -725,6 +725,7 @@ public final class CameraActivity extends Activity {
         super.onBackPressed();
     }
 
+
     void onFirstFrame(int orientation) {
         SurfaceView sv = mPreview.getSurfaceView();
         if (mOverlay != null) {
