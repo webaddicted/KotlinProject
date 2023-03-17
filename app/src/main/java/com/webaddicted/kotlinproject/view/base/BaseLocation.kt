@@ -10,12 +10,9 @@ import android.location.Location
 import android.os.Bundle
 import android.os.Looper
 import android.widget.Toast
-import androidx.annotation.NonNull
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.google.android.gms.common.api.GoogleApiClient
-import com.google.android.gms.common.api.ResultCallback
-import com.google.android.gms.common.api.Status
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.model.Circle
 import com.google.android.gms.maps.model.Marker
@@ -341,7 +338,7 @@ abstract class BaseLocation(layoutId: Int) : BaseActivity(layoutId), GoogleApiCl
 
     override fun onLocationChanged(location: Location) {
         if (isShowAddress)
-            getAddress(location)
+            getLocationAddress(location)
         else
             getCurrentLocation(location, null)
     }
@@ -351,7 +348,7 @@ abstract class BaseLocation(layoutId: Int) : BaseActivity(layoutId), GoogleApiCl
      *
      * @param location
      */
-    private fun getAddress( location: Location) {
+    private fun getLocationAddress(location: Location) {
         var strAddress = ""
         val geocoder = Geocoder(this, Locale.getDefault())
         try {
