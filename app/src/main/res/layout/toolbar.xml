@@ -13,7 +13,7 @@
 
         <Space
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp21" />
+                android:layout_height="@dimen/dp33" />
 
         <RelativeLayout
                 android:layout_width="match_parent"
@@ -110,9 +110,9 @@
                                 android:id="@+id/img_search_back"
                                 android:layout_width="@dimen/dp48"
                                 android:layout_height="@dimen/dp48"
-                                android:background="?android:attr/selectableItemBackground"
                                 android:clickable="true"
                                 android:padding="@dimen/dp12"
+                                android:background="@color/white"
                                 android:src="@drawable/ic_back" />
 
                         <EditText
@@ -127,9 +127,10 @@
                                 android:imeOptions="actionSearch"
                                 android:inputType="textCapWords"
                                 android:maxLines="1"
+                                android:textColorHint="@color/black"
+                                android:textColor="@color/black"
                                 android:paddingLeft="@dimen/dp12"
-                                android:paddingRight="@dimen/dp8"
-                                android:textAppearance="@style/TextAppearance_open_sans_semibold" />
+                                android:paddingRight="@dimen/dp8"/>
                     </LinearLayout>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>

@@ -76,7 +76,7 @@ class NavBothSideDrawerActivity : BaseActivity(R.layout.activity_nav_both_drawer
             R.id.img_nav_left -> openCloseDrawer(GravityCompat.START)
             R.id.img_nav_right -> openCloseDrawer(GravityCompat.END)
             R.id.txt_create_lead, R.id.txt_logout, R.id.txt_home,
-            R.id.txt_profile, R.id.txt_faq -> backDispatcher.onBackPressed()
+            R.id.txt_profile, R.id.txt_faq -> onBackPressedDispatcher.onBackPressed()
         }
     }
 

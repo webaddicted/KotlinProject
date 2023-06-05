@@ -73,7 +73,7 @@ class CoroutineScopeFrm : ScopedFragment(R.layout.frm_coroutine) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> backDispatcher.onBackPressed()
+            R.id.img_back -> requireActivity().onBackPressedDispatcher.onBackPressed()
             R.id.btn_android_scoped -> launchAndroidScope(mBinding.txtAndroidScoped)
             R.id.btn_cancel -> {
                 activity?.showToast(getString(R.string.job_cancel))
@@ -91,7 +91,7 @@ class CoroutineScopeFrm : ScopedFragment(R.layout.frm_coroutine) {
         }
         textView.text = textView.text.toString() + "\nOut of launch "
     }
-    suspend fun loadData(txtLaunch: TextView): String {
+    private suspend fun loadData(txtLaunch: TextView): String {
         txtLaunch.text = txtLaunch.text.toString() + "\nStep 3"
         delay(TimeUnit.SECONDS.toMillis(3)) // imitate long running operation
         txtLaunch.text = txtLaunch.text.toString() + "\nStep 4"

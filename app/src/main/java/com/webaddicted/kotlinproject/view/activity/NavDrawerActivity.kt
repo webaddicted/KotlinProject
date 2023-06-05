@@ -71,7 +71,7 @@ class NavDrawerActivity : BaseActivity(R.layout.activity_nav_drawer) {
         when (v.id) {
             R.id.img_nav_left -> openCloseDrawer(true)
             R.id.txt_create_lead, R.id.txt_logout, R.id.txt_home,
-            R.id.txt_profile, R.id.txt_faq -> backDispatcher.onBackPressed()
+            R.id.txt_profile, R.id.txt_faq -> onBackPressedDispatcher.onBackPressed()
         }
     }
 

@@ -61,7 +61,7 @@ class DynamicLayoutFrm : BaseFragment(R.layout.frm_dynamic_layout) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> backDispatcher.onBackPressed()
+            R.id.img_back -> requireActivity().onBackPressedDispatcher.onBackPressed()
             R.id.btn_create_pdf -> checkPermission()
         }
     }

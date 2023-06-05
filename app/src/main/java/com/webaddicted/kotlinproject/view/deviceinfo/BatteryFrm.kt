@@ -54,7 +54,7 @@ class BatteryFrm : BaseFragment(R.layout.frm_dev_battery) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> backDispatcher.onBackPressed()
+            R.id.img_back -> requireActivity().onBackPressedDispatcher.onBackPressed()
         }
     }
 

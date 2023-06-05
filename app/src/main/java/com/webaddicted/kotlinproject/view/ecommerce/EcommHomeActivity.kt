@@ -11,6 +11,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.ActivityEcomHomeBinding
+import com.webaddicted.kotlinproject.databinding.NavHeaderMainBinding
 import com.webaddicted.kotlinproject.view.base.BaseActivity
 //import kotlinx.android.synthetic.main.nav_header_main.view.*
 
@@ -42,12 +43,13 @@ class EcommHomeActivity : BaseActivity(R.layout.activity_ecom_home) {
                 else backDispatcher.onBackPressed()
             }
         })
-        val navView = mBinding.navView.getHeaderView(0)
-//        navView.txt_create_lead.setOnClickListener(this)
-//        navView.txt_logout.setOnClickListener(this)
-//        navView.txt_home.setOnClickListener(this)
-//        navView.txt_profile.setOnClickListener(this)
-//        navView.txt_faq.setOnClickListener(this)
+        val headerBinding: NavHeaderMainBinding =
+            NavHeaderMainBinding.bind(mBinding.navView.getHeaderView(0))
+        headerBinding.txtHome.setOnClickListener(this)
+        headerBinding.txtCreateLead.setOnClickListener(this)
+        headerBinding.txtProfile.setOnClickListener(this)
+        headerBinding.txtFaq.setOnClickListener(this)
+        headerBinding.txtLogout.setOnClickListener(this)
     }
 
     fun openCloseDrawer(openDrawer: Boolean) {

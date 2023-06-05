@@ -52,7 +52,7 @@ class AppApplication : Application() {
         CalligraphyConfig.initDefault(
             CalligraphyConfig.Builder()
                 .setDefaultFontPath("font/opensans_regular.ttf")
-                .setFontAttrId(R.attr.fontPath)
+                .setFontAttrId(uk.co.chrisjenx.calligraphy.R.attr.fontPath)
                 .build()
         )
     }

@@ -62,7 +62,7 @@ class NewsFrm : BaseFragment(R.layout.frm_news) {
         super.onClick(v)
         when (v.id) {
             R.id.img_profile -> navigateScreen(ProfileFrm.TAG)
-            R.id.img_back -> backDispatcher.onBackPressed()
+            R.id.img_back -> requireActivity().onBackPressedDispatcher.onBackPressed()
         }
     }
 

@@ -40,7 +40,7 @@ class CollapseExpendFrm : BaseFragment(R.layout.frm_collapse_exp) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> backDispatcher.onBackPressed()
+            R.id.img_back -> requireActivity().onBackPressedDispatcher.onBackPressed()
             R.id.btn_coll_exp -> {
                 if (mBinding.expandableLayout.isExpanded) {
                     mBinding.expandableLayout.collapse()

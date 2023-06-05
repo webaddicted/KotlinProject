@@ -17,6 +17,8 @@ import com.github.clans.fab.FloatingActionButton
 import com.github.clans.fab.FloatingActionMenu
 import com.webaddicted.kotlinproject.R
 import com.webaddicted.kotlinproject.databinding.FrmFabBtnBinding
+import com.webaddicted.kotlinproject.global.common.GlobalUtility
+import com.webaddicted.kotlinproject.global.common.gone
 import com.webaddicted.kotlinproject.global.common.visible
 import com.webaddicted.kotlinproject.view.base.BaseFragment
 import java.util.*
@@ -62,14 +64,14 @@ class FabButtonFrm : BaseFragment(R.layout.frm_fab_btn) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> backDispatcher.onBackPressed()
-//            R.id.fab2 -> mBinding.fab2.gone()
-//            R.id.fab3 -> mBinding.fab2.visible()
-//            R.id.fab_Progress -> fabBtnProgress()
-//            R.id.menu_red -> {
-//                if (mBinding.menuRed.isOpened) GlobalUtility.showToast(mBinding.menuRed.menuButtonLabelText)
-//                mBinding.menuRed.toggle(true)
-//            }
+            R.id.img_back -> requireActivity().onBackPressedDispatcher.onBackPressed()
+            R.id.fab2 -> mBinding.fab2.gone()
+            R.id.fab3 -> mBinding.fab2.visible()
+            R.id.fab_Progress -> fabBtnProgress()
+            R.id.menu_red -> {
+                if (mBinding.menuRed.isOpened) GlobalUtility.showToast(mBinding.menuRed.menuButtonLabelText)
+                mBinding.menuRed.toggle(true)
+            }
         }
     }
 

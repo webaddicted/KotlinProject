@@ -77,7 +77,7 @@ class ContactFrm : BaseFragment(R.layout.frm_contacts) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> backDispatcher.onBackPressed()
+            R.id.img_back -> requireActivity().onBackPressedDispatcher.onBackPressed()
             R.id.btn_simple_contact -> checkContactPermission(false)
             R.id.btn_custom_contact ->
                 checkContactPermission(true)

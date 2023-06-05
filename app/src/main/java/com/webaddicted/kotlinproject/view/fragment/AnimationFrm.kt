@@ -92,7 +92,7 @@ class AnimationFrm : BaseFragment(R.layout.frm_animation) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> backDispatcher.onBackPressed()
+            R.id.img_back -> requireActivity().onBackPressedDispatcher.onBackPressed()
             R.id.btn_blink -> startAnimation(animBlink, mBinding.btnBlink, mBinding.txtBlink)
             R.id.btn_fade -> startAnimation(animFade, mBinding.btnFade, mBinding.txtFade)
             R.id.btn_zoom -> startAnimation(animZoom, mBinding.btnZoom, mBinding.txtZoom)

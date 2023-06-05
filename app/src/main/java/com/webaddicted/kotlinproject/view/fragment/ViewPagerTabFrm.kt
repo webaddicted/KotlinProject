@@ -57,7 +57,7 @@ class ViewPagerTabFrm : BaseFragment(R.layout.frm_viewpager_tab) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> backDispatcher.onBackPressed()
+            R.id.img_back -> requireActivity().onBackPressedDispatcher.onBackPressed()
         }
     }
 

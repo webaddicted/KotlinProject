@@ -53,7 +53,7 @@ class SmsFrm : BaseFragment(R.layout.frm_sms) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> backDispatcher.onBackPressed()
+            R.id.img_back -> requireActivity().onBackPressedDispatcher.onBackPressed()
             R.id.btn_read_sms -> checkSmsPermission()
         }
     }

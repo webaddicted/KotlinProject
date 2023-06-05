@@ -79,7 +79,7 @@ class WidgetFrm : BaseFragment(R.layout.frm_widget), DatePickerDialog.OnDateSetL
             R.id.btn_data_picker ->
                 activity?.let { GlobalUtility.getDate(it, mBinding.txtDateValue) }
             R.id.btn_time_picker -> activity?.let { GlobalUtility.timePicker(it, this).show() }
-            R.id.img_back -> backDispatcher.onBackPressed()
+            R.id.img_back -> requireActivity().onBackPressedDispatcher.onBackPressed()
         }
     }
 

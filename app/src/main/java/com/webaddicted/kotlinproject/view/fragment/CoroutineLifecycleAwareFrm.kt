@@ -80,7 +80,7 @@ class CoroutineLifecycleAwareFrm : BaseFragment(R.layout.frm_coroutine) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> backDispatcher.onBackPressed()
+            R.id.img_back -> requireActivity().onBackPressedDispatcher.onBackPressed()
             R.id.btn_lifecycle_aware -> launchLifecycleAware(mBinding.txtLifecycleAware)
             R.id.btn_cancel -> {
                 activity?.showToast(getString(R.string.job_cancel))

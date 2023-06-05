@@ -51,7 +51,7 @@ class SharedPrefFrm : BaseFragment(R.layout.frm_shared_pref) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> backDispatcher.onBackPressed()
+            R.id.img_back -> requireActivity().onBackPressedDispatcher.onBackPressed()
             R.id.btn_set_value -> setValuePref()
             R.id.btn_get_value_from_preference -> getValuePref()
             R.id.btn_remove_key -> removeKeyPref()

@@ -56,7 +56,7 @@ class DigitalSignatureFrm : BaseFragment(R.layout.frm_digital_signature) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> backDispatcher.onBackPressed()
+            R.id.img_back -> requireActivity().onBackPressedDispatcher.onBackPressed()
             R.id.btn_clear -> mBinding.signaturePad.clearView()
             R.id.btn_save -> {
                 val bitmap = mBinding.signaturePad.signatureBitmap

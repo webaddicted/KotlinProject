@@ -55,7 +55,7 @@ class SignupFrm : BaseFragment(R.layout.frm_signup) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.btn_login -> backDispatcher.onBackPressed()
+            R.id.btn_login -> requireActivity().onBackPressedDispatcher.onBackPressed()
             R.id.btn_signup -> validate()
         }
     }
@@ -79,7 +79,7 @@ class SignupFrm : BaseFragment(R.layout.frm_signup) {
             user.email = mBinding.edtEmail.text.toString().trim()
             user.password = mBinding.edtPassword.text.toString().trim()
             commonViewModel.insertUser(user)
-            backDispatcher.onBackPressed()
+            requireActivity().onBackPressedDispatcher.onBackPressed()
         }
     }
 

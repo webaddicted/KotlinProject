@@ -43,7 +43,7 @@ class EcommOtpFrm : BaseFragment(R.layout.frm_ecom_otp) {
         super.onClick(v)
         when (v.id) {
             R.id.img_next -> validate()
-            R.id.txt_edit_mobile_no -> backDispatcher.onBackPressed()
+            R.id.txt_edit_mobile_no -> requireActivity().onBackPressedDispatcher.onBackPressed()
             R.id.txt_ResendOTP -> activity?.showToast(getString(R.string.otp_send_success))
         }
     }

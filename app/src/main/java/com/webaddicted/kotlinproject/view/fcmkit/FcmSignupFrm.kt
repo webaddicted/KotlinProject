@@ -83,7 +83,7 @@ class FcmSignupFrm : BaseFragment(R.layout.frm_fcm_signup) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.include_back, R.id.txt_login -> backDispatcher.onBackPressed()
+            R.id.include_back, R.id.txt_login -> requireActivity().onBackPressedDispatcher.onBackPressed()
             R.id.edt_dob -> activity?.let { GlobalUtility.getDOBDate(it, mBinding.edtDob) }
             R.id.img_picker -> requestCamera(MediaPickerType.SELECT_IMAGE)
             R.id.img_profile -> openImg()

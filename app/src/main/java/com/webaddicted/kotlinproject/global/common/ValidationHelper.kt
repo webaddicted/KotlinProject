@@ -318,7 +318,7 @@ class ValidationHelper {
             val snackBar = Snackbar.make(parentLayout, msg, Snackbar.LENGTH_SHORT)
             snackBar.setActionTextColor(Color.WHITE)
             val view = snackBar.view
-            val tv = view.findViewById(R.id.snackbar_text) as TextView
+            val tv = view.findViewById(com.roughike.bottombar.R.id.snackbar_text) as TextView
             tv.setTextColor(Color.WHITE)
             snackBar.show()
 

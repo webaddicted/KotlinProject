@@ -96,7 +96,7 @@ class DialogFrm : BaseFragment(R.layout.frm_dialog) {
                 activity?.showToast(getCountryList()[which])
                 dialog.dismiss()
             }
-            R.id.img_back -> backDispatcher.onBackPressed()
+            R.id.img_back -> requireActivity().onBackPressedDispatcher.onBackPressed()
         }
     }
 
