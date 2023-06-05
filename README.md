@@ -220,6 +220,9 @@ This repository provides the following components that are common to our open so
   * [Png Image Crop](https://onlinepngtools.com/crop-png)
   * [Image Create For PlayStore](https://www.appstorescreenshot.com/)
   * [Merge Image Horizontally](https://www.filesmerge.com/merge-images)
+  * [Yopmail.com, mailinator] use for fake mail
+  * [http://receivefreesms.com/, https://www.freeonlinephone.org/] use for fake OTP
+  
   * [Mock Location](https://play.google.com/store/apps/details?id=ru.gavrikov.mocklocations&hl=en_IN&gl=US)
   * [SHA KEY Steps](https://stackoverflow.com/questions/27609442/how-to-get-the-sha-1-fingerprint-certificate-in-android-studio-for-debug-mode)
          1) Click on the gradle. Top right on the Android Studio. As you can see in this picture.
