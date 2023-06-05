@@ -13,7 +13,7 @@ class WorkManagerService(context: Context, workerParams: WorkerParameters) :
     Worker(context, workerParams) {
     override fun doWork(): Result {
         GlobalUtility.showOfflineNotification(AppApplication.context, "WorkManagerService", "work descrip")
-        return Result.Success()
+        return Result.success()
     }
 
 }

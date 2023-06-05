@@ -13,7 +13,7 @@ class MyWorker(context: Context, workerParams: WorkerParameters) :
     Worker(context, workerParams) {
     override fun doWork(): Result {
         GlobalUtility.showOfflineNotification(context, "MyWork", "work descrip")
-        return Result.Success()
+        return Result.success()
     }
 
 }
