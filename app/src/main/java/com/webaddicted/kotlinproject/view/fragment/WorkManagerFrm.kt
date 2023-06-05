@@ -45,7 +45,7 @@ class WorkManagerFrm : BaseFragment(R.layout.frm_work_manager) {
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
-            R.id.img_back -> backDispatcher.onBackPressed()
+            R.id.img_back -> requireActivity().onBackPressedDispatcher.onBackPressed()
             R.id.btn_one_time -> oneTimeReq()
             R.id.btn_periodic_req -> periodicReq()
             R.id.btn_chaining_works -> chainingWorkReq()
