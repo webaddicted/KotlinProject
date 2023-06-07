@@ -5,36 +5,37 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
-  workflow_dispatch:
-    inputs:
-      app_id:
-        description: 'The application Id of the current build'
-        required: true
-      branch:
-        description: 'The branch from which we have to build'
-        required: true
-        default: 'master'
+#  Add support for manual trigger(if needed)
+#  workflow_dispatch:
+#    inputs:
+#      app_id:
+#        description: 'The application Id of the current build'
+#        required: true
+#      branch:
+#        description: 'The branch from which we have to build'
+#        required: true
+#        default: 'master'
 
 jobs:
   build:
     name: Setup Environment and build
     runs-on: self-hosted
     steps:
+#      Checkout code
       - name: Checkout the code to specific branch
         uses: actions/checkout@v2
         with:
           ref: ${{ github.event.inputs.branch }}
-
+#      Setup JDK
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
           distribution: 'zulu'
           java-version: '11'
-
+#      Setup Android SDK
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
-
+#      Gradle Caching(optional)
       - uses: actions/cache@v2
         with:
           path: |
@@ -43,48 +44,52 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
-
+#      Make Gradle Executable
       - name: Make gradlew executable
         run: chmod +x ./gradlew
-
+#      For Bundle:
       - name: Generate app bundle
         run: ./gradlew app:bundleRelease --stacktrace
+#      For APK:
+      - name: Generate app APK.
+        run: ./gradlew assembleRelease --stacktrace
 
-      - name: Sign app bundle
-        run: |
-          jarsigner -keystore app/*.jks \
-          -storepass ${{ secrets.KEY_STORE_PASSWORD }} -keypass ${{ secrets.KEY_PASSWORD }} \
-          app/build/outputs/bundle/release/app-release.aab ${{ secrets.ALIAS }}
-
-  #   STEP 2 : Upload the Artifact
-  upload:
-    needs: [ build ]
-    name: Upload the signed artifact
-    runs-on: self-hosted
-    steps:
-      - name: Upload Bundle
-        uses: actions/upload-artifact@v2
-        with:
-          name: signed_app_bundle
-          path: app/build/outputs/bundle/release/app-release.aab
-
-
-  # Step 3 : Release to playstore
-  deploy:
-    needs: [ build ]
-    name: Create release on Playstore
-    runs-on: self-hosted
-    steps:
-      - name: Create service_account.json
-        run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
-
-      - name: Deploy to Play Store
-        uses: r0adkll/upload-google-play@v1.0.15
-        with:
-          serviceAccountJson: service_account.json
-          packageName: ${{ github.event.inputs.app_id }}
-          releaseFiles: app/build/outputs/bundle/release/*.aab
-          track: internal
-          whatsNewDirectory: whatsnew/
-          mappingFile: app/build/outputs/mapping/release/mapping.txt
-          inAppUpdatePriority: 5
+##  Sign the Artifact
+#      - name: Sign app bundle
+#        run: |
+#          jarsigner -keystore app/*.jks \
+#          -storepass ${{ secrets.KEY_STORE_PASSWORD }} -keypass ${{ secrets.KEY_PASSWORD }} \
+#          app/build/outputs/bundle/release/app-release.aab ${{ secrets.ALIAS }}
+#
+#  #   STEP 2 : Upload the Artifact
+#  upload:
+#    needs: [ build ]
+#    name: Upload the signed artifact
+#    runs-on: self-hosted
+#    steps:
+#      - name: Upload Bundle
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: signed_app_bundle
+#          path: app/build/outputs/bundle/release/app-release.aab
+#
+#
+#  # Step 3 : Release to playstore
+#  deploy:
+#    needs: [ build ]
+#    name: Create release on Playstore
+#    runs-on: self-hosted
+#    steps:
+#      - name: Create service_account.json
+#        run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
+#
+#      - name: Deploy to Play Store
+#        uses: r0adkll/upload-google-play@v1.0.15
+#        with:
+#          serviceAccountJson: service_account.json
+#          packageName: ${{ github.event.inputs.app_id }}
+#          releaseFiles: app/build/outputs/bundle/release/*.aab
+#          track: internal
+#          whatsNewDirectory: whatsnew/
+#          mappingFile: app/build/outputs/mapping/release/mapping.txt
+#          inAppUpdatePriority: 5
