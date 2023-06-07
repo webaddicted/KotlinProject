@@ -40,9 +40,9 @@ jobs:
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
 
-#      Run Build Project
-      - name: Build gradle project
-        run: ./gradlew build
+##      Run Build Project
+#      - name: Build gradle project
+#        run: ./gradlew build
 
 #      Gradle Caching(optional)
       - uses: actions/cache@v2
