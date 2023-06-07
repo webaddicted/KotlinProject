@@ -6,15 +6,15 @@ on:
   pull_request:
     branches: [ "master" ]
 #  Add support for manual trigger(if needed)
-#  workflow_dispatch:
-#    inputs:
-#      app_id:
-#        description: 'The application Id of the current build'
-#        required: true
-#      branch:
-#        description: 'The branch from which we have to build'
-#        required: true
-#        default: 'master'
+  workflow_dispatch:
+    inputs:
+      app_id:
+        description: 'The application Id of the current build'
+        required: true
+      branch:
+        description: 'The branch from which we have to build'
+        required: true
+        default: 'master'
 
 jobs:
   build:
