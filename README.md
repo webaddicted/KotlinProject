@@ -217,6 +217,7 @@ This repository provides the following components that are common to our open so
   * [Tinypng Compress Image](https://tinypng.com/)
   * [Resize Image](https://resizeimage.net/)
   * [Logo Creator](https://www.freelogoservices.com/)
+  * [App Logo](https://app.logo.com/editor/preview?editing_logo=logo_8ac6ce10-7d5c-41f1-8843-c54e08548d19&logo=logo_8ac6ce10-7d5c-41f1-8843-c54e08548d19)
   * [Png Image Crop](https://onlinepngtools.com/crop-png)
   * [Image Create For PlayStore](https://www.appstorescreenshot.com/)
   * [Merge Image Horizontally](https://www.filesmerge.com/merge-images)
