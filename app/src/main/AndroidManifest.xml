@@ -152,7 +152,6 @@
                 android:exported="true"
                 android:name=".view.activity.SplashActivity"
                 android:windowSoftInputMode="stateAlwaysHidden">
-<!--            android:theme="@style/AppTheme.Splash"-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -219,8 +218,7 @@
 
         <activity
                 android:name="com.facebook.FacebookActivity"
-                android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-                android:label="@string/app_name" />
+                android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation" />
 
         <activity
                 android:name=".view.fcmkit.FcmFoodHomeActivity"
@@ -231,7 +229,7 @@
                 android:exported="false"
                 android:resizeableActivity="true"
                 android:supportsPictureInPicture="true"
-                tools:targetApi="n" />
+                />
     </application>
 
 </manifest>
